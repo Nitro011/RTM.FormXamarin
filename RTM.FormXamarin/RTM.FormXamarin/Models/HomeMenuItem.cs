@@ -6,7 +6,9 @@ namespace RTM.FormXamarin.Models
 {
     public enum MenuItemType
     {
+        master,
         Browse,
+        Clientes,
         About
     }
     public class HomeMenuItem

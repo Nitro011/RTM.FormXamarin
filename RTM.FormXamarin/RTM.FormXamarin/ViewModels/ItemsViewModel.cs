@@ -17,7 +17,7 @@ namespace RTM.FormXamarin.ViewModels
 
         public ItemsViewModel()
         {
-            Title = "Browse";
+            Title = "Browser";
             Items = new ObservableCollection<Item>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 

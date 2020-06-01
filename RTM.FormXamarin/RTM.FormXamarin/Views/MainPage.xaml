@@ -15,7 +15,7 @@
         <NavigationPage>
             
             <x:Arguments>
-                <views:ItemsPage />
+                <views:Master />
             </x:Arguments>
         </NavigationPage>
     </MasterDetailPage.Detail>

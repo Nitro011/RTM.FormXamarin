@@ -21,7 +21,7 @@ namespace RTM.FormXamarin.Views
 
             MasterBehavior = MasterBehavior.Popover;
 
-            MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
+            MenuPages.Add((int)MenuItemType.master, (NavigationPage)Detail);
         }
 
         public async Task NavigateFromMenu(int id)
@@ -30,8 +30,14 @@ namespace RTM.FormXamarin.Views
             {
                 switch (id)
                 {
+                    case (int)MenuItemType.master:
+                        MenuPages.Add(id, new NavigationPage(new Master()));
+                        break;
                     case (int)MenuItemType.Browse:
                         MenuPages.Add(id, new NavigationPage(new ItemsPage()));
+                        break;
+                    case (int)MenuItemType.Clientes:
+                        MenuPages.Add(id, new NavigationPage(new Clientes.RegistrarClientes()));
                         break;
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
