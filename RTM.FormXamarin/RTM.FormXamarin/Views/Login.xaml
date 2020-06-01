@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:RTM.FormXamarin.CustomeRenderer" xmlns:local1="clr-namespace:RTM.FormXamarin.CustomeRenderer"
+             mc:Ignorable="d"
+             x:Class="RayTrackingMobile.login">
+
+    <StackLayout Padding="0" BackgroundColor="LightGray">
+
+        <Grid>
+            <StackLayout Padding="0" Margin="0">
+                <Frame BackgroundColor="#07485B" HeightRequest="150" HorizontalOptions="FillAndExpand" Padding="0">
+                    <!--<Image Source="Bienvenidos" Aspect="Fill" Margin="0"/>-->
+                </Frame>
+            </StackLayout>
+
+            <StackLayout Margin="150,110,150,0">
+
+                <Frame BackgroundColor="White" HasShadow="True" HeightRequest="450" HorizontalOptions="FillAndExpand">
+                    <StackLayout>
+                        <StackLayout HorizontalOptions="CenterAndExpand">
+                            <Label Text="INICIAR SESION" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,25,0,0">
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" Margin="0" CornerRadius="50" HorizontalOptions="FillAndExpand">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BackgroundColor="AliceBlue" CornerRadius="50" HeightRequest="35" WidthRequest="35" Padding="0" HorizontalOptions="Start" Margin="7">
+
+                                    </Frame>
+
+                                    <local1:MyCustomeEntry x:Name="txtUser" Placeholder="Ingrese el usuario" TextColor="HotPink" HorizontalOptions="FillAndExpand" Margin="0,0,15,0"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,25,0,0">
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" Margin="0,5,0,0" CornerRadius="50" HorizontalOptions="FillAndExpand">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BackgroundColor="AliceBlue" CornerRadius="50" HeightRequest="35" WidthRequest="35" Padding="0" HorizontalOptions="Start" Margin="7">
+
+                                    </Frame>
+
+                                    <local1:MyCustomeEntry x:Name="txtpassword" Placeholder="Ingrese el password" IsPassword="True" TextColor="HotPink" HorizontalOptions="FillAndExpand" Margin="0,0,15,0"/>
+
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" Margin="0,15,0,0">
+
+                        </StackLayout>
+                        <Button Text="INICIAR SESION" Clicked="btnLogin" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </Grid>
+
+    </StackLayout>
+
+</ContentPage>
