@@ -8,7 +8,10 @@ namespace RTM.FormXamarin.Models
     {
         master,
         Browse,
+        Empleados,
+        Roles,
         Clientes,
+        Almacen,
         About
     }
     public class HomeMenuItem

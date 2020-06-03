@@ -6,6 +6,8 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using RTM.FormXamarin.Models;
+using RTM.FormXamarin.Views.Usuarios;
+using RTM.FormXamarin.Views.Roles;
 
 namespace RTM.FormXamarin.Views
 {
@@ -36,8 +38,17 @@ namespace RTM.FormXamarin.Views
                     case (int)MenuItemType.Browse:
                         MenuPages.Add(id, new NavigationPage(new ItemsPage()));
                         break;
+                    case (int)MenuItemType.Empleados:
+                        MenuPages.Add(id, new NavigationPage(new Empleados.RegistrarEmpleados()));
+                        break;
+                    case (int)MenuItemType.Roles:
+                        MenuPages.Add(id, new NavigationPage(new RegistrarRoles()));
+                        break;
                     case (int)MenuItemType.Clientes:
                         MenuPages.Add(id, new NavigationPage(new Clientes.RegistrarClientes()));
+                        break;
+                    case (int)MenuItemType.Almacen:
+                        MenuPages.Add(id, new NavigationPage(new Almacen.RegistrarAlmacen()));
                         break;
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
