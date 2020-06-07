@@ -49,7 +49,7 @@ namespace RayTrackingMobile
                 }
 
                 HttpClient client = new HttpClient();
-                client.BaseAddress = new Uri("http://179.52.197.100:9090");
+                client.BaseAddress = new Uri("http://148.101.43.9:9090");
 
                 var autenticarse = new Login()
                 {
