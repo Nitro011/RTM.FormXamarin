@@ -13,7 +13,6 @@
 
     <MasterDetailPage.Detail>
         <NavigationPage>
-            
             <x:Arguments>
                 <views:Master />
             </x:Arguments>

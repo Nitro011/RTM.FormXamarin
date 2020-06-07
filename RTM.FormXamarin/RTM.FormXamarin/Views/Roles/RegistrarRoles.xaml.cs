@@ -13,11 +13,11 @@ namespace RTM.FormXamarin.Views.Roles
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RegistrarRoles : ContentPage
     {
-        RegistrarRolesViewModel Roles;
+        RegistrarRolesViewModel Rol;
         public RegistrarRoles()
         {
             InitializeComponent();
-            BindingContext = this.Roles = new RegistrarRolesViewModel();
+            BindingContext = this.Rol = new RegistrarRolesViewModel();
         }
     }
 }

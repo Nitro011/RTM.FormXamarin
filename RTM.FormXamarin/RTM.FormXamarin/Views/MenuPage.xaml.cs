@@ -22,8 +22,8 @@ namespace RTM.FormXamarin.Views
             {
                 new HomeMenuItem {Id = MenuItemType.master, Title="Master" },
                 new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
-                new HomeMenuItem {Id = MenuItemType.Empleados, Title="Empleados"},
-                new HomeMenuItem {Id = MenuItemType.Roles, Title="Roles"},
+                new HomeMenuItem {Id = MenuItemType.EmpleadosYUsuarios, Title="Gestionar Empleados y Usuarios"},
+                new HomeMenuItem {Id = MenuItemType.RegistrarRoles, Title="Roles"},
                 new HomeMenuItem {Id = MenuItemType.Clientes, Title="Clientes" },
                 new HomeMenuItem {Id = MenuItemType.Almacen, Title="Almacen"},
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" }

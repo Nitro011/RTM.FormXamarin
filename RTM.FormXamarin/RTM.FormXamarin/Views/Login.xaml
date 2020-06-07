@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:RTM.FormXamarin.CustomeRenderer" xmlns:local1="clr-namespace:RTM.FormXamarin.CustomeRenderer"
              mc:Ignorable="d"
              x:Class="RayTrackingMobile.login">
-
+    <ScrollView>
     <StackLayout Padding="0" BackgroundColor="LightGray">
 
         <Grid>
@@ -17,7 +17,7 @@
 
             <StackLayout Margin="150,110,150,0">
 
-                <Frame BackgroundColor="White" HasShadow="True" HeightRequest="450" HorizontalOptions="FillAndExpand">
+                <Frame BackgroundColor="White" HasShadow="True" HeightRequest="350" HorizontalOptions="FillAndExpand">
                     <StackLayout>
                         <StackLayout HorizontalOptions="CenterAndExpand">
                             <Label Text="INICIAR SESION" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
@@ -58,5 +58,5 @@
         </Grid>
 
     </StackLayout>
-
+    </ScrollView>
 </ContentPage>
