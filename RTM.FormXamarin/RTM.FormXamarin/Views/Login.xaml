@@ -27,8 +27,8 @@
                             <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" Margin="0" CornerRadius="50" HorizontalOptions="FillAndExpand">
                                 <StackLayout Orientation="Horizontal">
                                     <Frame BackgroundColor="AliceBlue" CornerRadius="50" HeightRequest="35" WidthRequest="35" Padding="0" HorizontalOptions="Start" Margin="7">
-
-                                    </Frame>
+                                            <Image Source="user.jpeg" Aspect="Fill" Margin="0"/>
+                                        </Frame>
 
                                     <local:MyCustomeEntry x:Name="txtUser" Placeholder="Ingrese el usuario" TextColor="#07485B" HorizontalOptions="FillAndExpand" Margin="0,0,15,0"/>
                                 </StackLayout>
@@ -39,8 +39,8 @@
                             <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" Margin="0,5,0,0" CornerRadius="50" HorizontalOptions="FillAndExpand">
                                 <StackLayout Orientation="Horizontal">
                                     <Frame BackgroundColor="AliceBlue" CornerRadius="50" HeightRequest="35" WidthRequest="35" Padding="0" HorizontalOptions="Start" Margin="7">
-
-                                    </Frame>
+                                            <Image Source="password.jpeg" Aspect="Fill" Margin="0"/>
+                                        </Frame>
 
                                     <local:MyCustomeEntry x:Name="txtpassword" Placeholder="Ingrese el password" IsPassword="True" TextColor="#07485B" HorizontalOptions="FillAndExpand" Margin="0,0,15,0"/>
 

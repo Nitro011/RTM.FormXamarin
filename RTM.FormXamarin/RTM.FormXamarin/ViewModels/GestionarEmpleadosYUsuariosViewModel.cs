@@ -8,7 +8,7 @@ namespace RTM.FormXamarin.ViewModels
     {
         public GestionarEmpleadosYUsuariosViewModel()
         {
-            Title = "Gestionar Empleados y Usuarios";
+            Title = "Gestionar Empleados";
         }
     }
 }

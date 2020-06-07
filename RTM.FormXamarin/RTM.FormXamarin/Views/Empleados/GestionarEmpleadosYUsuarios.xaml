@@ -25,11 +25,11 @@
                                 <material:MaterialLabel Text="Gestionar Empleados y Usuario" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                             </StackLayout>
 
-                                <material:MaterialButton Text="Registrar Empleados" Clicked="abrirRegistrarEmpleadosYUsuarios" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0"  WidthRequest="700"/>
+                            <material:MaterialButton Text="Registrar Empleados" Clicked="abrirRegistrarEmpleadosYUsuarios" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0"  WidthRequest="700"/>
 
-                            <material:MaterialButton Text="Consultar Empleados" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
+                            <material:MaterialButton Text="Consultar Empleados" Clicked="abrirConsultarEmpleados" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
 
-                            <material:MaterialButton Text="Modificar Empleados" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
+                            <material:MaterialButton Text="Modificar Empleados" Clicked="abrirModificarEmpleados" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
                             
                         </StackLayout>
                     </Frame>

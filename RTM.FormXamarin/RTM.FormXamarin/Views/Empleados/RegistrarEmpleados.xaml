@@ -28,25 +28,30 @@
 
                         <StackLayout Margin="0,25,0,0">
                             <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField Placeholder="Nombres del Empleado" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0"/>
+                                    <material:MaterialTextField x:Name="nombre" Placeholder="Nombres del Empleado" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0"/>
                             </StackLayout>
                         </StackLayout>
 
                         <StackLayout Margin="0,25,0,0">
                             <StackLayout Orientation="Horizontal">
-                                <material:MaterialTextField Placeholder="Apellidos del Empleado" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                <material:MaterialTextField x:Name="apellido" Placeholder="Apellidos del Empleado" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
                             </StackLayout>
                         </StackLayout>
 
                         <StackLayout Margin="0,25,0,0">
                             <StackLayout Orientation="Horizontal">
-                                <material:MaterialTextField Placeholder="Sexo" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
-                            </StackLayout>
+                                    <Picker Title="Roles" x:Name="sexo"  HorizontalOptions = "FillAndExpand"  >
+                                        <Picker.Items>
+                                            <x:String>Femenino</x:String>
+                                            <x:String>Masculino</x:String>
+                                        </Picker.Items>
+                                    </Picker>
+                                </StackLayout>
                         </StackLayout>
 
                         <StackLayout Margin="0,25,0,0">
                             <StackLayout Orientation="Horizontal">
-                                    <Entry Placeholder="Cedula" TextColor="Black" Keyboard="Numeric" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0">
+                                    <Entry x:Name="cedula" Placeholder="Cedula" TextColor="Black" Keyboard="Numeric" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0">
                                         <Entry.Behaviors>
                                             <behavior:MaskedBehavior Mask="XXX-XXXXXXX-X"/>
                                         </Entry.Behaviors>
@@ -56,19 +61,25 @@
 
                         <StackLayout Margin="0,25,0,0">
                             <StackLayout Orientation="Horizontal">
-                                <material:MaterialDateField Placeholder="Fecha de Nacimiento" TextColor="Black" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                <material:MaterialDateField x:Name="FN" Placeholder="Fecha de Nacimiento" TextColor="Black" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
                             </StackLayout>
                         </StackLayout>
 
-                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Margin="0,25,0,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <material:MaterialTextField x:Name="edad" Placeholder="Edad" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                </StackLayout>
+                            </StackLayout>
+
+                            <StackLayout Margin="0,10,0,0">
                             <StackLayout Orientation="Horizontal">
-                                <material:MaterialTextField Placeholder="Direccion" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                <material:MaterialTextField x:Name="direccion" Placeholder="Direccion" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
                             </StackLayout>
                         </StackLayout>
 
                         <StackLayout Margin="0,25,0,0">
                             <StackLayout Orientation="Horizontal">
-                                <Entry Placeholder="Numero de Telefono" TextColor="Black" Keyboard="Numeric" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0">
+                                <Entry x:Name="telefono" Placeholder="Numero de Telefono" TextColor="Black" Keyboard="Numeric" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0">
                                     <Entry.Behaviors>
                                         <behavior:MaskedBehavior Mask="(XXX) XXX-XXXX" />
                                     </Entry.Behaviors>
@@ -78,22 +89,22 @@
 
                             <StackLayout Margin="0,25,0,0">
                                 <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField Placeholder="Ingresar nombre de usuario" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                    <material:MaterialTextField x:Name="nUsuario" Placeholder="Ingresar nombre de usuario" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
                                 </StackLayout>
                             </StackLayout>
 
                             <StackLayout Margin="0,25,0,0">
                                 <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField Placeholder="Ingresa password hash" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                    <material:MaterialTextField x:Name="pass" Placeholder="Ingresa password hash" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
                                 </StackLayout>
                             </StackLayout>
 
                             <StackLayout Margin="0,25,0,0">
                                 <StackLayout Orientation="Horizontal">
-                                    <Picker Title="Roles" x:Name="pickerRoles"  HorizontalOptions = "FillAndExpand" SelectedIndexChanged="ObtenerRoles" >
+                                    <Picker x:Name="roles" Title="Roles"  HorizontalOptions = "FillAndExpand"  >
                                         <Picker.Items>
-                                            <x:String>Administrador</x:String>
                                             <x:String>Gerente General</x:String>
+                                            <x:String>Administrador</x:String>
                                         </Picker.Items>
                                     </Picker>
                                 </StackLayout>
@@ -101,12 +112,12 @@
 
                             <StackLayout Margin="0,25,0,0">
                                 <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField Placeholder="Ingresar Email" TextColor="Black" InputType="Email" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                    <material:MaterialTextField x:Name="email" Placeholder="Ingresar Email" TextColor="Black" InputType="Email" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
                                 </StackLayout>
                             </StackLayout>
 
                             <StackLayout Orientation="Horizontal" Margin="0,15,0,0"></StackLayout>
-                        <material:MaterialButton Text="Guardar Empleados/Usuarios" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                        <material:MaterialButton Text="Guardar Empleados/Usuarios" Clicked="RegistroEmpleados" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                     </StackLayout>
                 </Frame>
             </StackLayout>

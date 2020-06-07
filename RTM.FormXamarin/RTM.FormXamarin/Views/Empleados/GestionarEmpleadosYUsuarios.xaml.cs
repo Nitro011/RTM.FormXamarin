@@ -24,5 +24,15 @@ namespace RTM.FormXamarin.Views.Empleados
         {
             await Navigation.PushAsync(new Empleados.RegistrarEmpleados());
         }
+
+        private async void abrirConsultarEmpleados(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Empleados.ConsultarEmpleados());
+        }
+
+        private async void abrirModificarEmpleados(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Empleados.ModificarEmpleados());
+        }
     }
 }
