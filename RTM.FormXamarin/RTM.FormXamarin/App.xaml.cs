@@ -5,6 +5,7 @@ using RTM.FormXamarin.Services;
 using RTM.FormXamarin.Views;
 using RayTrackingMobile;
 using RayTrackingMobile.Models;
+using PCLAppConfig;
 
 namespace RTM.FormXamarin
 {
@@ -14,10 +15,12 @@ namespace RTM.FormXamarin
         public App()
         {
             InitializeComponent();
+             ConfigurationManager.Initialise(PCLAppConfig.FileSystemStream.PortableStream.Current);
 
             DependencyService.Register<MockDataStore>();
 
             XF.Material.Forms.Material.Init(this);
+
             MainPage = new NavigationPage( new login());
         }
 

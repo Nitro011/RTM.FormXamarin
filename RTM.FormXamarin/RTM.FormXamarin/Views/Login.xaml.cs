@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using PCLAppConfig;
 using RayTrackingMobile.Models;
 using RTM.FormXamarin.Models;
 using RTM.FormXamarin.Views;
@@ -18,6 +19,9 @@ namespace RayTrackingMobile
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class login : ContentPage
     {
+       // string connectionString = ConfigurationManager.AppSettings["KEY1"]
+
+
         public login()
         {
             InitializeComponent();
@@ -26,8 +30,7 @@ namespace RayTrackingMobile
 
         private async void btnLogin(object sender, EventArgs e)
         {
-
-
+            string connectionString = ConfigurationManager.AppSettings["ipServer"];
 
             try
             {
@@ -49,7 +52,7 @@ namespace RayTrackingMobile
                 }
 
                 HttpClient client = new HttpClient();
-                client.BaseAddress = new Uri("http://148.101.43.9:9090");
+                client.BaseAddress = new Uri(connectionString);
 
                 var autenticarse = new Login()
                 {

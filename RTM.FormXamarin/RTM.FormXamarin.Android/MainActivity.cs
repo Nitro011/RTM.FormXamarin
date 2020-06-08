@@ -8,6 +8,7 @@ using Android.Widget;
 using Android.OS;
 using RayTrackingMobile;
 using RayTrackingMobile.Models;
+using PCLAppConfig;
 
 namespace RTM.FormXamarin.Droid
 {
@@ -22,6 +23,8 @@ namespace RTM.FormXamarin.Droid
             base.OnCreate(savedInstanceState);
 
             Xamarin.Forms.Forms.Init(this, savedInstanceState);
+           // ConfigurationManager.Initialise(PCLAppConfig.FileSystemStream.PortableStream.Current);
+
             XF.Material.Droid.Material.Init(this, savedInstanceState);
 
             this.LoadApplication(new App());

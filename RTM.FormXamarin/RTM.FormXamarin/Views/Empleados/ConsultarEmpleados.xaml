@@ -24,7 +24,18 @@
                             <material:MaterialLabel Text="Consultar Empleados" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         </StackLayout>
 
+                        <StackLayout>
+                            <ListView x:Name="listaEmpleado" >
 
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextCell Text="{Binding NombreCompleto}"
+                                                  Detail="{Binding Puesto}"
+                                                  />
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
 
                     </StackLayout>
                 </Frame>

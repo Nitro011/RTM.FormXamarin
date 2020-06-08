@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using Java.Sql;
+using Newtonsoft.Json;
+using PCLAppConfig;
 using RTM.FormXamarin.Models;
 using RTM.FormXamarin.Models.Usuarios;
 
@@ -20,6 +22,8 @@ namespace RTM.FormXamarin.Views.Empleados
     public partial class RegistrarEmpleados : ContentPage
     {
         EmpleadosViewModel Empleados;
+
+
         public RegistrarEmpleados()
         {
             InitializeComponent();
@@ -28,8 +32,7 @@ namespace RTM.FormXamarin.Views.Empleados
 
         private async void RegistroEmpleados(object sender, EventArgs e)
         {
-
-
+            string connectionString = ConfigurationManager.AppSettings["ipServer"];
 
             try
             {
@@ -40,11 +43,13 @@ namespace RTM.FormXamarin.Views.Empleados
                 var telefonoV = telefono.Text;
                 var cedulaV = cedula.Text;
                 var edadV = edad.Text;
-                var fnV = FN.Date;
+                var fnV =  FN.Date;
                 var rolV = roles.SelectedIndex;
                 var passwordV = pass.Text;
                 var userNameV = nUsuario.Text;
                 var emailV = email.Text;
+                
+
 
                 if (string.IsNullOrEmpty(nombreV))
                 {
@@ -76,7 +81,7 @@ namespace RTM.FormXamarin.Views.Empleados
 
                 if (string.IsNullOrEmpty(cedulaV))
                 {
-                    await DisplayAlert("Validacion", "Ingrese el password", "Aceptar");
+                    await DisplayAlert("Validacion", "Ingrese la cedula", "Aceptar");
                     cedula.Focus();
                     return;
                 }
@@ -116,7 +121,7 @@ namespace RTM.FormXamarin.Views.Empleados
                 }
 
                 HttpClient client = new HttpClient();
-                client.BaseAddress = new Uri("http://148.101.43.9:9090");
+                client.BaseAddress = new Uri(connectionString);
 
                 var empleados = new Emple()
                 {
@@ -127,9 +132,11 @@ namespace RTM.FormXamarin.Views.Empleados
                     Direccion = direccionV,
                     Telefono = telefonoV,
                     UserName = userNameV,
+                    Fecha_Nacimiento = fnV,
                     Email = emailV,
                     RolID = rolV,
-                    PasswordHash = passwordV
+                    PasswordHash = passwordV,
+                    Cedula = cedulaV
 
                 };
 
