@@ -20,7 +20,7 @@
 
                 <StackLayout Margin="150,0,150,0">
 
-                    <Frame BackgroundColor="White" HasShadow="True" HeightRequest="1150" HorizontalOptions="FillAndExpand">
+                    <Frame BackgroundColor="White" HasShadow="True" HeightRequest="1350" HorizontalOptions="FillAndExpand">
                         <StackLayout>
                             <StackLayout HorizontalOptions="CenterAndExpand">
                                 <material:MaterialLabel Text="Modificar Empleados/Usuarios" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
@@ -124,12 +124,12 @@
 
                             <StackLayout Margin="0,25,0,0">
                                 <StackLayout Orientation="Horizontal">
-                                    <material:MaterialCheckbox Text="Estado"/>
+                                    <material:MaterialCheckbox x:Name="Estado" Text="Estado"/>
                                 </StackLayout>
                             </StackLayout>
 
                             <StackLayout Orientation="Horizontal" Margin="0,15,0,0"></StackLayout>
-                            <material:MaterialButton Text="Modificar Empleados/Usuarios"  BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <material:MaterialButton x:Name="EventModificar" Text="Modificar Empleados/Usuarios"  BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                         </StackLayout>
                     </Frame>
                 </StackLayout>
