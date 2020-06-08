@@ -6,7 +6,7 @@ namespace RTM.FormXamarin.Models.Usuarios
 {
     public class Emple
     {
-
+        
         public int RolID { get; set; }
         public bool LockoutEnabled { get; set; }
         public string PasswordHash { get; set; }

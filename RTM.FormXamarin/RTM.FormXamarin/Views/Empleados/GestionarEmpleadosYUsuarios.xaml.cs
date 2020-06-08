@@ -32,7 +32,7 @@ namespace RTM.FormXamarin.Views.Empleados
 
         private async void abrirModificarEmpleados(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Empleados.ModificarEmpleados());
+            await Navigation.PushAsync(new Empleados.ConsultarEmpleadosParaModificar());
         }
     }
 }
