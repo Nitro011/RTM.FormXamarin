@@ -8,7 +8,9 @@ namespace RTM.FormXamarin.Models
     {
         master,
         Browse,
-        EmpleadosYUsuarios,
+        Empleados,
+        Usuarios,
+        GestionarAreasDeProduccion,
         RegistrarRoles,
         Clientes,
         Almacen,

@@ -8,8 +8,9 @@
              mc:Ignorable="d"
              x:Class="RTM.FormXamarin.Views.Clientes.RegistrarClientes"
              Title="{Binding Title}">
-
-    <StackLayout Padding="0" BackgroundColor="LightGray">
+    
+    <ScrollView>
+        <StackLayout Padding="0" BackgroundColor="LightGray">
         <Grid>
             <StackLayout Padding="0" Margin="0">
                 <Frame BackgroundColor="#07485B" HeightRequest="150" HorizontalOptions="FillAndExpand" Padding="0">
@@ -19,7 +20,7 @@
 
             <StackLayout Margin="150,110,150,0">
 
-                <Frame BackgroundColor="White" HasShadow="True" HeightRequest="450" HorizontalOptions="FillAndExpand">
+                <Frame BackgroundColor="White" HasShadow="True" HeightRequest="700" HorizontalOptions="FillAndExpand">
                     <StackLayout>
                         <StackLayout HorizontalOptions="CenterAndExpand">
                             <material:MaterialLabel Text="Registrar Clientes" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
@@ -30,7 +31,13 @@
                                 <material:MaterialTextField Placeholder="Nombre del Cliente" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
                             </StackLayout>
                         </StackLayout>
-
+                        
+                        <StackLayout Margin="0,25,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialTextField Placeholder="Nombre del Representante" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                            </StackLayout>
+                        </StackLayout>
+                        
                         <StackLayout Margin="0,25,0,0">
                             <StackLayout Orientation="Horizontal">
                                 <material:MaterialTextField Placeholder="Correo Electronico" TextColor="Black" InputType="Email" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
@@ -49,6 +56,12 @@
 
                         <StackLayout Margin="0,25,0,0">
                             <StackLayout Orientation="Horizontal">
+                                <material:MaterialTextField Placeholder="Pais" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,25,0,0">
+                            <StackLayout Orientation="Horizontal">
                                 <material:MaterialTextField Placeholder="Direccion" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
                             </StackLayout>
                         </StackLayout>
@@ -58,6 +71,7 @@
                     </StackLayout>
                 </Frame> 
             </StackLayout>
-        </Grid>
-    </StackLayout>
+          </Grid>
+       </StackLayout>
+  </ScrollView>
 </ContentPage>

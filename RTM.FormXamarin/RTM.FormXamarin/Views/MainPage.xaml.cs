@@ -40,8 +40,14 @@ namespace RTM.FormXamarin.Views
                         MenuPages.Add(id, new NavigationPage(new ItemsPage()));
                         break;
 
-                    case (int)MenuItemType.EmpleadosYUsuarios:
+                    case (int)MenuItemType.Empleados:
                         MenuPages.Add(id, new NavigationPage(new Empleados.GestionarEmpleadosYUsuarios()));
+                        break;
+                    case (int)MenuItemType.Usuarios:
+                        MenuPages.Add(id, new NavigationPage(new Usuarios.GestionarUsuarios()));
+                        break;
+                    case (int)MenuItemType.GestionarAreasDeProduccion:
+                        MenuPages.Add(id, new NavigationPage(new AreaDeProduccion.GestionarAreaDeProduccion()));
                         break;
                     case (int)MenuItemType.RegistrarRoles:
                         MenuPages.Add(id, new NavigationPage(new RegistrarRoles()));
