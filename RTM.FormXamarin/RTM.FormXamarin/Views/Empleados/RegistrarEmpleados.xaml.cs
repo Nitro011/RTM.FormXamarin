@@ -28,9 +28,10 @@ namespace RTM.FormXamarin.Views.Empleados
         {
             InitializeComponent();
             BindingContext = this.Empleados = new EmpleadosViewModel();
+            btnGuardarEmpleados.Clicked += BtnGuardarEmpleados_Clicked;
         }
 
-        private async void RegistroEmpleados(object sender, EventArgs e)
+        private async void BtnGuardarEmpleados_Clicked(object sender, EventArgs e)
         {
             string connectionString = ConfigurationManager.AppSettings["ipServer"];
 
@@ -43,13 +44,7 @@ namespace RTM.FormXamarin.Views.Empleados
                 var telefonoV = telefono.Text;
                 var cedulaV = cedula.Text;
                 var edadV = edad.Text;
-                var fnV =  FN.Date;
-                var rolV = roles.SelectedIndex;
-                var passwordV = pass.Text;
-                var userNameV = nUsuario.Text;
-                var emailV = email.Text;
-                
-
+                var fnV = FN.Date;
 
                 if (string.IsNullOrEmpty(nombreV))
                 {
@@ -100,26 +95,6 @@ namespace RTM.FormXamarin.Views.Empleados
                     return;
                 }
 
-                if (string.IsNullOrEmpty(passwordV))
-                {
-                    await DisplayAlert("Validacion", "Ingrese el password", "Aceptar");
-                    pass.Focus();
-                    return;
-                }
-
-                if (string.IsNullOrEmpty(userNameV))
-                {
-                    await DisplayAlert("Validacion", "Ingrese el password", "Aceptar");
-                    nUsuario.Focus();
-                    return;
-                }
-                if (string.IsNullOrEmpty(emailV))
-                {
-                    await DisplayAlert("Validacion", "Ingrese el password", "Aceptar");
-                    email.Focus();
-                    return;
-                }
-
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(connectionString);
 
@@ -131,12 +106,9 @@ namespace RTM.FormXamarin.Views.Empleados
                     Sexo = (sexo.SelectedIndex == 0) ? false : true,
                     Direccion = direccionV,
                     Telefono = telefonoV,
-                    UserName = userNameV,
                     Fecha_Nacimiento = fnV,
-                    Email = emailV,
-                    RolID = rolV,
-                    PasswordHash = passwordV,
-                    Cedula = cedulaV
+                    Cedula = cedulaV,
+                    Edad = Convert.ToInt32(edadV)
 
                 };
 
@@ -145,7 +117,7 @@ namespace RTM.FormXamarin.Views.Empleados
                 StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
 
                 //Ejecutar el api el introduces el metodo
-                var request = await client.PostAsync("/api/Empleados/register", stringContent);
+                var request = await client.PostAsync("/api/Empleados/registrar", stringContent);
 
                 if (request.IsSuccessStatusCode)
                 {
@@ -183,8 +155,6 @@ namespace RTM.FormXamarin.Views.Empleados
                                     title: "Error",
                                     acknowledgementText: "Aceptar");
             }
-
-
         }
     }
 }

@@ -128,13 +128,8 @@ namespace RTM.FormXamarin.Views.Empleados
                     Sexo = (Sexo.SelectedIndex == 0) ? false : true,
                     Direccion = direccionV,
                     Telefono = telefonoV,
-                    UserName = userNameV,
                     Fecha_Nacimiento = fnV,
-                    Email = emailV,
-                    RolID = rolV,
-                    PasswordHash = passwordV,
                     Cedula = cedulaV,
-                    LockoutEnabled = check
 
                 };
 
@@ -212,11 +207,6 @@ namespace RTM.FormXamarin.Views.Empleados
                     Edad.Text = (DateTime.Now.Year - año).ToString();
                     Direccion.Text = listaView.Direccion;
                     telefono.Text = listaView.Telefono;
-                    nUsuario.Text = listaView.UserName;
-                    Pass.Text = listaView.PasswordHash;
-                    Roles.SelectedIndex = listaView.RolID;
-                    Email.Text = listaView.Email;
-                    Estado.IsSelected = listaView.LockoutEnabled;
                 }
 
             }
