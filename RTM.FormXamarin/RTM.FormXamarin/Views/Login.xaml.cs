@@ -25,10 +25,11 @@ namespace RayTrackingMobile
         public login()
         {
             InitializeComponent();
+
+            btnIniciarSesion.Clicked += BtnIniciarSesion_Clicked;
         }
 
-
-        private async void btnLogin(object sender, EventArgs e)
+        private async void BtnIniciarSesion_Clicked(object sender, EventArgs e)
         {
             string connectionString = ConfigurationManager.AppSettings["ipServer"];
 
@@ -46,7 +47,7 @@ namespace RayTrackingMobile
 
                 if (string.IsNullOrEmpty(password))
                 {
-                    await DisplayAlert("Validacion", "Ingrese el password", "Aceptar");
+                    await DisplayAlert("Validacion", "Ingrese el contrasena", "Aceptar");
                     txtUser.Focus();
                     return;
                 }
@@ -54,17 +55,17 @@ namespace RayTrackingMobile
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(connectionString);
 
-                var autenticarse = new Login()
+                var autenticarse = new IniciarSesion()
                 {
-                    UserName = usuario,
-                    PasswordHash = password
+                    NombreUsuario = usuario,
+                    contrasena = password
 
                 };
 
                 var json = JsonConvert.SerializeObject(autenticarse);
                 StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
 
-                var request = await client.PostAsync("/api/Usuarios/login", stringContent);
+                var request = await client.PostAsync("/api/Usuarios/IniciarSesionApi", stringContent);
 
                 if (request.IsSuccessStatusCode)
                 {
@@ -72,7 +73,7 @@ namespace RayTrackingMobile
                     var responseJson = await request.Content.ReadAsStringAsync();
                     var respuesta = JsonConvert.DeserializeObject<Request>(responseJson);
 
-                    if (respuesta.status)
+                    if ((bool)respuesta.data)
                     {
                         Application.Current.MainPage = new MainPage();
                     }
@@ -99,8 +100,8 @@ namespace RayTrackingMobile
                                     title: "Error",
                                     acknowledgementText: "Aceptar");
             }
-
-
         }
+
+       
     }
 }

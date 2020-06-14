@@ -87,28 +87,11 @@
                             </StackLayout>
                         </StackLayout>
 
-                            <StackLayout Margin="0,25,0,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField x:Name="nUsuario" Placeholder="Ingresar nombre de usuario" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
-                                </StackLayout>
-                            </StackLayout>
+                            
 
-                            <StackLayout Margin="0,25,0,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField x:Name="pass" Placeholder="Ingresa password hash" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
-                                </StackLayout>
-                            </StackLayout>
+                          
 
-                            <StackLayout Margin="0,25,0,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <Picker x:Name="roles" Title="Roles"  HorizontalOptions = "FillAndExpand"  >
-                                        <Picker.Items>
-                                            <x:String>Gerente General</x:String>
-                                            <x:String>Administrador</x:String>
-                                        </Picker.Items>
-                                    </Picker>
-                                </StackLayout>
-                            </StackLayout>
+                           
 
                             <StackLayout Margin="0,25,0,0">
                                 <StackLayout Orientation="Horizontal">

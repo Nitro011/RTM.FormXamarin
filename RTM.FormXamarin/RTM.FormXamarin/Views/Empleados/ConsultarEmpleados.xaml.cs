@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XF.Material.Forms.UI.Dialogs;
 
 namespace RTM.FormXamarin.Views.Empleados
 {
@@ -43,7 +44,7 @@ namespace RTM.FormXamarin.Views.Empleados
 
        
 
-        private  void ListaEmpleado() 
+        private async  void ListaEmpleado() 
         {
             string connectionString = ConfigurationManager.AppSettings["ipServer"];
 
@@ -66,6 +67,12 @@ namespace RTM.FormXamarin.Views.Empleados
                     listaEmpleado.ItemsSource = listaView;
 
 
+                }
+                else
+                {
+                    await MaterialDialog.Instance.AlertAsync(message: "Error",
+                                   title: "Error",
+                                   acknowledgementText: "Aceptar");
                 }
 
             }

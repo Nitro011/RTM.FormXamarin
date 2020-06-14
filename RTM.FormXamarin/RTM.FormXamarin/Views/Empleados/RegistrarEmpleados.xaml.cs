@@ -140,9 +140,11 @@ namespace RTM.FormXamarin.Views.Empleados
 
                 };
 
+                //Convetir a Json
                 var json = JsonConvert.SerializeObject(empleados);
                 StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
 
+                //Ejecutar el api el introduces el metodo
                 var request = await client.PostAsync("/api/Empleados/register", stringContent);
 
                 if (request.IsSuccessStatusCode)
@@ -151,6 +153,7 @@ namespace RTM.FormXamarin.Views.Empleados
                     var responseJson = await request.Content.ReadAsStringAsync();
                     var respuesta = JsonConvert.DeserializeObject<Request>(responseJson);
 
+                    //Status
                     if (respuesta.status)
                     {
                         await MaterialDialog.Instance.AlertAsync(message: "Usuario registrado correctamente",

@@ -51,7 +51,7 @@
                         <StackLayout Orientation="Horizontal" Margin="0,15,0,0">
 
                         </StackLayout>
-                        <Button Text="INICIAR SESION" Clicked="btnLogin" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30"/>
+                        <Button Text="INICIAR SESION" x:Name="btnIniciarSesion" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30"/>
                     </StackLayout>
                 </Frame>
             </StackLayout>
