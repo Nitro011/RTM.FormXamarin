@@ -50,7 +50,7 @@ namespace RTM.FormXamarin.Views.Empleados
             HttpClient client = new HttpClient();
 
             client.BaseAddress = new Uri(connectionString);
-            var request = client.GetAsync("/api/Empleados/lista").Result;
+            var request = client.GetAsync("/api/Empleados/EmpleadosList").Result;
 
             if (request.IsSuccessStatusCode)
             {

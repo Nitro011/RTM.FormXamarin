@@ -46,7 +46,7 @@ namespace RTM.FormXamarin.Views.Empleados
 
                     var listaView = JsonConvert.DeserializeObject<UsuariosByID>(response.data.ToString());
 
-                    var año = (listaView.fecha_nacimiento != null) ? listaView.fecha_nacimiento.Value.Year : DateTime.MinValue.Year;
+                  /*  var año = (listaView.fecha_nacimiento != null) ? listaView.fecha_nacimiento.Value.Year : DateTime.MinValue.Year;
                     IdEmpleado.Text = listaView.IdEmpleado.ToString();
                     Nombre.Text = listaView.Nombre;
                     puesto.Text = listaView.puesto;
@@ -55,7 +55,7 @@ namespace RTM.FormXamarin.Views.Empleados
                     edad.Text = ( DateTime.Now.Year - año).ToString();
                     fecha_nacimiento.Text = (listaView.fecha_nacimiento != null)?DateTime.Parse( listaView.fecha_nacimiento.ToString()).ToString("dd/MM/yyyy"):DateTime.MinValue.ToString();
                     direccion.Text = listaView.direccion;
-                    telefono.Text = listaView.telefono;
+                    telefono.Text = listaView.telefono;*/
                 }
 
             }

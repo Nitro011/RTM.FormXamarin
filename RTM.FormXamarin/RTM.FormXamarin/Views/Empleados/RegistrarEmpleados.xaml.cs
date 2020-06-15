@@ -43,7 +43,6 @@ namespace RTM.FormXamarin.Views.Empleados
                 var direccionV = direccion.Text;
                 var telefonoV = telefono.Text;
                 var cedulaV = cedula.Text;
-                var edadV = edad.Text;
                 var fnV = FN.Date;
 
                 if (string.IsNullOrEmpty(nombreV))
@@ -55,42 +54,36 @@ namespace RTM.FormXamarin.Views.Empleados
 
                 if (string.IsNullOrEmpty(apellidoV))
                 {
-                    await DisplayAlert("Validacion", "Ingrese el password", "Aceptar");
+                    await DisplayAlert("Validacion", "Ingresar el apellido del empleado", "Aceptar");
                     apellido.Focus();
                     return;
                 }
 
                 if (string.IsNullOrEmpty(direccionV))
                 {
-                    await DisplayAlert("Validacion", "Ingrese el password", "Aceptar");
+                    await DisplayAlert("Validacion", "Ingreser la direccion del empleado", "Aceptar");
                     direccion.Focus();
                     return;
                 }
 
                 if (string.IsNullOrEmpty(telefonoV))
                 {
-                    await DisplayAlert("Validacion", "Ingrese el password", "Aceptar");
+                    await DisplayAlert("Validacion", "Ingresar el numero telefonico del empleado", "Aceptar");
                     telefono.Focus();
                     return;
                 }
 
                 if (string.IsNullOrEmpty(cedulaV))
                 {
-                    await DisplayAlert("Validacion", "Ingrese la cedula", "Aceptar");
+                    await DisplayAlert("Validacion", "Ingreser la cedula del empleado", "Aceptar");
                     cedula.Focus();
                     return;
                 }
 
-                if (string.IsNullOrEmpty(edadV))
-                {
-                    await DisplayAlert("Validacion", "Ingrese el password", "Aceptar");
-                    edad.Focus();
-                    return;
-                }
 
                 if (string.IsNullOrEmpty(fnV.ToString()))
                 {
-                    await DisplayAlert("Validacion", "Ingrese el password", "Aceptar");
+                    await DisplayAlert("Validacion", "Ingresar la fecha de nacimiento del usuario", "Aceptar");
                     FN.Focus();
                     return;
                 }
@@ -100,7 +93,7 @@ namespace RTM.FormXamarin.Views.Empleados
 
                 var empleados = new Emple()
                 {
-
+                    EmpleadoId = 0,
                     Nombres = nombreV,
                     Apellidos = apellidoV,
                     Sexo = (sexo.SelectedIndex == 0) ? false : true,
@@ -108,7 +101,7 @@ namespace RTM.FormXamarin.Views.Empleados
                     Telefono = telefonoV,
                     Fecha_Nacimiento = fnV,
                     Cedula = cedulaV,
-                    Edad = Convert.ToInt32(edadV)
+                    Edad = DateTime.Now.Year - fnV.Value.Year
 
                 };
 

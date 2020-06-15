@@ -6,14 +6,18 @@ namespace RTM.FormXamarin.Models.Usuarios
 {
     public class UsuariosByID
     {
-        public int IdEmpleado { get; set; }
-        public string Nombre { get; set; }
-        public string puesto { get; set; }
-        public bool sexo { get; set; }
-        public string cedula { get; set; }
-        public DateTime? fecha_nacimiento { get; set; }
-        public int edad { get; set; }
-        public string direccion { get; set; }
-        public string telefono { get; set; }
+        public int? EmpleadoID { get; set; }
+        public string NombresApellidos { get; set; }
+        public string Sexo { get; set; }
+        public string Cedula { get; set; }
+        public System.DateTime? Fecha_Nacimiento { get; set; }
+        public int? Edad { get; set; }
+        public string Direccion { get; set; }
+        public string Telefono { get; set; }
+
+        public string NombreUsuario { get; set; }
+
+        public string Puesto { get; set; }
+        public string Rol { get; set; }
     }
 }

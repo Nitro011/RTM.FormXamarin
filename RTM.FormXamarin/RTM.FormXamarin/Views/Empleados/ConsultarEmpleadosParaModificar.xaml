@@ -29,9 +29,11 @@
 
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
-                                        <TextCell Text="{Binding NombreCompleto}"
-                                                  Detail="{Binding Puesto}"
-                                                  />
+                                        <ImageCell Height="30" 
+                                     Text="{Binding NombreCompleto}"
+                                     Detail="{Binding Puesto}"
+                                     <!-- ImageSource="{Binding ImageUrl}">-->
+                                        </ImageCell>
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
                             </ListView>
