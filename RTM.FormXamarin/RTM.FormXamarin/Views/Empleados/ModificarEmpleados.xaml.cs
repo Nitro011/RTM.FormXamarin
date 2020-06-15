@@ -11,6 +11,7 @@ using RTM.FormXamarin.Models.Usuarios;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XF.Material.Forms.UI.Dialogs;
+using Java.Sql;
 
 namespace RTM.FormXamarin.Views.Empleados
 {
@@ -38,13 +39,8 @@ namespace RTM.FormXamarin.Views.Empleados
                 var direccionV = Direccion.Text;
                 var telefonoV = telefono.Text;
                 var cedulaV = cedula.Text;
-                var edadV = Edad.Text;
                 var fnV = FN.Date;
-                var rolV = Roles.SelectedIndex;
-                var passwordV = Pass.Text;
-                var userNameV = nUsuario.Text;
-                var emailV = Email.Text;
-                var check = Estado.IsSelected;
+
 
 
 
@@ -57,65 +53,40 @@ namespace RTM.FormXamarin.Views.Empleados
 
                 if (string.IsNullOrEmpty(apellidoV))
                 {
-                    await DisplayAlert("Validacion", "Ingrese el Apellido", "Aceptar");
+                    await DisplayAlert("Validacion", "Ingresar el apellido del empleado", "Aceptar");
                     Apellido.Focus();
                     return;
                 }
 
                 if (string.IsNullOrEmpty(direccionV))
                 {
-                    await DisplayAlert("Validacion", "Ingrese la Dirección", "Aceptar");
+                    await DisplayAlert("Validacion", "Ingreser la direccion del empleado", "Aceptar");
                     Direccion.Focus();
                     return;
                 }
 
                 if (string.IsNullOrEmpty(telefonoV))
                 {
-                    await DisplayAlert("Validacion", "Ingrese el telefono", "Aceptar");
+                    await DisplayAlert("Validacion", "Ingresar el numero telefonico del empleado", "Aceptar");
                     telefono.Focus();
                     return;
                 }
 
                 if (string.IsNullOrEmpty(cedulaV))
                 {
-                    await DisplayAlert("Validacion", "Ingrese la cedula", "Aceptar");
+                    await DisplayAlert("Validacion", "Ingreser la cedula del empleado", "Aceptar");
                     cedula.Focus();
                     return;
                 }
 
-                if (string.IsNullOrEmpty(edadV))
-                {
-                    await DisplayAlert("Validacion", "Ingrese la Edad", "Aceptar");
-                    Edad.Focus();
-                    return;
-                }
 
                 if (string.IsNullOrEmpty(fnV.ToString()))
                 {
-                    await DisplayAlert("Validacion", "Ingrese la fecha de nacimiento", "Aceptar");
+                    await DisplayAlert("Validacion", "Ingresar la fecha de nacimiento del usuario", "Aceptar");
                     FN.Focus();
                     return;
                 }
 
-                if (string.IsNullOrEmpty(passwordV))
-                {
-                    await DisplayAlert("Validacion", "Ingrese el password", "Aceptar");
-                    Pass.Focus();
-                    return;
-                }
-
-                if (string.IsNullOrEmpty(userNameV))
-                {
-                    await DisplayAlert("Validacion", "Ingrese el Nombre de usuario", "Aceptar");
-                    nUsuario.Focus();
-                    return;
-                }
-                if (string.IsNullOrEmpty(emailV))
-                {
-                    await DisplayAlert("Validacion", "Ingrese el Email", "Aceptar");
-                    Email.Focus();
-                    return;
-                }
 
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(connectionString);
@@ -130,6 +101,7 @@ namespace RTM.FormXamarin.Views.Empleados
                     Telefono = telefonoV,
                     Fecha_Nacimiento = fnV,
                     Cedula = cedulaV,
+                    Edad =DateTime.Now.Year - fnV.Value.Year
 
                 };
 
@@ -185,7 +157,7 @@ namespace RTM.FormXamarin.Views.Empleados
             HttpClient client = new HttpClient();
 
             client.BaseAddress = new Uri(connectionString);
-            var request = client.GetAsync($"/api/Empleados/listaPorIdEmpleados/{id}").Result;
+            var request = client.GetAsync($"/api/Empleados/listaPorId/{id}").Result;
 
             if (request.IsSuccessStatusCode)
             {
@@ -204,7 +176,6 @@ namespace RTM.FormXamarin.Views.Empleados
                     Sexo.SelectedIndex = (listaView.Sexo == true) ? 1 : 0;
                     cedula.Text = listaView.Cedula;
                     FN.Date = listaView.Fecha_Nacimiento;
-                    Edad.Text = (DateTime.Now.Year - año).ToString();
                     Direccion.Text = listaView.Direccion;
                     telefono.Text = listaView.Telefono;
                 }

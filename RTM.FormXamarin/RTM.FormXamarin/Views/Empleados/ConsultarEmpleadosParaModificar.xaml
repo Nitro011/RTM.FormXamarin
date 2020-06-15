@@ -32,8 +32,8 @@
                                         <ImageCell Height="30" 
                                      Text="{Binding NombreCompleto}"
                                      Detail="{Binding Puesto}"
-                                     ImageSource="{Binding ImageUrl}">
-                                        </ImageCell>
+                                      ImageSource="{Binding ImageUrl}"/>
+
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
                             </ListView>
