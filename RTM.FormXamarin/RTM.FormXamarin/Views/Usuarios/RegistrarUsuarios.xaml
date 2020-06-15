@@ -9,6 +9,7 @@
              x:Class="RTM.FormXamarin.Views.Usuarios.RegistrarUsuarios"
              Title="{Binding Title}">
 
+    <ScrollView>
     <StackLayout Padding="0" BackgroundColor="LightGray">
         <Grid>
             <StackLayout Padding="0" Margin="0">
@@ -27,13 +28,13 @@
 
                         <StackLayout Margin="0,25,0,0">
                             <StackLayout Orientation="Horizontal">
-                                <material:MaterialTextField Placeholder="Ingresar nombre de usuario" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                <material:MaterialTextField x:Name="nombreUsuario" Placeholder="Ingresar nombre de usuario" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
                             </StackLayout>
                         </StackLayout>
 
                         <StackLayout Margin="0,25,0,0">
                             <StackLayout Orientation="Horizontal">
-                                <material:MaterialTextField Placeholder="Ingresa password hash" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                <material:MaterialTextField x:Name="passwordHash" Placeholder="Ingresa password hash" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
                             </StackLayout>
                         </StackLayout>
 
@@ -50,13 +51,13 @@
 
                         <StackLayout Margin="0,25,0,0">
                             <StackLayout Orientation="Horizontal">
-                                <material:MaterialTextField Placeholder="Ingresar Email" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                <material:MaterialTextField x:Name="email" Placeholder="Ingresar Email" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
                             </StackLayout>
                         </StackLayout>
 
                         <StackLayout Margin="0,25,0,0">
                             <StackLayout Orientation="Horizontal">
-                                <Entry Placeholder="Ingresar numero de telefono" Keyboard="Numeric" TextColor="Black"  HorizontalOptions="FillAndExpand"  Margin="0,0,15,0">
+                                <Entry x:Name="numeroTelefono" Placeholder="Ingresar numero de telefono" Keyboard="Numeric" TextColor="Black"  HorizontalOptions="FillAndExpand"  Margin="0,0,15,0">
                                     <Entry.Behaviors>
                                         <behavior:MaskedBehavior Mask="(XXX) XXX-XXX"/>
                                     </Entry.Behaviors>
@@ -72,5 +73,5 @@
             </StackLayout>
         </Grid>
     </StackLayout>
-    
+    </ScrollView>
 </ContentPage>

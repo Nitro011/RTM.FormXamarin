@@ -22,14 +22,14 @@
                     <Frame BackgroundColor="White" HasShadow="True" HeightRequest="350" HorizontalOptions="FillAndExpand">
                         <StackLayout>
                             <StackLayout HorizontalOptions="CenterAndExpand" Margin="0,25,0,0">
-                                <material:MaterialLabel Text="Gestionar Empleados y Usuario" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel Text="Gestionar Usuario" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                             </StackLayout>
 
-                            <material:MaterialButton Text="Registrar Usuarios" Clicked="abrirRegistrarUsuarios" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0"  WidthRequest="700"/>
+                            <material:MaterialButton Text="Registrar Usuarios" x:Name="abrirRegistrarUsuarios" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0"  WidthRequest="700"/>
 
-                            <material:MaterialButton Text="Consultar Usuarios" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
+                            <material:MaterialButton Text="Consultar Usuarios" x:Name="abrirConsultarUsuarios" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
 
-                            <material:MaterialButton Text="Modificar Usuarios" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
+                            <material:MaterialButton Text="Modificar Usuarios" x:Name="abrirModificarUsuarios" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
 
                         </StackLayout>
                     </Frame>

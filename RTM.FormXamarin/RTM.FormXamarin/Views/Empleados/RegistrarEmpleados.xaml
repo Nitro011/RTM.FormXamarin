@@ -23,7 +23,7 @@
                 <Frame BackgroundColor="White" HasShadow="True" HeightRequest="800" HorizontalOptions="FillAndExpand">
                     <StackLayout>
                         <StackLayout HorizontalOptions="CenterAndExpand">
-                            <material:MaterialLabel Text="Registrar Empleados/Usuarios" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                            <material:MaterialLabel Text="Registrar Empleados" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         </StackLayout>
 
                         <StackLayout Margin="0,25,0,0">

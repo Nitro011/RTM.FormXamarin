@@ -10,6 +10,7 @@ namespace RTM.FormXamarin.Models
         Browse,
         Empleados,
         Usuarios,
+        Suplidores,
         GestionarAreasDeProduccion,
         RegistrarRoles,
         Clientes,
