@@ -30,7 +30,8 @@
                             <material:MaterialButton Text="Consultar Usuarios" x:Name="abrirConsultarUsuarios" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
 
                             <material:MaterialButton Text="Modificar Usuarios" x:Name="abrirModificarUsuarios" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
-
+                            
+                            <material:MaterialButton Text="Modificar Usuarios" x:Name="abrirejemplo" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
                         </StackLayout>
                     </Frame>
                 </StackLayout>

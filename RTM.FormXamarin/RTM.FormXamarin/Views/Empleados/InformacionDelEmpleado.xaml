@@ -24,31 +24,37 @@
                             <material:MaterialLabel Text="Informacion del usuario" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         </StackLayout>
                         <StackLayout>
-                            <material:MaterialLabel  x:Name="IdEmpleado" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                            <material:MaterialLabel  x:Name="empleadoID" Text="Codigo:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         </StackLayout>
                         <StackLayout>
-                            <material:MaterialLabel x:Name="Nombre" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                            <material:MaterialLabel x:Name="nombresApellidos" Text="Nombre Completo:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         </StackLayout>
                         <StackLayout>
-                            <material:MaterialLabel x:Name="puesto" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                            <material:MaterialLabel x:Name="sexo" Text="Sexo:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         </StackLayout>
                         <StackLayout>
-                            <material:MaterialLabel x:Name="sexo" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                            <material:MaterialLabel x:Name="cedula" Text="Cedula:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         </StackLayout>
                         <StackLayout>
-                            <material:MaterialLabel x:Name="cedula" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                            <material:MaterialLabel x:Name="fecha_Nacimiento" Text="Fecha de Nacimiento:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         </StackLayout>
                         <StackLayout>
-                            <material:MaterialLabel x:Name="fecha_nacimiento" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                            <material:MaterialLabel x:Name="edad" Text="Edad:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         </StackLayout>
                         <StackLayout>
-                            <material:MaterialLabel x:Name="edad" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                            <material:MaterialLabel x:Name="direccion" Text="Direccion:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         </StackLayout>
                         <StackLayout>
-                            <material:MaterialLabel x:Name="direccion" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                            <material:MaterialLabel x:Name="telefono" Text="Telefono:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         </StackLayout>
                         <StackLayout>
-                            <material:MaterialLabel x:Name="telefono" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                            <material:MaterialLabel x:Name="puesto" Text="Puesto:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                        </StackLayout>
+                        <StackLayout>
+                            <material:MaterialLabel x:Name="nombreUsuario" Text="Nombre de Usuario:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                        </StackLayout>
+                        <StackLayout>
+                            <material:MaterialLabel x:Name="rol" Text="Puesto" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         </StackLayout>
 
 

@@ -20,7 +20,7 @@ namespace RTM.FormXamarin.Views.Usuarios
             BindingContext = this.Usuarios = new GestionarUsuariosViewModel();
             abrirRegistrarUsuarios.Clicked += AbrirRegistrarUsuarios_Clicked;
             abrirConsultarUsuarios.Clicked += AbrirConsultarUsuarios_Clicked;
-            abrirModificarUsuarios.Clicked += AbrirModificarUsuarios_Clicked;
+            abrirModificarUsuarios.Clicked += AbrirModificarUsuarios_Clicked; 
         }
 
         private async void AbrirModificarUsuarios_Clicked(object sender, EventArgs e)

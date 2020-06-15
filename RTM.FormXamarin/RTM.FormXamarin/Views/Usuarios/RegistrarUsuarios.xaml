@@ -49,24 +49,45 @@
                             </StackLayout>
                         </StackLayout>
 
-                        <StackLayout Margin="0,25,0,0">
-                            <StackLayout Orientation="Horizontal">
-                                <material:MaterialTextField x:Name="email" Placeholder="Ingresar Email" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                            <StackLayout Margin="0,25,0,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <material:MaterialTextField x:Name="email" Placeholder="Ingresar Email" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                </StackLayout>
                             </StackLayout>
-                        </StackLayout>
 
-                        <StackLayout Margin="0,25,0,0">
-                            <StackLayout Orientation="Horizontal">
-                                <Entry x:Name="numeroTelefono" Placeholder="Ingresar numero de telefono" Keyboard="Numeric" TextColor="Black"  HorizontalOptions="FillAndExpand"  Margin="0,0,15,0">
-                                    <Entry.Behaviors>
-                                        <behavior:MaskedBehavior Mask="(XXX) XXX-XXX"/>
-                                    </Entry.Behaviors>
-                                </Entry>
+                            <StackLayout Margin="0,25,0,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <Entry x:Name="numeroTelefono" Placeholder="Ingresar numero de telefono" Keyboard="Numeric" TextColor="Black"  HorizontalOptions="FillAndExpand"  Margin="0,0,15,0">
+                                        <Entry.Behaviors>
+                                            <behavior:MaskedBehavior Mask="(XXX) XXX-XXX"/>
+                                        </Entry.Behaviors>
+                                    </Entry>
+                                </StackLayout>
                             </StackLayout>
-                        </StackLayout>
+
+                            <StackLayout Margin="0,25,0,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <Picker Title="Area de Produccion" x:Name="pickerAreaProduccion"  HorizontalOptions = "FillAndExpand" SelectedIndexChanged="ObtenerRoles" >
+                                        <Picker.Items>
+                                            <x:String>Product Development</x:String>
+                                            <x:String>Warehouse</x:String>
+                                            <x:String>Cutting</x:String>
+                                            <x:String>Sample Room</x:String>
+                                            <x:String>Prefitting</x:String>
+                                            <x:String>Fitting</x:String>
+                                            <x:String>Handsewn</x:String>
+                                            <x:String>Horno</x:String>
+                                            <x:String>Bottoming</x:String>
+                                            <x:String>FQA</x:String>
+                                            <x:String>Packing Room</x:String>
+                                            <x:String>Embarque</x:String>
+                                        </Picker.Items>
+                                    </Picker>
+                                </StackLayout>
+                            </StackLayout>
 
 
-                        <StackLayout Orientation="Horizontal" Margin="0,0,0,0"></StackLayout>
+                            <StackLayout Orientation="Horizontal" Margin="0,0,0,0"></StackLayout>
                         <material:MaterialButton Text="Guardar Usuarios" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                     </StackLayout>
                 </Frame>
