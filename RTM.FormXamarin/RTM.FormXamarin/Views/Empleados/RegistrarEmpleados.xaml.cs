@@ -45,6 +45,10 @@ namespace RTM.FormXamarin.Views.Empleados
                 var cedulaV = cedula.Text;
                 var fnV = FN.Date;
 
+
+
+
+
                 if (string.IsNullOrEmpty(nombreV))
                 {
                     await DisplayAlert("Validacion", "Ingrese el nombre de Usuario", "Aceptar");
