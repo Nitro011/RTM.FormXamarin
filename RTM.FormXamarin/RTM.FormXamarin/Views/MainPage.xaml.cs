@@ -46,6 +46,9 @@ namespace RTM.FormXamarin.Views
                     case (int)MenuItemType.Usuarios:
                         MenuPages.Add(id, new NavigationPage(new Usuarios.GestionarUsuarios()));
                         break;
+                    case (int)MenuItemType.Suplidores:
+                        MenuPages.Add(id, new NavigationPage(new Suplidores.GestionarSuplidores()));
+                        break;
                     case (int)MenuItemType.GestionarAreasDeProduccion:
                         MenuPages.Add(id, new NavigationPage(new AreaDeProduccion.GestionarAreaDeProduccion()));
                         break;
