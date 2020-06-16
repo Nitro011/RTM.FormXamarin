@@ -21,7 +21,7 @@
                 <Frame BackgroundColor="White" HasShadow="True" HeightRequest="450" HorizontalOptions="FillAndExpand">
                     <StackLayout>
                         <StackLayout HorizontalOptions="CenterAndExpand">
-                            <material:MaterialLabel Text="Informacion del usuario" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                            <material:MaterialLabel Text="Informacion del Empleado" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         </StackLayout>
                         <StackLayout>
                             <material:MaterialLabel  x:Name="empleadoID" Text="Codigo:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
@@ -36,7 +36,7 @@
                             <material:MaterialLabel x:Name="cedula" Text="Cedula:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         </StackLayout>
                         <StackLayout>
-                            <material:MaterialLabel x:Name="fecha_Nacimiento" Text="Fecha de Nacimiento:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                            <material:MaterialLabel x:Name="Fecha_Nacimiento" Text="Fecha de Nacimiento:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         </StackLayout>
                         <StackLayout>
                             <material:MaterialLabel x:Name="edad" Text="Edad:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>

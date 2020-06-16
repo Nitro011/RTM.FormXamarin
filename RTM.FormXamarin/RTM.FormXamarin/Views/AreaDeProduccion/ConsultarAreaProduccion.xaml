@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
              mc:Ignorable="d"
-             x:Class="RTM.FormXamarin.Views.Suplidores.ConsultarSuplidores"
+             x:Class="RTM.FormXamarin.Views.AreaDeProduccion.ConsultarAreaProduccion"
              Title="{Binding Title}">
 
     <StackLayout Padding="0" BackgroundColor="LightGray">
@@ -21,17 +21,15 @@
                 <Frame BackgroundColor="White" HasShadow="True" HeightRequest="450" HorizontalOptions="FillAndExpand">
                     <StackLayout>
                         <StackLayout HorizontalOptions="CenterAndExpand">
-                            <material:MaterialLabel Text="Consultar Suplidores" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                            <material:MaterialLabel Text="Consultar Areas de Produccion" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         </StackLayout>
 
                         <StackLayout>
-                            <ListView x:Name="listaSuplidores" >
+                            <ListView x:Name="listaAreaProduccion" >
 
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
-                                        <TextCell Text="{Binding Empresa}"
-                                                  Detail="{Binding Nombre_Suplidor}"
-                                                  />
+                                        <TextCell Text="{Binding NombreAreaProduccion}"/>
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
                             </ListView>

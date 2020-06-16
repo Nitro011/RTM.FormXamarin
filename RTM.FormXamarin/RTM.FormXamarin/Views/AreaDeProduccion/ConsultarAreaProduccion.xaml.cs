@@ -1,45 +1,29 @@
-﻿using Newtonsoft.Json;
-using PCLAppConfig;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using PCLAppConfig;
 using RTM.FormXamarin.Models;
+using RTM.FormXamarin.Models.AreasDeProduccion;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using RTM.FormXamarin.Models.Suplidores;
 using XF.Material.Forms.UI.Dialogs;
 
-namespace RTM.FormXamarin.Views.Suplidores
+namespace RTM.FormXamarin.Views.AreaDeProduccion
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ConsultarSuplidores : ContentPage
+    public partial class ConsultarAreaProduccion : ContentPage
     {
-        public ConsultarSuplidores()
+        public ConsultarAreaProduccion()
         {
             InitializeComponent();
-            ListaSuplidores();
-            listaSuplidores.ItemSelected += ListaSuplidores_ItemSelected;     
+            ListaAreaProduccion();
         }
 
-        private void ListaSuplidores_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            try
-            {
-                var item = (SuplidoresListView)e.SelectedItem;
-
-                Navigation.PushAsync(new InformacionDelSuplidor(item.Id));
-            }
-            catch (Exception ex)
-            {
-
-                DisplayAlert("Error", ex.Message, "Aceptar");
-            }
-        }
-
-        private async void ListaSuplidores()
+        private async void ListaAreaProduccion()
         {
             string connectionString = ConfigurationManager.AppSettings["ipServer"];
 
@@ -47,7 +31,7 @@ namespace RTM.FormXamarin.Views.Suplidores
             HttpClient client = new HttpClient();
 
             client.BaseAddress = new Uri(connectionString);
-            var request = client.GetAsync("/api/Suplidores/SuplidoresList").Result;
+            var request = client.GetAsync("/api/AreaProduccion/lista").Result;
 
             if (request.IsSuccessStatusCode)
             {
@@ -57,9 +41,9 @@ namespace RTM.FormXamarin.Views.Suplidores
                 if (response.status)
                 {
 
-                    var listaView = JsonConvert.DeserializeObject<List<SuplidoresListView>>(response.data.ToString());
+                    var listaView = JsonConvert.DeserializeObject<List<AreaProduccionListView>>(response.data.ToString());
 
-                    listaSuplidores.ItemsSource = listaView;
+                    listaAreaProduccion.ItemsSource = listaView;
 
 
                 }

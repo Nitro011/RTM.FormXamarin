@@ -20,33 +20,33 @@
 
                 <StackLayout Margin="150,0,150,0">
 
-                    <Frame BackgroundColor="White" HasShadow="True" HeightRequest="690" HorizontalOptions="FillAndExpand">
+                    <Frame BackgroundColor="White" HasShadow="True" HeightRequest="800" HorizontalOptions="FillAndExpand">
                         <StackLayout>
                             <StackLayout HorizontalOptions="CenterAndExpand">
-                                <material:MaterialLabel Text="Registrar Suplidores" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel Text="Modificar Suplidores" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                             </StackLayout>
 
                             <StackLayout Margin="0,25,0,0">
                                 <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField x:Name="SuplidorID" Placeholder="SuplidorID" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0"/>
+                                    <material:MaterialTextField x:Name="suplidorID" Placeholder="SuplidorID" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0"/>
                                 </StackLayout>
                             </StackLayout>
 
                             <StackLayout Margin="0,25,0,0">
                                 <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField x:Name="nombreEmpresa" Placeholder="Nombres de la Empresa" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0"/>
+                                    <material:MaterialTextField x:Name="empresa" Placeholder="Nombres de la Empresa" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0"/>
                                 </StackLayout>
                             </StackLayout>
 
                             <StackLayout Margin="0,25,0,0">
                                 <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField x:Name="nombreSuplidor" Placeholder="Nombre del Suplidor" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                    <material:MaterialTextField x:Name="nombre_Suplidor" Placeholder="Nombre del Suplidor" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
                                 </StackLayout>
                             </StackLayout>
 
                             <StackLayout Margin="0,25,0,0">
                                 <StackLayout Orientation="Horizontal">
-                                    <Entry x:Name="telefono" Placeholder="Numero de Telefono" TextColor="Black" Keyboard="Numeric" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0">
+                                    <Entry x:Name="no_Telefono" Placeholder="Numero de Telefono" TextColor="Black" Keyboard="Numeric" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0">
                                         <Entry.Behaviors>
                                             <behavior:MaskedBehavior Mask="(XXX) XXX-XXXX" />
                                         </Entry.Behaviors>
@@ -56,7 +56,7 @@
 
                             <StackLayout Margin="0,25,0,0">
                                 <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField x:Name="correoElectronico" Placeholder="Correo Electronico" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                    <material:MaterialTextField x:Name="correo_Electronico" Placeholder="Correo Electronico" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
                                 </StackLayout>
                             </StackLayout>
 
@@ -81,7 +81,7 @@
 
 
                             <StackLayout Orientation="Horizontal" Margin="0,15,0,0"></StackLayout>
-                            <material:MaterialButton Text="Guardar Suplidores" x:Name="btnGuardarSuplidores" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <material:MaterialButton Text="Modificar Suplidores" x:Name="btnModificarSuplidores" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                         </StackLayout>
                     </Frame>
                 </StackLayout>

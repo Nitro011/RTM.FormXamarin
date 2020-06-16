@@ -7,7 +7,7 @@
              mc:Ignorable="d"
              x:Class="RTM.FormXamarin.Views.Empleados.ConsultarEmpleados"
              Title="{Binding Title}">
-
+    
     <StackLayout Padding="0" BackgroundColor="LightGray">
         <Grid>
             <StackLayout Padding="0" Margin="0">
@@ -44,4 +44,5 @@
             </StackLayout>
         </Grid>
     </StackLayout>
+
 </ContentPage>

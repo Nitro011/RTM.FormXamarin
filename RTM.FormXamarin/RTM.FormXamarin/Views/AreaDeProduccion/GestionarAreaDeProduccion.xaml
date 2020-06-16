@@ -25,9 +25,9 @@
                                 <material:MaterialLabel Text="Gestionar Areas de Produccion" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                             </StackLayout>
 
-                            <material:MaterialButton Text="Registrar Area de produccion" Clicked="abrirRegistroDeAreasDeProduccion" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0"  WidthRequest="700"/>
+                            <material:MaterialButton Text="Registrar Area de produccion" x:Name="abrirRegistroDeAreasProduccion" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0"  WidthRequest="700"/>
 
-                            <material:MaterialButton Text="Consultar Area de produccion" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
+                            <material:MaterialButton Text="Consultar Area de produccion" x:Name="abrirConsultaDeAreasProduccion" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
 
                             <material:MaterialButton Text="Modificar Area de produccion" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
 

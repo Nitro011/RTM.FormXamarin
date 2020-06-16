@@ -24,28 +24,28 @@
                             <material:MaterialLabel Text="Informacion del Suplidor" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         </StackLayout>
                         <StackLayout>
-                            <material:MaterialLabel  x:Name="suplidorID" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                            <material:MaterialLabel  x:Name="suplidorID" Text="Codigo" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         </StackLayout>
                         <StackLayout>
-                            <material:MaterialLabel x:Name="nombreEmpresa" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                            <material:MaterialLabel x:Name="empresa" Text="Nombre de la Empresa" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         </StackLayout>
                         <StackLayout>
-                            <material:MaterialLabel x:Name="nombreSuplidor" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                            <material:MaterialLabel x:Name="nombre_Suplidor" Text="Nombre del Suplidor" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         </StackLayout>
                         <StackLayout>
-                            <material:MaterialLabel x:Name="noTelefono" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                            <material:MaterialLabel x:Name="no_Telefono" Text="Telefono" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         </StackLayout>
                         <StackLayout>
-                            <material:MaterialLabel x:Name="correoElectronico" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                            <material:MaterialLabel x:Name="correo_Electronico" Text="Correo Electronico" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         </StackLayout>
                         <StackLayout>
-                            <material:MaterialLabel x:Name="pais" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                            <material:MaterialLabel x:Name="pais" Text="Pais" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         </StackLayout>
                         <StackLayout>
-                            <material:MaterialLabel x:Name="ciudad" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                            <material:MaterialLabel x:Name="ciudad" Text="Ciudad" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         </StackLayout>
                         <StackLayout>
-                            <material:MaterialLabel x:Name="direccion" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                            <material:MaterialLabel x:Name="direccion" Text="Direccion" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         </StackLayout>
 
 

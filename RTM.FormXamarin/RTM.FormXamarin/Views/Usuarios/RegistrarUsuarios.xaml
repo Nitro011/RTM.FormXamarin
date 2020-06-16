@@ -26,7 +26,29 @@
                             <material:MaterialLabel Text="Registrar Usuarios" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         </StackLayout>
 
-                        <StackLayout Margin="0,25,0,0">
+                            <StackLayout Margin="0,25,0,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <Entry x:Name="cedula" Placeholder="Buscar Empleado por Cedula" TextColor="Black" Keyboard="Numeric" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0">
+                                        <Entry.Behaviors>
+                                            <behavior:MaskedBehavior Mask="XXX-XXXXXXX-X"/>
+                                        </Entry.Behaviors>
+                                    </Entry>
+                                </StackLayout>
+                            </StackLayout>
+                        
+                            <StackLayout Margin="0,25,0,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <material:MaterialTextField x:Name="empleadoID" Placeholder="Nombre del Empleado" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                </StackLayout>
+                            </StackLayout>
+
+                            <StackLayout Margin="0,25,0,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <material:MaterialTextField x:Name="nombreEmpleado" Placeholder="Nombre del Empleado" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                </StackLayout>
+                            </StackLayout>
+
+                            <StackLayout Margin="0,25,0,0">
                             <StackLayout Orientation="Horizontal">
                                 <material:MaterialTextField x:Name="nombreUsuario" Placeholder="Ingresar nombre de usuario" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
                             </StackLayout>

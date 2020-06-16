@@ -1,4 +1,5 @@
-﻿using RTM.FormXamarin.ViewModels;
+﻿using Org.Apache.Http.Client.Methods;
+using RTM.FormXamarin.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,9 +19,16 @@ namespace RTM.FormXamarin.Views.AreaDeProduccion
         {
             InitializeComponent();
             BindingContext = this.gestionarAreasDeProduccion = new GestionarAreasDeProduccionViewModel();
+            abrirRegistroDeAreasProduccion.Clicked += AbrirRegistroDeAreasProduccion_Clicked;
+            abrirConsultaDeAreasProduccion.Clicked += AbrirConsultaDeAreasProduccion_Clicked;
         }
 
-        private async void abrirRegistroDeAreasDeProduccion(object sender, EventArgs e)
+        private async void AbrirConsultaDeAreasProduccion_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AreaDeProduccion.ConsultarAreaProduccion());
+        }
+
+        private async void AbrirRegistroDeAreasProduccion_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AreaDeProduccion.RegistrarAreaDeProduccion());
         }

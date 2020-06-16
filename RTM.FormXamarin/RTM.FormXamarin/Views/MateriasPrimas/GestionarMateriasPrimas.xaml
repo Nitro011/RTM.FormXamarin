@@ -5,9 +5,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
              mc:Ignorable="d"
-             x:Class="RTM.FormXamarin.Views.Empleados.GestionarEmpleadosYUsuarios"
+             x:Class="RTM.FormXamarin.Views.MateriasPrimas.GestionarMateriasPrimas"
              Title="{Binding Title}">
-
+    
     <ScrollView>
         <StackLayout Padding="0" BackgroundColor="LightGray">
             <Grid>
@@ -25,12 +25,12 @@
                                 <material:MaterialLabel Text="Gestionar Empleados" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                             </StackLayout>
 
-                            <material:MaterialButton Text="Registrar Empleados" x:Name="abrirRegistrarEmpleados"  BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0"  WidthRequest="700"/>
+                            <material:MaterialButton Text="Registrar Materias Primas" x:Name="abrirRegistroDeMateriasPrimas" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0"  WidthRequest="700"/>
 
-                            <material:MaterialButton Text="Consultar Empleados" x:Name="abrirConsultarEmpleados"  BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
+                            <material:MaterialButton Text="Consultar Materias Primas" x:Name="abrirConsultaDeMateriasPrimas" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
 
-                            <material:MaterialButton Text="Modificar Empleados" x:Name="abrirModificarEmpleados"  BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
-                            
+                            <material:MaterialButton Text="Modificar Materias Primas" x:Name="abrirModificacionDeMateriasPrimas" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
+
                         </StackLayout>
                     </Frame>
                 </StackLayout>

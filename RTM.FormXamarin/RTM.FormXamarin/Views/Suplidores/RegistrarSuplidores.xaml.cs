@@ -1,13 +1,17 @@
-﻿using Org.Apache.Http.Impl;
+﻿using Newtonsoft.Json;
+using Org.Apache.Http.Impl;
 using PCLAppConfig;
+using RTM.FormXamarin.Models.Suplidores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-
+using RTM.FormXamarin.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XF.Material.Forms.UI.Dialogs;
 
 namespace RTM.FormXamarin.Views.Suplidores
 {
@@ -40,7 +44,6 @@ namespace RTM.FormXamarin.Views.Suplidores
                     nombreEmpresa.Focus();
                     return;
                 }
-
                 if (string.IsNullOrEmpty(nombreSuplidorV))
                 {
                     await DisplayAlert("Validacion", "Ingrese el Nombre del Suplidor", "Aceptar");
@@ -53,11 +56,90 @@ namespace RTM.FormXamarin.Views.Suplidores
                     telefono.Focus();
                     return;
                 }
-            }
-            catch (Exception)
-            {
+                if (string.IsNullOrEmpty(correoElectronicoV))
+                {
+                    await DisplayAlert("Validacion", "Ingrese el Correo Electronico", "Aceptar");
+                    correoElectronico.Focus();
+                    return;
+                }
+                if (string.IsNullOrEmpty(paisV))
+                {
+                    await DisplayAlert("Validacion", "Ingrese el Pais", "Aceptar");
+                    pais.Focus();
+                    return;
+                }
+                if (string.IsNullOrEmpty(ciudadV))
+                {
+                    await DisplayAlert("Validacion", "Ingrese la Ciudad", "Aceptar");
+                    pais.Focus();
+                    return;
+                }
+                if (string.IsNullOrEmpty(direccionV))
+                {
+                    await DisplayAlert("Validacion", "Ingrese la Direccion", "Aceptar");
+                    direccion.Focus();
+                    return;
+                }
 
-                throw;
+                //Con HttpClient se realiza la conexion a la base de datos:
+                HttpClient client = new HttpClient();
+                client.BaseAddress = new Uri(connectionString);
+
+                var suplidores = new Suplidore()
+                {
+                    SuplidorID = 0,
+                    Empresa = nombreEmpresaV,
+                    Nombre_Suplidor = nombreSuplidorV,
+                    No_Telefono = telefonoV,
+                    Correo_Electronico=correoElectronicoV,
+                    Pais=paisV,
+                    Ciudad=ciudadV,
+                    Direccion = direccionV,
+
+                };
+
+                //Convetir a Json
+                var json = JsonConvert.SerializeObject(suplidores);
+                StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
+
+                //Ejecutar el api el introduces el metodo
+                var request = await client.PostAsync("/api/Suplidores/registrar", stringContent);
+
+                if (request.IsSuccessStatusCode)
+                {
+
+                    var responseJson = await request.Content.ReadAsStringAsync();
+                    var respuesta = JsonConvert.DeserializeObject<Request>(responseJson);
+
+                    //Status
+                    if (respuesta.status)
+                    {
+                        await MaterialDialog.Instance.AlertAsync(message: "Suplidor registrado correctamente",
+                                   title: "Registro",
+                                   acknowledgementText: "Aceptar");
+                    }
+                    else
+                    {
+                        await MaterialDialog.Instance.AlertAsync(message: "Suplidor no pudo registrarse correctamente",
+                                  title: "Registro",
+                                  acknowledgementText: "Aceptar");
+
+                    }
+
+                }
+                else
+                {
+                    await MaterialDialog.Instance.AlertAsync(message: "Error",
+                                    title: "Error",
+                                    acknowledgementText: "Aceptar");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                await MaterialDialog.Instance.AlertAsync(message: ex.Message,
+                                    title: "Error",
+                                    acknowledgementText: "Aceptar");
             }
         }
     }

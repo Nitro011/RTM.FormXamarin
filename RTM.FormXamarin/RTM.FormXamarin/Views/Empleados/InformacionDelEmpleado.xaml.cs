@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using PCLAppConfig;
 using RTM.FormXamarin.Models;
+using RTM.FormXamarin.Models.Empleados;
 using RTM.FormXamarin.Models.Usuarios;
 using System;
 using System.Collections.Generic;
@@ -34,7 +35,7 @@ namespace RTM.FormXamarin.Views.Empleados
             HttpClient client = new HttpClient();
 
             client.BaseAddress = new Uri(connectionString);
-            var request = client.GetAsync($"/api/Empleados/listaPorId/{id}").Result;
+            var request = client.GetAsync($"/api/Empleados/EmpleadoPorCodigo/{id}").Result;
 
             if (request.IsSuccessStatusCode)
             {
@@ -44,18 +45,21 @@ namespace RTM.FormXamarin.Views.Empleados
                 if (response.status)
                 {
 
-                    var listaView = JsonConvert.DeserializeObject<UsuariosByID>(response.data.ToString());
+                    var listaView = JsonConvert.DeserializeObject<EmpleadoPorCodigo>(response.data.ToString());
 
-                  /*  var año = (listaView.fecha_nacimiento != null) ? listaView.fecha_nacimiento.Value.Year : DateTime.MinValue.Year;
-                    IdEmpleado.Text = listaView.IdEmpleado.ToString();
-                    Nombre.Text = listaView.Nombre;
-                    puesto.Text = listaView.puesto;
-                    sexo.Text = (listaView.sexo == true) ? "Masculino" : "Femenino";
+                    /*  var año = (listaView.fecha_nacimiento != null) ? listaView.fecha_nacimiento.Value.Year : DateTime.MinValue.Year;*/
+                    empleadoID.Text = listaView.empleadoID.ToString();
+                    nombresApellidos.Text = listaView.nombresApellidos;
+                    sexo.Text = listaView.sexo;
                     cedula.Text = listaView.cedula;
-                    edad.Text = ( DateTime.Now.Year - año).ToString();
-                    fecha_nacimiento.Text = (listaView.fecha_nacimiento != null)?DateTime.Parse( listaView.fecha_nacimiento.ToString()).ToString("dd/MM/yyyy"):DateTime.MinValue.ToString();
+                    puesto.Text = listaView.puesto;
+                    Fecha_Nacimiento.Text = listaView.fecha_Nacimiento;
+                    edad.Text = listaView.edad.ToString();
                     direccion.Text = listaView.direccion;
-                    telefono.Text = listaView.telefono;*/
+                    telefono.Text = listaView.telefono;
+                    puesto.Text = listaView.puesto;
+                    nombreUsuario.Text = listaView.nombreUsuario;
+                    rol.Text = listaView.rol;
                 }
 
             }
