@@ -29,8 +29,8 @@
 
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
-                                        <TextCell Text="{Binding NombreCompleto}"
-                                                  Detail="{Binding Puesto}"
+                                        <TextCell Text="{Binding NombreDeUsuario}"
+                                                  Detail="{Binding Rol}"
                                                   />
                                     </DataTemplate>
                                 </ListView.ItemTemplate>

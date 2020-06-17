@@ -28,7 +28,7 @@
 
                                 <StackLayout Margin="0,25,0,0">
                                     <StackLayout Orientation="Horizontal">
-                                        <material:MaterialTextField x:Name="nombreDeAreaDeProduccion" Placeholder="Nombre de Area de Produccion" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,35,0"/>
+                                    <material:MaterialTextField x:Name="NombreAreaProduccion" Placeholder="Nombre de Area de Produccion" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,35,0"/>
                                     </StackLayout>
                                 </StackLayout>
 
@@ -48,7 +48,7 @@
                             </StackLayout>
 
                             <StackLayout Orientation="Horizontal" Margin="0,15,0,0"></StackLayout>
-                                <material:MaterialButton Text="Guardar Area de Produccion" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                                <material:MaterialButton Text="Guardar Area de Produccion" x:Name="btnGuardarAreaProduccion" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                             </StackLayout>
                         </Frame>
                     </StackLayout>

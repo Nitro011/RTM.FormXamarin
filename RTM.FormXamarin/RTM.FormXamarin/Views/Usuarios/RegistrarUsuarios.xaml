@@ -20,7 +20,7 @@
 
             <StackLayout Margin="150,0,150,0">
 
-                <Frame BackgroundColor="White" HasShadow="True" HeightRequest="750" HorizontalOptions="FillAndExpand">
+                    <Frame BackgroundColor="White" HasShadow="True" HeightRequest="900" HorizontalOptions="FillAndExpand" x:Name="listaEmpleados">
                     <StackLayout>
                         <StackLayout HorizontalOptions="CenterAndExpand">
                             <material:MaterialLabel Text="Registrar Usuarios" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
@@ -38,13 +38,13 @@
                         
                             <StackLayout Margin="0,25,0,0">
                                 <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField x:Name="empleadoID" Placeholder="Nombre del Empleado" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                    <material:MaterialTextField x:Name="empleadoID" Placeholder="{Binding EmpleadoID}" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
                                 </StackLayout>
                             </StackLayout>
 
                             <StackLayout Margin="0,25,0,0">
                                 <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField x:Name="nombreEmpleado" Placeholder="Nombre del Empleado" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                    <material:MaterialTextField x:Name="nombreEmpleado" Placeholder="{Binding nombreCompleto}" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
                                 </StackLayout>
                             </StackLayout>
 
@@ -64,8 +64,8 @@
                             <StackLayout Orientation="Horizontal">
                                 <Picker Title="Roles" x:Name="pickerRoles"  HorizontalOptions = "FillAndExpand" SelectedIndexChanged="ObtenerRoles" >
                                     <Picker.Items>
-                                        <x:String>Administrador</x:String>
-                                        <x:String>Gerente General</x:String>
+                                            <x:String>Gerente General</x:String>
+                                            <x:String>admin</x:String>
                                     </Picker.Items>
                                 </Picker>
                             </StackLayout>
@@ -110,7 +110,7 @@
 
 
                             <StackLayout Orientation="Horizontal" Margin="0,0,0,0"></StackLayout>
-                        <material:MaterialButton Text="Guardar Usuarios" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                        <material:MaterialButton Text="Guardar Usuarios" x:Name="btnGuardarUsuarios" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                     </StackLayout>
                 </Frame>
             </StackLayout>

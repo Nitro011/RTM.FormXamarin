@@ -8,7 +8,6 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using RTM.FormXamarin.Models;
-using RTM.FormXamarin.Models.Usuarios;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
