@@ -10,6 +10,7 @@ using RTM.FormXamarin.Views.Usuarios;
 using RTM.FormXamarin.Views.Roles;
 using RTM.FormXamarin.Views.Empleados;
 using RTM.FormXamarin.Views.MateriasPrimas;
+using RTM.FormXamarin.Views.TIposMateriales;
 
 namespace RTM.FormXamarin.Views
 {
@@ -40,7 +41,9 @@ namespace RTM.FormXamarin.Views
                     case (int)MenuItemType.Browse:
                         MenuPages.Add(id, new NavigationPage(new ItemsPage()));
                         break;
-
+                    case (int)MenuItemType.Configuraciones:
+                        MenuPages.Add(id, new NavigationPage(new Configuraciones.Configuraciones()));
+                        break;
                     case (int)MenuItemType.Empleados:
                         MenuPages.Add(id, new NavigationPage(new Empleados.GestionarEmpleadosYUsuarios()));
                         break;
@@ -52,6 +55,9 @@ namespace RTM.FormXamarin.Views
                         break;
                     case (int)MenuItemType.GestionarAreasDeProduccion:
                         MenuPages.Add(id, new NavigationPage(new AreaDeProduccion.GestionarAreaDeProduccion()));
+                        break;
+                    case (int)MenuItemType.GestionarTiposMateriales:
+                        MenuPages.Add(id, new NavigationPage(new TIposMateriales.GestionarTipoMaterial()));
                         break;
                     case (int)MenuItemType.GestionarMateriasPrimas:
                         MenuPages.Add(id, new NavigationPage(new MateriasPrimas.GestionarMateriasPrimas()));
