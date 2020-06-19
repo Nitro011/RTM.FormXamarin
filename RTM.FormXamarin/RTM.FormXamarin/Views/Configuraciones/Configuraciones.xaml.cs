@@ -31,10 +31,22 @@ namespace RTM.FormXamarin.Views.Configuraciones
             abrirRegistroDeUsuarios.Clicked += AbrirRegistroDeUsuarios_Clicked;
             abrirRegistroDeRoles.Clicked += AbrirRegistroDeRoles_Clicked;
             abrirRegistroDeAreasDeProduccion.Clicked += AbrirRegistroDeAreasDeProduccion_Clicked;
+            abrirRegistroDeColores.Clicked += AbrirRegistroDeColores_Clicked;
             abrirConsultasDeEmpleados.Clicked += AbrirConsultasDeEmpleados_Clicked;
             abrirConsultasDeUsuarios.Clicked += AbrirConsultasDeUsuarios_Clicked;
             abrirConsultasDeRoles.Clicked += AbrirConsultasDeRoles_Clicked;
             abrirConsultasDeAreasDeProduccion.Clicked += AbrirConsultasDeAreasDeProduccion_Clicked;
+            abrirConsultasDeColores.Clicked += AbrirConsultasDeColores_Clicked;
+        }
+
+        private async void AbrirConsultasDeColores_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Colores.ConsultarColores());
+        }
+
+        private async void AbrirRegistroDeColores_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Colores.RegistrarColores());
         }
 
         private async void AbrirConsultasDeAreasDeProduccion_Clicked(object sender, EventArgs e)

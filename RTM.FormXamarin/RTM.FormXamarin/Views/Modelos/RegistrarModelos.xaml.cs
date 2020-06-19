@@ -10,53 +10,51 @@ using RTM.FormXamarin.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XF.Material.Forms.UI.Dialogs;
-using RTM.FormXamarin.Models.TiposMateriales;
+using RTM.FormXamarin.Models.Modelos;
 
-namespace RTM.FormXamarin.Views.TIposMateriales
+namespace RTM.FormXamarin.Views.Modelos
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class RegistrarTiposMateriales : ContentPage
+    public partial class RegistrarModelos : ContentPage
     {
-        public RegistrarTiposMateriales()
+        public RegistrarModelos()
         {
             InitializeComponent();
-            btnGuardarTipoMaterial.Clicked += BtnGuardarTipoMaterial_Clicked;
+            btnGuardarModelos.Clicked += BtnGuardarModelos_Clicked;
         }
 
-
-
-        private async void BtnGuardarTipoMaterial_Clicked(object sender, EventArgs e)
+        private async void BtnGuardarModelos_Clicked(object sender, EventArgs e)
         {
             string connectionString = ConfigurationManager.AppSettings["ipServer"];
 
             try
             {
-                var nombreTipoMaterialV = nombreTipoMaterial.Text;
+                var modeloV = modelo.Text;
 
 
-                if (string.IsNullOrEmpty(nombreTipoMaterialV))
+                if (string.IsNullOrEmpty(modeloV))
                 {
-                    await DisplayAlert("Validacion", "Ingrese el nombre del Tipo de Material", "Aceptar");
-                    nombreTipoMaterial.Focus();
+                    await DisplayAlert("Validacion", "Ingrese el Modelo", "Aceptar");
+                    modelo.Focus();
                     return;
                 }
 
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(connectionString);
 
-                var tipoMaterial = new TiposMateriales()
+                var modelos = new Modelo()
                 {
-                    Tipo_MaterialID = 0,
-                    Nombre_Material = nombreTipoMaterialV,
+                    ModeloID = 0,
+                    Modelo1=modeloV,
 
                 };
 
                 //Convetir a Json
-                var json = JsonConvert.SerializeObject(tipoMaterial);
+                var json = JsonConvert.SerializeObject(modelos);
                 StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
 
                 //Ejecutar el api el introduces el metodo
-                var request = await client.PostAsync("/api/TiposMateriales/registrar", stringContent);
+                var request = await client.PostAsync("/api/Modelos/registrar", stringContent);
 
                 if (request.IsSuccessStatusCode)
                 {
@@ -67,13 +65,13 @@ namespace RTM.FormXamarin.Views.TIposMateriales
                     //Status
                     if (respuesta.status)
                     {
-                        await MaterialDialog.Instance.AlertAsync(message: "Tipo de Material registrado correctamente",
+                        await MaterialDialog.Instance.AlertAsync(message: "Modelo registrado correctamente",
                                    title: "Registro",
                                    acknowledgementText: "Aceptar");
                     }
                     else
                     {
-                        await MaterialDialog.Instance.AlertAsync(message: "Tipo de Material no pudo registrarse correctamente",
+                        await MaterialDialog.Instance.AlertAsync(message: "Modelo no pudo registrarse correctamente",
                                   title: "Registro",
                                   acknowledgementText: "Aceptar");
 

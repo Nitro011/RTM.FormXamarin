@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using RTM.FormXamarin.Models;
 using RTM.FormXamarin.Models.Usuarios;
+using RTM.FormXamarin.Models.AreasDeProduccion;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using PCLAppConfig;
@@ -26,6 +27,42 @@ namespace RTM.FormXamarin.Views.Usuarios
             BindingContext = this.Usuarios = new RegistrarUsuariosViewModel();
             cedula.Completed += Cedula_Completed;
             btnGuardarUsuarios.Clicked += BtnGuardarUsuarios_Clicked;
+            ListaAreaProduccion();
+        }
+
+        private async void ListaAreaProduccion()
+        {
+            string connectionString = ConfigurationManager.AppSettings["ipServer"];
+
+
+            HttpClient client = new HttpClient();
+
+            client.BaseAddress = new Uri(connectionString);
+            var request = client.GetAsync("/api/AreaProduccion/lista").Result;
+
+            if (request.IsSuccessStatusCode)
+            {
+                var responseJson = request.Content.ReadAsStringAsync().Result;
+                var response = JsonConvert.DeserializeObject<Request>(responseJson);
+
+                if (response.status)
+                {
+
+                    var listaView = JsonConvert.DeserializeObject<List<AreaProduccionListView>>(response.data.ToString());
+
+                    pickerAreaProduccion.ItemsSource = listaView;
+
+
+                }
+                else
+                {
+                    await MaterialDialog.Instance.AlertAsync(message: "Error",
+                                   title: "Error",
+                                   acknowledgementText: "Aceptar");
+                }
+
+            }
+
         }
 
         private async void BtnGuardarUsuarios_Clicked(object sender, EventArgs e)
@@ -40,7 +77,7 @@ namespace RTM.FormXamarin.Views.Usuarios
                 var EmpleadoIDV = empleadoID.Text;
                 var NombreEmpleadV = nombreEmpleado.Text;
                 var RolIDV = pickerRoles.SelectedIndex;
-                var AreaProduccionIDV = pickerAreaProduccion.SelectedIndex;
+                var AreaProduccionIDV = pickerAreaProduccion.SelectedIndex+1;
 
 
                 if (string.IsNullOrEmpty(NombreDeUsuarioV))

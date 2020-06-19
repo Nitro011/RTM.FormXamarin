@@ -89,22 +89,7 @@
 
                             <StackLayout Margin="0,25,0,0">
                                 <StackLayout Orientation="Horizontal">
-                                    <Picker Title="Area de Produccion" x:Name="pickerAreaProduccion"  HorizontalOptions = "FillAndExpand" SelectedIndexChanged="ObtenerRoles" >
-                                        <Picker.Items>
-                                            <x:String>Product Development</x:String>
-                                            <x:String>Warehouse</x:String>
-                                            <x:String>Cutting</x:String>
-                                            <x:String>Sample Room</x:String>
-                                            <x:String>Prefitting</x:String>
-                                            <x:String>Fitting</x:String>
-                                            <x:String>Handsewn</x:String>
-                                            <x:String>Horno</x:String>
-                                            <x:String>Bottoming</x:String>
-                                            <x:String>FQA</x:String>
-                                            <x:String>Packing Room</x:String>
-                                            <x:String>Embarque</x:String>
-                                        </Picker.Items>
-                                    </Picker>
+                                    <Picker Title="Area de Produccion" x:Name="pickerAreaProduccion" ItemsSource="{Binding NombreAreaProduccion}" ItemDisplayBinding="{Binding NombreAreaProduccion}" SelectedIndex="{Binding AreaProduccionID}"  HorizontalOptions = "FillAndExpand" SelectedIndexChanged="ObtenerRoles" />
                                 </StackLayout>
                             </StackLayout>
 

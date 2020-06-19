@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
              mc:Ignorable="d"
-             x:Class="RTM.FormXamarin.Views.MateriasPrimas.RegistrarMateriasPrimas">
+             x:Class="RTM.FormXamarin.Views.Colores.RegistrarColores">
 
     <ScrollView>
         <StackLayout Padding="0" BackgroundColor="LightGray">
@@ -21,23 +21,17 @@
                     <Frame BackgroundColor="White" HasShadow="True" HeightRequest="450" HorizontalOptions="FillAndExpand">
                         <StackLayout>
                             <StackLayout HorizontalOptions="CenterAndExpand">
-                                <material:MaterialLabel Text="Registrar Materias Primas" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel Text="Registrar Colores" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                             </StackLayout>
 
-                            <StackLayout Margin="0,25,0,0">
+                            <StackLayout Margin="0,55,0,0">
                                 <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField x:Name="Nombre_Materia_Prima" Placeholder="Ingrese el nombre de la Materia Prima" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,35,0"/>
-                                </StackLayout>
-                            </StackLayout>
-
-                            <StackLayout Margin="0,25,0,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <Picker Title="Tipos de Materiales" x:Name="listaTiposMateriales"  ItemsSource="{Binding Nombre_Material}" ItemDisplayBinding="{Binding Nombre_Material}" SelectedIndex="{Binding Tipo_MaterialID}" SelectedIndexChanged="ObtenerRoles" HorizontalOptions = "FillAndExpand"/>
+                                    <material:MaterialTextField x:Name="nombreColor" Placeholder="Ingrese el nuevo Color" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,35,0"/>
                                 </StackLayout>
                             </StackLayout>
 
                             <StackLayout Orientation="Horizontal" Margin="0,15,0,0"></StackLayout>
-                            <material:MaterialButton Text="Guardar Materias Primas" x:Name="btnGuardarMateriasPrimas" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            <material:MaterialButton Text="Guardar Color" x:Name="btnGuardarColor" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                         </StackLayout>
                     </Frame>
                 </StackLayout>

@@ -1,29 +1,29 @@
 ﻿using Newtonsoft.Json;
 using PCLAppConfig;
+using RTM.FormXamarin.Models;
+using RTM.FormXamarin.Models.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using RTM.FormXamarin.Models;
-using RTM.FormXamarin.Models.TiposMateriales;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XF.Material.Forms.UI.Dialogs;
 
-namespace RTM.FormXamarin.Views.TIposMateriales
+namespace RTM.FormXamarin.Views.Modelos
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ConsultarTiposMateriales : ContentPage
+    public partial class ConsultarModelos : ContentPage
     {
-        public ConsultarTiposMateriales()
+        public ConsultarModelos()
         {
             InitializeComponent();
-            ListaTiposMateriales();
+            ListaModelos();
         }
 
-        private async void ListaTiposMateriales()
+        private async void ListaModelos()
         {
             string connectionString = ConfigurationManager.AppSettings["ipServer"];
 
@@ -31,7 +31,7 @@ namespace RTM.FormXamarin.Views.TIposMateriales
             HttpClient client = new HttpClient();
 
             client.BaseAddress = new Uri(connectionString);
-            var request = client.GetAsync("/api/TiposMateriales/lista").Result;
+            var request = client.GetAsync("/api/Modelos/lista").Result;
 
             if (request.IsSuccessStatusCode)
             {
@@ -41,9 +41,9 @@ namespace RTM.FormXamarin.Views.TIposMateriales
                 if (response.status)
                 {
 
-                    var listaView = JsonConvert.DeserializeObject<List<TiposMaterialesListView>>(response.data.ToString());
+                    var listaView = JsonConvert.DeserializeObject<List<ModelosListView>>(response.data.ToString());
 
-                    listaTiposMateriales.ItemsSource = listaView;
+                    listaModelos.ItemsSource = listaView;
 
 
                 }

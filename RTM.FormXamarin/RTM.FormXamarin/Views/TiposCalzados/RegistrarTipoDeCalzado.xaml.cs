@@ -7,56 +7,54 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using RTM.FormXamarin.Models;
+using RTM.FormXamarin.Models.TiposCalzados;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XF.Material.Forms.UI.Dialogs;
-using RTM.FormXamarin.Models.TiposMateriales;
 
-namespace RTM.FormXamarin.Views.TIposMateriales
+namespace RTM.FormXamarin.Views.TiposCalzados
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class RegistrarTiposMateriales : ContentPage
+    public partial class RegistrarTipoDeCalzado : ContentPage
     {
-        public RegistrarTiposMateriales()
+        public RegistrarTipoDeCalzado()
         {
             InitializeComponent();
-            btnGuardarTipoMaterial.Clicked += BtnGuardarTipoMaterial_Clicked;
+            btnGuardarTipoCalzado.Clicked += BtnGuardarTipoCalzado_Clicked;
         }
 
-
-
-        private async void BtnGuardarTipoMaterial_Clicked(object sender, EventArgs e)
+        private async void BtnGuardarTipoCalzado_Clicked(object sender, EventArgs e)
         {
             string connectionString = ConfigurationManager.AppSettings["ipServer"];
 
             try
             {
-                var nombreTipoMaterialV = nombreTipoMaterial.Text;
+                var nombreTipoCalzadoV = nombreTipoCalzado.Text;
 
 
-                if (string.IsNullOrEmpty(nombreTipoMaterialV))
+                if (string.IsNullOrEmpty(nombreTipoCalzadoV))
                 {
-                    await DisplayAlert("Validacion", "Ingrese el nombre del Tipo de Material", "Aceptar");
-                    nombreTipoMaterial.Focus();
+                    await DisplayAlert("Validacion", "Ingrese el nombre del Tipo de Calzado", "Aceptar");
+                    nombreTipoCalzado.Focus();
                     return;
                 }
 
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(connectionString);
 
-                var tipoMaterial = new TiposMateriales()
+                var empleados = new TipoCalzado()
                 {
-                    Tipo_MaterialID = 0,
-                    Nombre_Material = nombreTipoMaterialV,
+                    Tipo_CalzadoID = 0,
+                    Tipo_Calzado = nombreTipoCalzadoV,
 
                 };
 
                 //Convetir a Json
-                var json = JsonConvert.SerializeObject(tipoMaterial);
+                var json = JsonConvert.SerializeObject(empleados);
                 StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
 
                 //Ejecutar el api el introduces el metodo
-                var request = await client.PostAsync("/api/TiposMateriales/registrar", stringContent);
+                var request = await client.PostAsync("/api/TiposCalzados/registrar", stringContent);
 
                 if (request.IsSuccessStatusCode)
                 {
@@ -67,13 +65,13 @@ namespace RTM.FormXamarin.Views.TIposMateriales
                     //Status
                     if (respuesta.status)
                     {
-                        await MaterialDialog.Instance.AlertAsync(message: "Tipo de Material registrado correctamente",
+                        await MaterialDialog.Instance.AlertAsync(message: "Tipo de Calzado registrado correctamente",
                                    title: "Registro",
                                    acknowledgementText: "Aceptar");
                     }
                     else
                     {
-                        await MaterialDialog.Instance.AlertAsync(message: "Tipo de Material no pudo registrarse correctamente",
+                        await MaterialDialog.Instance.AlertAsync(message: "Tipo de Calzado no pudo registrarse correctamente",
                                   title: "Registro",
                                   acknowledgementText: "Aceptar");
 

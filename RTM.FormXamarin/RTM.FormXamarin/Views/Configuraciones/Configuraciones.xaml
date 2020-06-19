@@ -18,7 +18,7 @@
 
                 <StackLayout Margin="150,110,150,0">
 
-                    <Frame BackgroundColor="White" HasShadow="True" HeightRequest="700" HorizontalOptions="FillAndExpand">
+                    <Frame BackgroundColor="White" HasShadow="True" HeightRequest="1000" HorizontalOptions="FillAndExpand">
                         <StackLayout>
                             <StackLayout HorizontalOptions="CenterAndExpand" Margin="0,25,0,0">
                                 <material:MaterialLabel Text="Configuraciones" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
@@ -32,6 +32,8 @@
 
                             <material:MaterialButton Text="Registrar Areas de Produccion" x:Name="abrirRegistroDeAreasDeProduccion" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
 
+                            <material:MaterialButton Text="Registrar Colores" x:Name="abrirRegistroDeColores" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
+
                             <material:MaterialButton Text="Consultar Empleados" x:Name="abrirConsultasDeEmpleados" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
 
                             <material:MaterialButton Text="Consultar Usuarios" x:Name="abrirConsultasDeUsuarios" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
@@ -39,6 +41,8 @@
                             <material:MaterialButton Text="Consultar Roles" x:Name="abrirConsultasDeRoles" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
 
                             <material:MaterialButton Text="Consultar Areas de Produccion" x:Name="abrirConsultasDeAreasDeProduccion" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
+                            
+                            <material:MaterialButton Text="Consultar Colores" x:Name="abrirConsultasDeColores" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
 
                         </StackLayout>
                     </Frame>

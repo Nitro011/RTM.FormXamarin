@@ -5,8 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
              mc:Ignorable="d"
-             x:Class="RTM.FormXamarin.Views.TIposMateriales.ConsultarTiposMateriales"
-             Title="{Binding Title}">
+             x:Class="RTM.FormXamarin.Views.Colores.ConsultarColores">
 
     <StackLayout Padding="0" BackgroundColor="LightGray">
         <Grid>
@@ -21,15 +20,15 @@
                 <Frame BackgroundColor="White" HasShadow="True" HeightRequest="450" HorizontalOptions="FillAndExpand">
                     <StackLayout>
                         <StackLayout HorizontalOptions="CenterAndExpand">
-                            <material:MaterialLabel Text="Consultar Tipos de Materiales" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                            <material:MaterialLabel Text="Consultar Colores" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         </StackLayout>
 
                         <StackLayout>
-                            <ListView x:Name="listaTiposMateriales" >
+                            <ListView x:Name="listaColores" >
 
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
-                                        <TextCell Text="{Binding Nombre_Material}"/>
+                                        <TextCell Text="{Binding Color}"/>
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
                             </ListView>

@@ -44,32 +44,17 @@ namespace RTM.FormXamarin.Views
                     case (int)MenuItemType.Configuraciones:
                         MenuPages.Add(id, new NavigationPage(new Configuraciones.Configuraciones()));
                         break;
-                    case (int)MenuItemType.Empleados:
-                        MenuPages.Add(id, new NavigationPage(new Empleados.GestionarEmpleadosYUsuarios()));
+                    case (int)MenuItemType.TiposCalzados:
+                        MenuPages.Add(id, new NavigationPage(new TiposCalzados.GestionarTiposCalzados()));
                         break;
-                    case (int)MenuItemType.Usuarios:
-                        MenuPages.Add(id, new NavigationPage(new Usuarios.GestionarUsuarios()));
-                        break;
-                    case (int)MenuItemType.Suplidores:
-                        MenuPages.Add(id, new NavigationPage(new Suplidores.GestionarSuplidores()));
-                        break;
-                    case (int)MenuItemType.GestionarAreasDeProduccion:
-                        MenuPages.Add(id, new NavigationPage(new AreaDeProduccion.GestionarAreaDeProduccion()));
-                        break;
-                    case (int)MenuItemType.GestionarTiposMateriales:
-                        MenuPages.Add(id, new NavigationPage(new TIposMateriales.GestionarTipoMaterial()));
-                        break;
-                    case (int)MenuItemType.GestionarMateriasPrimas:
-                        MenuPages.Add(id, new NavigationPage(new MateriasPrimas.GestionarMateriasPrimas()));
-                        break;
-                    case (int)MenuItemType.RegistrarRoles:
-                        MenuPages.Add(id, new NavigationPage(new RegistrarRoles()));
+                    case (int)MenuItemType.GestionarModelos:
+                        MenuPages.Add(id, new NavigationPage(new Modelos.GestionarModelos()));
                         break;
                     case (int)MenuItemType.Clientes:
                         MenuPages.Add(id, new NavigationPage(new Clientes.RegistrarClientes()));
                         break;
                     case (int)MenuItemType.Almacen:
-                        MenuPages.Add(id, new NavigationPage(new Almacen.RegistrarAlmacen()));
+                        MenuPages.Add(id, new NavigationPage(new Almacen.GestionarAlmacen()));
                         break;
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));

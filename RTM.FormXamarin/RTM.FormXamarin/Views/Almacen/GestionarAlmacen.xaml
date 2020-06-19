@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             mc:Ignorable="d"
+             x:Class="RTM.FormXamarin.Views.Almacen.GestionarAlmacen"
+             Title="{Binding Title}">
+
+    <ScrollView>
+        <StackLayout Padding="0" BackgroundColor="LightGray">
+            <Grid>
+                <StackLayout Padding="0" Margin="0">
+                    <Frame BackgroundColor="#07485B" HeightRequest="150" HorizontalOptions="FillAndExpand" Padding="0">
+                        <!--<Image Source="" Aspect="Fill" Margin="0"-->
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout Margin="150,110,150,0">
+
+                    <Frame BackgroundColor="White" HasShadow="True" HeightRequest="700" HorizontalOptions="FillAndExpand">
+                        <StackLayout>
+                            <StackLayout HorizontalOptions="CenterAndExpand" Margin="0,25,0,0">
+                                <material:MaterialLabel Text="Gestiones de Almacen" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                            </StackLayout>
+
+                            <material:MaterialButton Text="Registrar Almacen" x:Name="abrirRegistroDeAlmacen" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0"  WidthRequest="700"/>
+
+                            <material:MaterialButton Text="Registrar Materias Primas" x:Name="abrirRegistroDeMateriasPrimas" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
+
+                            <material:MaterialButton Text="Registrar Tipos de Materiales" x:Name="abrirRegistroDeTiposDeMateriales" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
+
+                            <material:MaterialButton Text="Registrar Suplidores" x:Name="abrirRegistroDeSuplidores" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
+
+                            <material:MaterialButton Text="Consultar Almacen" x:Name="abrirConsultasDeAlmacen" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
+
+                            <material:MaterialButton Text="Consultar Materias Primas" x:Name="abrirConsultasDeMateriasPrimas" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
+
+                            <material:MaterialButton Text="Consultar Tipos de Materiales" x:Name="abrirConsultasDeTiposDeMateriales" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
+
+                            <material:MaterialButton Text="Consultar Suplidores" x:Name="abrirConsultasDeSuplidores" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
+
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
