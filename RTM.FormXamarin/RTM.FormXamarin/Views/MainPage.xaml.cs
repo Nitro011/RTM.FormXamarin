@@ -11,6 +11,7 @@ using RTM.FormXamarin.Views.Roles;
 using RTM.FormXamarin.Views.Empleados;
 using RTM.FormXamarin.Views.MateriasPrimas;
 using RTM.FormXamarin.Views.TIposMateriales;
+using RTM.FormXamarin.Models.Marcas;
 
 namespace RTM.FormXamarin.Views
 {
@@ -49,6 +50,9 @@ namespace RTM.FormXamarin.Views
                         break;
                     case (int)MenuItemType.GestionarModelos:
                         MenuPages.Add(id, new NavigationPage(new Modelos.GestionarModelos()));
+                        break;
+                    case (int)MenuItemType.GestionarMarcas:
+                        MenuPages.Add(id, new NavigationPage(new Marcas.GestionarMarcas()));
                         break;
                     case (int)MenuItemType.Clientes:
                         MenuPages.Add(id, new NavigationPage(new Clientes.RegistrarClientes()));
