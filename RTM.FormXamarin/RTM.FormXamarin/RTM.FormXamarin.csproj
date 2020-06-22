@@ -113,6 +113,9 @@
     <EmbeddedResource Update="Views\OrdenesClientes\RegistrarOrdenesClientes.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\OrdenesClientes\RegistrarOrdenesClientesDetalles.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Roles\RegistrarRoles.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

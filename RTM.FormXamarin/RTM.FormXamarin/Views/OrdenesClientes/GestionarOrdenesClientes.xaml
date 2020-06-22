@@ -19,7 +19,7 @@
 
                 <StackLayout Margin="150,110,150,0">
 
-                    <Frame BackgroundColor="White" HasShadow="True" HeightRequest="350" HorizontalOptions="FillAndExpand">
+                    <Frame BackgroundColor="White" HasShadow="True" HeightRequest="1050" HorizontalOptions="FillAndExpand">
                         <StackLayout>
                             <StackLayout HorizontalOptions="CenterAndExpand" Margin="0,25,0,0">
                                 <material:MaterialLabel Text="Gestionar Ordenes de los Clientes" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
@@ -30,6 +30,8 @@
                             <material:MaterialButton Text="Consultar Ordenes de los Clientes" x:Name="abrirConsultasDeOrdenesClientes" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
 
                             <material:MaterialButton Text="Modificar Ordenes de los Clientes" x:Name="abrirModificacionDeOrdenesClientes" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
+
+                            <material:MaterialButton Text="Registrar Ordenes de Clientes Detalles" x:Name="abrirRegistroDeOrdenesClientesDetalles" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
 
                         </StackLayout>
                     </Frame>
