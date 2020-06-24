@@ -16,6 +16,7 @@ using Android.Util;
 using XF.Material.Forms.UI.Dialogs;
 using XF.Material.Forms;
 using Android.App;
+using Android.Views.Accessibility;
 
 namespace RTM.FormXamarin.Views.Configuraciones
 {
@@ -27,66 +28,32 @@ namespace RTM.FormXamarin.Views.Configuraciones
         {
             InitializeComponent();
             BindingContext = this.ConfiguracionesViewModel = new ConfiguracionesViewModel();
-            abrirRegistroDeEmpleados.Clicked += AbrirRegistroDeEmpleados_Clicked;
-            abrirRegistroDeUsuarios.Clicked += AbrirRegistroDeUsuarios_Clicked;
-            abrirRegistroDeRoles.Clicked += AbrirRegistroDeRoles_Clicked;
-            abrirRegistroDeAreasDeProduccion.Clicked += AbrirRegistroDeAreasDeProduccion_Clicked;
-            abrirRegistroDeColores.Clicked += AbrirRegistroDeColores_Clicked;
-            abrirConsultasDeEmpleados.Clicked += AbrirConsultasDeEmpleados_Clicked;
-            abrirConsultasDeUsuarios.Clicked += AbrirConsultasDeUsuarios_Clicked;
-            abrirConsultasDeRoles.Clicked += AbrirConsultasDeRoles_Clicked;
-            abrirConsultasDeAreasDeProduccion.Clicked += AbrirConsultasDeAreasDeProduccion_Clicked;
-            abrirConsultasDeColores.Clicked += AbrirConsultasDeColores_Clicked;
+            abrirGestionDeEmpleados.Clicked += AbrirGestionDeEmpleados_Clicked;
+            abrirGestionDeUsuarios.Clicked += AbrirGestionDeUsuarios_Clicked;
+            abrirGestionDeAreasDeProduccion.Clicked += AbrirGestionDeAreasDeProduccion_Clicked;
+            abrirGestionDeColores.Clicked += AbrirGestionDeColores_Clicked;
         }
 
-        private async void AbrirConsultasDeColores_Clicked(object sender, EventArgs e)
+        private async void AbrirGestionDeColores_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Colores.ConsultarColores());
+            await Navigation.PushAsync(new Colores.GestionarColores());
         }
 
-        private async void AbrirRegistroDeColores_Clicked(object sender, EventArgs e)
+        private async void AbrirGestionDeAreasDeProduccion_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Colores.RegistrarColores());
+            await Navigation.PushAsync(new AreaDeProduccion.GestionarAreaDeProduccion());
         }
 
-        private async void AbrirConsultasDeAreasDeProduccion_Clicked(object sender, EventArgs e)
+        private async void AbrirGestionDeUsuarios_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new AreaDeProduccion.ConsultarAreaProduccion());
+            await Navigation.PushAsync(new Usuarios.GestionarUsuarios());
         }
 
-        private async void AbrirConsultasDeRoles_Clicked(object sender, EventArgs e)
+        private async void AbrirGestionDeEmpleados_Clicked(object sender, EventArgs e)
         {
-            await DisplayAlert("Comming Soon", "Ya pronto funcionara", "Aceptar");
+            await Navigation.PushAsync(new Empleados.GestionarEmpleadosYUsuarios());
         }
 
-        private async void AbrirConsultasDeUsuarios_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new Usuarios.ConsultarUsuarios());
-        }
 
-        private async void AbrirConsultasDeEmpleados_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new Empleados.ConsultarEmpleados());
-        }
-
-        private async void AbrirRegistroDeRoles_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new Roles.RegistrarRoles());
-        }
-
-        private async void AbrirRegistroDeUsuarios_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new Usuarios.RegistrarUsuarios());
-        }
-
-        private async void AbrirRegistroDeEmpleados_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new Empleados.RegistrarEmpleados());
-        }
-
-        private async void AbrirRegistroDeAreasDeProduccion_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new AreaDeProduccion.RegistrarAreaDeProduccion());
-        }
     }
 }

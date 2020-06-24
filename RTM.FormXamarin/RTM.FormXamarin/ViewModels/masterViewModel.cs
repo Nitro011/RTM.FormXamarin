@@ -8,7 +8,7 @@ namespace RTM.FormXamarin.ViewModels
     {
         public masterViewModel()
         {
-            Title = "Master";
+            Title = "Pagina Principal";
         }
 
 

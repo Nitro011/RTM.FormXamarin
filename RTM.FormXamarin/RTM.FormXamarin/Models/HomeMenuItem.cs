@@ -6,7 +6,7 @@ namespace RTM.FormXamarin.Models
 {
     public enum MenuItemType
     {
-        master,
+        PaginaPrincipal,
         Browse,
         Configuraciones,
         TiposCalzados,
