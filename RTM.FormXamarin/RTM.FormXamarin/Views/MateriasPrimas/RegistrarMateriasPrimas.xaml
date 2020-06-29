@@ -26,6 +26,12 @@
 
                             <StackLayout Margin="0,25,0,0">
                                 <StackLayout Orientation="Horizontal">
+                                    <material:MaterialTextField x:Name="PartNo" Placeholder="Ingrese el Part No." TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,35,0"/>
+                                </StackLayout>
+                            </StackLayout>
+
+                            <StackLayout Margin="0,25,0,0">
+                                <StackLayout Orientation="Horizontal">
                                     <material:MaterialTextField x:Name="Nombre_Materia_Prima" Placeholder="Ingrese el nombre de la Materia Prima" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,35,0"/>
                                 </StackLayout>
                             </StackLayout>
@@ -33,6 +39,12 @@
                             <StackLayout Margin="0,25,0,0">
                                 <StackLayout Orientation="Horizontal">
                                     <Picker Title="Tipos de Materiales" x:Name="listaTiposMateriales"  ItemsSource="{Binding Nombre_Material}" ItemDisplayBinding="{Binding Nombre_Material}" SelectedIndex="{Binding Tipo_MaterialID}" SelectedIndexChanged="ObtenerRoles" HorizontalOptions = "FillAndExpand"/>
+                                </StackLayout>
+                            </StackLayout>
+
+                            <StackLayout Margin="0,25,0,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <material:MaterialTextField x:Name="Descripcion" Placeholder="Ingrese la Descripcion del Material" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,35,0"/>
                                 </StackLayout>
                             </StackLayout>
 
