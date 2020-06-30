@@ -28,6 +28,8 @@ namespace RTM.FormXamarin.Views
                 new HomeMenuItem {Id = MenuItemType.GestionarDimensiones, Title="Gestionar Dimensiones"},
                 new HomeMenuItem {Id = MenuItemType.OrdenesClientes, Title="Gestionar Ordenes de Clientes"},
                 new HomeMenuItem {Id = MenuItemType.Clientes, Title="Clientes" },
+                new HomeMenuItem {Id = MenuItemType.OperacionesCalzados, Title="Gestionar Operaciones de Calzados"},
+                new HomeMenuItem {Id= MenuItemType.BOM, Title="Gestionar BOM"},
                 new HomeMenuItem {Id = MenuItemType.Almacen, Title="Almacen"},
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" }
             };

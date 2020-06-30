@@ -15,6 +15,8 @@ namespace RTM.FormXamarin.Models
         GestionarDimensiones,
         OrdenesClientes,
         Clientes,
+        OperacionesCalzados,
+        BOM,
         Almacen,
         About
     }

@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="RayTrackingMobile.login">
     <ScrollView>
-    <StackLayout Padding="0" BackgroundColor="LightGray">
+        <StackLayout Padding="0" BackgroundColor="LightGray">
 
         <Grid>
             <StackLayout Padding="0" Margin="0">

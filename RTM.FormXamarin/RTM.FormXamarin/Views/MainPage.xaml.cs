@@ -60,6 +60,12 @@ namespace RTM.FormXamarin.Views
                     case (int)MenuItemType.Clientes:
                         MenuPages.Add(id, new NavigationPage(new Clientes.RegistrarClientes()));
                         break;
+                    case (int)MenuItemType.OperacionesCalzados:
+                        MenuPages.Add(id, new NavigationPage(new OperacionesCalzados.GestionarOperacionesCalzados()));
+                        break;
+                    case (int)MenuItemType.BOM:
+                        MenuPages.Add(id, new NavigationPage(new BOM.GestionarBOM()));
+                        break;
                     case (int)MenuItemType.Almacen:
                         MenuPages.Add(id, new NavigationPage(new Almacen.GestionarAlmacen()));
                         break;

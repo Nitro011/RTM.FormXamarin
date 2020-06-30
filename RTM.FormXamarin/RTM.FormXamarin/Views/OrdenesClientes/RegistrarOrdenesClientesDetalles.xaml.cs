@@ -86,12 +86,12 @@ namespace RTM.FormXamarin.Views.OrdenesClientes
                 var ordenesClientesDetalles = new OrdenesClientesDetalle()
                 {
                     Orden_Cliente_DetalleID = 0,
-                    Orden_ClienteID = ordenClienteIDV,
+                    Orden_ClienteID = Convert.ToInt32(ordenClienteIDV),
                     MarcaID = marcasV,
-                    Ordenes_Clientes_Detalles_ColoresID = coloresV,
-                    Ordenes_Clientes_Detalles_DimensionesID = dimensionesV,
-                    Ordenes_Clientes_Detalles_ModelosID=modelosV,
-                    Ordenes_Clientes_Detalles_Tipos_CalzadosID=tiposCalzadosV,
+                    Ordenes_Clientes_Detalles_ColoresID = Convert.ToInt32(coloresV),
+                    Ordenes_Clientes_Detalles_DimensionesID = Convert.ToInt32(dimensionesV),
+                    Ordenes_Clientes_Detalles_ModelosID=Convert.ToInt32(modelosV),
+                    Ordenes_Clientes_Detalles_Tipos_CalzadosID=Convert.ToInt32(tiposCalzadosV),
 
                 };
 
