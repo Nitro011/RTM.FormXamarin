@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30104.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTM.FormXamarin.Android", "RTM.FormXamarin\RTM.FormXamarin.Android\RTM.FormXamarin.Android.csproj", "{822B72F5-7E2D-40FC-9C5B-AB2E8BFB503B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTM.FormXamarin", "RTM.FormXamarin\RTM.FormXamarin\RTM.FormXamarin.csproj", "{9213024F-8F12-4D2E-B169-D6F8BAFCE8E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RTM.FormXamarin", "RTM.FormXamarin\RTM.FormXamarin\RTM.FormXamarin.csproj", "{9213024F-8F12-4D2E-B169-D6F8BAFCE8E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

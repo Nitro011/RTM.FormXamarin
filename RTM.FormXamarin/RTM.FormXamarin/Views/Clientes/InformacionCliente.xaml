@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             mc:Ignorable="d"
+             x:Class="RTM.FormXamarin.Views.Clientes.InformacionCliente"
+             Title="{Binding Title}">
+
+    <StackLayout Padding="0" BackgroundColor="LightGray">
+        <Grid>
+            <StackLayout Padding="0" Margin="0">
+                <Frame BackgroundColor="#07485B" HeightRequest="150" HorizontalOptions="FillAndExpand" Padding="0">
+                    <!--<Image Source="" Aspect="Fill" Margin="0"-->
+                </Frame>
+            </StackLayout>
+
+            <StackLayout Margin="150,110,150,0">
+
+                <Frame BackgroundColor="White" HasShadow="True" HeightRequest="450" HorizontalOptions="FillAndExpand">
+                    <StackLayout>
+                        <StackLayout HorizontalOptions="CenterAndExpand">
+                            <material:MaterialLabel Text="Informacion del Empleado" TextColor="Black" FontSize="Title" FontAttributes="Bold"/>
+                        </StackLayout>
+                        
+                        <StackLayout Margin="0,25,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="ClienteID:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel  x:Name="ClienteID" Text="Cliente ID:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
+                        </StackLayout>
+                        
+                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="Codigo del Cliente:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel x:Name="CodigoCliente" Text="Codigo del Cliente:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
+                        </StackLayout>
+                        
+                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Orientation="Horizontal">
+                              <material:MaterialLabel Text="RNC del Cliente:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                              <material:MaterialLabel x:Name="RNC" Text="RNC:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
+                        </StackLayout>
+                        
+                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="Nombre del Cliente:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel x:Name="Nombre_Cliente" Text="Nombre del Cliente:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
+                        </StackLayout>
+                        
+                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="Correo Electronico:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel x:Name="Correo_Electronico" Text="Correo Electronico:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
+                        </StackLayout>
+                        
+                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="Numero de Telefono:" TextColor="Black" FontSize="Medium" FontAttributes="Bold" />
+                                <material:MaterialLabel x:Name="No_Telefono" Text="Numero de Telefono:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
+                        </StackLayout>
+                        
+                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="Pais:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel x:Name="Pais" Text="Pais:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
+                        </StackLayout>
+                        
+                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="Direccion:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel x:Name="Direccion" Text="Direccion:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </Grid>
+    </StackLayout>
+</ContentPage>

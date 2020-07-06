@@ -10,6 +10,7 @@ namespace RTM.FormXamarin.Models
         Browse,
         Configuraciones,
         TiposCalzados,
+        GestionarClientes,
         GestionarModelos,
         GestionarMarcas,
         GestionarDimensiones,

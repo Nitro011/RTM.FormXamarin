@@ -18,7 +18,7 @@
 
                 <StackLayout Margin="150,110,150,0">
 
-                    <Frame BackgroundColor="White" HasShadow="True" HeightRequest="690" HorizontalOptions="FillAndExpand">
+                    <Frame BackgroundColor="White" HasShadow="True" HeightRequest="1400" HorizontalOptions="FillAndExpand">
                         <StackLayout>
                             <StackLayout HorizontalOptions="CenterAndExpand">
                                 <material:MaterialLabel Text="Registrar BOM" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
@@ -51,6 +51,72 @@
                             <StackLayout Margin="0,10,0,0">
                                 <StackLayout Orientation="Horizontal">
                                     <material:MaterialTextField x:Name="Pattn" Placeholder="Pattn" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                </StackLayout>
+                            </StackLayout>
+
+                            <StackLayout Margin="0,10,0,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <material:MaterialTextField x:Name="Construction" Placeholder="Construction" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                </StackLayout>
+                            </StackLayout>
+
+                            <StackLayout Margin="0,10,0,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <material:MaterialTextField x:Name="Last" Placeholder="Last" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                </StackLayout>
+                            </StackLayout>
+
+                            <StackLayout Margin="0,10,0,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <material:MaterialTextField x:Name="Customer" Placeholder="Customer" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                </StackLayout>
+                            </StackLayout>
+
+                            <StackLayout Margin="0,10,0,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <material:MaterialTextField x:Name="PartNo" Placeholder="PartNo" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                </StackLayout>
+                            </StackLayout>
+
+                            <StackLayout Margin="0,10,0,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <material:MaterialTextField x:Name="DIE" Placeholder="DIE#" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                </StackLayout>
+                            </StackLayout>
+
+                            <StackLayout Margin="0,10,0,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <material:MaterialTextField x:Name="Item" Placeholder="Construction" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                </StackLayout>
+                            </StackLayout>
+
+                            <StackLayout Margin="0,10,0,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <material:MaterialTextField x:Name="Description" Placeholder="Description" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                </StackLayout>
+                            </StackLayout>
+
+                            <StackLayout Margin="0,10,0,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <material:MaterialTextField x:Name="Unit" Placeholder="Unit" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                </StackLayout>
+                            </StackLayout>
+
+                            <StackLayout Margin="0,10,0,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <material:MaterialTextField x:Name="Usage" Placeholder="Usage" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                </StackLayout>
+                            </StackLayout>
+
+                            <StackLayout Margin="0,10,0,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <material:MaterialTextField x:Name="Cost" Placeholder="Cost" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                </StackLayout>
+                            </StackLayout>
+
+                            <StackLayout Margin="0,10,0,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <material:MaterialTextField x:Name="Ext" Placeholder="Ext" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
                                 </StackLayout>
                             </StackLayout>
 

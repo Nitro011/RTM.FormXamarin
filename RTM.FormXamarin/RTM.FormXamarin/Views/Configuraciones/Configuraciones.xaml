@@ -34,6 +34,8 @@
 
                             <material:MaterialButton Text="Colores" x:Name="abrirGestionDeColores" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
 
+                            <material:MaterialButton Text="OperacionesCalzados" x:Name="abrirGestionDeOperacionesCalzados" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
+
                         </StackLayout>
                     </Frame>
                 </StackLayout>

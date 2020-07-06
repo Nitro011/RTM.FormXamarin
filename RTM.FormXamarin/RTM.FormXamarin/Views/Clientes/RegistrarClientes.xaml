@@ -26,29 +26,35 @@
                             <material:MaterialLabel Text="Registrar Clientes" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         </StackLayout>
 
-                        <StackLayout Margin="0,25,0,0">
-                            <StackLayout Orientation="Horizontal">
-                                <material:MaterialTextField Placeholder="Nombre del Cliente" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                            <StackLayout Margin="0,25,0,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <material:MaterialTextField x:Name="codigoCliente" Placeholder="Codigo del Cliente" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                </StackLayout>
                             </StackLayout>
-                        </StackLayout>
-                        
-                        <StackLayout Margin="0,25,0,0">
-                            <StackLayout Orientation="Horizontal">
-                                <material:MaterialTextField Placeholder="Nombre del Representante" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+
+                            <StackLayout Margin="0,25,0,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <material:MaterialTextField x:Name="RNC" Placeholder="RNC del Cliente" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                </StackLayout>
                             </StackLayout>
-                        </StackLayout>
-                        
-                        <StackLayout Margin="0,25,0,0">
+
+                            <StackLayout Margin="0,25,0,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <material:MaterialTextField x:Name="nombreCliente" Placeholder="Nombre del Cliente" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                </StackLayout>
+                            </StackLayout>
+
+                            <StackLayout Margin="0,25,0,0">
                             <StackLayout Orientation="Horizontal">
-                                <material:MaterialTextField Placeholder="Correo Electronico" TextColor="Black" InputType="Email" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                <material:MaterialTextField x:Name="correoElectronico" Placeholder="Correo Electronico" TextColor="Black" InputType="Email" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
                             </StackLayout>
                         </StackLayout>
 
                         <StackLayout Margin="0,25,0,0">
                             <StackLayout Orientation="Horizontal">
-                                <Entry Placeholder="Numero de Telefono" TextColor="Black" Keyboard="Numeric" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0">
+                                <Entry x:Name="noTelefono" Placeholder="Numero de Telefono" TextColor="Black" Keyboard="Numeric" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0">
                                     <Entry.Behaviors>
-                                        <behavior:MaskedBehavior Mask="(XXX) XXX-XXX"/>
+                                        <behavior:MaskedBehavior Mask="(XXX) XXX-XXXX"/>
                                     </Entry.Behaviors>
                                 </Entry>
                             </StackLayout>
@@ -56,18 +62,18 @@
 
                         <StackLayout Margin="0,25,0,0">
                             <StackLayout Orientation="Horizontal">
-                                <material:MaterialTextField Placeholder="Pais" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                <material:MaterialTextField  x:Name="pais" Placeholder="Pais" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
                             </StackLayout>
                         </StackLayout>
 
                         <StackLayout Margin="0,25,0,0">
                             <StackLayout Orientation="Horizontal">
-                                <material:MaterialTextField Placeholder="Direccion" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                <material:MaterialTextField x:Name="direccion" Placeholder="Direccion" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
                             </StackLayout>
                         </StackLayout>
 
                         <StackLayout Orientation="Horizontal" Margin="0,15,0,0"></StackLayout>
-                        <material:MaterialButton Text="Guardar Cliente" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                        <material:MaterialButton Text="Guardar Cliente" x:Name="btnGuardarClientes" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                     </StackLayout>
                 </Frame> 
             </StackLayout>

@@ -32,6 +32,12 @@ namespace RTM.FormXamarin.Views.Configuraciones
             abrirGestionDeUsuarios.Clicked += AbrirGestionDeUsuarios_Clicked;
             abrirGestionDeAreasDeProduccion.Clicked += AbrirGestionDeAreasDeProduccion_Clicked;
             abrirGestionDeColores.Clicked += AbrirGestionDeColores_Clicked;
+            abrirGestionDeOperacionesCalzados.Clicked += AbrirGestionDeOperacionesCalzados_Clicked;
+        }
+
+        private async void AbrirGestionDeOperacionesCalzados_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new OperacionesCalzados.GestionarOperacionesCalzados());
         }
 
         private async void AbrirGestionDeColores_Clicked(object sender, EventArgs e)
