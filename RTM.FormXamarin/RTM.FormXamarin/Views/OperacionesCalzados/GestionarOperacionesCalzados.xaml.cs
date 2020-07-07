@@ -16,6 +16,12 @@ namespace RTM.FormXamarin.Views.OperacionesCalzados
         {
             InitializeComponent();
             abrirRegistroDeOperacionesDeCalzados.Clicked += AbrirRegistroDeOperacionesDeCalzados_Clicked;
+            abrirConsultasDeOperacionesDeCalzados.Clicked += AbrirConsultasDeOperacionesDeCalzados_Clicked;
+        }
+
+        private async void AbrirConsultasDeOperacionesDeCalzados_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new OperacionesCalzados.ConsultarOperacionesCalzados());
         }
 
         private async void AbrirRegistroDeOperacionesDeCalzados_Clicked(object sender, EventArgs e)
