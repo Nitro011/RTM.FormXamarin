@@ -225,5 +225,7 @@ namespace RTM.FormXamarin.Views.OrdenesClientes
             await MaterialDialog.Instance.SelectChoicesAsync(title: "Seleccionar los Colores",
                                                               choices: colores);
         }
+
+
     }
 }

@@ -4,6 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
              mc:Ignorable="d"
              x:Class="RTM.FormXamarin.Views.OrdenesClientes.RegistrarOrdenesClientesDetalles">
 
@@ -75,6 +77,23 @@
                                 </StackLayout>
                             </StackLayout>
 
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
+                                <combobox:SfComboBox HeightRequest="40" x:Name="comboBox" MultiSelectMode="Delimiter"  Delimiter=",">
+                                    <combobox:SfComboBox.ComboBoxSource>
+                                        <ListCollection:List x:TypeArguments="x:String">
+                                            <x:String>Afghanistan</x:String>
+                                            <x:String>Albania</x:String>
+                                            <x:String>Mexico</x:String>
+                                            <x:String>Norway</x:String>
+                                            <x:String>Singapore</x:String>
+                                            <x:String>Thailand</x:String>
+                                            <x:String>China</x:String>
+                                            <x:String>United States</x:String>
+                                            <x:String>Zimbabwe</x:String>
+                                        </ListCollection:List>
+                                    </combobox:SfComboBox.ComboBoxSource>
+                                </combobox:SfComboBox>
+                            </StackLayout>
 
 
                             <StackLayout Orientation="Horizontal" Margin="0,15,0,0"></StackLayout>

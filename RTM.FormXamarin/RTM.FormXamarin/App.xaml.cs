@@ -14,6 +14,7 @@ namespace RTM.FormXamarin
 
         public App()
         {
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MjgxOTgwQDMxMzgyZTMyMmUzMGxIQXpRYmorMExMWkppV0VmWVZsWEJ3Z2V4ZlpvK0xwNkgyUStoblZUY2M9");
             InitializeComponent();
              ConfigurationManager.Initialise(PCLAppConfig.FileSystemStream.PortableStream.Current);
 
