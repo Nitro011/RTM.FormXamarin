@@ -4,6 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
              mc:Ignorable="d"
              x:Class="RTM.FormXamarin.Views.OrdenesClientes.RegistrarOrdenesClientes">
 
@@ -18,7 +19,7 @@
 
                 <StackLayout Margin="150,110,150,0">
 
-                    <Frame BackgroundColor="White" HasShadow="True" HeightRequest="500" HorizontalOptions="FillAndExpand">
+                    <Frame BackgroundColor="White" HasShadow="True" HeightRequest="1500" HorizontalOptions="FillAndExpand">
                         <StackLayout>
                             <StackLayout HorizontalOptions="CenterAndExpand">
                                 <material:MaterialLabel Text="Registrar Ordenes de Clientes" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
@@ -46,6 +47,37 @@
                                 <StackLayout Orientation="Horizontal">
                                     <material:MaterialDateField x:Name="fechaEntrega" Placeholder="Fecha de Entrega" TextColor="Black" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
                                 </StackLayout>
+                            </StackLayout>
+                            
+                            <StackLayout Margin="0,25,0,0">
+                                <StackLayout HorizontalOptions="CenterAndExpand">
+                                    <material:MaterialLabel Text="Detalle de la Orden" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                </StackLayout>
+                            </StackLayout>
+
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
+                                <material:MaterialLabel Text="Marcas:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                                <combobox:SfComboBox HeightRequest="40" x:Name="marcasComboBox" DropDownItemHeight="50" DisplayMemberPath="Marca1" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
+                            </StackLayout>
+
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
+                                <material:MaterialLabel Text="Modelos:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                                <combobox:SfComboBox HeightRequest="40" x:Name="modelosComboBox" DropDownItemHeight="50" DisplayMemberPath="Modelo1" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
+                            </StackLayout>
+
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
+                                <material:MaterialLabel Text="Tipos de Calzados:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                                <combobox:SfComboBox HeightRequest="40" x:Name="tiposCalzadosComboBox" DropDownItemHeight="50" DisplayMemberPath="Tipo_Calzado" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
+                            </StackLayout>
+
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
+                                <material:MaterialLabel Text="Size:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                                <combobox:SfComboBox HeightRequest="40" x:Name="sizeComboBox" DropDownItemHeight="50" DisplayMemberPath="USA" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
+                            </StackLayout>
+
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
+                                <material:MaterialLabel Text="Colores:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                                <combobox:SfComboBox HeightRequest="40" x:Name="coloresComboBox" DropDownItemHeight="50" DisplayMemberPath="Color" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
                             </StackLayout>
 
                             <StackLayout Orientation="Horizontal" Margin="0,15,0,0"></StackLayout>
