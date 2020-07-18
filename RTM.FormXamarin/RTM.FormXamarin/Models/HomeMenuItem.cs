@@ -14,6 +14,7 @@ namespace RTM.FormXamarin.Models
         GestionarModelos,
         GestionarMarcas,
         GestionarDimensiones,
+        GestionarControlUbicacionPiezas,
         OrdenesClientes,
         Clientes,
         OperacionesCalzados,
