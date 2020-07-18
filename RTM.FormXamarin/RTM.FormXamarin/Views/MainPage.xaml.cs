@@ -57,6 +57,9 @@ namespace RTM.FormXamarin.Views
                     case (int)MenuItemType.GestionarDimensiones:
                         MenuPages.Add(id, new NavigationPage(new Dimensiones.GestionarDimensiones()));
                         break;
+                    case (int)MenuItemType.GestionarControlUbicacionPiezas:
+                        MenuPages.Add(id, new NavigationPage(new ControlUbicacionPiezas.GestionarControlUbicacionPiezas()));
+                        break;
                     case (int)MenuItemType.OrdenesClientes:
                         MenuPages.Add(id, new NavigationPage(new OrdenesClientes.GestionarOrdenesClientes()));
                         break;

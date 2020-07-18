@@ -22,6 +22,8 @@ namespace RTM.FormXamarin.Droid
 
             base.OnCreate(savedInstanceState);
 
+            ZXing.Net.Mobile.Forms.Android.Platform.Init();
+
             Xamarin.Forms.Forms.Init(this, savedInstanceState);
            // ConfigurationManager.Initialise(PCLAppConfig.FileSystemStream.PortableStream.Current);
 
@@ -32,6 +34,8 @@ namespace RTM.FormXamarin.Droid
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+
+            global::ZXing.Net.Mobile.Android.PermissionsHandler.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
