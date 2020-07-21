@@ -26,7 +26,6 @@ namespace RTM.FormXamarin.Views
             InitializeComponent();
 
             MasterBehavior = MasterBehavior.Popover;
-
             MenuPages.Add((int)MenuItemType.PaginaPrincipal, (NavigationPage)Detail);
         }
 

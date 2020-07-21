@@ -1,8 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<zxing:ZXingScannerPage 
+<ContentPage Title="Barcode QR" 
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RTM.FormXamarin.Views.FullScreenScannings.FullScreenScanning"
-             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
-             Title="Full screen" OnScanResult="Handle_OnScanResult" IsScanning="true">
-</zxing:ZXingScannerPage>
+             xmlns:local="clr-namespace:RTM.FormXamarin"
+             xmlns:viewmodels="clr-namespace:RTM.FormXamarin.ViewModels;assembly=RTM.FormXamarin"
+             x:Class="RTM.FormXamarin.Views.FullScreenScannings.FullScreenScanning">
+    
+    <ContentPage.BindingContext>
+    <viewmodels:FullScreenScanningViewModel />
+    </ContentPage.BindingContext>
+    <StackLayout Padding="20">
+        <!-- Place new controls here -->
+        <Button Command="{Binding ButtonCommand}" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" BackgroundColor="Teal" TextColor="White" FontSize="Medium" Text="Click to open scanner" />
+        <Label Text="{Binding Result}" HorizontalOptions="Center" VerticalOptions="StartAndExpand" />
+    </StackLayout>
+</ContentPage>

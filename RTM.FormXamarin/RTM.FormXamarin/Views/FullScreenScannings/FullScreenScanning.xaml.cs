@@ -4,33 +4,33 @@ using ZXing.Net.Mobile.Forms;
 
 namespace RTM.FormXamarin.Views.FullScreenScannings
 {
-    public partial class FullScreenScanning : ZXingScannerPage
+    public partial class FullScreenScanning : ContentPage
     {
         public FullScreenScanning()
         {
             InitializeComponent();
         }
 
-		public void Handle_OnScanResult(Result result)
-		{
-			Device.BeginInvokeOnMainThread(async () =>
-			{
-				await DisplayAlert("Scanned result", result.Text, "OK");
-			});
-		}
+		//public void Handle_OnScanResult(Result result)
+		//{
+		//	Device.BeginInvokeOnMainThread(async () =>
+		//	{
+		//		await DisplayAlert("Scanned result", result.Text, "OK");
+		//	});
+		//}
 
-		protected override void OnAppearing()
-		{
-			base.OnAppearing();
+		//protected override void OnAppearing()
+		//{
+		//	base.OnAppearing();
 
-			IsScanning = true;
-		}
+		//	IsScanning = true;
+		//}
 
-		protected override void OnDisappearing()
-		{
-			base.OnDisappearing();
+		//protected override void OnDisappearing()
+		//{
+		//	base.OnDisappearing();
 
-			IsScanning = false;
-		}
+		//	IsScanning = false;
+		//}
 	}
 }

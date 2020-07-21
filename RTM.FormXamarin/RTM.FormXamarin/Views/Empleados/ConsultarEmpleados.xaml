@@ -24,7 +24,11 @@
                             <material:MaterialLabel Text="Consultar Empleados" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         </StackLayout>
 
-                        <StackLayout>
+                        <StackLayout Margin="0,25,0,0" HorizontalOptions="FillAndExpand">
+                            <SearchBar Placeholder="Buscar Empleado" TextColor="Black"/>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,10,0,0">
                             <ListView x:Name="listaEmpleado" >
 
                                 <ListView.ItemTemplate>

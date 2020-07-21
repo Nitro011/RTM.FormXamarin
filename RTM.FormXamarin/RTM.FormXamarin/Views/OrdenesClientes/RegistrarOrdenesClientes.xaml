@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
              xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfBarcode.XForms;assembly=Syncfusion.SfBarcode.XForms"
              mc:Ignorable="d"
              x:Class="RTM.FormXamarin.Views.OrdenesClientes.RegistrarOrdenesClientes">
 
@@ -30,6 +31,16 @@
                                     <material:MaterialTextField x:Name="codigoQR" Placeholder="CodigoQR" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0"/>
                                 </StackLayout>
                             </StackLayout>
+
+                            <syncfusion:SfBarcode BackgroundColor="Gray" Text="ejemplo" Symbology="QRCode">
+
+                                <syncfusion:SfBarcode.SymbologySettings>
+
+                                    <syncfusion:QRBarcodeSettings XDimension="6"/>
+
+                                </syncfusion:SfBarcode.SymbologySettings>
+
+                            </syncfusion:SfBarcode>
 
                             <StackLayout Margin="0,25,0,0">
                                 <StackLayout Orientation="Horizontal">

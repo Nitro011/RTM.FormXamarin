@@ -21,7 +21,7 @@
                 <Frame BackgroundColor="White" HasShadow="True" HeightRequest="450" HorizontalOptions="FillAndExpand">
                     <StackLayout>
                         <StackLayout HorizontalOptions="CenterAndExpand">
-                            <material:MaterialLabel Text="Informacion del Empleado" TextColor="Black" FontSize="Title" FontAttributes="Bold"/>
+                            <material:MaterialLabel Text="Informacion del Cliente" TextColor="Black" FontSize="Title" FontAttributes="Bold"/>
                         </StackLayout>
                         
                         <StackLayout Margin="0,25,0,0">

@@ -2,6 +2,8 @@
 using Newtonsoft.Json;
 using PCLAppConfig;
 using RTM.FormXamarin.Models;
+using RTM.FormXamarin.Models.AreasDeProduccion;
+using RTM.FormXamarin.Models.Roles;
 using RTM.FormXamarin.Models.Usuarios;
 
 using RTM.FormXamarin.ViewModels;
@@ -29,6 +31,8 @@ namespace RTM.FormXamarin.Views.Empleados
             InitializeComponent();
             BindingContext = this.Empleados = new EmpleadosViewModel();
             btnGuardarEmpleados.Clicked += BtnGuardarEmpleados_Clicked;
+            ListaAreaProduccion();
+            ListaRoles();
         }
 
         private async void BtnGuardarEmpleados_Clicked(object sender, EventArgs e)
@@ -37,6 +41,9 @@ namespace RTM.FormXamarin.Views.Empleados
 
             try
             {
+                var rolIDV = pickerRoles.SelectedIndex+1;
+                var areaProduccionIDV = pickerAreaProduccion.SelectedIndex+1;
+                var codigoEmpleadoV = codigoEmpleado.Text;
                 var nombreV = nombre.Text;
                 var apellidoV = apellido.Text;
                 var sexoV = sexo.SelectedIndex;
@@ -44,11 +51,29 @@ namespace RTM.FormXamarin.Views.Empleados
                 var telefonoV = telefono.Text;
                 var cedulaV = cedula.Text;
                 var fnV = FN.Date;
+                var fechaIngresoV = FechaIngreso.Date;
 
 
 
+                if (string.IsNullOrEmpty(rolIDV.ToString()))
+                {
+                    await DisplayAlert("Validacion", "Ingresar el puesto del empleado", "Aceptar");
+                    pickerRoles.Focus();
+                    return;
 
-
+                }
+                if (string.IsNullOrEmpty(areaProduccionIDV.ToString()))
+                {
+                    await DisplayAlert("Validacion", "Ingresar el departamento del empleado", "Aceptar");
+                    pickerAreaProduccion.Focus();
+                    return;
+                }
+                if (string.IsNullOrEmpty(codigoEmpleadoV))
+                {
+                    await DisplayAlert("Validacion", "Ingresar el codigo del empleado", "Aceptar");
+                    codigoEmpleado.Focus();
+                    return;
+                }
                 if (string.IsNullOrEmpty(nombreV))
                 {
                     await DisplayAlert("Validacion", "Ingrese el nombre de Usuario", "Aceptar");
@@ -83,12 +108,16 @@ namespace RTM.FormXamarin.Views.Empleados
                     cedula.Focus();
                     return;
                 }
-
-
                 if (string.IsNullOrEmpty(fnV.ToString()))
                 {
-                    await DisplayAlert("Validacion", "Ingresar la fecha de nacimiento del usuario", "Aceptar");
+                    await DisplayAlert("Validacion", "Ingresar la fecha de nacimiento del empleado", "Aceptar");
                     FN.Focus();
+                    return;
+                }
+                if (string.IsNullOrEmpty(fechaIngresoV.ToString()))
+                {
+                    await DisplayAlert("Validacion", "Ingresar la fecha de ingreso del empleado", "Aceptar");
+                    FechaIngreso.Focus();
                     return;
                 }
 
@@ -97,7 +126,10 @@ namespace RTM.FormXamarin.Views.Empleados
 
                 var empleados = new Emple()
                 {
-                    EmpleadoId = 0,
+                    EmpleadoID = 0,
+                    RolID = Convert.ToInt32(rolIDV),
+                    AreaProduccionID=Convert.ToInt32(areaProduccionIDV),
+                    CodigoEmpleado=codigoEmpleadoV,
                     Nombres = nombreV,
                     Apellidos = apellidoV,
                     Sexo = (sexo.SelectedIndex == 0) ? false : true,
@@ -105,7 +137,8 @@ namespace RTM.FormXamarin.Views.Empleados
                     Telefono = telefonoV,
                     Fecha_Nacimiento = fnV,
                     Cedula = cedulaV,
-                    Edad = DateTime.Now.Year - fnV.Value.Year
+                    Edad = DateTime.Now.Year - fnV.Value.Year,
+                    FechaIngreso=fechaIngresoV
 
                 };
 
@@ -152,6 +185,90 @@ namespace RTM.FormXamarin.Views.Empleados
                                     title: "Error",
                                     acknowledgementText: "Aceptar");
             }
+        }
+
+        private async void ListaAreaProduccion()
+        {
+            string connectionString = ConfigurationManager.AppSettings["ipServer"];
+
+
+            HttpClient client = new HttpClient();
+
+            client.BaseAddress = new Uri(connectionString);
+            var request = client.GetAsync("/api/AreaProduccion/lista").Result;
+
+            if (request.IsSuccessStatusCode)
+            {
+                var responseJson = request.Content.ReadAsStringAsync().Result;
+                var response = JsonConvert.DeserializeObject<Request>(responseJson);
+
+                if (response.status)
+                {
+
+                    var listaView = JsonConvert.DeserializeObject<List<AreaProduccionListView>>(response.data.ToString());
+
+                    pickerAreaProduccion.ItemsSource = listaView;
+
+
+                }
+                else
+                {
+                    await MaterialDialog.Instance.AlertAsync(message: "Error",
+                                   title: "Error",
+                                   acknowledgementText: "Aceptar");
+                }
+
+            }
+
+        }
+
+        private async void ListaRoles()
+        {
+            string connectionString = ConfigurationManager.AppSettings["ipServer"];
+
+
+            HttpClient client = new HttpClient();
+
+            client.BaseAddress = new Uri(connectionString);
+            var request = client.GetAsync("/api/Role/lista").Result;
+
+            if (request.IsSuccessStatusCode)
+            {
+                var responseJson = request.Content.ReadAsStringAsync().Result;
+                var response = JsonConvert.DeserializeObject<Request>(responseJson);
+
+                if (response.status)
+                {
+
+                    var listaView = JsonConvert.DeserializeObject<List<RolesListView>>(response.data.ToString());
+
+                    pickerRoles.ItemsSource = listaView;
+
+
+                }
+                else
+                {
+                    await MaterialDialog.Instance.AlertAsync(message: "Error",
+                                   title: "Error",
+                                   acknowledgementText: "Aceptar");
+                }
+
+            }
+
+        }
+
+        async void ObtenerAreaProduccion(object sender, EventArgs e)
+        {
+            var pickerAreaProducciones = pickerAreaProduccion.SelectedIndex;
+
+            await DisplayAlert("Mostrar Departamento", pickerAreaProducciones.ToString(), "Aceptar");
+        }
+
+        async void ObtenerRoles(object sender, EventArgs e)
+        {
+            var pickerRol = pickerRoles.SelectedIndex;
+
+            await DisplayAlert("Mostrar Rol", pickerRol.ToString(), "Aceptar");
         }
     }
 }
