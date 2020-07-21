@@ -20,13 +20,19 @@
 
             <StackLayout Margin="150,0,150,0">
 
-                <Frame BackgroundColor="White" HasShadow="True" HeightRequest="800" HorizontalOptions="FillAndExpand">
+                <Frame BackgroundColor="White" HasShadow="True" HeightRequest="1500" HorizontalOptions="FillAndExpand">
                     <StackLayout>
                         <StackLayout HorizontalOptions="CenterAndExpand">
                             <material:MaterialLabel Text="Registrar Empleados" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         </StackLayout>
 
-                        <StackLayout Margin="0,25,0,0">
+                            <StackLayout Margin="0,25,0,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <material:MaterialTextField x:Name="codigoEmpleado" Placeholder="Codigo del Empleado" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0"/>
+                                </StackLayout>
+                            </StackLayout>
+
+                            <StackLayout Margin="0,25,0,0">
                             <StackLayout Orientation="Horizontal">
                                     <material:MaterialTextField x:Name="nombre" Placeholder="Nombres del Empleado" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0"/>
                             </StackLayout>
@@ -79,6 +85,24 @@
                                             <behavior:MaskedBehavior Mask="(XXX) XXX-XXXX" />
                                         </Entry.Behaviors>
                                     </Entry>
+                                </StackLayout>
+                            </StackLayout>
+
+                            <StackLayout Margin="0,25,0,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <Picker Title="Puestos de Trabajos" x:Name="pickerRoles" ItemsSource="{Binding Tipo_Usuario}" ItemDisplayBinding="{Binding Tipo_Usuario}" SelectedIndex="{Binding RolID}"  HorizontalOptions = "FillAndExpand" SelectedIndexChanged="ObtenerRoles" />
+                                </StackLayout>
+                            </StackLayout>
+
+                            <StackLayout Margin="0,25,0,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <Picker Title="Departamentos" x:Name="pickerAreaProduccion" ItemsSource="{Binding NombreAreaProduccion}" ItemDisplayBinding="{Binding NombreAreaProduccion}" SelectedIndex="{Binding AreaProduccionID}"  HorizontalOptions = "FillAndExpand" SelectedIndexChanged="ObtenerAreaProduccion" />
+                                </StackLayout>
+                            </StackLayout>
+
+                            <StackLayout Margin="0,25,0,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <material:MaterialDateField x:Name="FechaIngreso" Placeholder="Fecha de Ingreso" TextColor="Black" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
                                 </StackLayout>
                             </StackLayout>
 

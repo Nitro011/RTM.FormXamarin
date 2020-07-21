@@ -93,7 +93,7 @@ namespace RTM.FormXamarin.Views.Empleados
 
                 var empleados = new Emple()
                 {
-                    EmpleadoId =int.Parse(id),
+                    EmpleadoID =int.Parse(id),
                     Nombres = nombreV,
                     Apellidos = apellidoV,
                     Sexo = (Sexo.SelectedIndex == 0) ? false : true,
@@ -170,7 +170,7 @@ namespace RTM.FormXamarin.Views.Empleados
                     var listaView = JsonConvert.DeserializeObject<Emple>(response.data.ToString());
 
                     var año = (listaView.Fecha_Nacimiento != null) ? listaView.Fecha_Nacimiento.Value.Year : DateTime.MinValue.Year;
-                    IdEmpleado.Text = listaView.EmpleadoId.ToString();
+                    IdEmpleado.Text = listaView.EmpleadoID.ToString();
                     Nombre.Text = listaView.Nombres;
                     Apellido.Text = listaView.Apellidos;
                     Sexo.SelectedIndex = (listaView.Sexo == true) ? 1 : 0;

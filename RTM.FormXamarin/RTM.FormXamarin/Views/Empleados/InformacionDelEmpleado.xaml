@@ -11,50 +11,94 @@
     <StackLayout Padding="0" BackgroundColor="LightGray">
         <Grid>
             <StackLayout Padding="0" Margin="0">
-                <Frame BackgroundColor="#07485B" HeightRequest="150" HorizontalOptions="FillAndExpand" Padding="0">
+                <Frame BackgroundColor="#07485B" HeightRequest="150" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0">
                     <!--<Image Source="" Aspect="Fill" Margin="0"-->
                 </Frame>
             </StackLayout>
 
-            <StackLayout Margin="150,110,150,0">
+            <StackLayout Margin="150,40,150,0">
 
-                <Frame BackgroundColor="White" HasShadow="True" HeightRequest="450" HorizontalOptions="FillAndExpand">
+                <Frame BackgroundColor="White" HasShadow="True" HeightRequest="520" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                     <StackLayout>
                         <StackLayout HorizontalOptions="CenterAndExpand">
-                            <material:MaterialLabel Text="Informacion del Empleado" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                            <material:MaterialLabel Text="Informacion del Empleado" TextColor="Black" FontSize="Title" FontAttributes="Bold"/>
                         </StackLayout>
-                        <StackLayout>
-                            <material:MaterialLabel  x:Name="empleadoID" Text="Codigo:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+
+                        <StackLayout Margin="0,25,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="EmpleadoID:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel  x:Name="empleadoID" Text="Codigo:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
                         </StackLayout>
-                        <StackLayout>
-                            <material:MaterialLabel x:Name="nombresApellidos" Text="Nombre Completo:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                        
+                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="Nombre Completo:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel x:Name="nombresApellidos" Text="Nombre Completo:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
                         </StackLayout>
-                        <StackLayout>
-                            <material:MaterialLabel x:Name="sexo" Text="Sexo:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                        
+                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="Sexo" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel x:Name="sexo" Text="Sexo:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
                         </StackLayout>
-                        <StackLayout>
-                            <material:MaterialLabel x:Name="cedula" Text="Cedula:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                        
+                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="Cedula:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel x:Name="cedula" Text="Cedula:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
                         </StackLayout>
-                        <StackLayout>
-                            <material:MaterialLabel x:Name="Fecha_Nacimiento" Text="Fecha de Nacimiento:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                        
+                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="Fecha de Nacimiento:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel x:Name="Fecha_Nacimiento" Text="Fecha de Nacimiento:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
                         </StackLayout>
-                        <StackLayout>
-                            <material:MaterialLabel x:Name="edad" Text="Edad:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                        
+                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="Edad:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel x:Name="edad" Text="Edad:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
                         </StackLayout>
-                        <StackLayout>
-                            <material:MaterialLabel x:Name="direccion" Text="Direccion:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                        
+                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="Direccion" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel x:Name="direccion" Text="Direccion:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
                         </StackLayout>
-                        <StackLayout>
-                            <material:MaterialLabel x:Name="telefono" Text="Telefono:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                        
+                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="Telefono:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel x:Name="telefono" Text="Telefono:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
                         </StackLayout>
-                        <StackLayout>
-                            <material:MaterialLabel x:Name="puesto" Text="Puesto:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                        
+                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="Puesto:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel x:Name="puesto" Text="Puesto:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
                         </StackLayout>
-                        <StackLayout>
-                            <material:MaterialLabel x:Name="nombreUsuario" Text="Nombre de Usuario:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                        
+                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="Nombre de Usuario:" TextColor="Black" FontSize="Medium" FontAttributes="Bold" />
+                                <material:MaterialLabel x:Name="nombreUsuario" Text="Nombre de Usuario:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
                         </StackLayout>
-                        <StackLayout>
-                            <material:MaterialLabel x:Name="rol" Text="Puesto" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                        
+                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="Puesto:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel x:Name="rol" Text="Puesto" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
                         </StackLayout>
 
 

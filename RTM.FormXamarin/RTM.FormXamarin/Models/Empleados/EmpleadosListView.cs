@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RTM.FormXamarin.Models.Usuarios
+namespace RTM.FormXamarin.Models.Empleados
 {
-    public class Emple
+    public class EmpleadosListView
     {
         public int EmpleadoID { get; set; }
         public int? RolID { get; set; }

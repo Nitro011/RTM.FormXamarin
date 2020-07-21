@@ -65,6 +65,9 @@
     <PackageReference Include="PCLStorage">
       <Version>1.0.2</Version>
     </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfBarcode">
+      <Version>18.2.0.45</Version>
+    </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfComboBox">
       <Version>18.2.0.44</Version>
     </PackageReference>

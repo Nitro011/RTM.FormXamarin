@@ -4,6 +4,7 @@ using PCLAppConfig;
 using RTM.FormXamarin.Models;
 using RTM.FormXamarin.Models.Empleados;
 using RTM.FormXamarin.Models.Usuarios;
+using RTM.FormXamarin.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,9 +21,11 @@ namespace RTM.FormXamarin.Views.Empleados
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class InformacionDelEmpleado : ContentPage
     {
+        InformacionEmpleadoViewModel InformacionEmpleadoViewModel;
         public InformacionDelEmpleado(int id)
         {
             InitializeComponent();
+            BindingContext = this.InformacionEmpleadoViewModel = new InformacionEmpleadoViewModel();
             MostrarInformacionEmplesdo(id);
         }
 

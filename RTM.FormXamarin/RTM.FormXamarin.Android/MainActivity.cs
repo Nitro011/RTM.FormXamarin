@@ -30,6 +30,7 @@ namespace RTM.FormXamarin.Droid
             XF.Material.Droid.Material.Init(this, savedInstanceState);
 
             this.LoadApplication(new App());
+            Window.SetStatusBarColor(Android.Graphics.Color.ParseColor("#07485B"));
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
