@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             mc:Ignorable="d"
+             x:Class="RTM.FormXamarin.Views.GestionHumana.GestionHumana"
+             BarBackgroundColor="#07485B"
+             Title="{Binding Title}">
+    
+  <!--Pages can be added as references or inline-->
+    <ContentPage Title="Posiciones">
+        <ScrollView>
+            <Grid RowSpacing="0" ColumnSpacing="0">
+                <Grid.RowDefinitions >
+                    <RowDefinition Height="55"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Orientation="Horizontal"
+                     Grid.Row="0"
+                     Grid.Column="0"
+                     Grid.ColumnSpan="3"
+                     BackgroundColor="White">
+
+                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <material:MaterialLabel Text="Consultar Posiciones" 
+                                        TextColor="Black" 
+                                        FontSize="Title" 
+                                        FontAttributes="Bold"
+                                        HorizontalOptions="CenterAndExpand"
+                                        VerticalOptions="CenterAndExpand"
+                                        Margin="0,0,30,0"
+                                        
+                />
+                    </StackLayout>
+
+
+                    <StackLayout HorizontalOptions="End">
+                        <material:MaterialButton x:Name="agregarNuevaPosicion" Text="+" FontSize="Title" FontAttributes="Bold" BackgroundColor="#07485B" WidthRequest="55" HeightRequest="55" CornerRadius="55"/>
+                    </StackLayout>
+
+
+
+
+
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal"
+                     Grid.Row="1"
+                     Grid.Column="0"
+                     Grid.ColumnSpan="3"
+                     Grid.RowSpan="3"
+                     Padding="10"
+                     BackgroundColor="White">
+
+                    <StackLayout HorizontalOptions="FillAndExpand">
+
+                        <StackLayout HorizontalOptions="CenterAndExpand" WidthRequest="215">
+                            <SearchBar x:Name="buscarPosiciones" Placeholder="Buscar Posicion" TextColor="Black" PlaceholderColor="Black" WidthRequest="100"/>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,1,0,0">
+                            <ListView x:Name="listaPosiciones" >
+
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ImageCell Height="30" 
+                                     Text="{Binding Tipo_Usuario}"
+                                     Detail="{Binding Puesto}"
+                                      ImageSource="{Binding ImageUrl}"/>
+
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+
+
+
+            </Grid>
+
+        </ScrollView>
+    </ContentPage>
+
+    <ContentPage Title="Departamentos">
+        <ScrollView>
+            <Grid RowSpacing="0" ColumnSpacing="0">
+                <Grid.RowDefinitions >
+                    <RowDefinition Height="55"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Orientation="Horizontal"
+                     Grid.Row="0"
+                     Grid.Column="0"
+                     Grid.ColumnSpan="3"
+                     BackgroundColor="White">
+
+                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <material:MaterialLabel Text="Consultar Departamentos" 
+                                        TextColor="Black" 
+                                        FontSize="Title" 
+                                        FontAttributes="Bold"
+                                        HorizontalOptions="CenterAndExpand"
+                                        VerticalOptions="CenterAndExpand"
+                                        Margin="0,0,20,0"
+                                        
+                />
+                    </StackLayout>
+
+
+                    <StackLayout HorizontalOptions="End">
+                        <material:MaterialButton x:Name="agregarDepartamentos" Text="+" FontSize="Title" FontAttributes="Bold" BackgroundColor="#07485B" WidthRequest="55" HeightRequest="55" CornerRadius="55" />
+                    </StackLayout>
+
+
+
+
+
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal"
+                     Grid.Row="1"
+                     Grid.Column="0"
+                     Grid.ColumnSpan="3"
+                     Grid.RowSpan="3"
+                     Padding="10"
+                     BackgroundColor="White">
+
+                    <StackLayout HorizontalOptions="FillAndExpand">
+
+                        <StackLayout HorizontalOptions="CenterAndExpand" WidthRequest="215">
+                            <SearchBar x:Name="buscarDepartamento" Placeholder="Buscar Departamento" TextColor="Black" PlaceholderColor="Black" WidthRequest="100"/>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,1,0,0">
+                            <ListView x:Name="listaDepartamento" >
+
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ImageCell Height="30" 
+                                     Text="{Binding NombreCompleto}"
+                                     Detail="{Binding Puesto}"
+                                      ImageSource="{Binding ImageUrl}"/>
+
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+
+
+
+            </Grid>
+
+        </ScrollView>
+    </ContentPage>
+
+    <ContentPage Title="Gestion de Empleados">
+        <ScrollView>
+            <Grid RowSpacing="0" ColumnSpacing="0">
+                <Grid.RowDefinitions >
+                    <RowDefinition Height="55"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Orientation="Horizontal"
+                     Grid.Row="0"
+                     Grid.Column="0"
+                     Grid.ColumnSpan="3"
+                     BackgroundColor="White">
+
+                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <material:MaterialLabel Text="Consultar Empleados" 
+                                        TextColor="Black" 
+                                        FontSize="Title" 
+                                        FontAttributes="Bold"
+                                        HorizontalOptions="CenterAndExpand"
+                                        VerticalOptions="CenterAndExpand"
+                                        Margin="0,0,20,0"
+                                        
+                />
+                    </StackLayout>
+
+
+                    <StackLayout HorizontalOptions="End">
+                        <material:MaterialButton x:Name="agregarNuevoEmpleado" Text="+" FontSize="Title" FontAttributes="Bold" BackgroundColor="#07485B" WidthRequest="55" HeightRequest="55" CornerRadius="55" />
+                    </StackLayout>
+
+
+
+
+
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal"
+                     Grid.Row="1"
+                     Grid.Column="0"
+                     Grid.ColumnSpan="3"
+                     Grid.RowSpan="3"
+                     Padding="10"
+                     BackgroundColor="White">
+
+                    <StackLayout HorizontalOptions="FillAndExpand">
+
+                        <StackLayout HorizontalOptions="CenterAndExpand" WidthRequest="215">
+                            <SearchBar x:Name="buscarEmpleado" Placeholder="Buscar Empleado" TextColor="Black" PlaceholderColor="Black" WidthRequest="100"/>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,1,0,0">
+                            <ListView x:Name="listaEmpleado" >
+
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ImageCell Height="30" 
+                                     Text="{Binding NombreCompleto}"
+                                     Detail="{Binding Puesto}"
+                                      ImageSource="{Binding ImageUrl}"/>
+
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+
+
+
+            </Grid>
+
+        </ScrollView>
+    </ContentPage>
+</TabbedPage>

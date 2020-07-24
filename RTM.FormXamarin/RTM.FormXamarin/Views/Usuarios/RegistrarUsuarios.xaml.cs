@@ -25,9 +25,45 @@ namespace RTM.FormXamarin.Views.Usuarios
         {
             InitializeComponent();
             BindingContext = this.Usuarios = new RegistrarUsuariosViewModel();
-            cedula.Completed += Cedula_Completed;
+            cedula.TextChanged += Cedula_TextChanged;
             btnGuardarUsuarios.Clicked += BtnGuardarUsuarios_Clicked;
             ListaAreaProduccion();
+        }
+
+        private void Cedula_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string Cedula = cedula.Text;
+
+            string connectionString = ConfigurationManager.AppSettings["ipServer"];
+
+
+            HttpClient client = new HttpClient();
+
+            client.BaseAddress = new Uri(connectionString);
+            var request = client.GetAsync($"/api/Empleados/EmpleadoPorCedula/{Cedula}").Result;
+
+            if (request.IsSuccessStatusCode)
+            {
+                var responseJson = request.Content.ReadAsStringAsync().Result;
+                var response = JsonConvert.DeserializeObject<Request>(responseJson);
+
+                if (response.status)
+                {
+
+                    var listaView = JsonConvert.DeserializeObject<EmpleadoPorCedula>(response.data.ToString());
+
+                    /*  var año = (listaView.fecha_nacimiento != null) ? listaView.fecha_nacimiento.Value.Year : DateTime.MinValue.Year;*/
+                    empleadoID.Text = listaView.EmpleadoID.ToString();
+                    nombreEmpleado.Text = listaView.nombreCompleto;
+                }
+                else
+                {
+                    MaterialDialog.Instance.AlertAsync(message: "Error",
+                                                       title: "Error",
+                                                       acknowledgementText: "Aceptar");
+                }
+
+            }
         }
 
         private async void ListaAreaProduccion()
@@ -164,35 +200,41 @@ namespace RTM.FormXamarin.Views.Usuarios
             }
         }
 
-        private void Cedula_Completed(object sender, EventArgs e)
-        {
-            string Cedula = cedula.Text;
+        //private void Cedula_Completed(object sender, EventArgs e)
+        //{
+        //    string Cedula = cedula.Text;
 
-            string connectionString = ConfigurationManager.AppSettings["ipServer"];
+        //    string connectionString = ConfigurationManager.AppSettings["ipServer"];
 
 
-            HttpClient client = new HttpClient();
+        //    HttpClient client = new HttpClient();
 
-            client.BaseAddress = new Uri(connectionString);
-            var request = client.GetAsync($"/api/Empleados/EmpleadoPorCedula/{Cedula}").Result;
+        //    client.BaseAddress = new Uri(connectionString);
+        //    var request = client.GetAsync($"/api/Empleados/EmpleadoPorCedula/{Cedula}").Result;
 
-            if (request.IsSuccessStatusCode)
-            {
-                var responseJson = request.Content.ReadAsStringAsync().Result;
-                var response = JsonConvert.DeserializeObject<Request>(responseJson);
+        //    if (request.IsSuccessStatusCode)
+        //    {
+        //        var responseJson = request.Content.ReadAsStringAsync().Result;
+        //        var response = JsonConvert.DeserializeObject<Request>(responseJson);
 
-                if (response.status)
-                {
+        //        if (response.status)
+        //        {
 
-                    var listaView = JsonConvert.DeserializeObject<EmpleadoPorCedula>(response.data.ToString());
+        //            var listaView = JsonConvert.DeserializeObject<EmpleadoPorCedula>(response.data.ToString());
 
-                    /*  var año = (listaView.fecha_nacimiento != null) ? listaView.fecha_nacimiento.Value.Year : DateTime.MinValue.Year;*/
-                    empleadoID.Text = listaView.EmpleadoID.ToString();
-                    nombreEmpleado.Text = listaView.nombreCompleto;
-                }
+        //            /*  var año = (listaView.fecha_nacimiento != null) ? listaView.fecha_nacimiento.Value.Year : DateTime.MinValue.Year;*/
+        //            empleadoID.Text = listaView.EmpleadoID.ToString();
+        //            nombreEmpleado.Text = listaView.nombreCompleto;
+        //        }
+        //        else
+        //        {
+        //            MaterialDialog.Instance.AlertAsync(message: "Error",
+        //                                               title: "Error",
+        //                                               acknowledgementText: "Aceptar");
+        //        }
 
-            }
-        }
+        //    }
+        //}
 
 
         async void ObtenerRoles(object sender, EventArgs e)

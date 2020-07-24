@@ -1,29 +1,33 @@
-﻿using Android.App.Slices;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using PCLAppConfig;
-using RTM.FormXamarin.Models;
-using RTM.FormXamarin.Models.Empleados;
-using RTM.FormXamarin.Models.Usuarios;
+using RTM.FormXamarin.Models.Roles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-
+using RTM.FormXamarin.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XF.Material.Forms.UI.Dialogs;
+using RTM.FormXamarin.Models.Usuarios;
+using RTM.FormXamarin.Views.Empleados;
+using RTM.FormXamarin.ViewModels;
 
-namespace RTM.FormXamarin.Views.Empleados
+namespace RTM.FormXamarin.Views.GestionHumana
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ConsultarEmpleados : ContentPage
+    public partial class GestionHumana : TabbedPage
     {
-        public ConsultarEmpleados()
+        GestionHumanaViewModels GestionHumanaViewModels;
+        public GestionHumana()
         {
             InitializeComponent();
+            BindingContext = this.GestionHumanaViewModels=new GestionHumanaViewModels();
+            ListaPosiciones();
             ListaEmpleado();
+            buscarPosiciones.TextChanged += BuscarPosiciones_TextChanged;
             listaEmpleado.ItemSelected += ListaEmpleado_ItemSelected;
             buscarEmpleado.TextChanged += BuscarEmpleado_TextChanged;
             agregarNuevoEmpleado.Clicked += AgregarNuevoEmpleado_Clicked;
@@ -73,7 +77,6 @@ namespace RTM.FormXamarin.Views.Empleados
             }
         }
 
-
         private void ListaEmpleado_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             try
@@ -87,10 +90,80 @@ namespace RTM.FormXamarin.Views.Empleados
 
                 DisplayAlert("Error", ex.Message, "Aceptar");
             }
-
         }
 
+        private void BuscarPosiciones_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (buscarPosiciones.Text == "")
+            {
+                ListaPosiciones();
+            }
+            else
+            {
+                string posiciones = buscarPosiciones.Text;
 
+                string connectionString = ConfigurationManager.AppSettings["ipServer"];
+
+
+                HttpClient client = new HttpClient();
+
+                client.BaseAddress = new Uri(connectionString);
+                var request = client.GetAsync($"/api/Empleados/").Result;
+
+                if (request.IsSuccessStatusCode)
+                {
+                    var responseJson = request.Content.ReadAsStringAsync().Result;
+                    var response = JsonConvert.DeserializeObject<Request>(responseJson);
+
+                    if (response.status)
+                    {
+
+                        var listaView = JsonConvert.DeserializeObject<List<RolesListView>>(response.data.ToString());
+
+                        /*  var año = (listaView.fecha_nacimiento != null) ? listaView.fecha_nacimiento.Value.Year : DateTime.MinValue.Year;*/
+                        listaPosiciones.ItemsSource = listaView;
+                    }
+
+                }
+            }
+        }
+
+        //Funcionalidad para el tab de posiciones:
+        //Este codigo trae todo el listado de cada una de las posiciones (Roles) desde la base de datos:
+        private async void ListaPosiciones()
+        {
+            string connectionString = ConfigurationManager.AppSettings["ipServer"];
+
+
+            HttpClient client = new HttpClient();
+
+            client.BaseAddress = new Uri(connectionString);
+            var request = client.GetAsync("/api/Role/lista").Result;
+
+            if (request.IsSuccessStatusCode)
+            {
+                var responseJson = request.Content.ReadAsStringAsync().Result;
+                var response = JsonConvert.DeserializeObject<Request>(responseJson);
+
+                if (response.status)
+                {
+
+                    var listaView = JsonConvert.DeserializeObject<List<RolesListView>>(response.data.ToString());
+
+                    listaPosiciones.ItemsSource = listaView;
+
+
+                }
+                else
+                {
+                    await MaterialDialog.Instance.AlertAsync(message: "Error",
+                                   title: "Error",
+                                   acknowledgementText: "Aceptar");
+                }
+
+            }
+
+        }
 
         private async void ListaEmpleado()
         {
@@ -126,6 +199,5 @@ namespace RTM.FormXamarin.Views.Empleados
             }
 
         }
-
     }
 }
