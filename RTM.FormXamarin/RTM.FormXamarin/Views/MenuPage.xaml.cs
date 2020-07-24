@@ -21,6 +21,9 @@ namespace RTM.FormXamarin.Views
             menuItems = new List<HomeMenuItem>
             {
                 new HomeMenuItem {Id = MenuItemType.PaginaPrincipal, Title="Pagina Principal" },
+                new HomeMenuItem {Id = MenuItemType.GestionHumana, Title="Gestion Humana"},
+                new HomeMenuItem {Id = MenuItemType.Ingenieria, Title="Ingenieria"},
+                new HomeMenuItem {Id = MenuItemType.GestionEstilo, Title="Gestion de Estilos"},
                 new HomeMenuItem {Id = MenuItemType.Configuraciones, Title="Configuraciones"},
                 new HomeMenuItem {Id = MenuItemType.TiposCalzados,Title="Tipos de Calzados"},
                 new HomeMenuItem {Id = MenuItemType.GestionarClientes, Title="Gestionar Clientes"},

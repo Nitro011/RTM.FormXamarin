@@ -38,6 +38,15 @@ namespace RTM.FormXamarin.Views
                     case (int)MenuItemType.PaginaPrincipal:
                         MenuPages.Add(id, new NavigationPage(new Master()));
                         break;
+                    case (int)MenuItemType.GestionHumana:
+                        MenuPages.Add(id, new NavigationPage(new GestionHumana.GestionHumana()));
+                        break;
+                    case (int)MenuItemType.Ingenieria:
+                        MenuPages.Add(id, new NavigationPage(new Ingenieria.Ingenieria()));
+                        break;
+                    case (int)MenuItemType.GestionEstilo:
+                        MenuPages.Add(id, new NavigationPage(new GestionEstilos.GestionEstilos()));
+                        break;
                     case (int)MenuItemType.Configuraciones:
                         MenuPages.Add(id, new NavigationPage(new Configuraciones.Configuraciones()));
                         break;

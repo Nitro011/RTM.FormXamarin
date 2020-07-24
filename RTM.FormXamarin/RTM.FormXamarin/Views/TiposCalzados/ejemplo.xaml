@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             xmlns:behavior="clr-namespace:RTM.FormXamarin.Behavior"
+            xmlns:views="clr-namespace:RTM.FormXamarin.Views"
+            xmlns:views1="clr-namespace:RTM.FormXamarin.Views.Empleados"
+             mc:Ignorable="d"
+             x:Class="RTM.FormXamarin.Views.TiposCalzados.ejemplo">
+    <!--Pages can be added as references or inline-->
+    <ContentPage Title="Posiciones">
+        <Label>Tab1</Label>
+    </ContentPage>
+
+    <ContentPage Title="Departamentos">
+        <Label>Tab2</Label>
+    </ContentPage>
+
+    <ContentPage Title="Gestion de Empleados">
+        <ScrollView>
+            <StackLayout Padding="0" BackgroundColor="LightGray">
+                <Grid>
+                    <StackLayout Padding="0" Margin="0">
+                        <Frame BackgroundColor="#07485B" HeightRequest="150" HorizontalOptions="FillAndExpand" Padding="0">
+                            <!--<Image Source="" Aspect="Fill" Margin="0"-->
+                        </Frame>
+                    </StackLayout>
+
+                    <StackLayout Margin="150,0,150,0">
+
+                        <Frame BackgroundColor="White" HasShadow="True" HeightRequest="1500" HorizontalOptions="FillAndExpand">
+                            <StackLayout>
+                                <StackLayout HorizontalOptions="CenterAndExpand">
+                                    <material:MaterialLabel Text="Registrar Empleados" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                </StackLayout>
+
+                                <StackLayout Margin="0,25,0,0">
+                                    <StackLayout Orientation="Horizontal">
+                                        <material:MaterialTextField x:Name="codigoEmpleado" Placeholder="Codigo del Empleado" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0"/>
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <StackLayout Margin="0,25,0,0">
+                                    <StackLayout Orientation="Horizontal">
+                                        <material:MaterialTextField x:Name="nombre" Placeholder="Nombres del Empleado" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0"/>
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <StackLayout Margin="0,25,0,0">
+                                    <StackLayout Orientation="Horizontal">
+                                        <material:MaterialTextField x:Name="apellido" Placeholder="Apellidos del Empleado" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <StackLayout Margin="0,25,0,0">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Picker Title="Sexo" x:Name="sexo"  HorizontalOptions = "FillAndExpand"  >
+                                            <Picker.Items>
+                                                <x:String>Femenino</x:String>
+                                                <x:String>Masculino</x:String>
+                                            </Picker.Items>
+                                        </Picker>
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <StackLayout Margin="0,25,0,0">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Entry x:Name="cedula" Placeholder="Cedula" TextColor="Black" Keyboard="Numeric" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0">
+                                            <Entry.Behaviors>
+                                                <behavior:MaskedBehavior Mask="XXX-XXXXXXX-X"/>
+                                            </Entry.Behaviors>
+                                        </Entry>
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <StackLayout Margin="0,25,0,0">
+                                    <StackLayout Orientation="Horizontal">
+                                        <material:MaterialDateField x:Name="FN" Placeholder="Fecha de Nacimiento" TextColor="Black" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                    </StackLayout>
+                                </StackLayout>
+
+
+                                <StackLayout Margin="0,10,0,0">
+                                    <StackLayout Orientation="Horizontal">
+                                        <material:MaterialTextField x:Name="direccion" Placeholder="Direccion" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <StackLayout Margin="0,25,0,0">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Entry x:Name="telefono" Placeholder="Numero de Telefono" TextColor="Black" Keyboard="Numeric" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0">
+                                            <Entry.Behaviors>
+                                                <behavior:MaskedBehavior Mask="(XXX) XXX-XXXX" />
+                                            </Entry.Behaviors>
+                                        </Entry>
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <StackLayout Margin="0,25,0,0">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Picker Title="Puestos de Trabajos" x:Name="pickerRoles" ItemsSource="{Binding Tipo_Usuario}" ItemDisplayBinding="{Binding Tipo_Usuario}" SelectedIndex="{Binding RolID}"  HorizontalOptions = "FillAndExpand"  />
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <StackLayout Margin="0,25,0,0">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Picker Title="Departamentos" x:Name="pickerAreaProduccion" ItemsSource="{Binding NombreAreaProduccion}" ItemDisplayBinding="{Binding NombreAreaProduccion}" SelectedIndex="{Binding AreaProduccionID}"  HorizontalOptions = "FillAndExpand" />
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <StackLayout Margin="0,25,0,0">
+                                    <StackLayout Orientation="Horizontal">
+                                        <material:MaterialDateField x:Name="FechaIngreso" Placeholder="Fecha de Ingreso" TextColor="Black" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                                    </StackLayout>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" Margin="0,15,0,0"></StackLayout>
+                                <material:MaterialButton Text="Guardar Empleados" x:Name="btnGuardarEmpleados" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage>
+
+    <!--<TabbedPage.Children>
+        <NavigationPage Title="Posiciones">
+            <x:Arguments>
+                <views:AboutPage/>
+            </x:Arguments>
+        </NavigationPage>
+        <NavigationPage Title="Departamentos">
+            <x:Arguments>
+                <views:AboutPage/>
+            </x:Arguments>
+        </NavigationPage>
+        <NavigationPage Title="Gestion de Empleados">
+            <x:Arguments>
+                <views1:ConsultarEmpleados/>
+            </x:Arguments>
+        </NavigationPage>
+    </TabbedPage.Children>-->
+</TabbedPage>

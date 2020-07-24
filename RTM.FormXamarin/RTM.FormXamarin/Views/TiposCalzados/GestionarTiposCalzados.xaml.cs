@@ -20,6 +20,12 @@ namespace RTM.FormXamarin.Views.TiposCalzados
             BindingContext = this.TiposCalzadoViewModel = new TiposCalzadoViewModel();
             abrirRegistroDeTipoDeCalzado.Clicked += AbrirRegistroDeTipoDeCalzado_Clicked;
             abrirConsultasDeTipoDeCalzado.Clicked += AbrirConsultasDeTipoDeCalzado_Clicked;
+            abrirTab.Clicked += AbrirTab_Clicked;
+        }
+
+        private async void AbrirTab_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TiposCalzados.ejemplo());
         }
 
         private async void AbrirConsultasDeTipoDeCalzado_Clicked(object sender, EventArgs e)

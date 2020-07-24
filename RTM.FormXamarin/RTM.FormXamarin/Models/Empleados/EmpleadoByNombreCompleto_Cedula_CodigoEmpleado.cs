@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RTM.FormXamarin.Models.Usuarios
+namespace RTM.FormXamarin.Models.Empleados
 {
-   public class EmpleadoListView
+    public class EmpleadoByNombreCompleto_Cedula_CodigoEmpleado
     {
-        public int Id { get; set; }
+        public int EmpleadoId { get; set; }
         public int? RolID { get; set; }
         public int? AreaProduccionID { get; set; }
         public string CodigoEmpleado { get; set; }
@@ -22,6 +22,5 @@ namespace RTM.FormXamarin.Models.Usuarios
         public System.DateTime? FechaIngreso { get; set; }
         public string Puesto { get; set; }
         public string Departamento { get; set; }
-
     }
 }
