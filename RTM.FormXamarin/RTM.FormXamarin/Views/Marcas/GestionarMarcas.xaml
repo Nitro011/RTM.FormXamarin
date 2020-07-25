@@ -8,33 +8,80 @@
              x:Class="RTM.FormXamarin.Views.Marcas.GestionarMarcas"
              Title="{Binding Title}">
 
-    <ScrollView>
-        <StackLayout Padding="0" BackgroundColor="LightGray">
-            <Grid>
-                <StackLayout Padding="0" Margin="0">
-                    <Frame BackgroundColor="#07485B" HeightRequest="150" HorizontalOptions="FillAndExpand" Padding="0">
-                        <!--<Image Source="" Aspect="Fill" Margin="0"-->
-                    </Frame>
-                </StackLayout>
+    <Grid RowSpacing="0" ColumnSpacing="0">
+        <Grid.RowDefinitions >
+            <RowDefinition Height="55"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
 
-                <StackLayout Margin="150,110,150,0">
+        <StackLayout Orientation="Horizontal"
+                     Grid.Row="0"
+                     Grid.Column="0"
+                     Grid.ColumnSpan="3"
+                     BackgroundColor="White">
 
-                    <Frame BackgroundColor="White" HasShadow="True" HeightRequest="350" HorizontalOptions="FillAndExpand">
-                        <StackLayout>
-                            <StackLayout HorizontalOptions="CenterAndExpand" Margin="0,25,0,0">
-                                <material:MaterialLabel Text="Gestionar Empleados" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
-                            </StackLayout>
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <material:MaterialLabel Text="Consultar Marcas"
+                                        TextColor="Black" 
+                                        FontSize="Title" 
+                                        FontAttributes="Bold"
+                                        HorizontalOptions="CenterAndExpand"
+                                        VerticalOptions="CenterAndExpand"
+                                        Margin="0,0,30,0"
+                                        
+                />
+            </StackLayout>
 
-                            <material:MaterialButton Text="Registrar Marcas" x:Name="abrirRegistroDeMarcas"  BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0"  WidthRequest="700"/>
 
-                            <material:MaterialButton Text="Consultar Marcas" x:Name="abrirConsultasDeMarcas"  BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
+            <StackLayout HorizontalOptions="End" VerticalOptions="End">
+                <material:MaterialButton x:Name="agregarNuevaMarcas" Text="+" FontSize="Title" FontAttributes="Bold" BackgroundColor="#07485B" WidthRequest="55" HeightRequest="55" CornerRadius="55"/>
+            </StackLayout>
 
-                            <material:MaterialButton Text="Modificar Marcas" x:Name="abrirModificarMarcas"  BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
 
-                        </StackLayout>
-                    </Frame>
-                </StackLayout>
-            </Grid>
+
+
+
         </StackLayout>
-    </ScrollView>
+
+        <StackLayout Orientation="Horizontal"
+                     Grid.Row="1"
+                     Grid.Column="0"
+                     Grid.ColumnSpan="3"
+                     Grid.RowSpan="3"
+                     Padding="10"
+                     BackgroundColor="White">
+
+            <StackLayout HorizontalOptions="FillAndExpand">
+
+                <StackLayout HorizontalOptions="FillAndExpand" WidthRequest="200">
+                    <SearchBar x:Name="buscarMarcas" Placeholder="Buscar Marcas" TextColor="Black" PlaceholderColor="Black" WidthRequest="100"/>
+                </StackLayout>
+
+                <StackLayout Margin="0,1,0,0">
+                    <ListView x:Name="listaMarcas" >
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ImageCell Height="30" 
+                                     Text="{Binding Marca1}"
+                                     Detail="{Binding Puesto}"
+                                      ImageSource="{Binding ImageUrl}"/>
+
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+
+
+
+    </Grid>
 </ContentPage>

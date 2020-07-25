@@ -7,11 +7,11 @@
              mc:Ignorable="d"
              x:Class="RTM.FormXamarin.Views.GestionEstilos.GestionEstilos"
              Title="{Binding Title}">
-
-    <ScrollView>
+   
         <Grid RowSpacing="0" ColumnSpacing="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="90"></RowDefinition>
+                <RowDefinition Height="5"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
@@ -29,13 +29,6 @@
                          Grid.ColumnSpan="4"
                          BackgroundColor="#07485B">
 
-                <material:MaterialLabel Text="Opciones" 
-                                        TextColor="White" 
-                                        FontSize="Title" 
-                                        FontAttributes="Bold"
-                                        HorizontalOptions="CenterAndExpand"
-                                        VerticalOptions="CenterAndExpand"/>
-
             </StackLayout>
 
             <StackLayout Orientation="Vertical"
@@ -43,40 +36,57 @@
                          Grid.Column="0"
                          Grid.RowSpan="4"
                          Grid.ColumnSpan="4"
-                         BackgroundColor="Black">
-
-                <material:MaterialButton 
-                                         Text="Marcas"
-                                         WidthRequest="150"/>
-
-                <material:MaterialButton 
-                                         Text="Tipo de Estilo"
-                                         WidthRequest="150"/>
-
-                <material:MaterialButton 
-                                         Text="Modelos"
-                                         WidthRequest="150"/>
-
-                <material:MaterialButton 
-                                         Text="Size"
-                                         WidthRequest="150"/>
-
-                <material:MaterialButton 
-                                         Text="Colores"
-                                         WidthRequest="150" 
-                                         />
-
-
+                         BackgroundColor="LightGray">
             </StackLayout>
 
-            <Frame Grid.Row="2"
-                   Grid.Column="1"
-                   Grid.ColumnSpan="2"
-                   Margin="0,-430,0,0"
-                   HeightRequest="750"
-                   HorizontalOptions="FillAndExpand">
-                
-            </Frame>
-        </Grid>
-    </ScrollView>
+            <Frame Grid.Row="1"
+                   Grid.Column="0"
+                   Grid.RowSpan="4"
+                   Grid.ColumnSpan="4"
+                   HeightRequest="450"
+                   WidthRequest="0"
+                  
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="FillAndExpand">
+            <ScrollView>
+                <StackLayout>
+
+                    <material:MaterialLabel Text="Opciones" 
+                                        TextColor="Black" 
+                                        FontSize="Title" 
+                                        FontAttributes="Bold"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        />
+
+                    <material:MaterialButton x:Name="abrirGestionMarcas"
+                                         Text="Marcas"
+                                         WidthRequest="150"
+                                         BackgroundColor="#07485B"/>
+
+                    <material:MaterialButton x:Name="abrirGestionTiposEstilos"
+                                         Text="Tipo de Estilo"
+                                         WidthRequest="150"
+                                         BackgroundColor="#07485B"/>
+
+                    <material:MaterialButton x:Name="abrirGestionModelos"
+                                         Text="Modelos"
+                                         WidthRequest="150"
+                                         BackgroundColor="#07485B"/>
+
+                    <material:MaterialButton x:Name="abrirGestionSize"
+                                         Text="Size"
+                                         WidthRequest="150"
+                                         BackgroundColor="#07485B"/>
+
+                    <material:MaterialButton x:Name="abrirGestionColores"
+                                         Text="Colores"
+                                         WidthRequest="150" 
+                                         BackgroundColor="#07485B" />
+                </StackLayout>
+            </ScrollView>
+        </Frame>
+
+    </Grid>
+
 </ContentPage>
