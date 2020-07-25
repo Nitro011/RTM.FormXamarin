@@ -6,15 +6,81 @@
              xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
              xmlns:behavior="clr-namespace:RTM.FormXamarin.Behavior"
              mc:Ignorable="d"
-             x:Class="RTM.FormXamarin.Views.AreaDeProduccion.RegistrarAreaDeProduccion"> 
-    
- 
-        <ScrollView>
+             x:Class="RTM.FormXamarin.Views.AreaDeProduccion.RegistrarAreaDeProduccion">
+
+    <Grid RowSpacing="0" ColumnSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Orientation="Horizontal"
+                         Grid.Row="0"
+                         Grid.Column="0"
+                         Grid.ColumnSpan="4"
+                         BackgroundColor="#07485B">
+
+        </StackLayout>
+
+        <StackLayout Orientation="Vertical"
+                         Grid.Row="1"
+                         Grid.Column="0"
+                         Grid.RowSpan="4"
+                         Grid.ColumnSpan="4"
+                         BackgroundColor="LightGray">
+        </StackLayout>
+
+        <Frame Grid.Row="1"
+                   Grid.Column="0"
+                   Grid.RowSpan="4"
+                   Grid.ColumnSpan="4"
+                   HeightRequest="450"
+                   WidthRequest="0"
+                  
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="FillAndExpand">
+            <ScrollView>
+                <StackLayout>
+
+                    <material:MaterialLabel Text="Registrar Departamentos" 
+                                        TextColor="Black" 
+                                        FontSize="Title" 
+                                        FontAttributes="Bold"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        
+                    />
+
+                    <StackLayout Margin="0,55,0,0">
+                        <StackLayout Orientation="Horizontal">
+                            <material:MaterialTextField x:Name="NombreAreaProduccion" Placeholder="Ingrese el nuevo Departamento" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+
+
+                    <material:MaterialButton Text="Guardar Departamento" x:Name="btnGuardarAreaProduccion" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,40,0,0"/>
+
+                </StackLayout>
+            </ScrollView>
+        </Frame>
+
+    </Grid>
+
+    <!--<ScrollView>
             <StackLayout Padding="0" BackgroundColor="LightGray">
                 <Grid>
                     <StackLayout Padding="0" Margin="0">
                         <Frame BackgroundColor="#07485B" HeightRequest="150" HorizontalOptions="FillAndExpand" Padding="0">
-                            <!--<Image Source="" Aspect="Fill" Margin="0"-->
+                            --><!--<Image Source="" Aspect="Fill" Margin="0"--><!--
                         </Frame>
                     </StackLayout>
 
@@ -54,5 +120,5 @@
                     </StackLayout>
                 </Grid>
             </StackLayout>
-        </ScrollView>
+        </ScrollView>-->
 </ContentPage>

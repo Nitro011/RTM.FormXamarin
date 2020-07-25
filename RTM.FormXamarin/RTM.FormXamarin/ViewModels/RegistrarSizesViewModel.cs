@@ -4,11 +4,11 @@ using System.Text;
 
 namespace RTM.FormXamarin.ViewModels
 {
-    class RegistrarRolesViewModel:BaseViewModel
+    public class RegistrarSizesViewModel:BaseViewModel
     {
-        public RegistrarRolesViewModel()
+        public RegistrarSizesViewModel()
         {
-            Title = "Registrar Posiciones";
+            Title = "Registrar Sizes";
         }
     }
 }

@@ -64,8 +64,8 @@
 
                     <StackLayout HorizontalOptions="FillAndExpand">
 
-                        <StackLayout HorizontalOptions="CenterAndExpand" WidthRequest="215">
-                            <SearchBar x:Name="buscarPosiciones" Placeholder="Buscar Posicion" TextColor="Black" PlaceholderColor="Black" WidthRequest="100"/>
+                        <StackLayout HorizontalOptions="FillAndExpand" WidthRequest="215">
+                            <SearchBar x:Name="buscarPosiciones" Placeholder="Buscar Posicion" TextColor="Black" PlaceholderColor="Black"/>
                         </StackLayout>
 
                         <StackLayout Margin="0,1,0,0">
@@ -146,17 +146,17 @@
 
                     <StackLayout HorizontalOptions="FillAndExpand">
 
-                        <StackLayout HorizontalOptions="CenterAndExpand" WidthRequest="215">
-                            <SearchBar x:Name="buscarDepartamento" Placeholder="Buscar Departamento" TextColor="Black" PlaceholderColor="Black" WidthRequest="100"/>
+                        <StackLayout HorizontalOptions="FillAndExpand">
+                            <SearchBar x:Name="buscarDepartamento" Placeholder="Buscar Departamento" TextColor="Black" PlaceholderColor="Black"/>
                         </StackLayout>
 
                         <StackLayout Margin="0,1,0,0">
-                            <ListView x:Name="listaDepartamento" >
+                            <ListView x:Name="listaAreaProduccion">
 
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <ImageCell Height="30" 
-                                     Text="{Binding NombreCompleto}"
+                                     Text="{Binding NombreAreaProduccion}"
                                      Detail="{Binding Puesto}"
                                       ImageSource="{Binding ImageUrl}"/>
 
@@ -228,8 +228,8 @@
 
                     <StackLayout HorizontalOptions="FillAndExpand">
 
-                        <StackLayout HorizontalOptions="CenterAndExpand" WidthRequest="215">
-                            <SearchBar x:Name="buscarEmpleado" Placeholder="Buscar Empleado" TextColor="Black" PlaceholderColor="Black" WidthRequest="100"/>
+                        <StackLayout HorizontalOptions="FillAndExpand">
+                            <SearchBar x:Name="buscarEmpleado" Placeholder="Buscar Empleado" TextColor="Black" PlaceholderColor="Black" />
                         </StackLayout>
 
                         <StackLayout Margin="0,1,0,0">

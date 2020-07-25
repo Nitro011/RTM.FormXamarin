@@ -5,8 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
              mc:Ignorable="d"
-             x:Class="RTM.FormXamarin.Views.MateriasPrimas.RegistrarMateriasPrimas"
-              Title="{Binding Title}">
+             x:Class="RTM.FormXamarin.Views.GestionMateriales.GestionMateriales"
+             Title="{Binding Title}">
 
     <Grid RowSpacing="0" ColumnSpacing="0">
         <Grid.RowDefinitions>
@@ -51,32 +51,39 @@
             <ScrollView>
                 <StackLayout>
 
-                    <StackLayout Margin="0,25,0,0">
-                        <StackLayout>
-                            <material:MaterialTextField x:Name="PartNo" Placeholder="Ingrese el Part No." TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
-                        </StackLayout>
-                    </StackLayout>
+                    <material:MaterialLabel Text="Opciones" 
+                                        TextColor="Black" 
+                                        FontSize="Title" 
+                                        FontAttributes="Bold"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        />
 
-                    <StackLayout Margin="0,25,0,0">
-                        <StackLayout>
-                            <material:MaterialTextField x:Name="Nombre_Materia_Prima" Placeholder="Ingrese el nombre de la Materia Prima" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
-                        </StackLayout>
-                    </StackLayout>
+                    <material:MaterialButton x:Name="abrirGestionSuplidores"
+                                         Text="Gestion de Suplidores"
+                                         WidthRequest="150"
+                                         BackgroundColor="#07485B"
+                                         Margin="0,25,0,0"/>
 
-                    <StackLayout Margin="0,25,0,0">
-                        <StackLayout Orientation="Horizontal">
-                            <Picker Title="Tipos de Materiales" x:Name="listaTiposMateriales"  ItemsSource="{Binding Nombre_Material}" ItemDisplayBinding="{Binding Nombre_Material}" SelectedIndex="{Binding Tipo_MaterialID}" SelectedIndexChanged="ObtenerRoles" HorizontalOptions = "FillAndExpand"/>
-                        </StackLayout>
-                    </StackLayout>
+                    <material:MaterialButton x:Name="abrirGestionMateriales"
+                                         Text="Gestion de Part Number"
+                                         WidthRequest="150"
+                                         BackgroundColor="#07485B"/>
 
-                    <StackLayout Margin="0,25,0,0">
-                        <StackLayout>
-                            <material:MaterialTextField x:Name="Descripcion" Placeholder="Ingrese la Descripcion del Material" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
-                        </StackLayout>
-                    </StackLayout>
+                    <material:MaterialButton x:Name="abrirGestionModelos"
+                                         Text="Control de Inventario"
+                                         WidthRequest="150"
+                                         BackgroundColor="#07485B"/>
 
-                    <material:MaterialButton Text="Guardar Materias Primas" x:Name="btnGuardarMateriasPrimas" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,40,0,0"/>
+                    <material:MaterialButton x:Name="abrirGestionSize"
+                                         Text="Recepcion de Materiales"
+                                         WidthRequest="150"
+                                         BackgroundColor="#07485B"/>
 
+                    <material:MaterialButton x:Name="abrirGestionColores"
+                                         Text="Despacho de Materiales"
+                                         WidthRequest="150" 
+                                         BackgroundColor="#07485B" />
                 </StackLayout>
             </ScrollView>
         </Frame>

@@ -9,12 +9,111 @@
              x:Class="RTM.FormXamarin.Views.Suplidores.RegistrarSuplidores"
              Title="{Binding Title}">
 
-    <ScrollView>
+    <Grid RowSpacing="0" ColumnSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Orientation="Horizontal"
+                         Grid.Row="0"
+                         Grid.Column="0"
+                         Grid.ColumnSpan="4"
+                         BackgroundColor="#07485B">
+
+        </StackLayout>
+
+        <StackLayout Orientation="Vertical"
+                         Grid.Row="1"
+                         Grid.Column="0"
+                         Grid.RowSpan="4"
+                         Grid.ColumnSpan="4"
+                         BackgroundColor="LightGray">
+        </StackLayout>
+
+        <Frame Grid.Row="1"
+                   Grid.Column="0"
+                   Grid.RowSpan="4"
+                   Grid.ColumnSpan="4"
+                   HeightRequest="450"
+                   WidthRequest="0"
+                  
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="FillAndExpand">
+            <ScrollView>
+                <StackLayout>
+
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout>
+                            <material:MaterialTextField x:Name="nombreEmpresa" Placeholder="Ingrese el nombre de la Empresa" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout>
+                            <material:MaterialTextField x:Name="nombreSuplidor" Placeholder="Ingrese el nombre del Representante" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout Orientation="Horizontal">
+                            <Entry x:Name="telefono" Placeholder="Ingrese el numero de Telefono" TextColor="Black" Keyboard="Numeric" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0">
+                                <Entry.Behaviors>
+                                    <behavior:MaskedBehavior Mask="(XXX) XXX-XXXX" />
+                                </Entry.Behaviors>
+                            </Entry>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout>
+                            <material:MaterialTextField x:Name="correoElectronico" Placeholder="Ingrese el Correo Electronico" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout>
+                            <material:MaterialTextField x:Name="pais" Placeholder="Ingrese el Pais" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout>
+                            <material:MaterialTextField x:Name="ciudad" Placeholder="Ingrese la Ciudad" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout>
+                            <material:MaterialTextField x:Name="direccion" Placeholder="Ingrese la Direccion" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+
+
+
+                    <material:MaterialButton Text="Guardar Suplidor" x:Name="btnGuardarSuplidores" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,40,0,0"/>
+
+                </StackLayout>
+            </ScrollView>
+        </Frame>
+
+    </Grid>
+
+    <!--<ScrollView>
         <StackLayout Padding="0" BackgroundColor="LightGray">
             <Grid>
                 <StackLayout Padding="0" Margin="0">
                     <Frame BackgroundColor="#07485B" HeightRequest="150" HorizontalOptions="FillAndExpand" Padding="0">
-                        <!--<Image Source="" Aspect="Fill" Margin="0"-->
+                        --><!--<Image Source="" Aspect="Fill" Margin="0"--><!--
                     </Frame>
                 </StackLayout>
 
@@ -81,5 +180,5 @@
                 </StackLayout>
             </Grid>
         </StackLayout>
-    </ScrollView>
+    </ScrollView>-->
 </ContentPage>

@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,10 +21,10 @@ namespace RTM.FormXamarin.Views.MateriasPrimas
             InitializeComponent();
             BindingContext = this.GestionarMateriasPrimasViewModel = new GestionarMateriasPrimasViewModel();
 
-            abrirRegistroDeMateriasPrimas.Clicked += AbrirRegistroDeMateriasPrimas_Clicked;
+            agregarNuevasMateriasPrimas.Clicked += AgregarNuevasMateriasPrimas_Clicked;
         }
 
-        private async void AbrirRegistroDeMateriasPrimas_Clicked(object sender, EventArgs e)
+        private async void AgregarNuevasMateriasPrimas_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new MateriasPrimas.RegistrarMateriasPrimas());
         }

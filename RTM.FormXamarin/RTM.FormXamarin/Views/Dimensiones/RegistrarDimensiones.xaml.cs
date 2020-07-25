@@ -11,15 +11,18 @@ using RTM.FormXamarin.Models.Dimensiones;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XF.Material.Forms.UI.Dialogs;
+using RTM.FormXamarin.ViewModels;
 
 namespace RTM.FormXamarin.Views.Dimensiones
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RegistrarDimensiones : ContentPage
     {
+        RegistrarSizesViewModel RegistrarSizesViewModel;
         public RegistrarDimensiones()
         {
             InitializeComponent();
+            BindingContext = this.RegistrarSizesViewModel=new RegistrarSizesViewModel();
             btnGuardarDimensiones.Clicked += BtnGuardarDimensiones_Clicked;
         }
 
@@ -29,27 +32,27 @@ namespace RTM.FormXamarin.Views.Dimensiones
 
             try
             {
-                var longitudV = longitud.Text;
-                var anchuraV = anchura.Text;
-                var alturaV = altura.Text;
+                var USAV = USA.Text;
+                var UKV = UK.Text;
+                var EUROV = EURO.Text;
 
 
-                if (string.IsNullOrEmpty(longitudV))
+                if (string.IsNullOrEmpty(USAV))
                 {
                     await DisplayAlert("Validacion", "Ingrese la Longitud", "Aceptar");
-                    longitud.Focus();
+                    USA.Focus();
                     return;
                 }
-                if (string.IsNullOrEmpty(anchuraV))
+                if (string.IsNullOrEmpty(UKV))
                 {
                     await DisplayAlert("Validacion", "Ingrese la Anchura", "Aceptar");
-                    anchura.Focus();
+                    UK.Focus();
                     return;
                 }
-                if (string.IsNullOrEmpty(alturaV))
+                if (string.IsNullOrEmpty(EUROV))
                 {
                     await DisplayAlert("Validacion", "Ingrese la Altura", "Aceptar");
-                    altura.Focus();
+                    EURO.Focus();
                     return;
                 }
 
@@ -59,9 +62,9 @@ namespace RTM.FormXamarin.Views.Dimensiones
                 var dimensiones = new Dimension()
                 {
                     DimensionID = 0,
-                    Longitud = Convert.ToInt32(longitudV),
-                    Anchura = Convert.ToInt32(anchuraV),
-                    Altura=Convert.ToInt32(alturaV)
+                    Longitud = Convert.ToInt32(USAV),
+                    Anchura = Convert.ToInt32(UKV),
+                    Altura=Convert.ToInt32(EUROV)
 
                 };
 

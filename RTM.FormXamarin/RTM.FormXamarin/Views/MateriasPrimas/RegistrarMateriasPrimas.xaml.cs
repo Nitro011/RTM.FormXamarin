@@ -12,15 +12,18 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XF.Material.Forms.UI.Dialogs;
 using RTM.FormXamarin.Models.MateriasPrimas;
+using RTM.FormXamarin.ViewModels;
 
 namespace RTM.FormXamarin.Views.MateriasPrimas
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RegistrarMateriasPrimas : ContentPage
     {
+        RegistrarMateriasPrimasViewModel RegistrarMateriasPrimasViewModel;
         public RegistrarMateriasPrimas()
         {
             InitializeComponent();
+            BindingContext = this.RegistrarMateriasPrimasViewModel=new RegistrarMateriasPrimasViewModel();
             ListaTiposMateriales();
             btnGuardarMateriasPrimas.Clicked += BtnGuardarMateriasPrimas_Clicked;
         }

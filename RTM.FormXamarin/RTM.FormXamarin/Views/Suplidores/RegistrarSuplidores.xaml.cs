@@ -12,15 +12,18 @@ using RTM.FormXamarin.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XF.Material.Forms.UI.Dialogs;
+using RTM.FormXamarin.ViewModels;
 
 namespace RTM.FormXamarin.Views.Suplidores
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RegistrarSuplidores : ContentPage
     {
+        RegistrarSuplidorViewModel RegistrarSuplidorViewModel;
         public RegistrarSuplidores()
         {
             InitializeComponent();
+            BindingContext = this.RegistrarSuplidorViewModel = new RegistrarSuplidorViewModel();
             btnGuardarSuplidores.Clicked += BtnGuardarSuplidores_Clicked;
         }
 
@@ -141,6 +144,18 @@ namespace RTM.FormXamarin.Views.Suplidores
                                     title: "Error",
                                     acknowledgementText: "Aceptar");
             }
+            limpiarCampos();
+        }
+
+        private void limpiarCampos()
+        {
+            nombreEmpresa.Text = "";
+            nombreSuplidor.Text = "";
+            telefono.Text = "";
+            correoElectronico.Text = "";
+            pais.Text = "";
+            ciudad.Text = "";
+            direccion.Text = "";
         }
     }
 }

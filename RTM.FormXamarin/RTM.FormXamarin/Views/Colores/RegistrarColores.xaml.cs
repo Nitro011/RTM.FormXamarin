@@ -11,15 +11,19 @@ using RTM.FormXamarin.Models.Colores;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XF.Material.Forms.UI.Dialogs;
+using Xamarin.Forms.Internals;
+using RTM.FormXamarin.ViewModels;
 
 namespace RTM.FormXamarin.Views.Colores
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RegistrarColores : ContentPage
     {
+        RegistrarColoresViewModel RegistrarColoresViewModel;
         public RegistrarColores()
         {
             InitializeComponent();
+            BindingContext = this.RegistrarColoresViewModel=new RegistrarColoresViewModel();
             btnGuardarColor.Clicked += BtnGuardarColor_Clicked;
         }
 

@@ -14,6 +14,7 @@ using XF.Material.Forms.UI.Dialogs;
 using RTM.FormXamarin.Models.Usuarios;
 using RTM.FormXamarin.Views.Empleados;
 using RTM.FormXamarin.ViewModels;
+using RTM.FormXamarin.Models.AreasDeProduccion;
 
 namespace RTM.FormXamarin.Views.GestionHumana
 {
@@ -27,10 +28,23 @@ namespace RTM.FormXamarin.Views.GestionHumana
             BindingContext = this.GestionHumanaViewModels=new GestionHumanaViewModels();
             ListaPosiciones();
             ListaEmpleado();
+            ListaAreaProduccion();
             buscarPosiciones.TextChanged += BuscarPosiciones_TextChanged;
             listaEmpleado.ItemSelected += ListaEmpleado_ItemSelected;
             buscarEmpleado.TextChanged += BuscarEmpleado_TextChanged;
             agregarNuevoEmpleado.Clicked += AgregarNuevoEmpleado_Clicked;
+            agregarNuevaPosicion.Clicked += AgregarNuevaPosicion_Clicked;
+            agregarDepartamentos.Clicked += AgregarDepartamentos_Clicked;
+        }
+
+        private async void AgregarDepartamentos_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AreaDeProduccion.RegistrarAreaDeProduccion());
+        }
+
+        private async void AgregarNuevaPosicion_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Roles.RegistrarRoles());
         }
 
         private async void AgregarNuevoEmpleado_Clicked(object sender, EventArgs e)
@@ -100,7 +114,7 @@ namespace RTM.FormXamarin.Views.GestionHumana
             }
             else
             {
-                string posiciones = buscarPosiciones.Text;
+                string TipoUsuario = buscarPosiciones.Text;
 
                 string connectionString = ConfigurationManager.AppSettings["ipServer"];
 
@@ -108,7 +122,7 @@ namespace RTM.FormXamarin.Views.GestionHumana
                 HttpClient client = new HttpClient();
 
                 client.BaseAddress = new Uri(connectionString);
-                var request = client.GetAsync($"/api/Empleados/").Result;
+                var request = client.GetAsync($"/api/Role/BuscarRolesPorTipoUsuario/{TipoUsuario}").Result;
 
                 if (request.IsSuccessStatusCode)
                 {
@@ -186,6 +200,41 @@ namespace RTM.FormXamarin.Views.GestionHumana
                     var listaView = JsonConvert.DeserializeObject<List<EmpleadoListView>>(response.data.ToString());
 
                     listaEmpleado.ItemsSource = listaView;
+
+
+                }
+                else
+                {
+                    await MaterialDialog.Instance.AlertAsync(message: "Error",
+                                   title: "Error",
+                                   acknowledgementText: "Aceptar");
+                }
+
+            }
+
+        }
+
+        private async void ListaAreaProduccion()
+        {
+            string connectionString = ConfigurationManager.AppSettings["ipServer"];
+
+
+            HttpClient client = new HttpClient();
+
+            client.BaseAddress = new Uri(connectionString);
+            var request = client.GetAsync("/api/AreaProduccion/lista").Result;
+
+            if (request.IsSuccessStatusCode)
+            {
+                var responseJson = request.Content.ReadAsStringAsync().Result;
+                var response = JsonConvert.DeserializeObject<Request>(responseJson);
+
+                if (response.status)
+                {
+
+                    var listaView = JsonConvert.DeserializeObject<List<AreaProduccionListView>>(response.data.ToString());
+
+                    listaAreaProduccion.ItemsSource = listaView;
 
 
                 }

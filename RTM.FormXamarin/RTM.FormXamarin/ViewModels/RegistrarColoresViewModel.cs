@@ -4,11 +4,11 @@ using System.Text;
 
 namespace RTM.FormXamarin.ViewModels
 {
-    class RegistrarRolesViewModel:BaseViewModel
+    public class RegistrarColoresViewModel:BaseViewModel
     {
-        public RegistrarRolesViewModel()
+        public RegistrarColoresViewModel()
         {
-            Title = "Registrar Posiciones";
+            Title = "Registrar Colores";
         }
     }
 }

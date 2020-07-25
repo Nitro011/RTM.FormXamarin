@@ -7,13 +7,90 @@
              mc:Ignorable="d"
              x:Class="RTM.FormXamarin.Views.MateriasPrimas.GestionarMateriasPrimas"
              Title="{Binding Title}">
-    
-    <ScrollView>
+
+    <Grid RowSpacing="0" ColumnSpacing="0">
+        <Grid.RowDefinitions >
+            <RowDefinition Height="55"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Orientation="Horizontal"
+                     Grid.Row="0"
+                     Grid.Column="0"
+                     Grid.ColumnSpan="3"
+                     BackgroundColor="White">
+
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <material:MaterialLabel Text="Materias Primas"
+                                        TextColor="Black" 
+                                        FontSize="Title" 
+                                        FontAttributes="Bold"
+                                        HorizontalOptions="CenterAndExpand"
+                                        VerticalOptions="CenterAndExpand"
+                                        Margin="0,0,30,0"
+                                        
+                />
+            </StackLayout>
+
+
+            <StackLayout HorizontalOptions="End" VerticalOptions="End">
+                <material:MaterialButton x:Name="agregarNuevasMateriasPrimas" Text="+" FontSize="Title" FontAttributes="Bold" BackgroundColor="#07485B" WidthRequest="55" HeightRequest="55" CornerRadius="55"/>
+            </StackLayout>
+
+
+
+
+
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal"
+                     Grid.Row="1"
+                     Grid.Column="0"
+                     Grid.ColumnSpan="3"
+                     Grid.RowSpan="3"
+                     Padding="10"
+                     BackgroundColor="White">
+
+            <StackLayout HorizontalOptions="FillAndExpand">
+
+                <StackLayout HorizontalOptions="FillAndExpand" WidthRequest="200">
+                    <SearchBar x:Name="buscarMateriasPrimas" Placeholder="Buscar Materias Primas" TextColor="Black" PlaceholderColor="Black" WidthRequest="100"/>
+                </StackLayout>
+
+                <StackLayout Margin="0,1,0,0">
+                    <ListView x:Name="listaSuplidores" >
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ImageCell Height="30" 
+                                     Text="{Binding Empresa}"
+                                     Detail="{Binding Nombre_Suplidor}"
+                                      ImageSource="{Binding ImageUrl}"/>
+
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+
+
+
+    </Grid>
+
+    <!--<ScrollView>
         <StackLayout Padding="0" BackgroundColor="LightGray">
             <Grid>
                 <StackLayout Padding="0" Margin="0">
                     <Frame BackgroundColor="#07485B" HeightRequest="150" HorizontalOptions="FillAndExpand" Padding="0">
-                        <!--<Image Source="" Aspect="Fill" Margin="0"-->
+                        --><!--<Image Source="" Aspect="Fill" Margin="0"--><!--
                     </Frame>
                 </StackLayout>
 
@@ -36,5 +113,5 @@
                 </StackLayout>
             </Grid>
         </StackLayout>
-    </ScrollView>
+    </ScrollView>-->
 </ContentPage>

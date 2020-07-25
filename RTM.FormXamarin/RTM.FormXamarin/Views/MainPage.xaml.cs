@@ -47,23 +47,11 @@ namespace RTM.FormXamarin.Views
                     case (int)MenuItemType.GestionEstilo:
                         MenuPages.Add(id, new NavigationPage(new GestionEstilos.GestionEstilos()));
                         break;
+                    case (int)MenuItemType.GestionMateriales:
+                        MenuPages.Add(id, new NavigationPage(new GestionMateriales.GestionMateriales()));
+                        break;
                     case (int)MenuItemType.Configuraciones:
                         MenuPages.Add(id, new NavigationPage(new Configuraciones.Configuraciones()));
-                        break;
-                    case (int)MenuItemType.TiposCalzados:
-                        MenuPages.Add(id, new NavigationPage(new TiposCalzados.GestionarTiposCalzados()));
-                        break;
-                    case (int)MenuItemType.GestionarClientes:
-                        MenuPages.Add(id, new NavigationPage(new Clientes.GestionarClientes()));
-                        break;
-                    case (int)MenuItemType.GestionarModelos:
-                        MenuPages.Add(id, new NavigationPage(new Modelos.GestionarModelos()));
-                        break;
-                    case (int)MenuItemType.GestionarMarcas:
-                        MenuPages.Add(id, new NavigationPage(new Marcas.GestionarMarcas()));
-                        break;
-                    case (int)MenuItemType.GestionarDimensiones:
-                        MenuPages.Add(id, new NavigationPage(new Dimensiones.GestionarDimensiones()));
                         break;
                     case (int)MenuItemType.GestionarControlUbicacionPiezas:
                         MenuPages.Add(id, new NavigationPage(new ControlUbicacionPiezas.GestionarControlUbicacionPiezas()));
@@ -71,14 +59,8 @@ namespace RTM.FormXamarin.Views
                     case (int)MenuItemType.OrdenesClientes:
                         MenuPages.Add(id, new NavigationPage(new OrdenesClientes.GestionarOrdenesClientes()));
                         break;
-                    case (int)MenuItemType.Clientes:
-                        MenuPages.Add(id, new NavigationPage(new Clientes.RegistrarClientes()));
-                        break;
                     case (int)MenuItemType.OperacionesCalzados:
                         MenuPages.Add(id, new NavigationPage(new OperacionesCalzados.GestionarOperacionesCalzados()));
-                        break;
-                    case (int)MenuItemType.BOM:
-                        MenuPages.Add(id, new NavigationPage(new BOM.GestionarBOM()));
                         break;
                     case (int)MenuItemType.Almacen:
                         MenuPages.Add(id, new NavigationPage(new Almacen.GestionarAlmacen()));
