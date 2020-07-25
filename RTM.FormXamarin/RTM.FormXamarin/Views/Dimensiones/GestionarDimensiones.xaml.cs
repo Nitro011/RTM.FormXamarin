@@ -18,10 +18,10 @@ namespace RTM.FormXamarin.Views.Dimensiones
         {
             InitializeComponent();
             BindingContext = this.GestionarDimensionesViewModel = new GestionarDimensionesViewModel();
-            abrirRegistroDeDimensiones.Clicked += AbrirRegistroDeDimensiones_Clicked;
+            agregarNuevosSizes.Clicked += AgregarNuevosSizes_Clicked;
         }
 
-        private async void AbrirRegistroDeDimensiones_Clicked(object sender, EventArgs e)
+        private async void AgregarNuevosSizes_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Dimensiones.RegistrarDimensiones());
         }

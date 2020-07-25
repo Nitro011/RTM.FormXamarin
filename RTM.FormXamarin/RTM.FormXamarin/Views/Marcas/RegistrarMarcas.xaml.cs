@@ -92,6 +92,14 @@ namespace RTM.FormXamarin.Views.Marcas
                                     title: "Error",
                                     acknowledgementText: "Aceptar");
             }
+
+            limpiarCampos();
         }
+
+        private void limpiarCampos()
+        {
+            marcas.Text = "";
+        }
+
     }
 }

@@ -1,12 +1,17 @@
-﻿using RTM.FormXamarin.ViewModels;
+﻿using Newtonsoft.Json;
+using PCLAppConfig;
+using RTM.FormXamarin.Models.TiposCalzados;
+using RTM.FormXamarin.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-
+using RTM.FormXamarin.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XF.Material.Forms.UI.Dialogs;
 
 namespace RTM.FormXamarin.Views.TiposCalzados
 {
@@ -18,24 +23,48 @@ namespace RTM.FormXamarin.Views.TiposCalzados
         {
             InitializeComponent();
             BindingContext = this.TiposCalzadoViewModel = new TiposCalzadoViewModel();
-            abrirRegistroDeTipoDeCalzado.Clicked += AbrirRegistroDeTipoDeCalzado_Clicked;
-            abrirConsultasDeTipoDeCalzado.Clicked += AbrirConsultasDeTipoDeCalzado_Clicked;
-            abrirTab.Clicked += AbrirTab_Clicked;
+            ListaTiposCalzados();
+            agregarNuevosTiposEstilos.Clicked += AgregarNuevosTiposEstilos_Clicked;
         }
 
-        private async void AbrirTab_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new TiposCalzados.ejemplo());
-        }
-
-        private async void AbrirConsultasDeTipoDeCalzado_Clicked(object sender, EventArgs e)
-        {
-           await Navigation.PushAsync(new TiposCalzados.ConsultarTiposCalzados());
-        }
-
-        private async void AbrirRegistroDeTipoDeCalzado_Clicked(object sender, EventArgs e)
+        private async void AgregarNuevosTiposEstilos_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new TiposCalzados.RegistrarTipoDeCalzado());
+        }
+
+        private async void ListaTiposCalzados()
+        {
+            string connectionString = ConfigurationManager.AppSettings["ipServer"];
+
+
+            HttpClient client = new HttpClient();
+
+            client.BaseAddress = new Uri(connectionString);
+            var request = client.GetAsync("/api/TiposCalzados/lista").Result;
+
+            if (request.IsSuccessStatusCode)
+            {
+                var responseJson = request.Content.ReadAsStringAsync().Result;
+                var response = JsonConvert.DeserializeObject<Request>(responseJson);
+
+                if (response.status)
+                {
+
+                    var listaView = JsonConvert.DeserializeObject<List<TiposCalzadosListView>>(response.data.ToString());
+
+                    listaTiposCalzados.ItemsSource = listaView;
+
+
+                }
+                else
+                {
+                    await MaterialDialog.Instance.AlertAsync(message: "Error",
+                                   title: "Error",
+                                   acknowledgementText: "Aceptar");
+                }
+
+            }
+
         }
     }
 }
