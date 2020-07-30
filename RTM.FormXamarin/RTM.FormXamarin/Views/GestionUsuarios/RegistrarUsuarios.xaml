@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             xmlns:behavior="clr-namespace:RTM.FormXamarin.Behavior"
+             mc:Ignorable="d"
+             x:Class="RTM.FormXamarin.Views.GestionUsuarios.RegistrarUsuarios"
+              Title="{Binding Title}">
+
+    <Grid RowSpacing="0" ColumnSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Orientation="Horizontal"
+                         Grid.Row="0"
+                         Grid.Column="0"
+                         Grid.ColumnSpan="4"
+                         BackgroundColor="#07485B">
+
+        </StackLayout>
+
+        <StackLayout Orientation="Vertical"
+                         Grid.Row="1"
+                         Grid.Column="0"
+                         Grid.RowSpan="4"
+                         Grid.ColumnSpan="4"
+                         BackgroundColor="LightGray">
+        </StackLayout>
+
+        <Frame Grid.Row="1"
+                   Grid.Column="0"
+                   Grid.RowSpan="4"
+                   Grid.ColumnSpan="4"
+                   HeightRequest="450"
+                   WidthRequest="0"
+                  
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="FillAndExpand">
+            <ScrollView>
+                <StackLayout>
+
+                    <StackLayout>
+                        <SearchBar x:Name="searchEmpleado" Placeholder="Buscar Empleados" PlaceholderColor="Black" HorizontalOptions="FillAndExpand" />
+                    </StackLayout>
+
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout>
+                            <material:MaterialTextField x:Name="empleadoID" Placeholder="{Binding EmpleadoID}" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout>
+                            <material:MaterialTextField x:Name="nombreEmpleado" Placeholder="{Binding nombreCompleto}" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout>
+                            <material:MaterialTextField x:Name="nombreUsuario" Placeholder="Ingresar nombre de usuario" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout>
+                            <material:MaterialTextField x:Name="passwordHash" Placeholder="Ingresa password hash" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Picker Title="Roles" x:Name="pickerRoles"  HorizontalOptions = "FillAndExpand" >
+                            <Picker.Items>
+                                <x:String>Gerente General</x:String>
+                                <x:String>admin</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </StackLayout>
+
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout>
+                            <material:MaterialTextField x:Name="email" Placeholder="Ingresar Email" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Entry x:Name="numeroTelefono" Placeholder="Ingresar numero de telefono" Keyboard="Numeric" TextColor="Black"  HorizontalOptions="FillAndExpand"  Margin="0,0,15,0">
+                            <Entry.Behaviors>
+                                <behavior:MaskedBehavior Mask="(XXX) XXX-XXX"/>
+                            </Entry.Behaviors>
+                        </Entry>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Picker Title="Area de Produccion" x:Name="pickerAreaProduccion" ItemsSource="{Binding NombreAreaProduccion}" ItemDisplayBinding="{Binding NombreAreaProduccion}" SelectedIndex="{Binding AreaProduccionID}"  HorizontalOptions = "FillAndExpand" />
+                    </StackLayout>
+
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout>
+                            <material:MaterialTextField x:Name="direccion" Placeholder="Ingrese la Direccion" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+
+
+
+                    <material:MaterialButton Text="Guardar Usuarios" x:Name="btnGuardarUsuarios" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,40,0,0"/>
+
+                </StackLayout>
+            </ScrollView>
+        </Frame>
+
+    </Grid>
+</ContentPage>

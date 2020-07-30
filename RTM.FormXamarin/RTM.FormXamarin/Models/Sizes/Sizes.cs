@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RTM.FormXamarin.Models.Sizes
 {
-    public class Size
+    public class Sizes
     {
         public int SizeID { get; set; }
         public int CategoriaSizeID { get; set; }

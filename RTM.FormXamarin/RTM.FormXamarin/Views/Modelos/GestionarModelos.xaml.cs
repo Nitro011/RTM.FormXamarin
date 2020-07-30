@@ -21,7 +21,71 @@ namespace RTM.FormXamarin.Views.Modelos
         {
             InitializeComponent();
             agregarNuevosModelos.Clicked += AgregarNuevosModelos_Clicked;
+            buscarModelos.TextChanged += BuscarModelos_TextChanged;
+            listaModelos.ItemSelected += ListaModelos_ItemSelected;
             ListaModelos();
+        }
+
+        private async void ListaModelos_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            bool answer = await DisplayAlert("Modificar?", "Desea modificar este elemento", "Si", "No");
+
+            if (answer == true)
+            {
+                try
+                {
+                    var item = (ModelosListView)e.SelectedItem;
+
+                    await Navigation.PushAsync(new ModificarModelos(item.ModeloID));
+                }
+                catch (Exception ex)
+                {
+
+                    await DisplayAlert("Error", ex.Message, "Aceptar");
+                }
+            }
+            else
+            {
+                ListaModelos();
+            }
+        }
+
+        private void BuscarModelos_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (buscarModelos.Text == "")
+            {
+                ListaModelos();
+            }
+            else
+            {
+                string Modelos = buscarModelos.Text;
+
+                string connectionString = ConfigurationManager.AppSettings["ipServer"];
+
+
+                HttpClient client = new HttpClient();
+
+                client.BaseAddress = new Uri(connectionString);
+                var request = client.GetAsync($"/api/Modelos/ConsultarModelosPorModelos/{Modelos}").Result;
+
+                if (request.IsSuccessStatusCode)
+                {
+                    var responseJson = request.Content.ReadAsStringAsync().Result;
+                    var response = JsonConvert.DeserializeObject<Request>(responseJson);
+
+                    if (response.status)
+                    {
+                        if (response.data != null)
+                        {
+
+                            var listaView = JsonConvert.DeserializeObject<List<ModelosListView>>(response.data.ToString());
+
+                            listaModelos.ItemsSource = listaView;
+                        }
+                    }
+
+                }
+            }
         }
 
         private async void AgregarNuevosModelos_Clicked(object sender, EventArgs e)

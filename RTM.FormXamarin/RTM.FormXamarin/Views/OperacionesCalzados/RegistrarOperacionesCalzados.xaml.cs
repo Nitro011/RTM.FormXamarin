@@ -116,6 +116,7 @@ namespace RTM.FormXamarin.Views.OperacionesCalzados
                                     acknowledgementText: "Aceptar");
             }
             limpiarCampos();
+            await Navigation.PushAsync(new Ingenieria.Ingenieria());
         }
 
         private void limpiarCampos()

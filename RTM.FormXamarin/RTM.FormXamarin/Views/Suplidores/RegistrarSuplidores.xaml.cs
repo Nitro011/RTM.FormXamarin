@@ -145,6 +145,7 @@ namespace RTM.FormXamarin.Views.Suplidores
                                     acknowledgementText: "Aceptar");
             }
             limpiarCampos();
+            await Navigation.PushAsync(new Suplidores.GestionarSuplidores());
         }
 
         private void limpiarCampos()

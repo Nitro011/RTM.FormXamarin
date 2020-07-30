@@ -15,10 +15,6 @@ namespace RTM.FormXamarin.Models
         GestionMateriales,
         GestionUsuario,
         Configuraciones,
-        GestionarControlUbicacionPiezas,
-        OrdenesClientes,
-        OperacionesCalzados,
-        Almacen,
         About
     }
     public class HomeMenuItem

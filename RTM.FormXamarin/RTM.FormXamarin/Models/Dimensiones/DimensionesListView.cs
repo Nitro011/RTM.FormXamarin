@@ -6,9 +6,10 @@ namespace RTM.FormXamarin.Models.Dimensiones
 {
     public class DimensionesListView
     {
-        public int DimensionID { get; set; }
-        public int? Longitud { get; set; }
-        public int? Anchura { get; set; }
-        public int? Altura { get; set; }
+        public int SizeID { get; set; }
+        public string USA { get; set; }
+        public string UK { get; set; }
+        public string EURO { get; set; }
+        public string CM { get; set; }
     }
 }

@@ -24,7 +24,46 @@ namespace RTM.FormXamarin.Views.Colores
             InitializeComponent();
             BindingContext = this.GestionarColoresViewModel=new GestionarColoresViewModel();
             agregarNuevosColores.Clicked += AgregarNuevosColores_Clicked;
+            buscarColores.TextChanged += BuscarColores_TextChanged;
             ListaColores();
+        }
+
+        private void BuscarColores_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (buscarColores.Text == "")
+            {
+                ListaColores();
+            }
+            else
+            {
+                string Colores = buscarColores.Text;
+
+                string connectionString = ConfigurationManager.AppSettings["ipServer"];
+
+
+                HttpClient client = new HttpClient();
+
+                client.BaseAddress = new Uri(connectionString);
+                var request = client.GetAsync($"/api/Colores/ConsultarColoresPorColores/{Colores}").Result;
+
+                if (request.IsSuccessStatusCode)
+                {
+                    var responseJson = request.Content.ReadAsStringAsync().Result;
+                    var response = JsonConvert.DeserializeObject<Request>(responseJson);
+
+                    if (response.status)
+                    {
+                        if (response.data != null)
+                        {
+
+                            var listaView = JsonConvert.DeserializeObject<List<ColoresListView>>(response.data.ToString());
+
+                            listaColores.ItemsSource = listaView;
+                        }
+                    }
+
+                }
+            }
         }
 
         private async void AgregarNuevosColores_Clicked(object sender, EventArgs e)

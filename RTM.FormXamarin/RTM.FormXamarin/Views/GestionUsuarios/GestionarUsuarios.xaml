@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             mc:Ignorable="d"
+             x:Class="RTM.FormXamarin.Views.GestionUsuarios.GestionarUsuarios"
+             Title="{Binding Title}">
+
+    <Grid RowSpacing="0" ColumnSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Orientation="Horizontal"
+                         Grid.Row="0"
+                         Grid.Column="0"
+                         Grid.ColumnSpan="4"
+                         BackgroundColor="#07485B">
+
+        </StackLayout>
+
+        <StackLayout Orientation="Vertical"
+                         Grid.Row="1"
+                         Grid.Column="0"
+                         Grid.RowSpan="4"
+                         Grid.ColumnSpan="4"
+                         BackgroundColor="LightGray">
+        </StackLayout>
+
+        <Frame Grid.Row="1"
+                   Grid.Column="0"
+                   Grid.RowSpan="4"
+                   Grid.ColumnSpan="4"
+                   HeightRequest="450"
+                   WidthRequest="0"
+                  
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="FillAndExpand">
+            <ScrollView>
+                <StackLayout>
+
+                    <material:MaterialLabel Text="Opciones" 
+                                        TextColor="Black" 
+                                        FontSize="Title" 
+                                        FontAttributes="Bold"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        />
+
+                    <material:MaterialButton x:Name="abrirDefiniciondeRoles"
+                                         Text="Definicion de Roles"
+                                         WidthRequest="150"
+                                         BackgroundColor="#07485B"
+                                         Margin="0,25,0,0"/>
+
+                    <material:MaterialButton x:Name="abrirMenuUsuarios"
+                                         Text="Registro de Usuarios"
+                                         WidthRequest="150"
+                                         BackgroundColor="#07485B"/>
+
+                    <material:MaterialButton x:Name="abrirGestionModelos"
+                                         Text="Asignacion de Permisos"
+                                         WidthRequest="150"
+                                         BackgroundColor="#07485B"/>
+
+                    <material:MaterialButton x:Name="abrirGestionSize"
+                                         Text="Reseteo de Password "
+                                         WidthRequest="150"
+                                         BackgroundColor="#07485B"/>
+                </StackLayout>
+            </ScrollView>
+        </Frame>
+
+    </Grid>
+</ContentPage>

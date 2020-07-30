@@ -15,6 +15,8 @@ using RTM.FormXamarin.Models.Usuarios;
 using RTM.FormXamarin.Views.Empleados;
 using RTM.FormXamarin.ViewModels;
 using RTM.FormXamarin.Models.AreasDeProduccion;
+using RTM.FormXamarin.Views.AreaDeProduccion;
+using RTM.FormXamarin.Views.Roles;
 
 namespace RTM.FormXamarin.Views.GestionHumana
 {
@@ -25,16 +27,106 @@ namespace RTM.FormXamarin.Views.GestionHumana
         public GestionHumana()
         {
             InitializeComponent();
-            BindingContext = this.GestionHumanaViewModels=new GestionHumanaViewModels();
+            BindingContext = this.GestionHumanaViewModels = new GestionHumanaViewModels();
             ListaPosiciones();
             ListaEmpleado();
             ListaAreaProduccion();
+            listaPosiciones.ItemSelected += ListaPosiciones_ItemSelected;
+            listaAreaProduccion.ItemSelected += ListaAreaProduccion_ItemSelected;
             buscarPosiciones.TextChanged += BuscarPosiciones_TextChanged;
             listaEmpleado.ItemSelected += ListaEmpleado_ItemSelected;
             buscarEmpleado.TextChanged += BuscarEmpleado_TextChanged;
+            buscarDepartamento.TextChanged += BuscarDepartamento_TextChanged;
             agregarNuevoEmpleado.Clicked += AgregarNuevoEmpleado_Clicked;
             agregarNuevaPosicion.Clicked += AgregarNuevaPosicion_Clicked;
             agregarDepartamentos.Clicked += AgregarDepartamentos_Clicked;
+        }
+
+        private async void ListaPosiciones_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            bool answer = await DisplayAlert("Modificar?", "Desea modificar este elemento", "Si", "No");
+
+            if (answer == true)
+            {
+                try
+                {
+                    var item = (RolesListView)e.SelectedItem;
+
+                    await Navigation.PushAsync(new ModificarRoles(item.RolID));
+                }
+                catch (Exception ex)
+                {
+
+                    await DisplayAlert("Error", ex.Message, "Aceptar");
+                }
+            }
+            else
+            {
+                ListaPosiciones();
+            }
+        }
+
+        private async void ListaAreaProduccion_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            bool answer = await DisplayAlert("Modificar?", "Desea modificar este elemento", "Si", "No");
+
+            if (answer == true)
+            {
+                try
+                {
+                    var item = (AreaProduccionListView)e.SelectedItem;
+
+                    await Navigation.PushAsync(new ModificarAreaProduccion(item.AreaProduccionID));
+                }
+                catch (Exception ex)
+                {
+
+                    await DisplayAlert("Error", ex.Message, "Aceptar");
+                }
+            }
+            else
+            {
+                ListaAreaProduccion();
+            }
+        }
+
+        private void BuscarDepartamento_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (buscarDepartamento.Text == "")
+            {
+                ListaAreaProduccion();
+            }
+            else
+            {
+                string NombreAreaProduccion = buscarDepartamento.Text;
+
+                string connectionString = ConfigurationManager.AppSettings["ipServer"];
+
+
+                HttpClient client = new HttpClient();
+
+                client.BaseAddress = new Uri(connectionString);
+                var request = client.GetAsync($"/api/AreaProduccion/BuscarAreaProduccionPorNombre/{NombreAreaProduccion}").Result;
+
+                if (request.IsSuccessStatusCode)
+                {
+                    var responseJson = request.Content.ReadAsStringAsync().Result;
+                    var response = JsonConvert.DeserializeObject<Request>(responseJson);
+
+                    if (response.status)
+                    {
+                        if (response.data != null)
+                        {
+
+                            var listaView = JsonConvert.DeserializeObject<List<AreaProduccionListView>>(response.data.ToString());
+
+                            /*  var año = (listaView.fecha_nacimiento != null) ? listaView.fecha_nacimiento.Value.Year : DateTime.MinValue.Year;*/
+                            listaAreaProduccion.ItemsSource = listaView;
+                        }
+                    }
+
+                }
+            }
         }
 
         private async void AgregarDepartamentos_Clicked(object sender, EventArgs e)
@@ -80,11 +172,14 @@ namespace RTM.FormXamarin.Views.GestionHumana
 
                     if (response.status)
                     {
+                        if (response.data != null)
+                        {
 
-                        var listaView = JsonConvert.DeserializeObject<List<EmpleadoListView>>(response.data.ToString());
+                            var listaView = JsonConvert.DeserializeObject<List<EmpleadoListView>>(response.data.ToString());
 
-                        /*  var año = (listaView.fecha_nacimiento != null) ? listaView.fecha_nacimiento.Value.Year : DateTime.MinValue.Year;*/
-                        listaEmpleado.ItemsSource = listaView;
+                            /*  var año = (listaView.fecha_nacimiento != null) ? listaView.fecha_nacimiento.Value.Year : DateTime.MinValue.Year;*/
+                            listaEmpleado.ItemsSource = listaView;
+                        }
                     }
 
                 }

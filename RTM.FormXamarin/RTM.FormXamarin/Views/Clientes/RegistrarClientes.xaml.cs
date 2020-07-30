@@ -140,6 +140,7 @@ namespace RTM.FormXamarin.Views.Clientes
                                     acknowledgementText: "Aceptar");
             }
             limpiarCampos();
+            await Navigation.PushAsync(new Clientes.GestionarClientes());
         }
 
         private void limpiarCampos()

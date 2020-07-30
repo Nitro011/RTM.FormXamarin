@@ -47,23 +47,17 @@ namespace RTM.FormXamarin.Views
                     case (int)MenuItemType.GestionEstilo:
                         MenuPages.Add(id, new NavigationPage(new GestionEstilos.GestionEstilos()));
                         break;
+                    case (int)MenuItemType.GestionOrdenesPO:
+                        MenuPages.Add(id, new NavigationPage(new GestionOrdenesPO.GestionPO()));
+                        break;
                     case (int)MenuItemType.GestionMateriales:
                         MenuPages.Add(id, new NavigationPage(new GestionMateriales.GestionMateriales()));
                         break;
+                    case (int)MenuItemType.GestionUsuario:
+                        MenuPages.Add(id, new NavigationPage(new GestionUsuarios.GestionarUsuarios()));
+                        break;
                     case (int)MenuItemType.Configuraciones:
                         MenuPages.Add(id, new NavigationPage(new Configuraciones.Configuraciones()));
-                        break;
-                    case (int)MenuItemType.GestionarControlUbicacionPiezas:
-                        MenuPages.Add(id, new NavigationPage(new ControlUbicacionPiezas.GestionarControlUbicacionPiezas()));
-                        break;
-                    case (int)MenuItemType.OrdenesClientes:
-                        MenuPages.Add(id, new NavigationPage(new OrdenesClientes.GestionarOrdenesClientes()));
-                        break;
-                    case (int)MenuItemType.OperacionesCalzados:
-                        MenuPages.Add(id, new NavigationPage(new OperacionesCalzados.GestionarOperacionesCalzados()));
-                        break;
-                    case (int)MenuItemType.Almacen:
-                        MenuPages.Add(id, new NavigationPage(new Almacen.GestionarAlmacen()));
                         break;
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));

@@ -29,10 +29,6 @@ namespace RTM.FormXamarin.Views
                 new HomeMenuItem {Id = MenuItemType.GestionMateriales, Title="Gestion de Materiales"},
                 new HomeMenuItem {Id= MenuItemType.GestionUsuario, Title="Gestion de Usuarios"},
                 new HomeMenuItem {Id = MenuItemType.Configuraciones, Title="Configuraciones"},
-                new HomeMenuItem {Id = MenuItemType.GestionarControlUbicacionPiezas, Title="Gestionar Control de Ubicacion de Piezas"},
-                new HomeMenuItem {Id = MenuItemType.OrdenesClientes, Title="Gestionar Ordenes de Clientes"},
-                new HomeMenuItem {Id = MenuItemType.OperacionesCalzados, Title="Gestionar Operaciones de Calzados"},
-                new HomeMenuItem {Id = MenuItemType.Almacen, Title="Almacen"},
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" }
             };
 

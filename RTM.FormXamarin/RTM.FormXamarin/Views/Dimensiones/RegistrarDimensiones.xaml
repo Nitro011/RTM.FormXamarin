@@ -51,6 +51,8 @@
             <ScrollView>
                 <StackLayout>
 
+                    <material:MaterialLabel Text="Datos del Sizes" TextColor="Black" FontSize="Title" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+
                     <StackLayout Margin="0,25,0,0">
                         <StackLayout>
                                 <material:MaterialLabel Text="USA" TextColor="Black" FontSize="Title" FontAttributes="Bold"/>
@@ -72,6 +74,20 @@
                         </StackLayout>
                     </StackLayout>
 
+                    <StackLayout Margin="0,10,0,0">
+                        <StackLayout>
+                            <material:MaterialLabel Text="CM" TextColor="Black" FontSize="Title" FontAttributes="Bold"/>
+                            <material:MaterialTextField x:Name="CM" Placeholder="Ingrese el Size en CM" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout>
+                            <material:MaterialLabel Text="Categoria del Sizes" TextColor="Black" FontSize="Title" FontAttributes="Bold"/>
+                            <Picker Title="Categoria del Sizes" x:Name="pickerCategoriaSizes" ItemsSource="{Binding Clasificaciones}" ItemDisplayBinding="{Binding Clasificaciones}" SelectedIndex="{Binding CategoriaSizeID}"  HorizontalOptions = "FillAndExpand" />
+                        </StackLayout>
+                    </StackLayout>
+
 
                     <material:MaterialButton Text="Guardar Sizes" x:Name="btnGuardarDimensiones" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,40,0,0"/>
 
@@ -81,47 +97,4 @@
 
     </Grid>
 
-    <!--<ScrollView>
-        <StackLayout Padding="0" BackgroundColor="LightGray">
-            <Grid>
-                <StackLayout Padding="0" Margin="0">
-                    <Frame BackgroundColor="#07485B" HeightRequest="150" HorizontalOptions="FillAndExpand" Padding="0">
-                        --><!--<Image Source="" Aspect="Fill" Margin="0"--><!--
-                    </Frame>
-                </StackLayout>
-
-                <StackLayout Margin="150,110,150,0">
-
-                    <Frame BackgroundColor="White" HasShadow="True" HeightRequest="450" HorizontalOptions="FillAndExpand">
-                        <StackLayout>
-                            <StackLayout HorizontalOptions="CenterAndExpand">
-                                <material:MaterialLabel Text="Registrar Dimensiones" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
-                            </StackLayout>
-
-                            <StackLayout Margin="0,25,0,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField x:Name="longitud" Placeholder="Ingrese la Longitud" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,35,0"/>
-                                </StackLayout>
-                            </StackLayout>
-
-                            <StackLayout Margin="0,25,0,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField x:Name="anchura" Placeholder="Ingrese la Anchura" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,35,0"/>
-                                </StackLayout>
-                            </StackLayout>
-
-                            <StackLayout Margin="0,25,0,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField x:Name="altura" Placeholder="Ingrese la Altura" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,35,0"/>
-                                </StackLayout>
-                            </StackLayout>
-
-                            <StackLayout Orientation="Horizontal" Margin="0,15,0,0"></StackLayout>
-                            <material:MaterialButton Text="Guardar Dimensiones" x:Name="btnGuardarDimensiones" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                        </StackLayout>
-                    </Frame>
-                </StackLayout>
-            </Grid>
-        </StackLayout>
-    </ScrollView>-->
 </ContentPage>

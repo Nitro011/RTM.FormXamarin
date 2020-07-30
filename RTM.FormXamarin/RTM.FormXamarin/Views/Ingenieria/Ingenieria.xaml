@@ -4,8 +4,10 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+            xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid"
              mc:Ignorable="d"
              x:Class="RTM.FormXamarin.Views.Ingenieria.Ingenieria"
+            BarBackgroundColor="#07485B"
             Title="{Binding Title}">
     
   <!--Pages can be added as references or inline-->
@@ -67,8 +69,8 @@
 
                     <StackLayout HorizontalOptions="FillAndExpand">
 
-                        <StackLayout HorizontalOptions="CenterAndExpand" WidthRequest="215">
-                            <SearchBar x:Name="buscarBOM" Placeholder="Buscar BOM" TextColor="Black" PlaceholderColor="Black" WidthRequest="100"/>
+                        <StackLayout HorizontalOptions="FillAndExpand">
+                            <SearchBar x:Name="buscarBOM" Placeholder="Buscar BOM" TextColor="Black" PlaceholderColor="Black"/>
                         </StackLayout>
 
                         <StackLayout Margin="0,1,0,0">
@@ -96,6 +98,105 @@
     </ContentPage>
 
     <ContentPage Title="Operaciones de Estilos">
-        
+        <ScrollView>
+            <Grid RowSpacing="0" ColumnSpacing="0">
+                <Grid.RowDefinitions >
+                    <RowDefinition Height="55"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Orientation="Horizontal"
+                     Grid.Row="0"
+                     Grid.Column="0"
+                     Grid.ColumnSpan="3"
+                     BackgroundColor="White">
+
+                    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                        <material:MaterialLabel Text="Consultar Operacion Estilos" 
+                                        TextColor="Black" 
+                                        FontSize="Title" 
+                                        FontAttributes="Bold"
+                                        HorizontalOptions="CenterAndExpand"
+                                        VerticalOptions="CenterAndExpand"
+                                        Margin="0,0,30,0"
+                                        
+                />
+                    </StackLayout>
+
+
+                    <StackLayout HorizontalOptions="End">
+                        <material:MaterialButton x:Name="agregarNuevoOperacionesEstilos" Text="+" FontSize="Title" FontAttributes="Bold" BackgroundColor="#07485B" WidthRequest="55" HeightRequest="55" CornerRadius="55"/>
+                    </StackLayout>
+
+
+
+
+
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal"
+                     Grid.Row="1"
+                     Grid.Column="0"
+                     Grid.ColumnSpan="3"
+                     Grid.RowSpan="3"
+                     Padding="10"
+                     BackgroundColor="White">
+
+                    <StackLayout HorizontalOptions="FillAndExpand">
+
+                        <StackLayout HorizontalOptions="FillAndExpand">
+                            <SearchBar x:Name="buscarOperacionesEstilos" Placeholder="Buscar Operaciones de Estilos" TextColor="Black" PlaceholderColor="Black"/>
+                        </StackLayout>
+
+                        <ContentView>
+                            <!-- Place new controls here -->
+                            <dg:DataGrid x:Name="listaOperacionesCalzados" ItemsSource="{Binding listaEmpleado}" SelectionEnabled="True" SelectedItem="{Binding SelectedProfesstional}" RowHeight="70" HeaderHeight="50"  
+                                BorderColor="#CCCCCC" HeaderBackground="#E0E6F8" PullToRefreshCommand="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}" ActiveRowColor="#8899AA">
+                                <x:Arguments>
+                                    <ListViewCachingStrategy>RetainElement</ListViewCachingStrategy>
+                                </x:Arguments>
+                                <dg:DataGrid.HeaderFontSize>
+                                    <OnIdiom x:TypeArguments="x:Double">
+                                        <OnIdiom.Tablet>15</OnIdiom.Tablet>
+                                        <OnIdiom.Phone>12</OnIdiom.Phone>
+                                    </OnIdiom>
+                                </dg:DataGrid.HeaderFontSize>
+                                <dg:DataGrid.Columns>
+                                    <dg:DataGridColumn Title="ID" PropertyName="OperacionesCalzadosID" Width="1*"></dg:DataGridColumn>
+                                    <dg:DataGridColumn PropertyName="PartNo" Width="2*">
+                                        <dg:DataGridColumn.FormattedTitle>
+                                            <FormattedString>
+                                                <Span Text="PartNo" FontSize="13" TextColor="Black" FontAttributes="Bold"/>
+                                            </FormattedString>
+                                        </dg:DataGridColumn.FormattedTitle>
+                                    </dg:DataGridColumn>
+                                    <dg:DataGridColumn Title="CantidadOperaciones" PropertyName="CantidadOperaciones" Width="2*"/>
+                                    <dg:DataGridColumn Title="Descripcion" PropertyName="Descripcion" Width="2*"/>
+                                    <dg:DataGridColumn Title="CostoOperacional" PropertyName="CostoOperacional" Width="1*"/>
+                                </dg:DataGrid.Columns>
+                                <dg:DataGrid.RowsBackgroundColorPalette>
+                                    <dg:PaletteCollection>
+                                        <Color>#F2F2F2</Color>
+                                        <Color>#FFFFFF</Color>
+                                    </dg:PaletteCollection>
+                                </dg:DataGrid.RowsBackgroundColorPalette>
+                            </dg:DataGrid>
+                        </ContentView>
+                        
+                    </StackLayout>
+                </StackLayout>
+
+
+
+            </Grid>
+
+        </ScrollView>
     </ContentPage>
 </TabbedPage>

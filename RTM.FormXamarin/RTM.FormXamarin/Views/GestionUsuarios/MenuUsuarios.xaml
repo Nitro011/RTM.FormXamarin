@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             mc:Ignorable="d"
+             x:Class="RTM.FormXamarin.Views.GestionUsuarios.MenuUsuarios">
+
+    <Grid RowSpacing="0" ColumnSpacing="0">
+        <Grid.RowDefinitions >
+            <RowDefinition Height="55"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Orientation="Horizontal"
+                     Grid.Row="0"
+                     Grid.Column="0"
+                     Grid.ColumnSpan="3"
+                     BackgroundColor="White">
+
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <material:MaterialLabel Text="Consultar Usuarios" 
+                                        TextColor="Black" 
+                                        FontSize="Title" 
+                                        FontAttributes="Bold"
+                                        HorizontalOptions="CenterAndExpand"
+                                        VerticalOptions="CenterAndExpand"
+                                        Margin="0,0,30,0"
+                                        
+                />
+            </StackLayout>
+
+
+            <StackLayout HorizontalOptions="End">
+                <material:MaterialButton x:Name="agregarNuevosUsuarios" Text="+" FontSize="Title" FontAttributes="Bold" BackgroundColor="#07485B" WidthRequest="55" HeightRequest="55" CornerRadius="55"/>
+            </StackLayout>
+
+
+
+
+
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal"
+                     Grid.Row="1"
+                     Grid.Column="0"
+                     Grid.ColumnSpan="3"
+                     Grid.RowSpan="3"
+                     Padding="10"
+                     BackgroundColor="White">
+
+            <StackLayout HorizontalOptions="FillAndExpand">
+
+                <StackLayout HorizontalOptions="FillAndExpand" WidthRequest="215">
+                    <SearchBar x:Name="buscarUsuarios" Placeholder="Buscar Usuarios" TextColor="Black" PlaceholderColor="Black"/>
+                </StackLayout>
+
+                <StackLayout Margin="0,1,0,0">
+                    <ListView x:Name="listaUsuario" >
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ImageCell Height="30" 
+                                     Text="{Binding NombreDeUsuario}"
+                                     Detail="{Binding Rol}"
+                                      ImageSource="{Binding ImageUrl}"/>
+
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+
+
+
+    </Grid>
+</ContentPage>

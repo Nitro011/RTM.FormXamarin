@@ -15,16 +15,10 @@ namespace RTM.FormXamarin.Views.OrdenesClientes
         public GestionarOrdenesClientes()
         {
             InitializeComponent();
-            abrirRegistroDeOrdenesClientes.Clicked += AbrirRegistroDeOrdenesClientes_Clicked;
-            abrirRegistroDeOrdenesClientesDetalles.Clicked += AbrirRegistroDeOrdenesClientesDetalles_Clicked;
+            agregarNuevaOrdenCliente.Clicked += AgregarNuevaOrdenCliente_Clicked;
         }
 
-        private async void AbrirRegistroDeOrdenesClientesDetalles_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new OrdenesClientes.RegistrarOrdenesClientesDetalles());
-        }
-
-        private async void AbrirRegistroDeOrdenesClientes_Clicked(object sender, EventArgs e)
+        private async void AgregarNuevaOrdenCliente_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new OrdenesClientes.RegistrarOrdenesClientes());
         }

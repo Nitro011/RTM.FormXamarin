@@ -71,7 +71,9 @@
                                 <ImageCell Height="30" 
                                      Text="{Binding Tipo_Calzado}"
                                      Detail="{Binding Puesto}"
-                                      ImageSource="{Binding ImageUrl}"/>
+                                      ImageSource="{Binding ImageUrl}"
+                                      TextColor="Black"
+                                      />
 
                             </DataTemplate>
                         </ListView.ItemTemplate>

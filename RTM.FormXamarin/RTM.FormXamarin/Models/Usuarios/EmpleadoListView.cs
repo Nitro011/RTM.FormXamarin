@@ -23,5 +23,7 @@ namespace RTM.FormXamarin.Models.Usuarios
         public string Puesto { get; set; }
         public string Departamento { get; set; }
 
+        public string Posicion { get; set; }
+
     }
 }

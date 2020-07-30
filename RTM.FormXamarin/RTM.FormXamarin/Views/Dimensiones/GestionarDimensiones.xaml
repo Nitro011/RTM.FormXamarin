@@ -4,6 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid"
              mc:Ignorable="d"
              x:Class="RTM.FormXamarin.Views.Dimensiones.GestionarDimensiones"
              Title="{Binding Title}">
@@ -58,26 +59,47 @@
                      Padding="10"
                      BackgroundColor="White">
 
-            <StackLayout HorizontalOptions="FillAndExpand">
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
                 <StackLayout HorizontalOptions="FillAndExpand" WidthRequest="200">
                     <SearchBar x:Name="buscarSizes" Placeholder="Buscar Sizes" TextColor="Black" PlaceholderColor="Black" WidthRequest="100"/>
                 </StackLayout>
 
-                <StackLayout Margin="0,1,0,0">
-                    <ListView x:Name="listaSizes" >
+                <ContentView>
+                    <!-- Place new controls here -->
+                    <dg:DataGrid x:Name="listaSizes" ItemsSource="{Binding listaSizes}" SelectionEnabled="True" SelectedItem="{Binding SelectedProfesstional}" RowHeight="70" HeaderHeight="50"  
+                                BorderColor="#CCCCCC" HeaderBackground="#E0E6F8" PullToRefreshCommand="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}" ActiveRowColor="#8899AA">
+                        <x:Arguments>
+                            <ListViewCachingStrategy>RetainElement</ListViewCachingStrategy>
+                        </x:Arguments>
+                        <dg:DataGrid.HeaderFontSize>
+                            <OnIdiom x:TypeArguments="x:Double">
+                                <OnIdiom.Tablet>15</OnIdiom.Tablet>
+                                <OnIdiom.Phone>12</OnIdiom.Phone>
+                            </OnIdiom>
+                        </dg:DataGrid.HeaderFontSize>
+                        <dg:DataGrid.Columns>
+                            <dg:DataGridColumn Title="ID" PropertyName="SizeID" Width="1*"></dg:DataGridColumn>
+                            <dg:DataGridColumn PropertyName="USA" Width="1*">
+                                <dg:DataGridColumn.FormattedTitle>
+                                    <FormattedString>
+                                        <Span Text="USA" FontSize="13" TextColor="Black" FontAttributes="Bold"/>
+                                    </FormattedString>
+                                </dg:DataGridColumn.FormattedTitle>
+                            </dg:DataGridColumn>
+                            <dg:DataGridColumn Title="UK" PropertyName="UK" Width="1*"/>
+                            <dg:DataGridColumn Title="EURO" PropertyName="EURO" Width="1*"/>
+                            <dg:DataGridColumn Title="CM" PropertyName="CM" Width="1*"/>
+                        </dg:DataGrid.Columns>
+                        <dg:DataGrid.RowsBackgroundColorPalette>
+                            <dg:PaletteCollection>
+                                <Color>#F2F2F2</Color>
+                                <Color>#FFFFFF</Color>
+                            </dg:PaletteCollection>
+                        </dg:DataGrid.RowsBackgroundColorPalette>
+                    </dg:DataGrid>
+                </ContentView>
 
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ImageCell Height="30" 
-                                     Text="{Binding Tipo_Calzado}"
-                                     Detail="{Binding Puesto}"
-                                      ImageSource="{Binding ImageUrl}"/>
-
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </StackLayout>
             </StackLayout>
         </StackLayout>
 

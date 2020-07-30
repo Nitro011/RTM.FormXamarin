@@ -73,36 +73,5 @@
         </Frame>
 
     </Grid>
-
-    <!--<ScrollView>
-        <StackLayout Padding="0" BackgroundColor="LightGray">
-            <Grid>
-                <StackLayout Padding="0" Margin="0">
-                    <Frame BackgroundColor="#07485B" HeightRequest="150" HorizontalOptions="FillAndExpand" Padding="0">
-                        --><!--<Image Source="" Aspect="Fill" Margin="0"--><!--
-                    </Frame>
-                </StackLayout>
-
-                <StackLayout Margin="150,110,150,0">
-
-                    <Frame BackgroundColor="White" HasShadow="True" HeightRequest="450" HorizontalOptions="FillAndExpand">
-                        <StackLayout>
-                            <StackLayout HorizontalOptions="CenterAndExpand">
-                                <material:MaterialLabel Text="Registrar Modelos" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
-                            </StackLayout>
-
-                            <StackLayout Margin="0,55,0,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField x:Name="modelo" Placeholder="Ingrese el Modelo" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,35,0"/>
-                                </StackLayout>
-                            </StackLayout>
-
-                            <StackLayout Orientation="Horizontal" Margin="0,15,0,0"></StackLayout>
-                            <material:MaterialButton Text="Guardar Modelos" x:Name="btnGuardarModelos" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                        </StackLayout>
-                    </Frame>
-                </StackLayout>
-            </Grid>
-        </StackLayout>
-    </ScrollView>-->
+    
 </ContentPage>
