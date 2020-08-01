@@ -5,8 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
              mc:Ignorable="d"
-             x:Class="RTM.FormXamarin.Views.Colores.RegistrarColores"
-             Title="{Binding Title}">
+             x:Class="RTM.FormXamarin.Views.Colores.ModificarColores">
 
     <Grid RowSpacing="0" ColumnSpacing="0">
         <Grid.RowDefinitions>
@@ -53,16 +52,15 @@
 
                     <StackLayout Margin="0,25,0,0">
                         <StackLayout>
-                            <material:MaterialTextField x:Name="nombreColor" Placeholder="Ingrese el nuevo Color" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                            <material:MaterialTextField x:Name="nombreColor" Placeholder="Color" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
                         </StackLayout>
                     </StackLayout>
 
-                    <material:MaterialButton Text="Guardar Color" x:Name="btnGuardarColor" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,40,0,0"/>
+                    <material:MaterialButton Text="Modificar Color" x:Name="btnModificarColor" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,40,0,0"/>
 
                 </StackLayout>
             </ScrollView>
         </Frame>
 
     </Grid>
-
 </ContentPage>

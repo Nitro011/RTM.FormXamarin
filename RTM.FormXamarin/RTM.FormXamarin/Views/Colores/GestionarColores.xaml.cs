@@ -26,6 +26,31 @@ namespace RTM.FormXamarin.Views.Colores
             agregarNuevosColores.Clicked += AgregarNuevosColores_Clicked;
             buscarColores.TextChanged += BuscarColores_TextChanged;
             ListaColores();
+            listaColores.ItemSelected += ListaColores_ItemSelected;
+        }
+
+        private async void ListaColores_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            bool answer = await DisplayAlert("Modificar?", "Desea modificar este elemento", "Si", "No");
+
+            if (answer == true)
+            {
+                try
+                {
+                    var item = (ColoresListView)e.SelectedItem;
+
+                    await Navigation.PushAsync(new ModificarColores(item.ColorID));
+                }
+                catch (Exception ex)
+                {
+
+                    await DisplayAlert("Error", ex.Message, "Aceptar");
+                }
+            }
+            else
+            {
+                ListaColores();
+            }
         }
 
         private void BuscarColores_TextChanged(object sender, TextChangedEventArgs e)

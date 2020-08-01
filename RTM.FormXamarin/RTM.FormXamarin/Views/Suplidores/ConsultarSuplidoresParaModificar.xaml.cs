@@ -30,7 +30,7 @@ namespace RTM.FormXamarin.Views.Suplidores
             {
                 var item = (SuplidoresListView)e.SelectedItem;
 
-                Navigation.PushAsync(new ModificarSuplidores(item.Id));
+                Navigation.PushAsync(new ModificarSuplidores(item.SuplidorID));
             }
             catch (Exception ex)
             {

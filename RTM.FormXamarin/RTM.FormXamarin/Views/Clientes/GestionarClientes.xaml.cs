@@ -26,7 +26,48 @@ namespace RTM.FormXamarin.Views.Clientes
             ListaClientes();
             listaClientes.ItemSelected += ListaClientes_ItemSelected;
             agregarNuevoCliente.Clicked += AgregarNuevoCliente_Clicked;
+            buscarCliente.TextChanged += BuscarCliente_TextChanged;
            
+        }
+
+        private void BuscarCliente_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (buscarCliente.Text == "")
+            {
+                ListaClientes();
+            }
+            else
+            {
+                string CodigoCliente = buscarCliente.Text;
+                string RNC = buscarCliente.Text;
+                string NombreCliente = buscarCliente.Text;
+
+                string connectionString = ConfigurationManager.AppSettings["ipServer"];
+
+
+                HttpClient client = new HttpClient();
+
+                client.BaseAddress = new Uri(connectionString);
+                var request = client.GetAsync($"/api/Clientes/ConsultarClientesPorCodigoClienteRNCNombreCliente/{CodigoCliente}/{RNC}/{NombreCliente}").Result;
+
+                if (request.IsSuccessStatusCode)
+                {
+                    var responseJson = request.Content.ReadAsStringAsync().Result;
+                    var response = JsonConvert.DeserializeObject<Request>(responseJson);
+
+                    if (response.status)
+                    {
+                        if (response.data != null)
+                        {
+
+                            var listaView = JsonConvert.DeserializeObject<List<ClientesListView>>(response.data.ToString());
+
+                            listaClientes.ItemsSource = listaView;
+                        }
+                    }
+
+                }
+            }
         }
 
         private async void AgregarNuevoCliente_Clicked(object sender, EventArgs e)

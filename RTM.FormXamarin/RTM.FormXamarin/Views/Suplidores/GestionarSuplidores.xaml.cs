@@ -26,6 +26,47 @@ namespace RTM.FormXamarin.Views.Suplidores
             agregarNuevosSuplidores.Clicked += AgregarNuevosSuplidores_Clicked;
             ListaSuplidores();
             listaSuplidores.ItemSelected += ListaSuplidores_ItemSelected;
+            buscarSuplidores.TextChanged += BuscarSuplidores_TextChanged;
+        }
+
+        private void BuscarSuplidores_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (buscarSuplidores.Text == "")
+            {
+                ListaSuplidores();
+            }
+            else
+            {
+                int SuplidorID = Convert.ToInt32(buscarSuplidores.Text);
+                string Empresa = buscarSuplidores.Text;
+                string Representante = buscarSuplidores.Text;
+
+                string connectionString = ConfigurationManager.AppSettings["ipServer"];
+
+
+                HttpClient client = new HttpClient();
+
+                client.BaseAddress = new Uri(connectionString);
+                var request = client.GetAsync($"/api/Suplidores/ConsultarSuplidorPorSuplidorIDEmpresaRepresentante/{SuplidorID}/{Empresa}/{Representante}").Result;
+
+                if (request.IsSuccessStatusCode)
+                {
+                    var responseJson = request.Content.ReadAsStringAsync().Result;
+                    var response = JsonConvert.DeserializeObject<Request>(responseJson);
+
+                    if (response.status)
+                    {
+                        if (response.data != null)
+                        {
+
+                            var listaView = JsonConvert.DeserializeObject<List<SuplidoresListView>>(response.data.ToString());
+
+                            listaSuplidores.ItemsSource = listaView;
+                        }
+                    }
+
+                }
+            }
         }
 
         private void ListaSuplidores_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -34,7 +75,7 @@ namespace RTM.FormXamarin.Views.Suplidores
             {
                 var item = (SuplidoresListView)e.SelectedItem;
 
-                Navigation.PushAsync(new InformacionDelSuplidor(item.Id));
+                Navigation.PushAsync(new InformacionDelSuplidor(item.SuplidorID));
             }
             catch (Exception ex)
             {
@@ -56,7 +97,7 @@ namespace RTM.FormXamarin.Views.Suplidores
             HttpClient client = new HttpClient();
 
             client.BaseAddress = new Uri(connectionString);
-            var request = client.GetAsync("/api/Suplidores/SuplidoresList").Result;
+            var request = client.GetAsync("/api/Suplidores/lista").Result;
 
             if (request.IsSuccessStatusCode)
             {

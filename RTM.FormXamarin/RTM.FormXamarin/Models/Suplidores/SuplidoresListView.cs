@@ -6,9 +6,13 @@ namespace RTM.FormXamarin.Models.Suplidores
 {
     public class SuplidoresListView
     {
-        public int Id { get; set; }
+        public int SuplidorID { get; set; }
         public string Empresa { get; set; }
         public string Nombre_Suplidor { get; set; }
         public string No_Telefono { get; set; }
+        public string Correo_Electronico { get; set; }
+        public string Pais { get; set; }
+        public string Ciudad { get; set; }
+        public string Direccion { get; set; }
     }
 }

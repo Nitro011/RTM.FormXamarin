@@ -4,6 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid"
              mc:Ignorable="d"
              x:Class="RTM.FormXamarin.Views.MateriasPrimas.GestionarMateriasPrimas"
              Title="{Binding Title}">
@@ -65,18 +66,42 @@
                 </StackLayout>
 
                 <StackLayout Margin="0,1,0,0">
-                    <ListView x:Name="listaSuplidores" >
 
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ImageCell Height="30" 
-                                     Text="{Binding Empresa}"
-                                     Detail="{Binding Nombre_Suplidor}"
-                                      ImageSource="{Binding ImageUrl}"/>
-
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                    <ContentView>
+                        <!-- Place new controls here -->
+                        <dg:DataGrid x:Name="listaMateriasPrimas" ItemsSource="{Binding listaMateriasPrimas}" SelectionEnabled="True" SelectedItem="{Binding SelectedProfesstional}" RowHeight="70" HeaderHeight="50"  
+                                BorderColor="#CCCCCC" HeaderBackground="#E0E6F8" PullToRefreshCommand="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}" ActiveRowColor="#8899AA">
+                            <x:Arguments>
+                                <ListViewCachingStrategy>RetainElement</ListViewCachingStrategy>
+                            </x:Arguments>
+                            <dg:DataGrid.HeaderFontSize>
+                                <OnIdiom x:TypeArguments="x:Double">
+                                    <OnIdiom.Tablet>15</OnIdiom.Tablet>
+                                    <OnIdiom.Phone>12</OnIdiom.Phone>
+                                </OnIdiom>
+                            </dg:DataGrid.HeaderFontSize>
+                            <dg:DataGrid.Columns>
+                                <dg:DataGridColumn Title="ID" PropertyName="Materia_PrimaID" Width="1*"></dg:DataGridColumn>
+                                <dg:DataGridColumn PropertyName="PartNo" Width="1*">
+                                    <dg:DataGridColumn.FormattedTitle>
+                                        <FormattedString>
+                                            <Span Text="PartNo" FontSize="13" TextColor="Black" FontAttributes="Bold"/>
+                                        </FormattedString>
+                                    </dg:DataGridColumn.FormattedTitle>
+                                </dg:DataGridColumn>
+                                <dg:DataGridColumn Title="Materia Prima" PropertyName="Nombre_Materia_Prima" Width="3*"/>
+                                <dg:DataGridColumn Title="Descripcion" PropertyName="Descripcion" Width="4*"/>
+                                <dg:DataGridColumn Title="Tipo de Material" PropertyName="TipoMaterial" Width="2*"/>
+                            </dg:DataGrid.Columns>
+                            <dg:DataGrid.RowsBackgroundColorPalette>
+                                <dg:PaletteCollection>
+                                    <Color>#F2F2F2</Color>
+                                    <Color>#FFFFFF</Color>
+                                </dg:PaletteCollection>
+                            </dg:DataGrid.RowsBackgroundColorPalette>
+                        </dg:DataGrid>
+                    </ContentView>
+                    
                 </StackLayout>
             </StackLayout>
         </StackLayout>
@@ -85,33 +110,4 @@
 
     </Grid>
 
-    <!--<ScrollView>
-        <StackLayout Padding="0" BackgroundColor="LightGray">
-            <Grid>
-                <StackLayout Padding="0" Margin="0">
-                    <Frame BackgroundColor="#07485B" HeightRequest="150" HorizontalOptions="FillAndExpand" Padding="0">
-                        --><!--<Image Source="" Aspect="Fill" Margin="0"--><!--
-                    </Frame>
-                </StackLayout>
-
-                <StackLayout Margin="150,110,150,0">
-
-                    <Frame BackgroundColor="White" HasShadow="True" HeightRequest="350" HorizontalOptions="FillAndExpand">
-                        <StackLayout>
-                            <StackLayout HorizontalOptions="CenterAndExpand" Margin="0,25,0,0">
-                                <material:MaterialLabel Text="Gestionar Empleados" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
-                            </StackLayout>
-
-                            <material:MaterialButton Text="Registrar Materias Primas" x:Name="abrirRegistroDeMateriasPrimas" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0"  WidthRequest="700"/>
-
-                            <material:MaterialButton Text="Consultar Materias Primas" x:Name="abrirConsultaDeMateriasPrimas" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
-
-                            <material:MaterialButton Text="Modificar Materias Primas" x:Name="abrirModificacionDeMateriasPrimas" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
-
-                        </StackLayout>
-                    </Frame>
-                </StackLayout>
-            </Grid>
-        </StackLayout>
-    </ScrollView>-->
 </ContentPage>

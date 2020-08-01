@@ -34,10 +34,17 @@ namespace RTM.FormXamarin.Views.MateriasPrimas
 
             try
             {
+                var partNoV = PartNo.Text;
                 var nombreMateriaPrimalV = Nombre_Materia_Prima.Text;
                 var tipoMateriaPrimaV = listaTiposMateriales.SelectedIndex+1;
+                var descripcionV = Descripcion.Text;
 
-
+                if (string.IsNullOrEmpty(partNoV))
+                {
+                    await DisplayAlert("Validacion", "Ingrese el PartNo de la Materia Prima", "Aceptar");
+                    PartNo.Focus();
+                    return;
+                }
                 if (string.IsNullOrEmpty(nombreMateriaPrimalV))
                 {
                     await DisplayAlert("Validacion", "Ingrese el nombre de la Materia Prima", "Aceptar");
@@ -50,6 +57,12 @@ namespace RTM.FormXamarin.Views.MateriasPrimas
                     listaTiposMateriales.Focus();
                     return;
                 }
+                if (string.IsNullOrEmpty(descripcionV))
+                {
+                    await DisplayAlert("Validacion", "Ingrese la Descripcion de la Materia Primas", "Aceptar");
+                    Descripcion.Focus();
+                    return;
+                }
 
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(connectionString);
@@ -57,8 +70,10 @@ namespace RTM.FormXamarin.Views.MateriasPrimas
                 var materiasPrimas = new MateriaPrima()
                 {
                     Materia_PrimaID = 0,
+                    PartNo=partNoV,
                     Nombre_Materia_Prima = nombreMateriaPrimalV,
-                    Tipo_MaterialID=tipoMateriaPrimaV
+                    Tipo_MaterialID=tipoMateriaPrimaV,
+                    Descripcion=descripcionV
 
                 };
 
@@ -105,6 +120,8 @@ namespace RTM.FormXamarin.Views.MateriasPrimas
                                     title: "Error",
                                     acknowledgementText: "Aceptar");
             }
+            limpiarCampos();
+            await Navigation.PushAsync(new GestionMateriales.GestionMateriales());
         }
 
         private async void ListaTiposMateriales()
@@ -147,6 +164,13 @@ namespace RTM.FormXamarin.Views.MateriasPrimas
             var pickerRol = listaTiposMateriales.SelectedIndex+1;
 
             await DisplayAlert("Mostrar Roles", pickerRol.ToString(), "Aceptar");
+        }
+
+        private void limpiarCampos()
+        {
+            PartNo.Text = "";
+            Nombre_Materia_Prima.Text = "";
+            Descripcion.Text = "";
         }
     }
 }
