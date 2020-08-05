@@ -22,5 +22,6 @@ namespace RTM.FormXamarin.Models.Empleados
         public System.DateTime? FechaIngreso { get; set; }
         public string Puesto { get; set; }
         public string Departamento { get; set; }
+        public string SubDepartamento { get; set; }
     }
 }

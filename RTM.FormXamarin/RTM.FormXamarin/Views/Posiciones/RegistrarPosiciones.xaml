@@ -5,8 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
              mc:Ignorable="d"
-             x:Class="RTM.FormXamarin.Views.GestionHumana.GestionHumana"
-             Title="{Binding Title}">
+             x:Class="RTM.FormXamarin.Views.Posiciones.RegistrarPosiciones">
 
     <Grid RowSpacing="0" ColumnSpacing="0">
         <Grid.RowDefinitions>
@@ -51,38 +50,24 @@
             <ScrollView>
                 <StackLayout>
 
-                    <material:MaterialLabel Text="Opciones" 
+                    <material:MaterialLabel Text="Registro de Posiciones" 
                                         TextColor="Black" 
                                         FontSize="Title" 
                                         FontAttributes="Bold"
                                         HorizontalOptions="Center"
                                         VerticalOptions="Center"
-                                        />
+                                        
+                    />
 
-                    <material:MaterialButton x:Name="abrirGestionPosiciones"
-                                         Text="Posiciones"
-                                         WidthRequest="150"
-                                         BackgroundColor="#07485B"/>
+                    <StackLayout Margin="0,55,0,0">
+                        <StackLayout Orientation="Horizontal">
+                            <material:MaterialTextField x:Name="Posicion" Placeholder="Ingresar la nueva Posicion" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
 
-                    <material:MaterialButton x:Name="abrirGestionTiposDepartamentos"
-                                         Text="Tipos de Departamentos"
-                                         WidthRequest="150"
-                                         BackgroundColor="#07485B"/>
 
-                    <material:MaterialButton x:Name="abrirGestionDepartamentos"
-                                         Text="Departamentos"
-                                         WidthRequest="150"
-                                         BackgroundColor="#07485B"/>
+                    <material:MaterialButton Text="Guardar Posiciones" x:Name="btnGuardarPosicion" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,40,0,0"/>
 
-                    <material:MaterialButton x:Name="abrirGestionSubDepartamentos"
-                                         Text="Sub-Departamentos"
-                                         WidthRequest="150"
-                                         BackgroundColor="#07485B"/>
-
-                    <material:MaterialButton x:Name="abrirGestionEmpleados"
-                                         Text="Empleados"
-                                         WidthRequest="150" 
-                                         BackgroundColor="#07485B" />
                 </StackLayout>
             </ScrollView>
         </Frame>

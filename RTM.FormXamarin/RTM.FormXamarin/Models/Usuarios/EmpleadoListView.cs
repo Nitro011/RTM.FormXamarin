@@ -22,7 +22,7 @@ namespace RTM.FormXamarin.Models.Usuarios
         public System.DateTime? FechaIngreso { get; set; }
         public string Puesto { get; set; }
         public string Departamento { get; set; }
-
+        public string SubDepartamento { get; set; }
         public string Posicion { get; set; }
 
     }
