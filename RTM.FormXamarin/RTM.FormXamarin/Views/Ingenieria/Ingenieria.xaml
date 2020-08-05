@@ -11,11 +11,11 @@
             Title="{Binding Title}">
     
   <!--Pages can be added as references or inline-->
-    <ContentPage Title="Configuracion de Produccion">
+    <ContentPage Title="Configuración de Producción">
         
     </ContentPage>
 
-    <ContentPage Title="Administracion de BOM">
+    <ContentPage Title="Administración de BOM">
         <ScrollView>
             <Grid RowSpacing="0" ColumnSpacing="0">
                 <Grid.RowDefinitions >
@@ -169,17 +169,17 @@
                                     </OnIdiom>
                                 </dg:DataGrid.HeaderFontSize>
                                 <dg:DataGrid.Columns>
-                                    <dg:DataGridColumn Title="ID" PropertyName="OperacionesCalzadosID" Width="1*"></dg:DataGridColumn>
-                                    <dg:DataGridColumn PropertyName="PartNo" Width="2*">
+                                    <!--<dg:DataGridColumn Title="ID" PropertyName="OperacionesCalzadosID" Width="1*"></dg:DataGridColumn>-->
+                                    <dg:DataGridColumn PropertyName="PartNo" Width="1*">
                                         <dg:DataGridColumn.FormattedTitle>
                                             <FormattedString>
-                                                <Span Text="PartNo" FontSize="13" TextColor="Black" FontAttributes="Bold"/>
+                                                <Span Text="Part No" FontSize="13" TextColor="Black" FontAttributes="None"/>
                                             </FormattedString>
                                         </dg:DataGridColumn.FormattedTitle>
                                     </dg:DataGridColumn>
-                                    <dg:DataGridColumn Title="CantidadOperaciones" PropertyName="CantidadOperaciones" Width="2*"/>
-                                    <dg:DataGridColumn Title="Descripcion" PropertyName="Descripcion" Width="2*"/>
-                                    <dg:DataGridColumn Title="CostoOperacional" PropertyName="CostoOperacional" Width="1*"/>
+                                    <dg:DataGridColumn Title="Cantidad de Operaciones" PropertyName="CantidadOperaciones" Width="1*"/>
+                                    <dg:DataGridColumn Title="Descripcion" PropertyName="Descripcion" Width="1*"/>
+                                    <dg:DataGridColumn Title="Costo Operacional" PropertyName="CostoOperacional" Width="1*"/>
                                 </dg:DataGrid.Columns>
                                 <dg:DataGrid.RowsBackgroundColorPalette>
                                     <dg:PaletteCollection>

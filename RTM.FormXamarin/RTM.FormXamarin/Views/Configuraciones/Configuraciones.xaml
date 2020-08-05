@@ -30,11 +30,11 @@
 
                             <material:MaterialButton Text="Roles" x:Name="abrirRegistroDeRoles" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
 
-                            <material:MaterialButton Text="Areas de Produccion" x:Name="abrirGestionDeAreasDeProduccion" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
+                            <material:MaterialButton Text="Áreas de Producción" x:Name="abrirGestionDeAreasDeProduccion" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
 
                             <material:MaterialButton Text="Colores" x:Name="abrirGestionDeColores" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
 
-                            <material:MaterialButton Text="OperacionesCalzados" x:Name="abrirGestionDeOperacionesCalzados" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
+                            <material:MaterialButton Text="Operaciones del Calzados" x:Name="abrirGestionDeOperacionesCalzados" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,25,0,0" WidthRequest="700"/>
 
                         </StackLayout>
                     </Frame>

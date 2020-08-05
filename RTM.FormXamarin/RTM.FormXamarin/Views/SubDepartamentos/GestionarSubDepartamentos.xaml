@@ -82,7 +82,7 @@
                                 </OnIdiom>
                             </dg:DataGrid.HeaderFontSize>
                             <dg:DataGrid.Columns>
-                                <dg:DataGridColumn Title="ID" PropertyName="SubDepartamentoID" Width="1*"></dg:DataGridColumn>
+                                <!--<dg:DataGridColumn Title="ID" PropertyName="SubDepartamentoID" Width="1*"></dg:DataGridColumn>-->
                                 <dg:DataGridColumn PropertyName="SubDepartamento" Width="3*">
                                     <dg:DataGridColumn.FormattedTitle>
                                         <FormattedString>

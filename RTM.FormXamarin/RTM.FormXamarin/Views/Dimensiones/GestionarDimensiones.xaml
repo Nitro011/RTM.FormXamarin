@@ -8,7 +8,7 @@
              mc:Ignorable="d"
              x:Class="RTM.FormXamarin.Views.Dimensiones.GestionarDimensiones"
              Title="{Binding Title}">
-    
+
     <Grid RowSpacing="0" ColumnSpacing="0">
         <Grid.RowDefinitions >
             <RowDefinition Height="55"></RowDefinition>
@@ -79,11 +79,11 @@
                             </OnIdiom>
                         </dg:DataGrid.HeaderFontSize>
                         <dg:DataGrid.Columns>
-                            <dg:DataGridColumn Title="ID" PropertyName="SizeID" Width="1*"></dg:DataGridColumn>
+                            <!--<dg:DataGridColumn Title="ID" PropertyName="SizeID" Width="1*"></dg:DataGridColumn>-->
                             <dg:DataGridColumn PropertyName="USA" Width="1*">
                                 <dg:DataGridColumn.FormattedTitle>
                                     <FormattedString>
-                                        <Span Text="USA" FontSize="13" TextColor="Black" FontAttributes="Bold"/>
+                                        <Span Text="USA" FontSize="13" TextColor="Black" FontAttributes="None"/>
                                     </FormattedString>
                                 </dg:DataGridColumn.FormattedTitle>
                             </dg:DataGridColumn>

@@ -20,7 +20,7 @@
                 <Frame BackgroundColor="White" HasShadow="True" HeightRequest="350" HorizontalOptions="FillAndExpand">
                     <StackLayout>
                         <StackLayout HorizontalOptions="CenterAndExpand">
-                            <Label Text="INICIAR SESION" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                            <Label Text="INICIAR SESIÓN" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         </StackLayout>
 
                         <StackLayout Margin="0,25,0,0">
@@ -42,7 +42,7 @@
                                             <Image Source="password.jpeg" Aspect="Fill" Margin="0"/>
                                         </Frame>
 
-                                    <local:MyCustomeEntry x:Name="txtpassword" Placeholder="Ingrese el password" IsPassword="True" TextColor="#07485B" HorizontalOptions="FillAndExpand" Margin="0,0,15,0"/>
+                                    <local:MyCustomeEntry x:Name="txtpassword" Placeholder="Ingrese la contraseña" IsPassword="True" TextColor="#07485B" HorizontalOptions="FillAndExpand" Margin="0,0,15,0"/>
 
                                 </StackLayout>
                             </Frame>
@@ -51,7 +51,7 @@
                         <StackLayout Orientation="Horizontal" Margin="0,15,0,0">
 
                         </StackLayout>
-                        <Button Text="INICIAR SESION" x:Name="btnIniciarSesion" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30"/>
+                        <Button Text="INICIAR SESIÓN" x:Name="btnIniciarSesion" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30"/>
                     </StackLayout>
                 </Frame>
             </StackLayout>

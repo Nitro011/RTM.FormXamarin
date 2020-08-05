@@ -9,7 +9,7 @@ namespace RTM.FormXamarin.ViewModels
     {
         public AboutViewModel()
         {
-            Title = "About";
+            Title = "Sobre Nosotros";
             OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://xamarin.com"));
         }
 

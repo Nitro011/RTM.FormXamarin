@@ -8,7 +8,7 @@ namespace RTM.FormXamarin.ViewModels
     {
         public GestionarEstilosViewModel()
         {
-            Title = "Gestion de Estilos";
+            Title = "Gestión de Estilos";
         }
     }
 }

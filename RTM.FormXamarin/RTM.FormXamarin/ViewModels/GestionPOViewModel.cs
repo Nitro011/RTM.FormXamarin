@@ -8,7 +8,7 @@ namespace RTM.FormXamarin.ViewModels
     {
         public GestionPOViewModel()
         {
-            Title = "Gestion PO";
+            Title = "Gestión PO";
         }
     }
 }

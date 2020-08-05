@@ -9,7 +9,7 @@ namespace RTM.FormXamarin.ViewModels
 
         public ClientesViewModel()
         {
-            Title = "Registro de clientes";
+            Title = "Registro de Clientes";
         }
     }
 }

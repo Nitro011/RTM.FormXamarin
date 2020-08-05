@@ -71,7 +71,7 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ImageCell Height="30" 
-                                     Text="{Binding Posicion }"
+                                     Text="{Binding TipoDepartamento }"
                                      Detail="{Binding hola}"
                                       ImageSource="{Binding ImageUrl}"/>
 

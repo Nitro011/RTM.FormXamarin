@@ -8,7 +8,7 @@ namespace RTM.FormXamarin.ViewModels
     {
         public AlmacenViewModel()
         {
-            Title = "Registro de Almacen";
+            Title = "Registro de Almacén";
         }
     }
 }

@@ -8,7 +8,7 @@ namespace RTM.FormXamarin.ViewModels
     {
         public InformacionEmpleadoViewModel()
         {
-            Title = "Informacion del Empleado";
+            Title = "Información del Empleado";
         }
     }
 }

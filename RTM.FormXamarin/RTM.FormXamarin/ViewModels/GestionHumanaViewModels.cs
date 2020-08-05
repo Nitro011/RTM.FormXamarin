@@ -8,7 +8,7 @@ namespace RTM.FormXamarin.ViewModels
     {
         public GestionHumanaViewModels()
         {
-            Title = "Gestion Humana";
+            Title = "Gestión Humana";
         } 
     }
 }

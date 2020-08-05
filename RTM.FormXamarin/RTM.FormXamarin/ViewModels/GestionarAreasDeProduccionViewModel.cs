@@ -8,7 +8,7 @@ namespace RTM.FormXamarin.ViewModels
     {
         public GestionarAreasDeProduccionViewModel()
         {
-            Title = "Gestionar Areas de Produccion";
+            Title = "Gestionar Áreas de Producción";
         }
     }
 }

@@ -8,7 +8,7 @@ namespace RTM.FormXamarin.ViewModels
     {
         public IngenieriaViewModel()
         {
-            Title = "Ingenieria";
+            Title = "Ingeniería";
         }
     }
 }

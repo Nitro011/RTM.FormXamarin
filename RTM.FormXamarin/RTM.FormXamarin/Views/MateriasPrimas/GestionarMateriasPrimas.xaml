@@ -81,16 +81,16 @@
                                 </OnIdiom>
                             </dg:DataGrid.HeaderFontSize>
                             <dg:DataGrid.Columns>
-                                <dg:DataGridColumn Title="ID" PropertyName="Materia_PrimaID" Width="1*"></dg:DataGridColumn>
+                                <!--<dg:DataGridColumn Title="ID" PropertyName="Materia_PrimaID" Width="1*"></dg:DataGridColumn>-->
                                 <dg:DataGridColumn PropertyName="PartNo" Width="1*">
                                     <dg:DataGridColumn.FormattedTitle>
                                         <FormattedString>
-                                            <Span Text="PartNo" FontSize="13" TextColor="Black" FontAttributes="Bold"/>
+                                            <Span Text="Part No" FontSize="13" TextColor="Black" FontAttributes="None"/>
                                         </FormattedString>
                                     </dg:DataGridColumn.FormattedTitle>
                                 </dg:DataGridColumn>
-                                <dg:DataGridColumn Title="Materia Prima" PropertyName="Nombre_Materia_Prima" Width="3*"/>
-                                <dg:DataGridColumn Title="Descripcion" PropertyName="Descripcion" Width="4*"/>
+                                <dg:DataGridColumn Title="Materia Prima" PropertyName="Nombre_Materia_Prima" Width="2*"/>
+                                <dg:DataGridColumn Title="Descripcion" PropertyName="Descripcion" Width="3*"/>
                                 <dg:DataGridColumn Title="Tipo de Material" PropertyName="TipoMaterial" Width="2*"/>
                             </dg:DataGrid.Columns>
                             <dg:DataGrid.RowsBackgroundColorPalette>

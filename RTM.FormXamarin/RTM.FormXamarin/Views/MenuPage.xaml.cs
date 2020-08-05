@@ -20,16 +20,16 @@ namespace RTM.FormXamarin.Views
 
             menuItems = new List<HomeMenuItem>
             {
-                new HomeMenuItem {Id = MenuItemType.PaginaPrincipal, Title="Pagina Principal" },
-                new HomeMenuItem {Id = MenuItemType.GestionHumana, Title="Gestion Humana"},
-                new HomeMenuItem {Id = MenuItemType.Ingenieria, Title="Ingenieria"},
-                new HomeMenuItem {Id = MenuItemType.GestionEstilo, Title="Gestion de Estilos"},
-                new HomeMenuItem {Id = MenuItemType.GestionOrdenesPO, Title="Gestion de Ordenes PO"},
-                new HomeMenuItem {Id = MenuItemType.GestionProduccion, Title="Gestion de Produccion"},
-                new HomeMenuItem {Id = MenuItemType.GestionMateriales, Title="Gestion de Materiales"},
-                new HomeMenuItem {Id= MenuItemType.GestionUsuario, Title="Gestion de Usuarios"},
+                new HomeMenuItem {Id = MenuItemType.PaginaPrincipal, Title="Página Principal" },
+                new HomeMenuItem {Id = MenuItemType.GestionHumana, Title="Gestión Humana"},
+                new HomeMenuItem {Id = MenuItemType.Ingenieria, Title="Ingeniería"},
+                new HomeMenuItem {Id = MenuItemType.GestionEstilo, Title="Gestión de Estilos"},
+                new HomeMenuItem {Id = MenuItemType.GestionOrdenesPO, Title="Gestión  de Ordenes PO"},
+                new HomeMenuItem {Id = MenuItemType.GestionProduccion, Title="Gestión  de Producción"},
+                new HomeMenuItem {Id = MenuItemType.GestionMateriales, Title="Gestión  de Materiales"},
+                new HomeMenuItem {Id= MenuItemType.GestionUsuario, Title="Gestión  de Usuarios"},
                 new HomeMenuItem {Id = MenuItemType.Configuraciones, Title="Configuraciones"},
-                new HomeMenuItem {Id = MenuItemType.About, Title="About" }
+                new HomeMenuItem {Id = MenuItemType.About, Title="Sobre Nosotros" }
             };
 
             ListViewMenu.ItemsSource = menuItems;

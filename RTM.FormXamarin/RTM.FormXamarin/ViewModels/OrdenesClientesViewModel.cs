@@ -8,7 +8,7 @@ namespace RTM.FormXamarin.ViewModels
     {
         public OrdenesClientesViewModel()
         {
-            Title = "Gestionar Ordenes de Clientes";
+            Title = "Gestionar Órdenes de Clientes";
         }
     }
 }

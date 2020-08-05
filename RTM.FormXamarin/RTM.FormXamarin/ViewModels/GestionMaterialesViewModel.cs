@@ -8,7 +8,7 @@ namespace RTM.FormXamarin.ViewModels
     {
         public GestionMaterialesViewModel()
         {
-            Title = "Gestion de Materiales";
+            Title = "Gestión de Materiales";
         }
     }
 }

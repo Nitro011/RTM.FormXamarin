@@ -81,7 +81,7 @@
                                 </OnIdiom>
                             </dg:DataGrid.HeaderFontSize>
                             <dg:DataGrid.Columns>
-                                <dg:DataGridColumn Title="ID" PropertyName="SuplidorID" Width="1*"></dg:DataGridColumn>
+                                <!--<dg:DataGridColumn Title="ID" PropertyName="SuplidorID" Width="1*"></dg:DataGridColumn>-->
                                 <dg:DataGridColumn PropertyName="Empresa" Width="2*">
                                     <dg:DataGridColumn.FormattedTitle>
                                         <FormattedString>
@@ -90,8 +90,8 @@
                                     </dg:DataGridColumn.FormattedTitle>
                                 </dg:DataGridColumn>
                                 <dg:DataGridColumn Title="Representante" PropertyName="Nombre_Suplidor" Width="2*"/>
-                                <dg:DataGridColumn Title="Telefono" PropertyName="No_Telefono" Width="2*"/>
-                                <dg:DataGridColumn Title="Pais" PropertyName="Pais" Width="2*"/>
+                                <dg:DataGridColumn Title="Teléfono" PropertyName="No_Telefono" Width="2*"/>
+                                <dg:DataGridColumn Title="País" PropertyName="Pais" Width="2*"/>
                                 <dg:DataGridColumn Title="Ciudad" PropertyName="Ciudad" Width="2*"/>
                             </dg:DataGrid.Columns>
                             <dg:DataGrid.RowsBackgroundColorPalette>

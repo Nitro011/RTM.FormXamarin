@@ -77,7 +77,7 @@
                             </OnIdiom>
                         </dg:DataGrid.HeaderFontSize>
                         <dg:DataGrid.Columns>
-                            <dg:DataGridColumn Title="ID" PropertyName="Id" Width="1*"></dg:DataGridColumn>
+                            <!--<dg:DataGridColumn Title="ID" PropertyName="Id" Width="1*"></dg:DataGridColumn>-->
                             <dg:DataGridColumn PropertyName="CodigoEmpleado" Width="1*">
                                 <dg:DataGridColumn.FormattedTitle>
                                     <FormattedString>

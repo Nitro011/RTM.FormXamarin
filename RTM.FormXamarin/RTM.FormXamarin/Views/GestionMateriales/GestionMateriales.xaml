@@ -60,13 +60,13 @@
                                         />
 
                     <material:MaterialButton x:Name="abrirGestionSuplidores"
-                                         Text="Gestion de Suplidores"
+                                         Text="Gestión de Suplidores"
                                          WidthRequest="150"
                                          BackgroundColor="#07485B"
                                          Margin="0,25,0,0"/>
 
                     <material:MaterialButton x:Name="abrirGestionMateriales"
-                                         Text="Gestion de Part Number"
+                                         Text="Gestión de Part Number"
                                          WidthRequest="150"
                                          BackgroundColor="#07485B"/>
 
@@ -76,7 +76,7 @@
                                          BackgroundColor="#07485B"/>
 
                     <material:MaterialButton x:Name="abrirGestionSize"
-                                         Text="Recepcion de Materiales"
+                                         Text="Recepción de Materiales"
                                          WidthRequest="150"
                                          BackgroundColor="#07485B"/>
 
