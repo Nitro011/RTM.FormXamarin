@@ -19,12 +19,18 @@ namespace RTM.FormXamarin.Views.GestionEstilos
         {
             InitializeComponent();
             BindingContext = this.GestionarEstilosViewModel=new GestionarEstilosViewModel();
+            abrirGestionEstilos.Clicked += AbrirGestionEstilos_Clicked;
             abrirGestionMarcas.Clicked += AbrirGestionMarcas_Clicked;
             abrirGestionTiposEstilos.Clicked += AbrirGestionTiposEstilos_Clicked;
             abrirGestionModelos.Clicked += AbrirGestionModelos_Clicked;
             abrirGestionSize.Clicked += AbrirGestionSize_Clicked;
             abrirGestionColores.Clicked += AbrirGestionColores_Clicked;
 
+        }
+
+        private async void AbrirGestionEstilos_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Estilos.GestionarEstilos());
         }
 
         private async void AbrirGestionColores_Clicked(object sender, EventArgs e)

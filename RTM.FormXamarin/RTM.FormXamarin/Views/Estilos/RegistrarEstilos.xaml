@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
+             xmlns:behavior="clr-namespace:RTM.FormXamarin.Behavior"
+             mc:Ignorable="d"
+             x:Class="RTM.FormXamarin.Views.Estilos.RegistrarEstilos">
+
+    <Grid RowSpacing="0" ColumnSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Orientation="Horizontal"
+                         Grid.Row="0"
+                         Grid.Column="0"
+                         Grid.ColumnSpan="4"
+                         BackgroundColor="#07485B">
+
+        </StackLayout>
+
+        <StackLayout Orientation="Vertical"
+                         Grid.Row="1"
+                         Grid.Column="0"
+                         Grid.RowSpan="4"
+                         Grid.ColumnSpan="4"
+                         BackgroundColor="LightGray">
+        </StackLayout>
+
+        <Frame Grid.Row="1"
+                   Grid.Column="0"
+                   Grid.RowSpan="4"
+                   Grid.ColumnSpan="4"
+                   HeightRequest="450"
+                   WidthRequest="0"
+                  
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="FillAndExpand">
+            <ScrollView>
+                <StackLayout>
+
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout>
+                            <material:MaterialTextField x:Name="estiloNo" Placeholder="Ingrese el Estilo No" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout Orientation="Horizontal">
+                            <Picker Title="Marcas" x:Name="pickerMarcas" ItemsSource="{Binding Marca1}" ItemDisplayBinding="{Binding NombreAreaProduccion}" SelectedIndex="{Binding AreaProduccionID}"  HorizontalOptions = "FillAndExpand" />
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
+                        <material:MaterialLabel Text="Modelos:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                        <combobox:SfComboBox HeightRequest="40" x:Name="modelosComboBox" DropDownItemHeight="50" DisplayMemberPath="Color" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
+                        <material:MaterialLabel Text="Tipos de Estilos:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                        <combobox:SfComboBox HeightRequest="40" x:Name="tiposEstilosComboBox" DropDownItemHeight="50" DisplayMemberPath="Color" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
+                        <material:MaterialLabel Text="Categoria:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                        <combobox:SfComboBox HeightRequest="40" x:Name="categoriaComboBox" DropDownItemHeight="50" DisplayMemberPath="Color" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
+                        <material:MaterialLabel Text="Materiales:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                        <combobox:SfComboBox HeightRequest="40" x:Name="materialesComboBox" DropDownItemHeight="50" DisplayMemberPath="Color" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
+                        <material:MaterialLabel Text="Peso:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                        <combobox:SfComboBox HeightRequest="40" x:Name="pesoComboBox" DropDownItemHeight="50" DisplayMemberPath="Color" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
+                    </StackLayout>
+
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout>
+                            <material:MaterialTextField x:Name="last" Placeholder="Ingrese el Last" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
+                        <material:MaterialLabel Text="Unidades de Medida:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                        <combobox:SfComboBox HeightRequest="40" x:Name="unidadesMedidasComboBox" DropDownItemHeight="50" DisplayMemberPath="Color" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
+                        <material:MaterialLabel Text="Colores:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                        <combobox:SfComboBox HeightRequest="40" x:Name="coloresComboBox" DropDownItemHeight="50" DisplayMemberPath="Color" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
+                        <material:MaterialLabel Text="Divisiones" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                        <combobox:SfComboBox HeightRequest="40" x:Name="divisionesComboBox" DropDownItemHeight="50" DisplayMemberPath="Color" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
+                    </StackLayout>
+
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout>
+                            <material:MaterialTextField x:Name="Descripcion" Placeholder="Ingrese una Descripcion" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout>
+                            <material:MaterialTextField x:Name="Comentario" Placeholder="Ingrese un Comentario" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout>
+                            <material:MaterialTextField x:Name="costo" Placeholder="Ingrese el Costo" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout>
+                            <material:MaterialTextField x:Name="ganancia" Placeholder="Ingrese la Ganancia" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout>
+                            <material:MaterialLabel Text="Fecha de Creacion" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                            <material:MaterialDateField x:Name="fechaCreacion" TextColor="Black" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout Orientation="Horizontal">
+                            <Picker Title="Estados" x:Name="pickerEstados" ItemsSource="{Binding Estado}" ItemDisplayBinding="{Binding NombreAreaProduccion}" SelectedIndex="{Binding AreaProduccionID}"  HorizontalOptions = "FillAndExpand"/>
+                        </StackLayout>
+                    </StackLayout>
+
+
+                    <material:MaterialButton Text="Guardar Estilo" x:Name="btnGuardarEstilos" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,40,0,0"/>
+
+                </StackLayout>
+            </ScrollView>
+        </Frame>
+
+    </Grid>
+</ContentPage>

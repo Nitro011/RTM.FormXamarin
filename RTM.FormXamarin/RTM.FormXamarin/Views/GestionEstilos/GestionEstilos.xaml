@@ -51,16 +51,32 @@
             <ScrollView>
                 <StackLayout>
 
-                    <material:MaterialLabel Text="Opciones" 
+                    <material:MaterialLabel Text="Seteo de Estilo" 
                                         TextColor="Black" 
                                         FontSize="Title" 
                                         FontAttributes="Bold"
                                         HorizontalOptions="Center"
                                         VerticalOptions="Center"
                                         />
+                    
+                    <material:MaterialButton x:Name="abrirGestionEstilos"
+                                         Text="Crear Nuevo Estilo"
+                                         WidthRequest="20"
+                                         CornerRadius="10"
+                                         BackgroundColor="#07485B"
+                                         Margin="0,15,0,0"
+                                         />
 
-                    <material:MaterialButton x:Name="abrirGestionMarcas"
-                                         Text="Marcas"
+                        <material:MaterialLabel Text="Complementos" 
+                                        TextColor="Black" 
+                                        FontSize="Title" 
+                                        FontAttributes="Bold"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        Margin="0,25,0,0"/>
+
+                    <material:MaterialButton x:Name="abrirGestionModelos"
+                                         Text="Modelos"
                                          WidthRequest="150"
                                          BackgroundColor="#07485B"/>
 
@@ -69,20 +85,22 @@
                                          WidthRequest="150"
                                          BackgroundColor="#07485B"/>
 
-                    <material:MaterialButton x:Name="abrirGestionModelos"
-                                         Text="Modelos"
+                    <material:MaterialButton x:Name="abrirGestionMarcas"
+                                         Text="Marcas"
                                          WidthRequest="150"
-                                         BackgroundColor="#07485B"/>
+                                         BackgroundColor="#07485B"
+                                         Margin="0,0,0,0"/>
+
+                    <material:MaterialButton x:Name="abrirGestionColores"
+                                         Text="Colores"
+                                         WidthRequest="150" 
+                                         BackgroundColor="#07485B" />
 
                     <material:MaterialButton x:Name="abrirGestionSize"
                                          Text="Size"
                                          WidthRequest="150"
                                          BackgroundColor="#07485B"/>
 
-                    <material:MaterialButton x:Name="abrirGestionColores"
-                                         Text="Colores"
-                                         WidthRequest="150" 
-                                         BackgroundColor="#07485B" />
                 </StackLayout>
             </ScrollView>
         </Frame>
