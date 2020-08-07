@@ -21,6 +21,7 @@ using RTM.FormXamarin.Models.Divisiones;
 using RTM.FormXamarin.Models.UnidadesMedidasEstilos;
 using RTM.FormXamarin.Models.PesosEstilos;
 using RTM.FormXamarin.Models.Estados;
+using RTM.FormXamarin.Models.Estilos_Colores;
 
 namespace RTM.FormXamarin.Views.Estilos
 {
@@ -51,46 +52,71 @@ namespace RTM.FormXamarin.Views.Estilos
             {
 
                 var estiloNoVar = estiloNo.Text;
-                var pickerMarcasVar = pickerMarcas.SelectedItem;
+                var pickerMarcasVar = (MarcasListView)pickerMarcas.SelectedItem;
+                var divisionesComboBoxVar = (DivisionesListView)divisionesComboBox.SelectedItem ;
+                var DescripcionVar = Descripcion.Text;
+                var costoVar = costo.Text;
+                var gananciaVar = ganancia.Text;
+                var fechaCreacionVar = fechaCreacion.Date;
+                var patternNumVar = patternNum.Text;
+                var pickerEstadosVar = (EstadosListView)pickerEstados.SelectedItem;
+                var lastVar = last.Text;
+                var unidadesMedidasComboBoxVar = (UnidadesMedidasListView)unidadesMedidasComboBox.SelectedItem;
+                var ComentarioVar = Comentario.Text;
+                var coloresComboBoxVar = (List<Estilos_Colore>)coloresComboBox.SelectedValue;
+
+
                 var modelosComboBoxVar = modelosComboBox.SelectedItem;
                 var tiposEstilosComboBoxVar = tiposEstilosComboBox.SelectedValue;
                 var categoriaComboBoxVar = categoriaComboBox.SelectedValue;
                 var materialesComboBoxVar = materialesComboBox.SelectedValue;
                 var pesoComboBoxVar = pesoComboBox.SelectedValue;
-                var lastVar = last.Text;
-                var unidadesMedidasComboBoxVar = unidadesMedidasComboBox.SelectedValue;
-                var coloresComboBoxVar = coloresComboBox.SelectedValue;
-                var divisionesComboBoxVar = divisionesComboBox.SelectedItem;
-                var DescripcionVar = Descripcion.Text;
-                var ComentarioVar = Comentario.Text;
-                var costoVar = costo.Text;
-                var gananciaVar = ganancia.Text;
-                var fechaCreacionVar = fechaCreacion.Date;
-                var pickerEstadosVar = pickerEstados.SelectedItem; 
 
+
+
+                
 
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(connectionString);
 
-                var estilos = new Estilo() 
-                { 
-                
-                
-                
-                
-                };
-                //Convetir a Json
-                var json = JsonConvert.SerializeObject(estilos);
-                StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
+                var estilos = new Estilo()
+                {
 
-                //Ejecutar el api el introduces el metodo
-                var request = await client.PostAsync("/api/EstilosNuevos/registrar", stringContent);
+
+                    MarcaID = pickerMarcasVar.MarcaID,
+                    Estilo_No = Convert.ToInt32(estiloNoVar),
+                    DivisionID = divisionesComboBoxVar.DivisionID,
+                    Descripcion = DescripcionVar,
+                    CostoSTD = Convert.ToDecimal(costoVar),
+                    Ganancia = Convert.ToDecimal(gananciaVar),
+                    FechaCreacion = DateTime.Parse(fechaCreacionVar.ToString()),
+                    PattenNo = patternNumVar,
+                    EstadoID = pickerEstadosVar.EstadoID,
+                    Last = lastVar,
+                    UnidadMedidaEstiloID = unidadesMedidasComboBoxVar.UnidadMedidaEstiloID,
+                    Comentarios = ComentarioVar,                    
+                    Colores =  coloresComboBoxVar
+                    // Modelos 
+                    // TiposEstilos 
+                    // CategoriasEstilos
+                    //  Materias
+                    //  PesosEstilos 
+
+                };
+
+    
+    //Convetir a Json
+    var json = JsonConvert.SerializeObject(estilos);
+    StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
+
+    //Ejecutar el api el introduces el metodo
+    var request = await client.PostAsync("/api/EstilosNuevos/registrar", stringContent);
 
                 if (request.IsSuccessStatusCode)
                 {
 
                     var responseJson = await request.Content.ReadAsStringAsync();
-                    var respuesta = JsonConvert.DeserializeObject<Request>(responseJson);
+    var respuesta = JsonConvert.DeserializeObject<Request>(responseJson);
 
                     //Status
                     if (respuesta.status)
@@ -98,7 +124,7 @@ namespace RTM.FormXamarin.Views.Estilos
                         await MaterialDialog.Instance.AlertAsync(message: "Usuario registrado correctamente",
                                    title: "Registro",
                                    acknowledgementText: "Aceptar");
-                    }
+}
                     else
                     {
                         await MaterialDialog.Instance.AlertAsync(message: "Usuario no pudo registrarse correctamente",
@@ -126,354 +152,354 @@ namespace RTM.FormXamarin.Views.Estilos
         }
 
         private async void ListaMarcas()
+{
+    string connectionString = ConfigurationManager.AppSettings["ipServer"];
+
+
+    HttpClient client = new HttpClient();
+
+    client.BaseAddress = new Uri(connectionString);
+    var request = client.GetAsync("/api/Marcas/lista").Result;
+
+    if (request.IsSuccessStatusCode)
+    {
+        var responseJson = request.Content.ReadAsStringAsync().Result;
+        var response = JsonConvert.DeserializeObject<Request>(responseJson);
+
+        if (response.status)
         {
-            string connectionString = ConfigurationManager.AppSettings["ipServer"];
 
+            var listaView = JsonConvert.DeserializeObject<List<MarcasListView>>(response.data.ToString());
 
-            HttpClient client = new HttpClient();
+            pickerMarcas.ItemsSource = listaView;
 
-            client.BaseAddress = new Uri(connectionString);
-            var request = client.GetAsync("/api/Marcas/lista").Result;
-
-            if (request.IsSuccessStatusCode)
-            {
-                var responseJson = request.Content.ReadAsStringAsync().Result;
-                var response = JsonConvert.DeserializeObject<Request>(responseJson);
-
-                if (response.status)
-                {
-
-                    var listaView = JsonConvert.DeserializeObject<List<MarcasListView>>(response.data.ToString());
-
-                    pickerMarcas.ItemsSource = listaView;
-
-
-                }
-                else
-                {
-                    await MaterialDialog.Instance.AlertAsync(message: "Error",
-                                   title: "Error",
-                                   acknowledgementText: "Aceptar");
-                }
-
-            }
 
         }
-
-        private async void ListaModelos()
+        else
         {
-            string connectionString = ConfigurationManager.AppSettings["ipServer"];
-
-
-            HttpClient client = new HttpClient();
-
-            client.BaseAddress = new Uri(connectionString);
-            var request = client.GetAsync("/api/Modelos/lista").Result;
-
-            if (request.IsSuccessStatusCode)
-            {
-                var responseJson = request.Content.ReadAsStringAsync().Result;
-                var response = JsonConvert.DeserializeObject<Request>(responseJson);
-
-                if (response.status)
-                {
-
-                    var listaView = JsonConvert.DeserializeObject<List<ModelosListView>>(response.data.ToString());
-
-                    modelosComboBox.DataSource = listaView;
-
-
-                }
-                else
-                {
-                    await MaterialDialog.Instance.AlertAsync(message: "Error",
-                                   title: "Error",
-                                   acknowledgementText: "Aceptar");
-                }
-
-            }
-
+            await MaterialDialog.Instance.AlertAsync(message: "Error",
+                           title: "Error",
+                           acknowledgementText: "Aceptar");
         }
 
-        private async void ListaTiposCalzados()
+    }
+
+}
+
+private async void ListaModelos()
+{
+    string connectionString = ConfigurationManager.AppSettings["ipServer"];
+
+
+    HttpClient client = new HttpClient();
+
+    client.BaseAddress = new Uri(connectionString);
+    var request = client.GetAsync("/api/Modelos/lista").Result;
+
+    if (request.IsSuccessStatusCode)
+    {
+        var responseJson = request.Content.ReadAsStringAsync().Result;
+        var response = JsonConvert.DeserializeObject<Request>(responseJson);
+
+        if (response.status)
         {
-            string connectionString = ConfigurationManager.AppSettings["ipServer"];
 
+            var listaView = JsonConvert.DeserializeObject<List<ModelosListView>>(response.data.ToString());
 
-            HttpClient client = new HttpClient();
+            modelosComboBox.DataSource = listaView;
 
-            client.BaseAddress = new Uri(connectionString);
-            var request = client.GetAsync("/api/TiposCalzados/lista").Result;
-
-            if (request.IsSuccessStatusCode)
-            {
-                var responseJson = request.Content.ReadAsStringAsync().Result;
-                var response = JsonConvert.DeserializeObject<Request>(responseJson);
-
-                if (response.status)
-                {
-
-                    var listaView = JsonConvert.DeserializeObject<List<TiposCalzadosListView>>(response.data.ToString());
-
-                    tiposEstilosComboBox.DataSource = listaView;
-
-
-                }
-                else
-                {
-                    await MaterialDialog.Instance.AlertAsync(message: "Error",
-                                   title: "Error",
-                                   acknowledgementText: "Aceptar");
-                }
-
-            }
 
         }
-
-        private async void ListaColores()
+        else
         {
-            string connectionString = ConfigurationManager.AppSettings["ipServer"];
-
-
-            HttpClient client = new HttpClient();
-
-            client.BaseAddress = new Uri(connectionString);
-            var request = client.GetAsync("/api/Colores/lista").Result;
-
-            if (request.IsSuccessStatusCode)
-            {
-                var responseJson = request.Content.ReadAsStringAsync().Result;
-                var response = JsonConvert.DeserializeObject<Request>(responseJson);
-
-                if (response.status)
-                {
-
-                    var listaView = JsonConvert.DeserializeObject<List<ColoresListView>>(response.data.ToString());
-
-                    coloresComboBox.DataSource = listaView;
-
-
-                }
-                else
-                {
-                    await MaterialDialog.Instance.AlertAsync(message: "Error",
-                                   title: "Error",
-                                   acknowledgementText: "Aceptar");
-                }
-
-            }
-
+            await MaterialDialog.Instance.AlertAsync(message: "Error",
+                           title: "Error",
+                           acknowledgementText: "Aceptar");
         }
 
-        private async void ListaMateriasPrimas()
+    }
+
+}
+
+private async void ListaTiposCalzados()
+{
+    string connectionString = ConfigurationManager.AppSettings["ipServer"];
+
+
+    HttpClient client = new HttpClient();
+
+    client.BaseAddress = new Uri(connectionString);
+    var request = client.GetAsync("/api/TiposCalzados/lista").Result;
+
+    if (request.IsSuccessStatusCode)
+    {
+        var responseJson = request.Content.ReadAsStringAsync().Result;
+        var response = JsonConvert.DeserializeObject<Request>(responseJson);
+
+        if (response.status)
         {
-            string connectionString = ConfigurationManager.AppSettings["ipServer"];
 
+            var listaView = JsonConvert.DeserializeObject<List<TiposCalzadosListView>>(response.data.ToString());
 
-            HttpClient client = new HttpClient();
+            tiposEstilosComboBox.DataSource = listaView;
 
-            client.BaseAddress = new Uri(connectionString);
-            var request = client.GetAsync("/api/MateriasPrimas/lista").Result;
-
-            if (request.IsSuccessStatusCode)
-            {
-                var responseJson = request.Content.ReadAsStringAsync().Result;
-                var response = JsonConvert.DeserializeObject<Request>(responseJson);
-
-                if (response.status)
-                {
-
-                    var listaView = JsonConvert.DeserializeObject<List<MateriasPrimasListView>>(response.data.ToString());
-
-                    materialesComboBox.DataSource = listaView;
-
-
-                }
-                else
-                {
-                    await MaterialDialog.Instance.AlertAsync(message: "Error",
-                                   title: "Error",
-                                   acknowledgementText: "Aceptar");
-                }
-
-            }
 
         }
-
-        private async void ListaCategoriasEstilo()
+        else
         {
-            string connectionString = ConfigurationManager.AppSettings["ipServer"];
-
-
-            HttpClient client = new HttpClient();
-
-            client.BaseAddress = new Uri(connectionString);
-            var request = client.GetAsync("/api/CategoriasEstilo/lista").Result;
-
-            if (request.IsSuccessStatusCode)
-            {
-                var responseJson = request.Content.ReadAsStringAsync().Result;
-                var response = JsonConvert.DeserializeObject<Request>(responseJson);
-
-                if (response.status)
-                {
-
-                    var listaView = JsonConvert.DeserializeObject<List<CategoriasEstilosListView>>(response.data.ToString());
-
-                    categoriaComboBox.DataSource = listaView;
-
-
-                }
-                else
-                {
-                    await MaterialDialog.Instance.AlertAsync(message: "Error",
-                                   title: "Error",
-                                   acknowledgementText: "Aceptar");
-                }
-
-            }
-
+            await MaterialDialog.Instance.AlertAsync(message: "Error",
+                           title: "Error",
+                           acknowledgementText: "Aceptar");
         }
 
-        private async void ListaDivisiones()
+    }
+
+}
+
+private async void ListaColores()
+{
+    string connectionString = ConfigurationManager.AppSettings["ipServer"];
+
+
+    HttpClient client = new HttpClient();
+
+    client.BaseAddress = new Uri(connectionString);
+    var request = client.GetAsync("/api/Colores/lista").Result;
+
+    if (request.IsSuccessStatusCode)
+    {
+        var responseJson = request.Content.ReadAsStringAsync().Result;
+        var response = JsonConvert.DeserializeObject<Request>(responseJson);
+
+        if (response.status)
         {
-            string connectionString = ConfigurationManager.AppSettings["ipServer"];
 
+            var listaView = JsonConvert.DeserializeObject<List<ColoresListView>>(response.data.ToString());
 
-            HttpClient client = new HttpClient();
+            coloresComboBox.DataSource = listaView;
 
-            client.BaseAddress = new Uri(connectionString);
-            var request = client.GetAsync("/api/Division/lista").Result;
-
-            if (request.IsSuccessStatusCode)
-            {
-                var responseJson = request.Content.ReadAsStringAsync().Result;
-                var response = JsonConvert.DeserializeObject<Request>(responseJson);
-
-                if (response.status)
-                {
-
-                    var listaView = JsonConvert.DeserializeObject<List<DivisionesListView>>(response.data.ToString());
-
-                    divisionesComboBox.ItemsSource = listaView;
-
-
-                }
-                else
-                {
-                    await MaterialDialog.Instance.AlertAsync(message: "Error",
-                                   title: "Error",
-                                   acknowledgementText: "Aceptar");
-                }
-
-            }
 
         }
-
-        private async void ListaUnidadesMedidasEstilos()
+        else
         {
-            string connectionString = ConfigurationManager.AppSettings["ipServer"];
-
-
-            HttpClient client = new HttpClient();
-
-            client.BaseAddress = new Uri(connectionString);
-            var request = client.GetAsync("/api/UnidadesMedidasEstilo/lista").Result;
-
-            if (request.IsSuccessStatusCode)
-            {
-                var responseJson = request.Content.ReadAsStringAsync().Result;
-                var response = JsonConvert.DeserializeObject<Request>(responseJson);
-
-                if (response.status)
-                {
-
-                    var listaView = JsonConvert.DeserializeObject<List<UnidadesMedidasListView>>(response.data.ToString());
-
-                    unidadesMedidasComboBox.DataSource = listaView;
-
-
-                }
-                else
-                {
-                    await MaterialDialog.Instance.AlertAsync(message: "Error",
-                                   title: "Error",
-                                   acknowledgementText: "Aceptar");
-                }
-
-            }
-
+            await MaterialDialog.Instance.AlertAsync(message: "Error",
+                           title: "Error",
+                           acknowledgementText: "Aceptar");
         }
 
-        private async void ListaPesosEstilos()
+    }
+
+}
+
+private async void ListaMateriasPrimas()
+{
+    string connectionString = ConfigurationManager.AppSettings["ipServer"];
+
+
+    HttpClient client = new HttpClient();
+
+    client.BaseAddress = new Uri(connectionString);
+    var request = client.GetAsync("/api/MateriasPrimas/lista").Result;
+
+    if (request.IsSuccessStatusCode)
+    {
+        var responseJson = request.Content.ReadAsStringAsync().Result;
+        var response = JsonConvert.DeserializeObject<Request>(responseJson);
+
+        if (response.status)
         {
-            string connectionString = ConfigurationManager.AppSettings["ipServer"];
 
+            var listaView = JsonConvert.DeserializeObject<List<MateriasPrimasListView>>(response.data.ToString());
 
-            HttpClient client = new HttpClient();
+            materialesComboBox.DataSource = listaView;
 
-            client.BaseAddress = new Uri(connectionString);
-            var request = client.GetAsync("/api/PesosEstilos/lista").Result;
-
-            if (request.IsSuccessStatusCode)
-            {
-                var responseJson = request.Content.ReadAsStringAsync().Result;
-                var response = JsonConvert.DeserializeObject<Request>(responseJson);
-
-                if (response.status)
-                {
-
-                    var listaView = JsonConvert.DeserializeObject<List<PesosEstilosListView>>(response.data.ToString());
-
-                    pesoComboBox.DataSource = listaView;
-
-
-                }
-                else
-                {
-                    await MaterialDialog.Instance.AlertAsync(message: "Error",
-                                   title: "Error",
-                                   acknowledgementText: "Aceptar");
-                }
-
-            }
 
         }
-
-        private async void ListaEstados()
+        else
         {
-            string connectionString = ConfigurationManager.AppSettings["ipServer"];
+            await MaterialDialog.Instance.AlertAsync(message: "Error",
+                           title: "Error",
+                           acknowledgementText: "Aceptar");
+        }
+
+    }
+
+}
+
+private async void ListaCategoriasEstilo()
+{
+    string connectionString = ConfigurationManager.AppSettings["ipServer"];
 
 
-            HttpClient client = new HttpClient();
+    HttpClient client = new HttpClient();
 
-            client.BaseAddress = new Uri(connectionString);
-            var request = client.GetAsync("/api/Estados/lista").Result;
+    client.BaseAddress = new Uri(connectionString);
+    var request = client.GetAsync("/api/CategoriasEstilo/lista").Result;
 
-            if (request.IsSuccessStatusCode)
-            {
-                var responseJson = request.Content.ReadAsStringAsync().Result;
-                var response = JsonConvert.DeserializeObject<Request>(responseJson);
+    if (request.IsSuccessStatusCode)
+    {
+        var responseJson = request.Content.ReadAsStringAsync().Result;
+        var response = JsonConvert.DeserializeObject<Request>(responseJson);
 
-                if (response.status)
-                {
+        if (response.status)
+        {
 
-                    var listaView = JsonConvert.DeserializeObject<List<EstadosListView>>(response.data.ToString());
+            var listaView = JsonConvert.DeserializeObject<List<CategoriasEstilosListView>>(response.data.ToString());
 
-                    pickerEstados.ItemsSource = listaView;
+            categoriaComboBox.DataSource = listaView;
 
-
-                }
-                else
-                {
-                    await MaterialDialog.Instance.AlertAsync(message: "Error",
-                                   title: "Error",
-                                   acknowledgementText: "Aceptar");
-                }
-
-            }
 
         }
+        else
+        {
+            await MaterialDialog.Instance.AlertAsync(message: "Error",
+                           title: "Error",
+                           acknowledgementText: "Aceptar");
+        }
+
+    }
+
+}
+
+private async void ListaDivisiones()
+{
+    string connectionString = ConfigurationManager.AppSettings["ipServer"];
+
+
+    HttpClient client = new HttpClient();
+
+    client.BaseAddress = new Uri(connectionString);
+    var request = client.GetAsync("/api/Division/lista").Result;
+
+    if (request.IsSuccessStatusCode)
+    {
+        var responseJson = request.Content.ReadAsStringAsync().Result;
+        var response = JsonConvert.DeserializeObject<Request>(responseJson);
+
+        if (response.status)
+        {
+
+            var listaView = JsonConvert.DeserializeObject<List<DivisionesListView>>(response.data.ToString());
+
+            divisionesComboBox.ItemsSource = listaView;
+
+
+        }
+        else
+        {
+            await MaterialDialog.Instance.AlertAsync(message: "Error",
+                           title: "Error",
+                           acknowledgementText: "Aceptar");
+        }
+
+    }
+
+}
+
+private async void ListaUnidadesMedidasEstilos()
+{
+    string connectionString = ConfigurationManager.AppSettings["ipServer"];
+
+
+    HttpClient client = new HttpClient();
+
+    client.BaseAddress = new Uri(connectionString);
+    var request = client.GetAsync("/api/UnidadesMedidasEstilo/lista").Result;
+
+    if (request.IsSuccessStatusCode)
+    {
+        var responseJson = request.Content.ReadAsStringAsync().Result;
+        var response = JsonConvert.DeserializeObject<Request>(responseJson);
+
+        if (response.status)
+        {
+
+            var listaView = JsonConvert.DeserializeObject<List<UnidadesMedidasListView>>(response.data.ToString());
+
+            unidadesMedidasComboBox.DataSource = listaView;
+
+
+        }
+        else
+        {
+            await MaterialDialog.Instance.AlertAsync(message: "Error",
+                           title: "Error",
+                           acknowledgementText: "Aceptar");
+        }
+
+    }
+
+}
+
+private async void ListaPesosEstilos()
+{
+    string connectionString = ConfigurationManager.AppSettings["ipServer"];
+
+
+    HttpClient client = new HttpClient();
+
+    client.BaseAddress = new Uri(connectionString);
+    var request = client.GetAsync("/api/PesosEstilos/lista").Result;
+
+    if (request.IsSuccessStatusCode)
+    {
+        var responseJson = request.Content.ReadAsStringAsync().Result;
+        var response = JsonConvert.DeserializeObject<Request>(responseJson);
+
+        if (response.status)
+        {
+
+            var listaView = JsonConvert.DeserializeObject<List<PesosEstilosListView>>(response.data.ToString());
+
+            pesoComboBox.DataSource = listaView;
+
+
+        }
+        else
+        {
+            await MaterialDialog.Instance.AlertAsync(message: "Error",
+                           title: "Error",
+                           acknowledgementText: "Aceptar");
+        }
+
+    }
+
+}
+
+private async void ListaEstados()
+{
+    string connectionString = ConfigurationManager.AppSettings["ipServer"];
+
+
+    HttpClient client = new HttpClient();
+
+    client.BaseAddress = new Uri(connectionString);
+    var request = client.GetAsync("/api/Estados/lista").Result;
+
+    if (request.IsSuccessStatusCode)
+    {
+        var responseJson = request.Content.ReadAsStringAsync().Result;
+        var response = JsonConvert.DeserializeObject<Request>(responseJson);
+
+        if (response.status)
+        {
+
+            var listaView = JsonConvert.DeserializeObject<List<EstadosListView>>(response.data.ToString());
+
+            pickerEstados.ItemsSource = listaView;
+
+
+        }
+        else
+        {
+            await MaterialDialog.Instance.AlertAsync(message: "Error",
+                           title: "Error",
+                           acknowledgementText: "Aceptar");
+        }
+
+    }
+
+}
 
 
 

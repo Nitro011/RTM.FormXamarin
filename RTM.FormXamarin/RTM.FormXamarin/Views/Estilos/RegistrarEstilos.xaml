@@ -143,6 +143,12 @@
                     </StackLayout>
 
                     <StackLayout Margin="0,25,0,0">
+                        <StackLayout>
+                            <material:MaterialTextField x:Name="patternNum" Placeholder="Ingrese el Costo" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+                    
+                    <StackLayout Margin="0,25,0,0">
                         <StackLayout Orientation="Horizontal">
                             <Picker Title="Estados" x:Name="pickerEstados" ItemsSource="{Binding Estado1}" ItemDisplayBinding="{Binding Estado1}" SelectedIndex="{Binding EstadoID}"  HorizontalOptions = "FillAndExpand"/>
                         </StackLayout>
