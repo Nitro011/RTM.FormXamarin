@@ -52,13 +52,19 @@ namespace RTM.FormXamarin.Views.Estilos
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(connectionString);
 
-                var estilos = new Estilo() { };
+                var estilos = new Estilo() 
+                { 
+                
+                
+                
+                
+                };
                 //Convetir a Json
                 var json = JsonConvert.SerializeObject(estilos);
                 StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
 
                 //Ejecutar el api el introduces el metodo
-                var request = await client.PostAsync("/api/Usuarios/registrar", stringContent);
+                var request = await client.PostAsync("/api/EstilosNuevos/registrar", stringContent);
 
                 if (request.IsSuccessStatusCode)
                 {
