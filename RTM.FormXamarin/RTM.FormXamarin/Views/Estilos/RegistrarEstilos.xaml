@@ -103,7 +103,7 @@
 
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
                         <material:MaterialLabel Text="Colores:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
-                        <combobox:SfComboBox HeightRequest="40" x:Name="coloresComboBox" DropDownItemHeight="50" DisplayMemberPath="Color" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
+                        <combobox:SfComboBox HeightRequest="40" x:Name="coloresComboBox" DropDownItemHeight="50" DisplayMemberPath="Color" MultiSelectMode="Token"  ItemsSource="{Binding listaView}" SelectedIndex="{Binding ColorID}"/>
                     </StackLayout>
 
                     <StackLayout Margin="0,25,0,0">
