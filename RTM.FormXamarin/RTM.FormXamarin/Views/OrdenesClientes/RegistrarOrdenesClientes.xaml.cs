@@ -16,6 +16,7 @@ using RTM.FormXamarin.Models.Modelos;
 using Android.Media;
 using RTM.FormXamarin.Models.TiposCalzados;
 using RTM.FormXamarin.Models.Sizes;
+using RTM.FormXamarin.Models.MateriasPrimas;
 
 namespace RTM.FormXamarin.Views.OrdenesClientes
 {
@@ -206,5 +207,9 @@ namespace RTM.FormXamarin.Views.OrdenesClientes
             }
 
         }
+
+
+
+
     }
 }

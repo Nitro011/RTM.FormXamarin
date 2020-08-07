@@ -11,10 +11,13 @@
             Title="{Binding Title}">
     
   <!--Pages can be added as references or inline-->
+    
+    <!--ContentPage para el disenio de la configuraciones de produccion:-->
     <ContentPage Title="Configuración de Producción">
         
     </ContentPage>
-
+ 
+    <!--ContentPage para el disenio de Administracion de BOM:-->
     <ContentPage Title="Administración de BOM">
         <ScrollView>
             <Grid RowSpacing="0" ColumnSpacing="0">
@@ -97,6 +100,7 @@
         </ScrollView>
     </ContentPage>
 
+    <!--ContentPage del disenio de operaciones de estilos:-->
     <ContentPage Title="Operaciones de Estilos">
         <ScrollView>
             <Grid RowSpacing="0" ColumnSpacing="0">

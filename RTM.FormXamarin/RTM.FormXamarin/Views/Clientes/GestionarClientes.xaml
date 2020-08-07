@@ -82,18 +82,18 @@
                                 </OnIdiom>
                             </dg:DataGrid.HeaderFontSize>
                             <dg:DataGrid.Columns>
-                                <dg:DataGridColumn Title="ID" PropertyName="ClienteID" Width="1*"></dg:DataGridColumn>
+                                <!--<dg:DataGridColumn Title="ID" PropertyName="ClienteID" Width="1*"></dg:DataGridColumn>-->
                                 <dg:DataGridColumn PropertyName="CodigoCliente" Width="2*">
                                     <dg:DataGridColumn.FormattedTitle>
                                         <FormattedString>
-                                            <Span Text="CodigoCliente" FontSize="13" TextColor="Black" FontAttributes="Bold"/>
+                                            <Span Text="Código Cliente" FontSize="13" TextColor="Black" FontAttributes="None"/>
                                         </FormattedString>
                                     </dg:DataGridColumn.FormattedTitle>
                                 </dg:DataGridColumn>
                                 <dg:DataGridColumn Title="RNC" PropertyName="RNC" Width="2*"/>
-                                <dg:DataGridColumn Title="Nombre_Cliente" PropertyName="Nombre_Cliente" Width="2*"/>
-                                <dg:DataGridColumn Title="No_Telefono" PropertyName="No_Telefono" Width="2*"/>
-                                <dg:DataGridColumn Title="Pais" PropertyName="Pais" Width="2*"/>
+                                <dg:DataGridColumn Title="Cliente" PropertyName="Nombre_Cliente" Width="2*"/>
+                                <dg:DataGridColumn Title="Teléfono" PropertyName="No_Telefono" Width="2*"/>
+                                <dg:DataGridColumn Title="País" PropertyName="Pais" Width="2*"/>
                             </dg:DataGrid.Columns>
                             <dg:DataGrid.RowsBackgroundColorPalette>
                                 <dg:PaletteCollection>

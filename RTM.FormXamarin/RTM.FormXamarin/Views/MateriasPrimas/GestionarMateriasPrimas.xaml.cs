@@ -26,8 +26,33 @@ namespace RTM.FormXamarin.Views.MateriasPrimas
             InitializeComponent();
             BindingContext = this.GestionarMateriasPrimasViewModel = new GestionarMateriasPrimasViewModel();
             ListaMateriasPrimas();
+            listaMateriasPrimas.ItemSelected += ListaMateriasPrimas_ItemSelected;
             agregarNuevasMateriasPrimas.Clicked += AgregarNuevasMateriasPrimas_Clicked;
             buscarMateriasPrimas.TextChanged += BuscarMateriasPrimas_TextChanged;
+        }
+
+        private async void ListaMateriasPrimas_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            bool answer = await DisplayAlert("Modificar?", "Desea modificar este elemento", "Si", "No");
+
+            if (answer == true)
+            {
+                try
+                {
+                    var item = (MateriasPrimasListView)e.SelectedItem;
+
+                    await Navigation.PushAsync(new ModificarMateriasPrimas(item.Materia_PrimaID));
+                }
+                catch (Exception ex)
+                {
+
+                    await DisplayAlert("Error", ex.Message, "Aceptar");
+                }
+            }
+            else
+            {
+                ListaMateriasPrimas();
+            }
         }
 
         private void BuscarMateriasPrimas_TextChanged(object sender, TextChangedEventArgs e)

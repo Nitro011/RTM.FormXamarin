@@ -6,8 +6,7 @@
              xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
              xmlns:behavior="clr-namespace:RTM.FormXamarin.Behavior"
              mc:Ignorable="d"
-             x:Class="RTM.FormXamarin.Views.Clientes.RegistrarClientes"
-             Title="{Binding Title}">
+             x:Class="RTM.FormXamarin.Views.Clientes.ModificarClientes">
 
     <Grid RowSpacing="0" ColumnSpacing="0">
         <Grid.RowDefinitions>
@@ -49,11 +48,11 @@
                   
                    HorizontalOptions="FillAndExpand"
                    VerticalOptions="FillAndExpand">
-            
+
             <ScrollView>
                 <StackLayout>
 
-                    <material:MaterialLabel Text="Datos del Cliente" TextColor="Black" FontSize="Title" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <material:MaterialLabel Text="Datos a Modificar del Cliente" TextColor="Black" FontSize="Title" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
 
                     <StackLayout Margin="0,25,0,0">
                         <StackLayout>
@@ -103,12 +102,11 @@
 
 
 
-                    <material:MaterialButton Text="Guardar Clientes" x:Name="btnGuardarClientes" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,40,0,0"/>
+                    <material:MaterialButton Text="Actualizar Clientes" x:Name="btnModificarClientes" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,40,0,0"/>
 
                 </StackLayout>
             </ScrollView>
         </Frame>
 
     </Grid>
-
 </ContentPage>

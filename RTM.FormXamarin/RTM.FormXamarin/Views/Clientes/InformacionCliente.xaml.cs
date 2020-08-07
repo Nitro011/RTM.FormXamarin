@@ -10,16 +10,44 @@ using RTM.FormXamarin.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using RTM.FormXamarin.Models.Clientes;
+using XF.Material.Forms.UI.Dialogs;
 
 namespace RTM.FormXamarin.Views.Clientes
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class InformacionCliente : ContentPage
     {
+        public int clienteID;
         public InformacionCliente(int id)
         {
             InitializeComponent();
             MostrarInformacionCliente(id);
+            btnModificar.Clicked += BtnModificar_Clicked;
+        }
+
+        private async void BtnModificar_Clicked(object sender, EventArgs e)
+        {
+            bool answer = await DisplayAlert("Modificar?", "Desea modificar este elemento", "Si", "No");
+
+            if (answer == true)
+            {
+                try
+                {
+                    var item = clienteID;
+
+                    await Navigation.PushAsync(new ModificarClientes(item));
+                }
+                catch (Exception ex)
+                {
+
+                    await DisplayAlert("Error", ex.Message, "Aceptar");
+                }
+            }
+            else
+            {
+               await MaterialDialog.Instance.AlertAsync(title:"Alerta",
+                                                        message:"No se encuentra el Cliente a Modificar");
+            }
         }
 
         private void MostrarInformacionCliente(int id)
@@ -44,7 +72,7 @@ namespace RTM.FormXamarin.Views.Clientes
                     var listaView = JsonConvert.DeserializeObject<ClientesListView>(response.data.ToString());
 
                     /*  var año = (listaView.fecha_nacimiento != null) ? listaView.fecha_nacimiento.Value.Year : DateTime.MinValue.Year;*/
-                    ClienteID.Text = listaView.ClienteID.ToString();
+                    clienteID = listaView.ClienteID;
                     CodigoCliente.Text = listaView.CodigoCliente;
                     RNC.Text = listaView.RNC;
                     Nombre_Cliente.Text = listaView.Nombre_Cliente;

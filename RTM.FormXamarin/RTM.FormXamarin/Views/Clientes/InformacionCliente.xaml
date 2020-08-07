@@ -20,8 +20,11 @@
 
                 <Frame BackgroundColor="White" HasShadow="True" HeightRequest="450" HorizontalOptions="FillAndExpand">
                     <StackLayout>
-                        <StackLayout HorizontalOptions="CenterAndExpand">
+                        <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Orientation="Horizontal">
                             <material:MaterialLabel Text="Informacion del Cliente" TextColor="Black" FontSize="Title" FontAttributes="Bold"/>
+                            <StackLayout HorizontalOptions="End" VerticalOptions="End">
+                            <material:MaterialButton x:Name="btnModificar" Text="Modificar" TextColor="White" BackgroundColor="#07485B" />
+                            </StackLayout>
                         </StackLayout>
                         
                         <StackLayout Margin="0,25,0,0">

@@ -60,33 +60,33 @@
 
                     <StackLayout Margin="0,25,0,0">
                         <StackLayout Orientation="Horizontal">
-                            <Picker Title="Marcas" x:Name="pickerMarcas" ItemsSource="{Binding Marca1}" ItemDisplayBinding="{Binding NombreAreaProduccion}" SelectedIndex="{Binding AreaProduccionID}"  HorizontalOptions = "FillAndExpand" />
+                            <Picker Title="Marcas" x:Name="pickerMarcas" ItemsSource="{Binding Marca1}" ItemDisplayBinding="{Binding Marca1}" SelectedIndex="{Binding MarcaID}"  HorizontalOptions = "FillAndExpand" />
                         </StackLayout>
                     </StackLayout>
 
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
                         <material:MaterialLabel Text="Modelos:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
-                        <combobox:SfComboBox HeightRequest="40" x:Name="modelosComboBox" DropDownItemHeight="50" DisplayMemberPath="Color" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
+                        <combobox:SfComboBox HeightRequest="40" x:Name="modelosComboBox" DropDownItemHeight="50" DisplayMemberPath="Modelo1" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
                     </StackLayout>
 
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
                         <material:MaterialLabel Text="Tipos de Estilos:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
-                        <combobox:SfComboBox HeightRequest="40" x:Name="tiposEstilosComboBox" DropDownItemHeight="50" DisplayMemberPath="Color" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
+                        <combobox:SfComboBox HeightRequest="40" x:Name="tiposEstilosComboBox" DropDownItemHeight="50" DisplayMemberPath="Tipo_Calzado" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
                     </StackLayout>
 
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
                         <material:MaterialLabel Text="Categoria:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
-                        <combobox:SfComboBox HeightRequest="40" x:Name="categoriaComboBox" DropDownItemHeight="50" DisplayMemberPath="Color" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
+                        <combobox:SfComboBox HeightRequest="40" x:Name="categoriaComboBox" DropDownItemHeight="50" DisplayMemberPath="CategoriaEstilo" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
                     </StackLayout>
 
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
                         <material:MaterialLabel Text="Materiales:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
-                        <combobox:SfComboBox HeightRequest="40" x:Name="materialesComboBox" DropDownItemHeight="50" DisplayMemberPath="Color" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
+                        <combobox:SfComboBox HeightRequest="40" x:Name="materialesComboBox" DropDownItemHeight="50" DisplayMemberPath="Nombre_Materia_Prima" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
                     </StackLayout>
 
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
                         <material:MaterialLabel Text="Peso:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
-                        <combobox:SfComboBox HeightRequest="40" x:Name="pesoComboBox" DropDownItemHeight="50" DisplayMemberPath="Color" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
+                        <combobox:SfComboBox HeightRequest="40" x:Name="pesoComboBox" DropDownItemHeight="50" DisplayMemberPath="PesoEstilo" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
                     </StackLayout>
 
                     <StackLayout Margin="0,25,0,0">
@@ -97,7 +97,7 @@
 
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
                         <material:MaterialLabel Text="Unidades de Medida:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
-                        <combobox:SfComboBox HeightRequest="40" x:Name="unidadesMedidasComboBox" DropDownItemHeight="50" DisplayMemberPath="Color" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
+                        <combobox:SfComboBox HeightRequest="40" x:Name="unidadesMedidasComboBox" DropDownItemHeight="50" DisplayMemberPath="UnidadMedidaEstilo" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
                     </StackLayout>
 
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
@@ -107,7 +107,7 @@
 
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
                         <material:MaterialLabel Text="Divisiones" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
-                        <combobox:SfComboBox HeightRequest="40" x:Name="divisionesComboBox" DropDownItemHeight="50" DisplayMemberPath="Color" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
+                        <combobox:SfComboBox HeightRequest="40" x:Name="divisionesComboBox" DropDownItemHeight="50" DisplayMemberPath="Division" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
                     </StackLayout>
 
                     <StackLayout Margin="0,25,0,0">
@@ -143,7 +143,7 @@
 
                     <StackLayout Margin="0,25,0,0">
                         <StackLayout Orientation="Horizontal">
-                            <Picker Title="Estados" x:Name="pickerEstados" ItemsSource="{Binding Estado}" ItemDisplayBinding="{Binding NombreAreaProduccion}" SelectedIndex="{Binding AreaProduccionID}"  HorizontalOptions = "FillAndExpand"/>
+                            <Picker Title="Estados" x:Name="pickerEstados" ItemsSource="{Binding Estado1}" ItemDisplayBinding="{Binding Estado1}" SelectedIndex="{Binding EstadoID}"  HorizontalOptions = "FillAndExpand"/>
                         </StackLayout>
                     </StackLayout>
 

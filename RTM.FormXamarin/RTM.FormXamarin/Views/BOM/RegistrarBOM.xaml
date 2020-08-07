@@ -4,128 +4,172 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
              mc:Ignorable="d"
-             x:Class="RTM.FormXamarin.Views.BOM.RegistrarBOM">
+             x:Class="RTM.FormXamarin.Views.BOM.RegistrarBOM"
+             Title="{Binding Title}">
 
-    <ScrollView>
-        <StackLayout Padding="0" BackgroundColor="LightGray">
-            <Grid>
-                <StackLayout Padding="0" Margin="0">
-                    <Frame BackgroundColor="#07485B" HeightRequest="150" HorizontalOptions="FillAndExpand" Padding="0">
-                        <!--<Image Source="" Aspect="Fill" Margin="0"-->
-                    </Frame>
-                </StackLayout>
+    <Grid RowSpacing="0" ColumnSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
 
-                <StackLayout Margin="150,110,150,0">
+        <StackLayout Orientation="Horizontal"
+                         Grid.Row="0"
+                         Grid.Column="0"
+                         Grid.ColumnSpan="4"
+                         BackgroundColor="#07485B">
 
-                    <Frame BackgroundColor="White" HasShadow="True" HeightRequest="1400" HorizontalOptions="FillAndExpand">
-                        <StackLayout>
-                            <StackLayout HorizontalOptions="CenterAndExpand">
-                                <material:MaterialLabel Text="Registrar BOM" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
-                            </StackLayout>
-
-                            <StackLayout Margin="0,25,0,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <material:MaterialDateField x:Name="date" Placeholder="DATE" TextColor="Black" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
-                                </StackLayout>
-                            </StackLayout>
-
-                            <StackLayout Margin="0,25,0,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField x:Name="category" Placeholder="Category" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0"/>
-                                </StackLayout>
-                            </StackLayout>
-
-                            <StackLayout Margin="0,25,0,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField x:Name="patternName" Placeholder="Pattern Name" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
-                                </StackLayout>
-                            </StackLayout>
-
-                            <StackLayout Margin="0,25,0,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField x:Name="stock" Placeholder="Stock #" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
-                                </StackLayout>
-                            </StackLayout>
-
-                            <StackLayout Margin="0,10,0,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField x:Name="Pattn" Placeholder="Pattn" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
-                                </StackLayout>
-                            </StackLayout>
-
-                            <StackLayout Margin="0,10,0,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField x:Name="Construction" Placeholder="Construction" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
-                                </StackLayout>
-                            </StackLayout>
-
-                            <StackLayout Margin="0,10,0,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField x:Name="Last" Placeholder="Last" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
-                                </StackLayout>
-                            </StackLayout>
-
-                            <StackLayout Margin="0,10,0,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField x:Name="Customer" Placeholder="Customer" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
-                                </StackLayout>
-                            </StackLayout>
-
-                            <StackLayout Margin="0,10,0,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField x:Name="PartNo" Placeholder="PartNo" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
-                                </StackLayout>
-                            </StackLayout>
-
-                            <StackLayout Margin="0,10,0,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField x:Name="DIE" Placeholder="DIE#" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
-                                </StackLayout>
-                            </StackLayout>
-
-                            <StackLayout Margin="0,10,0,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField x:Name="Item" Placeholder="Construction" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
-                                </StackLayout>
-                            </StackLayout>
-
-                            <StackLayout Margin="0,10,0,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField x:Name="Description" Placeholder="Description" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
-                                </StackLayout>
-                            </StackLayout>
-
-                            <StackLayout Margin="0,10,0,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField x:Name="Unit" Placeholder="Unit" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
-                                </StackLayout>
-                            </StackLayout>
-
-                            <StackLayout Margin="0,10,0,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField x:Name="Usage" Placeholder="Usage" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
-                                </StackLayout>
-                            </StackLayout>
-
-                            <StackLayout Margin="0,10,0,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField x:Name="Cost" Placeholder="Cost" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
-                                </StackLayout>
-                            </StackLayout>
-
-                            <StackLayout Margin="0,10,0,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField x:Name="Ext" Placeholder="Ext" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
-                                </StackLayout>
-                            </StackLayout>
-
-                            <StackLayout Orientation="Horizontal" Margin="0,15,0,0"></StackLayout>
-                            <material:MaterialButton Text="Guardar BOM" x:Name="btnGuardarBOM" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                        </StackLayout>
-                    </Frame>
-                </StackLayout>
-            </Grid>
         </StackLayout>
-    </ScrollView>
+
+        <StackLayout Orientation="Vertical"
+                         Grid.Row="1"
+                         Grid.Column="0"
+                         Grid.RowSpan="4"
+                         Grid.ColumnSpan="4"
+                         BackgroundColor="LightGray">
+        </StackLayout>
+
+        <Frame Grid.Row="1"
+                   Grid.Column="0"
+                   Grid.RowSpan="4"
+                   Grid.ColumnSpan="4"
+                   HeightRequest="450"
+                   WidthRequest="0"
+                  
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="FillAndExpand">
+
+            <ScrollView>
+                <StackLayout>
+
+                    <material:MaterialLabel Text="Encabezado" TextColor="Black" FontSize="Title" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="Fill" Padding="0">
+                        <material:MaterialLabel Text="Fecha de Creación" TextColor="Black" FontAttributes="None" FontSize="Medium" HorizontalOptions="Fill" VerticalOptions="Start"/>
+                        <DatePicker x:Name="startDatePicker"
+                                Format="D"
+                                Margin="30, 0, 0, 30"
+                                MaximumDate="12/31/2002"
+                                 />
+                    </StackLayout>
+
+                    <StackLayout Margin="0,25,0,0" >
+                        <StackLayout>
+                            <material:MaterialTextField x:Name="PatterN" Placeholder="Ingrese el Patter Name" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
+                            <material:MaterialLabel Text="Construction" TextColor="Black" FontAttributes="None" FontSize="Medium"/>
+                            <combobox:SfComboBox HeightRequest="40" x:Name="constructionComboBox" IsEditableMode="true" AllowFiltering="true" MaximumDropDownHeight="150" Margin="0,5,0,0">
+                                <combobox:SfComboBox.ComboBoxSource>
+                                    <ListCollection:List x:TypeArguments="x:String">
+                                        <x:String>Afghanistan</x:String>
+                                        <x:String>Albania</x:String>
+                                        <x:String>Algeria</x:String>
+                                        <x:String>American Samoa</x:String>
+                                        <x:String>Andorra</x:String>
+                                        <x:String>Angola</x:String>
+                                        <x:String>Anguilla</x:String>
+                                        <x:String>Antarctica</x:String>
+                                        <x:String>Antigua and Barbuda</x:String>
+                                        <x:String>Argentina</x:String>
+                                    </ListCollection:List>
+                                </combobox:SfComboBox.ComboBoxSource>
+                            </combobox:SfComboBox>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
+                        <material:MaterialLabel Text="Costumer" TextColor="Black" FontAttributes="None" FontSize="Medium"/>
+                        <combobox:SfComboBox HeightRequest="40" x:Name="customerComboBox" IsEditableMode="true" AllowFiltering="true" MaximumDropDownHeight="150" Margin="0,5,0,0">
+                            <combobox:SfComboBox.ComboBoxSource>
+                                <ListCollection:List x:TypeArguments="x:String">
+                                    <x:String>Afghanistan</x:String>
+                                    <x:String>Albania</x:String>
+                                    <x:String>Algeria</x:String>
+                                    <x:String>American Samoa</x:String>
+                                    <x:String>Andorra</x:String>
+                                    <x:String>Angola</x:String>
+                                    <x:String>Anguilla</x:String>
+                                    <x:String>Antarctica</x:String>
+                                    <x:String>Antigua and Barbuda</x:String>
+                                    <x:String>Argentina</x:String>
+                                </ListCollection:List>
+                            </combobox:SfComboBox.ComboBoxSource>
+                        </combobox:SfComboBox>
+                    </StackLayout>
+
+                    <material:MaterialLabel Text="Detalles" TextColor="Black" FontSize="Title" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+
+
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout>
+                            <material:MaterialTextField x:Name="PartNo" Placeholder="Ingrese el Part No." TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout>
+                            <material:MaterialTextField x:Name="DIE" Placeholder="Ingrese el numero de identificación" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout>
+                            <material:MaterialTextField x:Name="Item" Placeholder="Ingrese el Item" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout>
+                            <material:MaterialTextField x:Name="Descripcion" Placeholder="Ingrese la descripcion" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout>
+                            <material:MaterialTextField x:Name="Unit" Placeholder="Ingrese la Unidad" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout>
+                            <material:MaterialTextField x:Name="Usage" Placeholder="Ingrese el Usage" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout>
+                            <material:MaterialTextField x:Name="Costo" Placeholder="Ingrese el Costo" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout>
+                            <material:MaterialTextField x:Name="Ext" Placeholder="Ingrese el Ext" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+
+
+                    <material:MaterialButton Text="Guardar Clientes" x:Name="btnGuardarClientes" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,40,0,0"/>
+
+                </StackLayout>
+            </ScrollView>
+        </Frame>
+
+    </Grid>
 </ContentPage>

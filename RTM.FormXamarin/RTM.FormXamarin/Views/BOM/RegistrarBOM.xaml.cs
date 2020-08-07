@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RTM.FormXamarin.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,11 @@ namespace RTM.FormXamarin.Views.BOM
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RegistrarBOM : ContentPage
     {
+        BOMViewModel BOMViewModel;
         public RegistrarBOM()
         {
             InitializeComponent();
+            BindingContext = this.BOMViewModel = new BOMViewModel();
         }
     }
 }
