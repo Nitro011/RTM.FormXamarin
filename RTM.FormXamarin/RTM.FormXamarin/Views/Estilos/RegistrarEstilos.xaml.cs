@@ -416,7 +416,7 @@ private async void ListaUnidadesMedidasEstilos()
 
             var listaView = JsonConvert.DeserializeObject<List<UnidadesMedidasListView>>(response.data.ToString());
 
-            unidadesMedidasComboBox.DataSource = listaView;
+            unidadesMedidasComboBox.ItemsSource = listaView;
 
 
         }

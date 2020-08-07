@@ -95,9 +95,10 @@
                         </StackLayout>
                     </StackLayout>
 
-                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
-                        <material:MaterialLabel Text="Unidades de Medida:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
-                        <combobox:SfComboBox HeightRequest="40" x:Name="unidadesMedidasComboBox" DropDownItemHeight="50" DisplayMemberPath="UnidadMedidaEstilo" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout Orientation="Horizontal">
+                            <Picker Title="Unidades de Medidas" x:Name="unidadesMedidasComboBox" ItemsSource="{Binding UnidadMedidaEstilo}" ItemDisplayBinding="{Binding UnidadMedidaEstilo}" SelectedIndex="{Binding UnidadMedidaEstiloID}"  HorizontalOptions = "FillAndExpand" />
+                        </StackLayout>
                     </StackLayout>
 
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
