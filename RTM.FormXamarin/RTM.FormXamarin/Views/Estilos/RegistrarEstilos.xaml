@@ -105,9 +105,10 @@
                         <combobox:SfComboBox HeightRequest="40" x:Name="coloresComboBox" DropDownItemHeight="50" DisplayMemberPath="Color" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
                     </StackLayout>
 
-                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
-                        <material:MaterialLabel Text="Divisiones" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
-                        <combobox:SfComboBox HeightRequest="40" x:Name="divisionesComboBox" DropDownItemHeight="50" DisplayMemberPath="Division" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout Orientation="Horizontal">
+                            <Picker Title="Divisiones" x:Name="divisionesComboBox" ItemsSource="{Binding Division}" ItemDisplayBinding="{Binding Division}" SelectedIndex="{Binding Division}"  HorizontalOptions = "FillAndExpand" />
+                        </StackLayout>
                     </StackLayout>
 
                     <StackLayout Margin="0,25,0,0">

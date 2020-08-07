@@ -60,7 +60,7 @@ namespace RTM.FormXamarin.Views.Estilos
                 var lastVar = last.Text;
                 var unidadesMedidasComboBoxVar = unidadesMedidasComboBox.SelectedValue;
                 var coloresComboBoxVar = coloresComboBox.SelectedValue;
-                var divisionesComboBoxVar = divisionesComboBox.SelectedValue;
+                var divisionesComboBoxVar = divisionesComboBox.SelectedItem;
                 var DescripcionVar = Descripcion.Text;
                 var ComentarioVar = Comentario.Text;
                 var costoVar = costo.Text;
@@ -355,7 +355,7 @@ namespace RTM.FormXamarin.Views.Estilos
 
                     var listaView = JsonConvert.DeserializeObject<List<DivisionesListView>>(response.data.ToString());
 
-                    divisionesComboBox.DataSource = listaView;
+                    divisionesComboBox.ItemsSource = listaView;
 
 
                 }
