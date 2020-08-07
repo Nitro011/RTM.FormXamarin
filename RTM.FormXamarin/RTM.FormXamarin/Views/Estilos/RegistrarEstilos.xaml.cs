@@ -120,7 +120,7 @@ namespace RTM.FormXamarin.Views.Estilos
                 foreach (var item in materialesComboBoxVar)
                 {
                     var materiasPrimasId = (MateriasPrimasListView)item;
-                    var MateriaPrimaLista = new Estilos_MateriasPrima() { Estilo_MateriaPrimaID = materiasPrimasId.Materia_PrimaID };
+                    var MateriaPrimaLista = new Estilos_MateriasPrima() { Materia_PrimaID = materiasPrimasId.Materia_PrimaID };
                     ListaMateriaPrimas.Add(MateriaPrimaLista);
                 }
 
