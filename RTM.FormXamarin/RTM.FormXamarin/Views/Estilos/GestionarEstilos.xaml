@@ -78,18 +78,18 @@
                         </dg:DataGrid.HeaderFontSize>
                         <dg:DataGrid.Columns>
                             <!--<dg:DataGridColumn Title="ID" PropertyName="Id" Width="1*"></dg:DataGridColumn>-->
-                            <dg:DataGridColumn PropertyName="CodigoEmpleado" Width="1*">
+                            <dg:DataGridColumn PropertyName="Estilo_No" Width="1*">
                                 <dg:DataGridColumn.FormattedTitle>
                                     <FormattedString>
-                                        <Span Text="Codigo" FontSize="13" TextColor="Black" FontAttributes="None"/>
+                                        <Span Text="Estilo No." FontSize="13" TextColor="Black" FontAttributes="None"/>
                                     </FormattedString>
                                 </dg:DataGridColumn.FormattedTitle>
                             </dg:DataGridColumn>
-                            <dg:DataGridColumn Title="Empleado" PropertyName="NombreCompleto" Width="2*"/>
-                            <dg:DataGridColumn Title="Posicion" PropertyName="Posicion" Width="2*"/>
-                            <dg:DataGridColumn Title="Departamento" PropertyName="Departamento" Width="2*"/>
-                            <dg:DataGridColumn Title="Sub-Departamento" PropertyName="SubDepartamento" Width="2*"/>
-                            <dg:DataGridColumn Title="Fecha de Ingreso" PropertyName="FechaIngreso" Width="3*"/>
+                            <dg:DataGridColumn Title="Fecha de Creacion" PropertyName="FechaCreacion" Width="2*"/>
+                            <dg:DataGridColumn Title="Marcas" PropertyName="Marcas" Width="2*"/>
+                            <dg:DataGridColumn Title="Modelos" PropertyName="Modelos" Width="2*"/>
+                            <dg:DataGridColumn Title="Tipos de Estilos" PropertyName="TiposEstilos" Width="2*"/>
+                            <dg:DataGridColumn Title="Categorias" PropertyName="Categorias" Width="3*"/>
                         </dg:DataGrid.Columns>
                         <dg:DataGrid.RowsBackgroundColorPalette>
                             <dg:PaletteCollection>
