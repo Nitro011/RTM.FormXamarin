@@ -78,18 +78,18 @@
                         </dg:DataGrid.HeaderFontSize>
                         <dg:DataGrid.Columns>
                             <!--<dg:DataGridColumn Title="ID" PropertyName="Id" Width="1*"></dg:DataGridColumn>-->
-                            <dg:DataGridColumn PropertyName="Estilo_No" Width="1*">
+                            <dg:DataGridColumn PropertyName="FechaCreacion" Width="2*">
                                 <dg:DataGridColumn.FormattedTitle>
                                     <FormattedString>
-                                        <Span Text="Estilo No." FontSize="13" TextColor="Black" FontAttributes="None"/>
+                                        <Span Text="Fecha de Creacion" FontSize="13" TextColor="Black" FontAttributes="None"/>  
                                     </FormattedString>
                                 </dg:DataGridColumn.FormattedTitle>
                             </dg:DataGridColumn>
-                            <dg:DataGridColumn Title="Fecha de Creacion" PropertyName="FechaCreacion" Width="2*"/>
+                            <dg:DataGridColumn Title="Estilo No." PropertyName="Estilo_No" Width="1*"/>
                             <dg:DataGridColumn Title="Marcas" PropertyName="Marcas" Width="2*"/>
-                            <dg:DataGridColumn Title="Modelos" PropertyName="Modelos" Width="2*"/>
-                            <dg:DataGridColumn Title="Tipos de Estilos" PropertyName="TiposEstilos" Width="2*"/>
-                            <dg:DataGridColumn Title="Categorias" PropertyName="Categorias" Width="3*"/>
+                            <dg:DataGridColumn Title="Descripcion" PropertyName="Descripcion" Width="2*"/>
+                            <dg:DataGridColumn Title="Patten No" PropertyName="PattenNo" Width="2*"/>
+                            <dg:DataGridColumn Title="Estados" PropertyName="Estados" Width="2*"/>
                         </dg:DataGrid.Columns>
                         <dg:DataGrid.RowsBackgroundColorPalette>
                             <dg:PaletteCollection>

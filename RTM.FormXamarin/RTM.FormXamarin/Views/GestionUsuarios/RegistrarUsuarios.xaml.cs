@@ -25,7 +25,6 @@ namespace RTM.FormXamarin.Views.GestionUsuarios
             btnGuardarUsuarios.Clicked += BtnGuardarUsuarios_Clicked;
             ListaAreaProduccion();
             searchEmpleado.TextChanged += SearchEmpleado_TextChanged;
-
         }
 
         private void SearchEmpleado_TextChanged(object sender, TextChangedEventArgs e)

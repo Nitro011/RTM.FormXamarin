@@ -25,5 +25,12 @@ namespace RTM.FormXamarin.Models.Estilos
         public string Division { get; set; }
         public string UnidadesMedidas { get; set; }
         public string Estados { get; set; }
+
+        public List<string> Modelos1 { get; set; }
+        public List<string> TiposEstilos1 { get; set; }
+        public List<string> Categorias1 { get; set; }
+        public List<string> Materiales1 { get; set; }
+        public List<string> Pesos { get; set; }
+        public List<string> Colores1 { get; set; }
     }
 }

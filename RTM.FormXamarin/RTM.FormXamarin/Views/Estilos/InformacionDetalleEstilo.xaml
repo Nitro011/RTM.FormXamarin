@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+              xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             mc:Ignorable="d"
+             x:Class="RTM.FormXamarin.Views.Estilos.InformacionDetalleEstilo">
+    
+    <StackLayout Padding="0" BackgroundColor="LightGray">
+        <Grid>
+            <StackLayout Padding="0" Margin="0">
+                <Frame BackgroundColor="#07485B" HeightRequest="150" HorizontalOptions="FillAndExpand" Padding="0">
+                    <!--<Image Source="" Aspect="Fill" Margin="0"-->
+                </Frame>
+            </StackLayout>
+            <ScrollView>
+            <StackLayout Margin="150,110,150,0">
+
+                <Frame BackgroundColor="White" HasShadow="True" HeightRequest="6250" HorizontalOptions="FillAndExpand">
+                    <StackLayout>
+                        <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Orientation="Horizontal">
+                            <material:MaterialLabel Text="Informacion del Estilo" TextColor="Black" FontSize="Title" FontAttributes="Bold"/>
+                            <StackLayout HorizontalOptions="End" VerticalOptions="End">
+                                <material:MaterialButton x:Name="btnModificar" Text="Modificar" TextColor="White" BackgroundColor="#07485B" />
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,25,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="Fecha de Creacion:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel  x:Name="FechaCreacion" Text="Fecha de Creacion" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,25,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="Estilo No:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel  x:Name="Estilo_No" Text="Estilo No" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="Marcas" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel x:Name="Marcas" Text="Marcas" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="Modelos:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel x:Name="Modelos1" Text="Modelos" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="TiposEstilos:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel x:Name="TiposEstilos1" Text="TiposEstilos" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="Categorias:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel x:Name="Categorias1" Text="Categorias" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="Materiales1:" TextColor="Black" FontSize="Medium" FontAttributes="Bold" />
+                                <material:MaterialLabel x:Name="Materiales1" Text="Materiales" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="Pesos:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel x:Name="Pesos" Text="Pesos" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="Colores:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel x:Name="Colores1" Text="Colores" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="Patten No:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel x:Name="PattenNo" Text="Patten No" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="Last:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel x:Name="Last" Text="Last" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="Division:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel x:Name="Division" Text="Division" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="Unidades de Medidas:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel x:Name="UnidadesMedidas" Text="Unidades de Medidas" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="Descripcion:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel x:Name="Descripcion" Text="Descripcion" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="Comentarios:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel x:Name="Comentarios" Text="Comentarios" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="Costo:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel x:Name="CostoSTD" Text="Costo" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="Ganancia:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel x:Name="Ganancia" Text="Ganancia" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout Margin="0,10,0,0">
+                            <StackLayout Orientation="Horizontal">
+                                <material:MaterialLabel Text="Estado:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                                <material:MaterialLabel x:Name="Estados" Text="Estados" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                            </StackLayout>
+                        </StackLayout>
+
+                            <StackLayout Margin="0,1,0,0">
+                                <ListView x:Name="listaEstilos" >
+
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ImageCell Height="30" 
+                                     Text="{Binding Colores1}"
+                                     Detail="{Binding Puesto}"
+                                      ImageSource="{Binding ImageUrl}"/>
+
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </StackLayout>
+
+                        </StackLayout>
+                </Frame>
+            </StackLayout>
+            </ScrollView>
+        </Grid>
+    </StackLayout>
+
+
+</ContentPage>

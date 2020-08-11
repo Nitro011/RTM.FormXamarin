@@ -180,13 +180,13 @@ namespace RTM.FormXamarin.Views.Estilos
                     //Status
                     if (respuesta.status)
                     {
-                        await MaterialDialog.Instance.AlertAsync(message: "Usuario registrado correctamente",
+                        await MaterialDialog.Instance.AlertAsync(message: "Estilos registrado correctamente",
                                    title: "Registro",
                                    acknowledgementText: "Aceptar");
                     }
                     else
                     {
-                        await MaterialDialog.Instance.AlertAsync(message: "Usuario no pudo registrarse correctamente",
+                        await MaterialDialog.Instance.AlertAsync(message: "Estilos no pudo registrarse correctamente",
                                   title: "Registro",
                                   acknowledgementText: "Aceptar");
 
