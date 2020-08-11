@@ -12,11 +12,9 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using RTM.FormXamarin.Models.Usuarios;
 using RTM.FormXamarin.ViewModels;
-using Android.Util;
 using XF.Material.Forms.UI.Dialogs;
 using XF.Material.Forms;
-using Android.App;
-using Android.Views.Accessibility;
+
 
 namespace RTM.FormXamarin.Views.Configuraciones
 {

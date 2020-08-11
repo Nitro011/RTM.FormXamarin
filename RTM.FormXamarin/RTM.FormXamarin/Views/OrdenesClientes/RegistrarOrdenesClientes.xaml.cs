@@ -13,7 +13,6 @@ using RTM.FormXamarin.Models.Marcas;
 using XF.Material.Forms.UI.Dialogs;
 using RTM.FormXamarin.Models.Colores;
 using RTM.FormXamarin.Models.Modelos;
-using Android.Media;
 using RTM.FormXamarin.Models.TiposCalzados;
 using RTM.FormXamarin.Models.Sizes;
 using RTM.FormXamarin.Models.MateriasPrimas;

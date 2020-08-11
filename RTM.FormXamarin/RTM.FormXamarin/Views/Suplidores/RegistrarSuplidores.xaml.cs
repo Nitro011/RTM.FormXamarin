@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using Org.Apache.Http.Impl;
 using PCLAppConfig;
 using RTM.FormXamarin.Models.Suplidores;
 using System;

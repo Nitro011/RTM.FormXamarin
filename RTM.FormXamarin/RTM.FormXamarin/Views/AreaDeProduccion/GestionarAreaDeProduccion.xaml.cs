@@ -1,5 +1,4 @@
-﻿using Org.Apache.Http.Client.Methods;
-using RTM.FormXamarin.ViewModels;
+﻿using RTM.FormXamarin.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

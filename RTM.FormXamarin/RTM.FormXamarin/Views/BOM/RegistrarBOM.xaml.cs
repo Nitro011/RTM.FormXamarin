@@ -18,6 +18,13 @@ namespace RTM.FormXamarin.Views.BOM
         {
             InitializeComponent();
             BindingContext = this.BOMViewModel = new BOMViewModel();
+            btnGuardarBOMDetalles.Clicked += BtnGuardarBOMDetalles_Clicked;
+            
+        }
+
+        private async void BtnGuardarBOMDetalles_Clicked(object sender, EventArgs e)
+        {
+          await Navigation.PushAsync(new BOM.RegistrarBOMDetalles());
         }
     }
 }

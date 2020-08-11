@@ -1,16 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RTM.FormXamarin.Views.BOM.RegistrarBOMDetalles"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
              xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
-             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
-             mc:Ignorable="d"
-             x:Class="RTM.FormXamarin.Views.BOM.RegistrarBOM"
-             Title="{Binding Title}">
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms">
 
-    <Grid RowSpacing="0" ColumnSpacing="0">
+        <Grid RowSpacing="0" ColumnSpacing="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="5"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
@@ -53,65 +51,6 @@
 
             <ScrollView>
                 <StackLayout>
-
-                    <material:MaterialLabel Text="Encabezado" TextColor="Black" FontSize="Title" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
-
-                    <StackLayout VerticalOptions="Start" HorizontalOptions="Fill" Padding="0">
-                        <material:MaterialLabel Text="Fecha de Creación" TextColor="Black" FontAttributes="None" FontSize="Medium" HorizontalOptions="Fill" VerticalOptions="Start"/>
-                        <DatePicker x:Name="startDatePicker"
-                                Format="D"
-                                Margin="30, 0, 0, 30"
-                                MaximumDate="12/31/2002"
-                                 />
-                    </StackLayout>
-
-                    <StackLayout Margin="0,25,0,0" >
-                        <StackLayout>
-                            <material:MaterialTextField x:Name="PatterN" Placeholder="Ingrese el Patter Name" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
-                        </StackLayout>
-                    </StackLayout>
-
-                    <StackLayout Margin="0,25,0,0">
-                        <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
-                            <material:MaterialLabel Text="Construction" TextColor="Black" FontAttributes="None" FontSize="Medium"/>
-                            <combobox:SfComboBox HeightRequest="40" x:Name="constructionComboBox" IsEditableMode="true" AllowFiltering="true" MaximumDropDownHeight="150" Margin="0,5,0,0">
-                                <combobox:SfComboBox.ComboBoxSource>
-                                    <ListCollection:List x:TypeArguments="x:String">
-                                        <x:String>Afghanistan</x:String>
-                                        <x:String>Albania</x:String>
-                                        <x:String>Algeria</x:String>
-                                        <x:String>American Samoa</x:String>
-                                        <x:String>Andorra</x:String>
-                                        <x:String>Angola</x:String>
-                                        <x:String>Anguilla</x:String>
-                                        <x:String>Antarctica</x:String>
-                                        <x:String>Antigua and Barbuda</x:String>
-                                        <x:String>Argentina</x:String>
-                                    </ListCollection:List>
-                                </combobox:SfComboBox.ComboBoxSource>
-                            </combobox:SfComboBox>
-                        </StackLayout>
-                    </StackLayout>
-
-                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
-                        <material:MaterialLabel Text="Costumer" TextColor="Black" FontAttributes="None" FontSize="Medium"/>
-                        <combobox:SfComboBox HeightRequest="40" x:Name="customerComboBox" IsEditableMode="true" AllowFiltering="true" MaximumDropDownHeight="150" Margin="0,5,0,0">
-                            <combobox:SfComboBox.ComboBoxSource>
-                                <ListCollection:List x:TypeArguments="x:String">
-                                    <x:String>Afghanistan</x:String>
-                                    <x:String>Albania</x:String>
-                                    <x:String>Algeria</x:String>
-                                    <x:String>American Samoa</x:String>
-                                    <x:String>Andorra</x:String>
-                                    <x:String>Angola</x:String>
-                                    <x:String>Anguilla</x:String>
-                                    <x:String>Antarctica</x:String>
-                                    <x:String>Antigua and Barbuda</x:String>
-                                    <x:String>Argentina</x:String>
-                                </ListCollection:List>
-                            </combobox:SfComboBox.ComboBoxSource>
-                        </combobox:SfComboBox>
-                    </StackLayout>
 
                     <material:MaterialLabel Text="Detalles" TextColor="Black" FontSize="Title" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
 
@@ -165,8 +104,7 @@
                     </StackLayout>
 
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                    <material:MaterialButton Text="Guardar Clientes" x:Name="btnGuardarClientes" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,40,0,0"/>
-                    <material:MaterialButton Text="Registrar Detalles" x:Name="btnGuardarBOMDetalles" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,40,0,0"/>
+                    <material:MaterialButton Text="Guardar Boom Detalle" x:Name="btnGuardarBOOMDetalles" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,40,0,0"/>
                     </StackLayout>
                 </StackLayout>
             </ScrollView>

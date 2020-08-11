@@ -1,5 +1,4 @@
-﻿using Java.Sql;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using PCLAppConfig;
 using RTM.FormXamarin.Models;
 using RTM.FormXamarin.Models.AreasDeProduccion;
