@@ -43,7 +43,7 @@ namespace RTM.FormXamarin.Views.Estilos
                 if (response.status)
                 {
 
-                    var listaView = JsonConvert.DeserializeObject<List<EstilosListView>>(response.data.ToString()).ElementAt(0);
+                    var listaView = JsonConvert.DeserializeObject<List<EstilosListView>>(response.data.ToString()).ElementAtOrDefault(0);
 
                     /*  var año = (listaView.fecha_nacimiento != null) ? listaView.fecha_nacimiento.Value.Year : DateTime.MinValue.Year;*/
                     estiloID = listaView.EstiloID;
@@ -56,8 +56,8 @@ namespace RTM.FormXamarin.Views.Estilos
                     Last.Text = listaView.Last.ToString();
                     Comentarios.Text = listaView.Comentarios.ToString();
                     Marcas.Text = listaView.Marcas.ToString();
-                    Modelos1.Text = listaView.Modelos1.ToString();
-                    listaEstilos.ItemsSource=listaView.Colores1;
+                    Modelos1.Text = string.Join(",", listaView.Modelos1.ToArray());
+                    listaEstilos.ItemsSource=string.Join(",",listaView.Modelos1.ToArray(), ",", listaView.Colores1.ToArray());
                 }
 
             }

@@ -155,7 +155,7 @@
                             <StackLayout Margin="0,1,0,0">
                                 <ListView x:Name="listaEstilos" >
 
-                                    <ListView.ItemTemplate>
+                                    <!--<ListView.ItemTemplate>
                                         <DataTemplate>
                                             <ImageCell Height="30" 
                                      Text="{Binding Colores1}"
@@ -163,7 +163,7 @@
                                       ImageSource="{Binding ImageUrl}"/>
 
                                         </DataTemplate>
-                                    </ListView.ItemTemplate>
+                                    </ListView.ItemTemplate>-->
                                 </ListView>
                             </StackLayout>
 
