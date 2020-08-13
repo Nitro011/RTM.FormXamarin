@@ -63,17 +63,10 @@
                 <StackLayout HorizontalOptions="FillAndExpand">
 
                     <StackLayout Margin="0,1,0,0">
-                        <StackLayout Orientation="Horizontal">
 
-                            <material:MaterialLabel Text="Fecha de Creación:" FontAttributes="Bold" FontSize="Medium" TextColor="Black"/>
-                            <material:MaterialLabel Text="12/08/2020" FontAttributes="None" FontSize="Medium" TextColor="Black" HorizontalOptions="Center"/>
-                                
-                            <material:MaterialLabel Text="Pattern Name:" FontAttributes="Bold" FontSize="Medium" TextColor="Black"Margin="20,0,0,0"/>
-
-                        </StackLayout>
                         
                         
-                        <ContentView Margin="0,20,0,0">
+                        <ContentView>
                             <!-- Place new controls here -->
                             <dg:DataGrid x:Name="listaBOM" ItemsSource="{Binding listaBOM}" SelectionEnabled="True" SelectedItem="{Binding SelectedProfesstional}" RowHeight="70" HeaderHeight="50"  
                                 BorderColor="#CCCCCC" HeaderBackground="#E0E6F8" PullToRefreshCommand="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}" ActiveRowColor="#8899AA">
