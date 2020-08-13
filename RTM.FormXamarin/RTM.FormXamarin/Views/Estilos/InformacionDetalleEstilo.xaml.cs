@@ -11,6 +11,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using RTM.FormXamarin.Models.Estilos;
 using RTM.FormXamarin.Models.Empleados;
+using RTM.FormXamarin.ViewModels;
 
 namespace RTM.FormXamarin.Views.Estilos
 {
@@ -21,7 +22,8 @@ namespace RTM.FormXamarin.Views.Estilos
         public InformacionDetalleEstilo(int EstiloID)
         {
             InitializeComponent();
-            MostrarInformacionEstilos(EstiloID);
+            MostrarInformacionEstilos(EstiloID); 
+            BindingContext = new EstilosListViewViewModel(EstiloID);
         }
 
         private void MostrarInformacionEstilos(int EstiloID)
@@ -57,7 +59,7 @@ namespace RTM.FormXamarin.Views.Estilos
                     Comentarios.Text = listaView.Comentarios.ToString();
                     Marcas.Text = listaView.Marcas.ToString();
                     Modelos1.Text = string.Join(",", listaView.Modelos1.ToArray());
-                    listaEstilos.ItemsSource=string.Join(",",listaView.Modelos1.ToArray(), ",", listaView.Colores1.ToArray());
+                    //listaEstilos.ItemsSource=string.Join(",",listaView.Modelos1.ToArray(), ",", listaView.Colores1.ToArray());
                 }
 
             }

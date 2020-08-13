@@ -19,13 +19,11 @@ using RTM.FormXamarin.Models.MateriasPrimas;
 using RTM.FormXamarin.Models.CategoriasEstilos;
 using RTM.FormXamarin.Models.Divisiones;
 using RTM.FormXamarin.Models.UnidadesMedidasEstilos;
-using RTM.FormXamarin.Models.PesosEstilos;
 using RTM.FormXamarin.Models.Estados;
 using RTM.FormXamarin.Models.Estilos_Colores;
 using RTM.FormXamarin.Models.Estilos_CategoriasEstilos;
 using RTM.FormXamarin.Models.Estilos_MateriasPrimas;
 using RTM.FormXamarin.Models.Estilos_Modelos;
-using RTM.FormXamarin.Models.Estilos_PesosEstilos;
 using RTM.FormXamarin.Models.Estilos_TiposEstilos;
 using System.Collections.ObjectModel;
 
@@ -45,7 +43,6 @@ namespace RTM.FormXamarin.Views.Estilos
             ListaCategoriasEstilo();
             ListaDivisiones();
             ListaUnidadesMedidasEstilos();
-            ListaPesosEstilos();
             ListaEstados();
             this.btnGuardarEstilos.Clicked += BtnGuardarEstilos_Clicked;
         }
@@ -57,7 +54,6 @@ namespace RTM.FormXamarin.Views.Estilos
             var ListaCategorias = new List<Estilos_CategoriasEstilo>();
             var ListaMateriaPrimas = new List<Estilos_MateriasPrima>();
             var ListaModelos = new List<Estilos_Modelo>();
-            var ListaPesosEstilos = new List<Estilos_PesosEstilo>();
             var ListaTipoEstilos = new List<Estilos_TiposEstilo>();
 
 
@@ -76,7 +72,7 @@ namespace RTM.FormXamarin.Views.Estilos
                 var lastVar = last.Text;
                 var unidadesMedidasComboBoxVar = (UnidadesMedidasListView)unidadesMedidasComboBox.SelectedItem;
                 var ComentarioVar = Comentario.Text;
-
+                var pesoV = peso.Text;
                 var coloresComboBoxVar = (IList<object>)coloresComboBox.SelectedItem;
 
                 foreach (var item in coloresComboBoxVar)
@@ -124,15 +120,6 @@ namespace RTM.FormXamarin.Views.Estilos
                     ListaMateriaPrimas.Add(MateriaPrimaLista);
                 }
 
-                var pesoComboBoxVar = (IList<object>)pesoComboBox.SelectedItem;
-
-                foreach (var item in pesoComboBoxVar)
-                {
-                    var pesoId = (PesosEstilosListView)item;
-                    var PesoLista = new Estilos_PesosEstilo() { PesoEstiloID = pesoId.PesoEstiloID };
-                    ListaPesosEstilos.Add(PesoLista);
-                }
-
 
 
                 HttpClient client = new HttpClient();
@@ -159,7 +146,7 @@ namespace RTM.FormXamarin.Views.Estilos
                     TiposEstilos = ListaTipoEstilos,
                     CategoriasEstilos = ListaCategorias,
                     Materias = ListaMateriaPrimas,
-                    PesosEstilos = ListaPesosEstilos
+                    PesoEstilos = pesoV
 
                 };
 
@@ -476,41 +463,6 @@ namespace RTM.FormXamarin.Views.Estilos
                     var listaView = JsonConvert.DeserializeObject<List<UnidadesMedidasListView>>(response.data.ToString());
 
                     unidadesMedidasComboBox.ItemsSource = listaView;
-
-
-                }
-                else
-                {
-                    await MaterialDialog.Instance.AlertAsync(message: "Error",
-                                   title: "Error",
-                                   acknowledgementText: "Aceptar");
-                }
-
-            }
-
-        }
-
-        private async void ListaPesosEstilos()
-        {
-            string connectionString = ConfigurationManager.AppSettings["ipServer"];
-
-
-            HttpClient client = new HttpClient();
-
-            client.BaseAddress = new Uri(connectionString);
-            var request = client.GetAsync("/api/PesosEstilos/lista").Result;
-
-            if (request.IsSuccessStatusCode)
-            {
-                var responseJson = request.Content.ReadAsStringAsync().Result;
-                var response = JsonConvert.DeserializeObject<Request>(responseJson);
-
-                if (response.status)
-                {
-
-                    var listaView = JsonConvert.DeserializeObject<List<PesosEstilosListView>>(response.data.ToString());
-
-                    pesoComboBox.DataSource = listaView;
 
 
                 }

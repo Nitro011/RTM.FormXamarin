@@ -21,6 +21,12 @@ namespace RTM.FormXamarin.Views.Divisiones
         {
             InitializeComponent();
             ListaDivisiones();
+            agregarNuevasDivisiones.Clicked += AgregarNuevasDivisiones_Clicked;
+        }
+
+        private async void AgregarNuevasDivisiones_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Divisiones.RegistrarDivisiones());
         }
 
         private async void ListaDivisiones()
@@ -31,7 +37,7 @@ namespace RTM.FormXamarin.Views.Divisiones
             HttpClient client = new HttpClient();
 
             client.BaseAddress = new Uri(connectionString);
-            var request = client.GetAsync("/api/Divisiones/lista").Result;
+            var request = client.GetAsync("/api/Division/lista").Result;
 
             if (request.IsSuccessStatusCode)
             {

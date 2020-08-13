@@ -153,18 +153,19 @@
                         </StackLayout>
 
                             <StackLayout Margin="0,1,0,0">
-                                <ListView x:Name="listaEstilos" >
-
-                                    <!--<ListView.ItemTemplate>
+                                <!--<ListView x:Name="listaEstilos" ItemsSource="">
+                                    <ListView.ItemTemplate>
+                                        
                                         <DataTemplate>
-                                            <ImageCell Height="30" 
-                                     Text="{Binding Colores1}"
-                                     Detail="{Binding Puesto}"
-                                      ImageSource="{Binding ImageUrl}"/>
-
+                                            <ViewCell>
+                                                <StackLayout>
+                                                    <Label Text="{Binding Color}"></Label>
+                                                </StackLayout>
+                                            </ViewCell>
                                         </DataTemplate>
-                                    </ListView.ItemTemplate>-->
-                                </ListView>
+                                        
+                                    </ListView.ItemTemplate>
+                                </ListView>-->
                             </StackLayout>
 
                         </StackLayout>

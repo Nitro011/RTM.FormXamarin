@@ -5,6 +5,8 @@ using System.Text;
 namespace RTM.FormXamarin.Models.Estilos
 {
     public class EstilosListView
+
+       
     {
         public int EstiloID { get; set; }
         public int Estilo_No { get; set; }

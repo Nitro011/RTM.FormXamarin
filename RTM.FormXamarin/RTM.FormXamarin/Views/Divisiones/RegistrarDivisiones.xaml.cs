@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using PCLAppConfig;
-using RTM.FormXamarin.Models.Divisiones;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,17 +7,17 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using RTM.FormXamarin.Models;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XF.Material.Forms.UI.Dialogs;
+using RTM.FormXamarin.Models.Divisiones;
 
 namespace RTM.FormXamarin.Views.Divisiones
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Divisiones : ContentPage
+    public partial class RegistrarDivisiones : ContentPage
     {
-        public Divisiones()
+        public RegistrarDivisiones()
         {
             InitializeComponent();
             btnDivision.Clicked += BtnDivision_Clicked;
@@ -55,7 +54,7 @@ namespace RTM.FormXamarin.Views.Divisiones
                 StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
 
                 //Ejecutar el api el introduces el metodo
-                var request = await client.PostAsync("/api/Divisiones/registrar", stringContent);
+                var request = await client.PostAsync("/api/Division/registrar", stringContent);
 
                 if (request.IsSuccessStatusCode)
                 {
@@ -72,7 +71,7 @@ namespace RTM.FormXamarin.Views.Divisiones
                     }
                     else
                     {
-                        await MaterialDialog.Instance.AlertAsync(message: "La divión no pudo registrarse correctamente",
+                        await MaterialDialog.Instance.AlertAsync(message: "La Divión no pudo registrarse correctamente",
                                   title: "Registro",
                                   acknowledgementText: "Aceptar");
 
@@ -93,7 +92,12 @@ namespace RTM.FormXamarin.Views.Divisiones
                                     title: "Error",
                                     acknowledgementText: "Aceptar");
             }
+            limpiarCampos();
+            await Navigation.PushAsync(new Divisiones.GestionarDivisiones());
+        }
+        private void limpiarCampos()
+        {
+            nombreDivision.Text = "";
         }
     }
-    
 }

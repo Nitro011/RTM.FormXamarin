@@ -25,7 +25,13 @@ namespace RTM.FormXamarin.Views.GestionEstilos
             abrirGestionModelos.Clicked += AbrirGestionModelos_Clicked;
             abrirGestionSize.Clicked += AbrirGestionSize_Clicked;
             abrirGestionColores.Clicked += AbrirGestionColores_Clicked;
+            abrirGestionDivisiones.Clicked += AbrirGestionDivisiones_Clicked;
 
+        }
+
+        private async void AbrirGestionDivisiones_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Divisiones.GestionarDivisiones());
         }
 
         private async void AbrirGestionEstilos_Clicked(object sender, EventArgs e)

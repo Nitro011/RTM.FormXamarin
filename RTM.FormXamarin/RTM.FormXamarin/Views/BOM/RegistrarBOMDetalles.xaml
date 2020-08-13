@@ -43,7 +43,7 @@
                    Grid.Column="0"
                    Grid.RowSpan="4"
                    Grid.ColumnSpan="4"
-                   HeightRequest="450"
+                   HeightRequest="550"
                    WidthRequest="0"
                   
                    HorizontalOptions="FillAndExpand"
@@ -52,7 +52,23 @@
             <ScrollView>
                 <StackLayout>
 
-                    <material:MaterialLabel Text="Detalles" TextColor="Black" FontSize="Title" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <material:MaterialLabel Text="Detalles del BOM" TextColor="Black" FontSize="Title" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <SearchBar x:Name="buscarBOM" Placeholder="Consultar el BOM por PatterN o Cliente" TextColor="Black" PlaceholderColor="Black"/>
+                    </StackLayout>
+
+                    <StackLayout Margin="0,25,0,0" >
+                        <StackLayout>
+                            <material:MaterialTextField x:Name="patterN" Placeholder="Patter Name" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout Margin="0,25,0,0" >
+                        <StackLayout>
+                            <material:MaterialTextField x:Name="cliente" Placeholder="Cliente" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
 
 
                     <StackLayout Margin="0,25,0,0">
@@ -104,7 +120,7 @@
                     </StackLayout>
 
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                    <material:MaterialButton Text="Guardar Boom Detalle" x:Name="btnGuardarBOOMDetalles" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,40,0,0"/>
+                    <material:MaterialButton Text="Guardar Boom Detalle" x:Name="btnGuardarBOMSDetalles" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,40,0,0"/>
                     </StackLayout>
                 </StackLayout>
             </ScrollView>

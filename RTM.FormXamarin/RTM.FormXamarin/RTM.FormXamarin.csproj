@@ -53,6 +53,9 @@
     <EmbeddedResource Update="Views\BOM\GestionarBOM.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\BOM\InformacionBOMDetalles.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\BOM\RegistrarBOM.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -110,10 +113,10 @@
     <EmbeddedResource Update="Views\Dimensiones\RegistrarDimensiones.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Divisiones\Divisiones.xaml">
+    <EmbeddedResource Update="Views\Divisiones\GestionarDivisiones.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Divisiones\GestionarDivisiones.xaml">
+    <EmbeddedResource Update="Views\Divisiones\RegistrarDivisiones.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Empleados\ConsultarEmpleados.xaml">

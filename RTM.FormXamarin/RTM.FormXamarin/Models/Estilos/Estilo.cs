@@ -25,12 +25,12 @@ namespace RTM.FormXamarin.Models.Estilos
         public string Last { get; set; }
         public int? UnidadMedidaEstiloID { get; set; }
         public string Comentarios { get; set; }
+        public string PesoEstilos { get; set; }
 
         public List<Estilos_Colore> Colores { get; set; }
         public List<Estilos_Modelo> Modelos { get; set; }
         public List<Estilos_TiposEstilo> TiposEstilos { get; set; }
         public List<Estilos_CategoriasEstilo> CategoriasEstilos { get; set; }
         public List<Estilos_MateriasPrima> Materias { get; set; }
-        public List<Estilos_PesosEstilo> PesosEstilos { get; set; }
     }
 }

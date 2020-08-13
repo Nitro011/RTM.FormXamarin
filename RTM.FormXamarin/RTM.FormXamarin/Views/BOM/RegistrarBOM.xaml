@@ -41,27 +41,25 @@
                          BackgroundColor="LightGray">
         </StackLayout>
 
-        <Frame Grid.Row="1"
+        <Frame Grid.Row="0"
                    Grid.Column="0"
-                   Grid.RowSpan="4"
+                   Grid.RowSpan="6"
                    Grid.ColumnSpan="4"
-                   HeightRequest="450"
+                   HeightRequest="890"
                    WidthRequest="0"
                   
                    HorizontalOptions="FillAndExpand"
                    VerticalOptions="FillAndExpand">
 
-            <ScrollView>
                 <StackLayout>
 
                     <material:MaterialLabel Text="Encabezado" TextColor="Black" FontSize="Title" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
 
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Fill" Padding="0">
                         <material:MaterialLabel Text="Fecha de Creación" TextColor="Black" FontAttributes="None" FontSize="Medium" HorizontalOptions="Fill" VerticalOptions="Start"/>
-                        <DatePicker x:Name="startDatePicker"
+                        <DatePicker x:Name="fechaCreacion"
                                 Format="D"
                                 Margin="30, 0, 0, 30"
-                                MaximumDate="12/31/2002"
                                  />
                     </StackLayout>
 
@@ -73,103 +71,21 @@
 
                     <StackLayout Margin="0,25,0,0">
                         <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
-                            <material:MaterialLabel Text="Construction" TextColor="Black" FontAttributes="None" FontSize="Medium"/>
-                            <combobox:SfComboBox HeightRequest="40" x:Name="constructionComboBox" IsEditableMode="true" AllowFiltering="true" MaximumDropDownHeight="150" Margin="0,5,0,0">
-                                <combobox:SfComboBox.ComboBoxSource>
-                                    <ListCollection:List x:TypeArguments="x:String">
-                                        <x:String>Afghanistan</x:String>
-                                        <x:String>Albania</x:String>
-                                        <x:String>Algeria</x:String>
-                                        <x:String>American Samoa</x:String>
-                                        <x:String>Andorra</x:String>
-                                        <x:String>Angola</x:String>
-                                        <x:String>Anguilla</x:String>
-                                        <x:String>Antarctica</x:String>
-                                        <x:String>Antigua and Barbuda</x:String>
-                                        <x:String>Argentina</x:String>
-                                    </ListCollection:List>
-                                </combobox:SfComboBox.ComboBoxSource>
-                            </combobox:SfComboBox>
+                            <material:MaterialLabel Text="Modelos" TextColor="Black" FontAttributes="None" FontSize="Medium"/>
+                            <combobox:SfComboBox HeightRequest="40" x:Name="modelosComboBox" IsEditableMode="true" AllowFiltering="true" MaximumDropDownHeight="150" Margin="0,5,0,0" DisplayMemberPath="Modelo1" DataSource="{Binding listaView}"/>
                         </StackLayout>
                     </StackLayout>
 
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
-                        <material:MaterialLabel Text="Costumer" TextColor="Black" FontAttributes="None" FontSize="Medium"/>
-                        <combobox:SfComboBox HeightRequest="40" x:Name="customerComboBox" IsEditableMode="true" AllowFiltering="true" MaximumDropDownHeight="150" Margin="0,5,0,0">
-                            <combobox:SfComboBox.ComboBoxSource>
-                                <ListCollection:List x:TypeArguments="x:String">
-                                    <x:String>Afghanistan</x:String>
-                                    <x:String>Albania</x:String>
-                                    <x:String>Algeria</x:String>
-                                    <x:String>American Samoa</x:String>
-                                    <x:String>Andorra</x:String>
-                                    <x:String>Angola</x:String>
-                                    <x:String>Anguilla</x:String>
-                                    <x:String>Antarctica</x:String>
-                                    <x:String>Antigua and Barbuda</x:String>
-                                    <x:String>Argentina</x:String>
-                                </ListCollection:List>
-                            </combobox:SfComboBox.ComboBoxSource>
-                        </combobox:SfComboBox>
-                    </StackLayout>
-
-                    <material:MaterialLabel Text="Detalles" TextColor="Black" FontSize="Title" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
-
-
-                    <StackLayout Margin="0,25,0,0">
-                        <StackLayout>
-                            <material:MaterialTextField x:Name="PartNo" Placeholder="Ingrese el Part No." TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
-                        </StackLayout>
-                    </StackLayout>
-
-                    <StackLayout Margin="0,25,0,0">
-                        <StackLayout>
-                            <material:MaterialTextField x:Name="DIE" Placeholder="Ingrese el numero de identificación" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
-                        </StackLayout>
-                    </StackLayout>
-
-                    <StackLayout Margin="0,25,0,0">
-                        <StackLayout>
-                            <material:MaterialTextField x:Name="Item" Placeholder="Ingrese el Item" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
-                        </StackLayout>
-                    </StackLayout>
-
-                    <StackLayout Margin="0,25,0,0">
-                        <StackLayout>
-                            <material:MaterialTextField x:Name="Descripcion" Placeholder="Ingrese la descripcion" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
-                        </StackLayout>
-                    </StackLayout>
-
-                    <StackLayout Margin="0,25,0,0">
-                        <StackLayout>
-                            <material:MaterialTextField x:Name="Unit" Placeholder="Ingrese la Unidad" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
-                        </StackLayout>
-                    </StackLayout>
-
-                    <StackLayout Margin="0,25,0,0">
-                        <StackLayout>
-                            <material:MaterialTextField x:Name="Usage" Placeholder="Ingrese el Usage" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
-                        </StackLayout>
-                    </StackLayout>
-
-                    <StackLayout Margin="0,25,0,0">
-                        <StackLayout>
-                            <material:MaterialTextField x:Name="Costo" Placeholder="Ingrese el Costo" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
-                        </StackLayout>
-                    </StackLayout>
-
-                    <StackLayout Margin="0,25,0,0">
-                        <StackLayout>
-                            <material:MaterialTextField x:Name="Ext" Placeholder="Ingrese el Ext" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
-                        </StackLayout>
+                        <material:MaterialLabel Text="Clientes" TextColor="Black" FontAttributes="None" FontSize="Medium"/>
+                        <combobox:SfComboBox HeightRequest="40" x:Name="customerComboBox" IsEditableMode="true" AllowFiltering="true" MaximumDropDownHeight="150" Margin="0,5,0,0" DisplayMemberPath="Nombre_Cliente" DataSource="{Binding listaView}"/>
                     </StackLayout>
 
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                    <material:MaterialButton Text="Guardar Clientes" x:Name="btnGuardarClientes" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,40,0,0"/>
-                    <material:MaterialButton Text="Registrar Detalles" x:Name="btnGuardarBOMDetalles" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,40,0,0"/>
+                        <material:MaterialButton Text="Guardar Clientes" x:Name="btnGuardarBOM" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" />
+                        <material:MaterialButton Text="Registrar Detalles" x:Name="btnGuardarBOMDetalles" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" />
                     </StackLayout>
                 </StackLayout>
-            </ScrollView>
         </Frame>
 
     </Grid>

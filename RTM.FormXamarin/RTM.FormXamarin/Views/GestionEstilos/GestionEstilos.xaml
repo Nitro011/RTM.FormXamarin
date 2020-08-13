@@ -101,6 +101,11 @@
                                          WidthRequest="150"
                                          BackgroundColor="#07485B"/>
 
+                    <material:MaterialButton x:Name="abrirGestionDivisiones"
+                                         Text="Divisiones"
+                                         WidthRequest="150"
+                                         BackgroundColor="#07485B"/>
+
                 </StackLayout>
             </ScrollView>
         </Frame>
