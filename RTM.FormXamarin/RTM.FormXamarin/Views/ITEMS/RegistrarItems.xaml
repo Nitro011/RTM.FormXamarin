@@ -3,11 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
              mc:Ignorable="d"
-             x:Class="RTM.FormXamarin.Views.MateriasPrimas.RegistrarMateriasPrimas"
-              Title="{Binding Title}">
-
+             x:Class="RTM.FormXamarin.Views.ITEMS.RegistrarItems"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             >
+    
     <Grid RowSpacing="0" ColumnSpacing="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="5"></RowDefinition>
@@ -51,34 +51,16 @@
             <ScrollView>
                 <StackLayout>
 
-                    <StackLayout Margin="0,25,0,0" Orientation="Horizontal">
-                        <material:MaterialLabel Text="Part No:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
-                        <material:MaterialTextField x:Name="PartNo" Placeholder="PartNo" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" Margin="0,-13,0,0" />
-                        <material:MaterialLabel Text="Tipo de Materiales" TextColor="Black" FontSize="Medium" FontAttributes="Bold" Margin="15,0,0,0" />
-                    </StackLayout>
-                    
-
                     <StackLayout Margin="0,25,0,0">
                         <StackLayout>
-                            <Editor x:Name="Descripcion" Placeholder="Ingrese la Descripción:" BackgroundColor="Gainsboro" HeightRequest="100" PlaceholderColor="Black" Margin="0,0,300,0"/>
+                            <material:MaterialTextField x:Name="nombreItem" Placeholder="Ingrese el Item" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
                         </StackLayout>
                     </StackLayout>
 
-                    <StackLayout Margin="0,25,0,0" Orientation="Horizontal">
-                        <material:MaterialLabel Text="Cost:" TextColor="Black" FontAttributes="Bold" FontSize="Medium" Margin="0,13,0,0"/>
-                        <material:MaterialTextField x:Name="Cost" Placeholder="Cost" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
-                        <material:MaterialLabel Text="Division:" TextColor="Black" FontAttributes="Bold" FontSize="Medium" Margin="15,13,0,0"/>
-                        <Picker Title="Divisiones" x:Name="listaTiposMateriales"  ItemsSource="{Binding Nombre_Material}" ItemDisplayBinding="{Binding Nombre_Material}" SelectedIndex="{Binding Tipo_MaterialID}" SelectedIndexChanged="ObtenerRoles" HorizontalOptions = "Fill" Margin="0,-18,450,0"/>
-                    </StackLayout>
-
-                    <Image Source="Users\hugog\Pictures"/>
-
-                    <material:MaterialButton Text="Guardar Materias Primas" x:Name="btnGuardarMateriasPrimas" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,40,0,0"/>
+                    <material:MaterialButton Text="Guardar Item" x:Name="btnGuardarItem" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,40,0,0"/>
 
                 </StackLayout>
-             
             </ScrollView>
-
         </Frame>
 
     </Grid>

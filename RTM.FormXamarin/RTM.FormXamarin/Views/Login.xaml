@@ -11,7 +11,7 @@
         <Grid>
             <StackLayout Padding="0" Margin="0">
                 <Frame BackgroundColor="#07485B" HeightRequest="150" HorizontalOptions="FillAndExpand" Padding="0">
-                    <!--<Image Source="Bienvenidos" Aspect="Fill" Margin="0"/>-->
+                        <!--<Image Source="" Aspect="Fill" Margin="0"/>-->
                 </Frame>
             </StackLayout>
 

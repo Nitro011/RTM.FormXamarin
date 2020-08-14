@@ -14,7 +14,7 @@ using RTM.FormXamarin.Models.Usuarios;
 using RTM.FormXamarin.ViewModels;
 using XF.Material.Forms.UI.Dialogs;
 using XF.Material.Forms;
-
+using RTM.FormXamarin.Models.ITEMS;
 
 namespace RTM.FormXamarin.Views.Configuraciones
 {
@@ -26,38 +26,12 @@ namespace RTM.FormXamarin.Views.Configuraciones
         {
             InitializeComponent();
             BindingContext = this.ConfiguracionesViewModel = new ConfiguracionesViewModel();
-            abrirGestionDeEmpleados.Clicked += AbrirGestionDeEmpleados_Clicked;
-            abrirGestionDeUsuarios.Clicked += AbrirGestionDeUsuarios_Clicked;
-            abrirGestionDeAreasDeProduccion.Clicked += AbrirGestionDeAreasDeProduccion_Clicked;
-            abrirGestionDeColores.Clicked += AbrirGestionDeColores_Clicked;
-            abrirGestionDeOperacionesCalzados.Clicked += AbrirGestionDeOperacionesCalzados_Clicked;
+            abrirGestionDeItems.Clicked += AbrirGestionDeItems_Clicked;
         }
 
-        private async void AbrirGestionDeOperacionesCalzados_Clicked(object sender, EventArgs e)
+        private async void AbrirGestionDeItems_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new OperacionesCalzados.GestionarOperacionesCalzados());
+            await Navigation.PushAsync(new ITEMS.GestionarItems());
         }
-
-        private async void AbrirGestionDeColores_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new Colores.GestionarColores());
-        }
-
-        private async void AbrirGestionDeAreasDeProduccion_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new AreaDeProduccion.GestionarAreaDeProduccion());
-        }
-
-        private async void AbrirGestionDeUsuarios_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new Usuarios.GestionarUsuarios());
-        }
-
-        private async void AbrirGestionDeEmpleados_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new Empleados.GestionarEmpleadosYUsuarios());
-        }
-
-
     }
 }

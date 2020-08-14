@@ -13,6 +13,7 @@ using Xamarin.Forms.Xaml;
 using XF.Material.Forms.UI.Dialogs;
 using RTM.FormXamarin.Models.MateriasPrimas;
 using RTM.FormXamarin.ViewModels;
+using System.ComponentModel;
 
 namespace RTM.FormXamarin.Views.MateriasPrimas
 {
@@ -35,9 +36,8 @@ namespace RTM.FormXamarin.Views.MateriasPrimas
             try
             {
                 var partNoV = PartNo.Text;
-                var nombreMateriaPrimalV = Nombre_Materia_Prima.Text;
+                var nombreMateriaPrimalV = Descripcion.Text;
                 var tipoMateriaPrimaV = listaTiposMateriales.SelectedIndex+1;
-                var descripcionV = Descripcion.Text;
 
                 if (string.IsNullOrEmpty(partNoV))
                 {
@@ -48,19 +48,13 @@ namespace RTM.FormXamarin.Views.MateriasPrimas
                 if (string.IsNullOrEmpty(nombreMateriaPrimalV))
                 {
                     await DisplayAlert("Validacion", "Ingrese el nombre de la Materia Prima", "Aceptar");
-                    Nombre_Materia_Prima.Focus();
+                    Descripcion.Focus();
                     return;
                 }
                 if (string.IsNullOrEmpty(tipoMateriaPrimaV.ToString()))
                 {
                     await DisplayAlert("Validacion", "Verfique la seleccion del Tipo de Material", "Aceptar");
                     listaTiposMateriales.Focus();
-                    return;
-                }
-                if (string.IsNullOrEmpty(descripcionV))
-                {
-                    await DisplayAlert("Validacion", "Ingrese la Descripcion de la Materia Primas", "Aceptar");
-                    Descripcion.Focus();
                     return;
                 }
 
@@ -73,7 +67,7 @@ namespace RTM.FormXamarin.Views.MateriasPrimas
                     PartNo=partNoV,
                     Nombre_Materia_Prima = nombreMateriaPrimalV,
                     Tipo_MaterialID=tipoMateriaPrimaV,
-                    Descripcion=descripcionV
+                   
 
                 };
 
@@ -169,7 +163,7 @@ namespace RTM.FormXamarin.Views.MateriasPrimas
         private void limpiarCampos()
         {
             PartNo.Text = "";
-            Nombre_Materia_Prima.Text = "";
+            Descripcion.Text = "";
             Descripcion.Text = "";
         }
     }
