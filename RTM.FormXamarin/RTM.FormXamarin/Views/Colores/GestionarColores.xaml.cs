@@ -18,6 +18,7 @@ namespace RTM.FormXamarin.Views.Colores
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GestionarColores : ContentPage
     {
+        
         GestionarColoresViewModel GestionarColoresViewModel;
         public GestionarColores()
         {

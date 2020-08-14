@@ -1,63 +1,60 @@
-﻿using PCLAppConfig;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using PCLAppConfig;
 using RTM.FormXamarin.Models;
+using RTM.FormXamarin.Models.DivisionesMateriasPrimas;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using RTM.FormXamarin.Models.ITEMS;
-using Newtonsoft.Json;
 using XF.Material.Forms.UI.Dialogs;
-using RTM.FormXamarin.ViewModels;
 
-namespace RTM.FormXamarin.Views.ITEMS
+namespace RTM.FormXamarin.Views.DivisionesMateriasPrimas
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class RegistrarItems : ContentPage
+    public partial class RegistrarDivisionesMateriasPrimas : ContentPage
     {
-        RegistrarItemViewModels RegistrarItemViewModels;
-        public RegistrarItems()
+        public RegistrarDivisionesMateriasPrimas()
         {
             InitializeComponent();
-            BindingContext = this.RegistrarItemViewModels = new RegistrarItemViewModels();
-            btnGuardarItem.Clicked += BtnGuardarItem_Clicked;
+            btnGuardarRegistrarDivisionMateriasPrimas.Clicked += BtnGuardarRegistrarDivisionMateriasPrimas_Clicked;
         }
 
-        private async void BtnGuardarItem_Clicked(object sender, EventArgs e)
+        private async void BtnGuardarRegistrarDivisionMateriasPrimas_Clicked(object sender, EventArgs e)
         {
             string connectionString = ConfigurationManager.AppSettings["ipServer"];
 
             try
             {
-                var nombreItemV = nombreItem.Text;
+                var nombreRegistrarDivisionMateriasPrimasV = nombreDivisionesMateriasPrimas.Text;
 
 
-                if (string.IsNullOrEmpty(nombreItemV))
+                if (string.IsNullOrEmpty(nombreRegistrarDivisionMateriasPrimasV))
                 {
-                    await DisplayAlert("Validacion", "Ingrese el nombre del Item", "Aceptar");
-                    nombreItem.Focus();
+                    await DisplayAlert("Validacion", "Ingrese la división de la materia prima", "Aceptar");
+                    nombreDivisionesMateriasPrimas.Focus();
                     return;
                 }
 
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(connectionString);
 
-                var item = new ITEM()
+                var RegistrarDivisionMateriasPrimas = new RegistrasDivisionesMateriasPrima()
                 {
-                    ItemID = 0,
-                    item = nombreItemV,
+                    RegistrarDivisionesMateriasPrimaID = 0,
+                    RegistrarDivisionesMateriasPrima = nombreRegistrarDivisionMateriasPrimasV,
 
                 };
 
                 //Convetir a Json
-                var json = JsonConvert.SerializeObject(item);
+                var json = JsonConvert.SerializeObject(RegistrarDivisionMateriasPrimas);
                 StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
 
                 //Ejecutar el api el introduces el metodo
-                var request = await client.PostAsync("/api/Item/registrar", stringContent);
+                var request = await client.PostAsync("/api/DivisionesMateriasPrima/registrar", stringContent);
 
                 if (request.IsSuccessStatusCode)
                 {
@@ -68,13 +65,13 @@ namespace RTM.FormXamarin.Views.ITEMS
                     //Status
                     if (respuesta.status)
                     {
-                        await MaterialDialog.Instance.AlertAsync(message: "Item registrado correctamente",
+                        await MaterialDialog.Instance.AlertAsync(message: "División de la materia prima registrada correctamente",
                                    title: "Registro",
                                    acknowledgementText: "Aceptar");
                     }
                     else
                     {
-                        await MaterialDialog.Instance.AlertAsync(message: "Item no pudo registrarse correctamente",
+                        await MaterialDialog.Instance.AlertAsync(message: "La división de la materia prima no pudo registrarse correctamente",
                                   title: "Registro",
                                   acknowledgementText: "Aceptar");
 
@@ -97,4 +94,4 @@ namespace RTM.FormXamarin.Views.ITEMS
             }
         }
     }
-}
+    }

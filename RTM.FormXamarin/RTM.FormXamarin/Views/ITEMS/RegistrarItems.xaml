@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="RTM.FormXamarin.Views.ITEMS.RegistrarItems"
+             Title="{Binding Title}"
              xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
              >
     

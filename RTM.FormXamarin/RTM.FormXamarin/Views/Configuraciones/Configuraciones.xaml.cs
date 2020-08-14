@@ -27,6 +27,12 @@ namespace RTM.FormXamarin.Views.Configuraciones
             InitializeComponent();
             BindingContext = this.ConfiguracionesViewModel = new ConfiguracionesViewModel();
             abrirGestionDeItems.Clicked += AbrirGestionDeItems_Clicked;
+            abrirGestionDeDivisionesMateriasPrimas.Clicked += AbrirGestionDeDivisionesMateriasPrimas_Clicked;
+        }
+
+        private async void AbrirGestionDeDivisionesMateriasPrimas_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new DivisionesMateriasPrimas.GestionarDivisionesMateriasPrimas());
         }
 
         private async void AbrirGestionDeItems_Clicked(object sender, EventArgs e)

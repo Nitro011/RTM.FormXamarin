@@ -113,6 +113,15 @@
     <EmbeddedResource Update="Views\Dimensiones\RegistrarDimensiones.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\DivisionesMateriasPrimas\GestionarDivisionesMateriasPrimas.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\DivisionesMateriasPrimas\ModificarDivisionesMateriasPrimas.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\DivisionesMateriasPrimas\RegistrarDivisionesMateriasPrimas.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Divisiones\GestionarDivisiones.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
