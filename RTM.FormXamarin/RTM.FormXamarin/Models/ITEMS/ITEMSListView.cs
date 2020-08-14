@@ -6,7 +6,7 @@ namespace RTM.FormXamarin.Models.ITEMS
 {
     public class ITEMSListView
     {
-        public int ItemID { get; set; }
-        public string item { get; set; }
+        public int ITEMID { get; set; }
+        public string nombreITEMS { get; set; }
     }
 }

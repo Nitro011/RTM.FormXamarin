@@ -51,7 +51,7 @@
                    VerticalOptions="FillAndExpand">
             <ScrollView>
                 <StackLayout>
-
+                    
                     <StackLayout Margin="0,25,0,0">
                         <StackLayout>
                             <material:MaterialTextField x:Name="estiloNo" Placeholder="Ingrese el Estilo No" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>

@@ -24,6 +24,46 @@ namespace RTM.FormXamarin.Views.DivisionesMateriasPrimas
             InitializeComponent();
             listaDivisionMateriaPrima.ItemSelected += ListaDivisionMateriaPrima_ItemSelected;
             agregarNuevaDivisionMateriaPrima.Clicked += AgregarNuevaDivisionMateriaPrima_Clicked;
+            buscarDivisionMateriaPrima.TextChanged += BuscarDivisionMateriaPrima_TextChanged1;
+            ListaDivisionesMateriasPrimas();
+        }
+
+        private void BuscarDivisionMateriaPrima_TextChanged1(object sender, TextChangedEventArgs e)
+        {
+            if (buscarDivisionMateriaPrima.Text == "")
+            {
+                ListaDivisionesMateriasPrimas();
+            }
+            else
+            {
+                string Divisiones = buscarDivisionMateriaPrima.Text;
+
+                string connectionString = ConfigurationManager.AppSettings["ipServer"];
+
+
+                HttpClient client = new HttpClient();
+
+                client.BaseAddress = new Uri(connectionString);
+                var request = client.GetAsync($"/api/DivisionesMateriasPrima/ConsultarDivisionesMateriasPrimasPorDivisiones/{Divisiones}").Result;
+
+                if (request.IsSuccessStatusCode)
+                {
+                    var responseJson = request.Content.ReadAsStringAsync().Result;
+                    var response = JsonConvert.DeserializeObject<Request>(responseJson);
+
+                    if (response.status)
+                    {
+                        if (response.data != null)
+                        {
+
+                            var listaView = JsonConvert.DeserializeObject<List<DivisionesMateriasPrimasListView>>(response.data.ToString());
+
+                            listaDivisionMateriaPrima.ItemsSource = listaView;
+                        }
+                    }
+
+                }
+            }
         }
 
         private async void ListaDivisionMateriaPrima_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -46,11 +86,12 @@ namespace RTM.FormXamarin.Views.DivisionesMateriasPrimas
             }
             else
             {
-                ListaDivisionMateriaPrima();
+                ListaDivisionesMateriasPrimas();
             }
 
         }
-        private async void ListaDivisionMateriaPrima()
+
+        private async void ListaDivisionesMateriasPrimas()
         {
             string connectionString = ConfigurationManager.AppSettings["ipServer"];
 
@@ -88,81 +129,10 @@ namespace RTM.FormXamarin.Views.DivisionesMateriasPrimas
             await Navigation.PushAsync(new DivisionesMateriasPrimas.RegistrarDivisionesMateriasPrimas());  
         }
 
-        private void BuscarDivisionMateriaPrima_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (buscarDivisionMateriaPrima.Text == "")
-            {
-                ListaDivisionMateriaPrima();
-            }
-            else
-            {
-                string Divisiones = buscarDivisionMateriaPrima.Text;
-
-                string connectionString = ConfigurationManager.AppSettings["ipServer"];
-
-
-                HttpClient client = new HttpClient();
-
-                client.BaseAddress = new Uri(connectionString);
-                var request = client.GetAsync($"/api/DivisionMateriaPrima/DivisionesMateriasPrima/{Divisiones}").Result;
-
-                if (request.IsSuccessStatusCode)
-                {
-                    var responseJson = request.Content.ReadAsStringAsync().Result;
-                    var response = JsonConvert.DeserializeObject<Request>(responseJson);
-
-                    if (response.status)
-                    {
-                        if (response.data != null)
-                        {
-
-                            var listaView = JsonConvert.DeserializeObject<List<DivisionesMateriasPrimasListView>>(response.data.ToString());
-
-                            listaDivisionMateriaPrima.ItemsSource = listaView;
-                        }
-                    }
-
-                }
-            }
-        }
-
         private async void AgregarNuevosColores_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Colores.RegistrarColores());
         }
 
-        private async void ListaColores()
-        {
-            string connectionString = ConfigurationManager.AppSettings["ipServer"];
-
-
-            HttpClient client = new HttpClient();
-
-            client.BaseAddress = new Uri(connectionString);
-            var request = client.GetAsync("/api/DivisionesMateriasPrimas/lista").Result;
-
-            if (request.IsSuccessStatusCode)
-            {
-                var responseJson = request.Content.ReadAsStringAsync().Result;
-                var response = JsonConvert.DeserializeObject<Request>(responseJson);
-
-                if (response.status)
-                {
-
-                    var listaView = JsonConvert.DeserializeObject<List<DivisionesMateriasPrimasListView>>(response.data.ToString());
-
-                    listaDivisionMateriaPrima.ItemsSource = listaView;
-
-
-                }
-                else
-                {
-                    await MaterialDialog.Instance.AlertAsync(message: "Error",
-                                   title: "Error",
-                                   acknowledgementText: "Aceptar");
-                }
-
-            }
-        }
     }
 }

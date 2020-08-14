@@ -20,7 +20,7 @@ namespace RTM.FormXamarin.Views.ITEMS
         public GestionarItems()
         {
             InitializeComponent();
-            ListaItem();
+            ListaITEMS();
             listaItems.ItemSelected += ListaItems_ItemSelected;
             agregarNuevosItems.Clicked += AgregarNuevosItems_Clicked;
         }
@@ -35,7 +35,7 @@ namespace RTM.FormXamarin.Views.ITEMS
                 {
                     var ITEMS = (ITEMSListView)e.SelectedItem;
 
-                    await Navigation.PushAsync(new ModificarItems(ITEMS.ItemID));
+                    await Navigation.PushAsync(new ModificarItems(ITEMS.ITEMID));
                 }
                 catch (Exception ex)
                 {
@@ -45,7 +45,7 @@ namespace RTM.FormXamarin.Views.ITEMS
             }
             else
             {
-                ListaItem();
+                ListaITEMS();
             }
 
         }
@@ -55,7 +55,7 @@ namespace RTM.FormXamarin.Views.ITEMS
             await Navigation.PushAsync(new ITEMS.RegistrarItems());
         }
 
-        private async void ListaItem()
+        private async void ListaITEMS()
         {
             string connectionString = ConfigurationManager.AppSettings["ipServer"];
 
@@ -63,7 +63,7 @@ namespace RTM.FormXamarin.Views.ITEMS
             HttpClient client = new HttpClient();
 
             client.BaseAddress = new Uri(connectionString);
-            var request = client.GetAsync("/api/Item/lista").Result;
+            var request = client.GetAsync("/api/ITEM/lista").Result;
 
             if (request.IsSuccessStatusCode)
             {
@@ -88,5 +88,6 @@ namespace RTM.FormXamarin.Views.ITEMS
 
             }
         }
+
     }
 }

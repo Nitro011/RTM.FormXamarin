@@ -17,11 +17,12 @@ namespace RTM.FormXamarin.Views.DivisionesMateriasPrimas
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ModificarDivisionesMateriasPrimas : ContentPage
     {
-        public int modificarDivisionMateriaPrimaID;
-        public ModificarDivisionesMateriasPrimas(int ModificarMateriaPrimaID)
+        public int divisionMateriaPrimaID;
+        public ModificarDivisionesMateriasPrimas(int DivisionesMateriasPrimaID)
         {
             InitializeComponent();
             btnModificarDivisionMateriaPrima.Clicked += BtnModificarDivisionMateriaPrima_Clicked;
+            mostrarInformacionModificarDivisionMateriaPrima(DivisionesMateriasPrimaID);
         }
 
         private async void BtnModificarDivisionMateriaPrima_Clicked(object sender, EventArgs e)
@@ -30,7 +31,7 @@ namespace RTM.FormXamarin.Views.DivisionesMateriasPrimas
 
             try
             {
-                var ModificarDivisioMateriaPrimaIDV = modificarDivisionMateriaPrimaID;
+                var ModificarDivisioMateriaPrimaIDV = divisionMateriaPrimaID;
                 var ModificarDivisionMateriaPrimaV = nombreModificarDivisionMateriaPrima.Text;
 
                 if (string.IsNullOrEmpty(ModificarDivisionMateriaPrimaV))
@@ -45,14 +46,14 @@ namespace RTM.FormXamarin.Views.DivisionesMateriasPrimas
 
                 var ModificarDivisionMateriaPrima = new DivisionesMateriasPrima()
                 {
-                    DivisionMateriaPrimaID = modificarDivisionMateriaPrimaID,
+                    DivisionMateriaPrimaID = divisionMateriaPrimaID,
                     Division = ModificarDivisionMateriaPrimaV
                 };
 
                 var json = JsonConvert.SerializeObject(ModificarDivisionMateriaPrima);
                 StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
 
-                var request = await client.PostAsync("/api/ModificarDivisionMateriaPrima/modificar", stringContent);
+                var request = await client.PostAsync("/api/DivisionesMateriasPrima/modificar", stringContent);
 
                 if (request.IsSuccessStatusCode)
                 {
@@ -100,7 +101,7 @@ namespace RTM.FormXamarin.Views.DivisionesMateriasPrimas
             HttpClient client = new HttpClient();
 
             client.BaseAddress = new Uri(connectionString);
-            var request = client.GetAsync($"/api/ModificarDivisionMateriaPrima/listaPorId/{id}").Result;
+            var request = client.GetAsync($"/api/DivisionesMateriasPrima/listaPorId/{id}").Result;
 
             if (request.IsSuccessStatusCode)
             {
@@ -110,7 +111,7 @@ namespace RTM.FormXamarin.Views.DivisionesMateriasPrimas
                 if (response.status)
                 {
                     var listaView = JsonConvert.DeserializeObject<DivisionesMateriasPrimasListView>(response.data.ToString());
-                    modificarDivisionMateriaPrimaID = listaView.DivisionMateriaPrimaID;
+                    divisionMateriaPrimaID = listaView.DivisionMateriaPrimaID;
                     nombreModificarDivisionMateriaPrima.Text = listaView.Division;
                 }
 

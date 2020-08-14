@@ -45,7 +45,9 @@ namespace RTM.FormXamarin.Views.Estilos
             ListaUnidadesMedidasEstilos();
             ListaEstados();
             this.btnGuardarEstilos.Clicked += BtnGuardarEstilos_Clicked;
+            
         }
+
 
         private async void BtnGuardarEstilos_Clicked(object sender, EventArgs e)
         {

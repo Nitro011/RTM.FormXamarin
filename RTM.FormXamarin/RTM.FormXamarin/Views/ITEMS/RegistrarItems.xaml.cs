@@ -47,8 +47,8 @@ namespace RTM.FormXamarin.Views.ITEMS
 
                 var item = new ITEM()
                 {
-                    ItemID = 0,
-                    item = nombreItemV,
+                    ITEMID = 0,
+                    nombreITEMS = nombreItemV,
 
                 };
 
@@ -57,7 +57,7 @@ namespace RTM.FormXamarin.Views.ITEMS
                 StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
 
                 //Ejecutar el api el introduces el metodo
-                var request = await client.PostAsync("/api/Item/registrar", stringContent);
+                var request = await client.PostAsync("/api/ITEM/registrar", stringContent);
 
                 if (request.IsSuccessStatusCode)
                 {
@@ -95,6 +95,7 @@ namespace RTM.FormXamarin.Views.ITEMS
                                     title: "Error",
                                     acknowledgementText: "Aceptar");
             }
+            await Navigation.PushAsync(new ITEMS.GestionarItems());
         }
     }
 }

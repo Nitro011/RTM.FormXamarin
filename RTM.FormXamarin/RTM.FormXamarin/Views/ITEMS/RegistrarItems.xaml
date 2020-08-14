@@ -8,7 +8,7 @@
              Title="{Binding Title}"
              xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
              >
-    
+
     <Grid RowSpacing="0" ColumnSpacing="0">
         <Grid.RowDefinitions>
             <RowDefinition Height="5"></RowDefinition>
@@ -51,6 +51,18 @@
                    VerticalOptions="FillAndExpand">
             <ScrollView>
                 <StackLayout>
+
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <material:MaterialLabel Text="Items"
+                                        TextColor="Black" 
+                                        FontSize="Title" 
+                                        FontAttributes="Bold"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        Margin="0,0,30,0"
+                                        
+                    />
+                    </StackLayout>
 
                     <StackLayout Margin="0,25,0,0">
                         <StackLayout>

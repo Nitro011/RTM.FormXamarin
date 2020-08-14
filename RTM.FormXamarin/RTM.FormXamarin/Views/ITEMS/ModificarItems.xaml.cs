@@ -46,14 +46,14 @@ namespace RTM.FormXamarin.Views.ITEMS
 
                 var Item = new ITEM()
                 {
-                    ItemID = ItemIDV,
-                    item = ItemV
+                    ITEMID = ItemIDV,
+                    nombreITEMS = ItemV
                 };
 
                 var json = JsonConvert.SerializeObject(Item);
                 StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
 
-                var request = await client.PostAsync("/api/Item/modificar", stringContent);
+                var request = await client.PostAsync("/api/ITEM/modificar", stringContent);
 
                 if (request.IsSuccessStatusCode)
                 {
@@ -90,7 +90,7 @@ namespace RTM.FormXamarin.Views.ITEMS
                                     title: ex.Message,
                                     acknowledgementText: "Aceptar");
             }
-            await Navigation.PushAsync(new Colores.GestionarColores());
+            await Navigation.PushAsync(new ITEMS.GestionarItems());
         }
 
         private void mostrarInformacionItem(int id)
@@ -101,7 +101,7 @@ namespace RTM.FormXamarin.Views.ITEMS
             HttpClient client = new HttpClient();
 
             client.BaseAddress = new Uri(connectionString);
-            var request = client.GetAsync($"/api/Item/listaPorId/{id}").Result;
+            var request = client.GetAsync($"/api/ITEM/listaPorId/{id}").Result;
 
             if (request.IsSuccessStatusCode)
             {
@@ -111,8 +111,8 @@ namespace RTM.FormXamarin.Views.ITEMS
                 if (response.status)
                 {
                     var listaView = JsonConvert.DeserializeObject<ITEMSListView>(response.data.ToString());
-                     ItemsID= listaView.ItemID;
-                     nombreItem.Text = listaView.item;
+                     ItemsID= listaView.ITEMID;
+                     nombreItem.Text = listaView.nombreITEMS;
                 }
 
             }
