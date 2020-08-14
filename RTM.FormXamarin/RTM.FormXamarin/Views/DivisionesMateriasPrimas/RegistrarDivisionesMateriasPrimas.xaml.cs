@@ -29,10 +29,10 @@ namespace RTM.FormXamarin.Views.DivisionesMateriasPrimas
 
             try
             {
-                var nombreRegistrarDivisionMateriasPrimasV = nombreDivisionesMateriasPrimas.Text;
+                var nombreDivisionMateriasPrimasV = nombreDivisionesMateriasPrimas.Text;
 
 
-                if (string.IsNullOrEmpty(nombreRegistrarDivisionMateriasPrimasV))
+                if (string.IsNullOrEmpty(nombreDivisionMateriasPrimasV))
                 {
                     await DisplayAlert("Validacion", "Ingrese la división de la materia prima", "Aceptar");
                     nombreDivisionesMateriasPrimas.Focus();
@@ -42,15 +42,15 @@ namespace RTM.FormXamarin.Views.DivisionesMateriasPrimas
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(connectionString);
 
-                var RegistrarDivisionMateriasPrimas = new RegistrasDivisionesMateriasPrima()
+                var divisionMateriasPrimas = new DivisionesMateriasPrima()
                 {
-                    RegistrarDivisionesMateriasPrimaID = 0,
-                    RegistrarDivisionesMateriasPrima = nombreRegistrarDivisionMateriasPrimasV,
+                    DivisionMateriaPrimaID = 0,
+                    Division = nombreDivisionMateriasPrimasV,
 
                 };
 
                 //Convetir a Json
-                var json = JsonConvert.SerializeObject(RegistrarDivisionMateriasPrimas);
+                var json = JsonConvert.SerializeObject(divisionMateriasPrimas);
                 StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
 
                 //Ejecutar el api el introduces el metodo
@@ -65,13 +65,13 @@ namespace RTM.FormXamarin.Views.DivisionesMateriasPrimas
                     //Status
                     if (respuesta.status)
                     {
-                        await MaterialDialog.Instance.AlertAsync(message: "División de la materia prima registrada correctamente",
+                        await MaterialDialog.Instance.AlertAsync(message: "La División de la materia prima se registro correctamente",
                                    title: "Registro",
                                    acknowledgementText: "Aceptar");
                     }
                     else
                     {
-                        await MaterialDialog.Instance.AlertAsync(message: "La división de la materia prima no pudo registrarse correctamente",
+                        await MaterialDialog.Instance.AlertAsync(message: "La División de la materia prima no pudo registrarse correctamente",
                                   title: "Registro",
                                   acknowledgementText: "Aceptar");
 
@@ -92,6 +92,13 @@ namespace RTM.FormXamarin.Views.DivisionesMateriasPrimas
                                     title: "Error",
                                     acknowledgementText: "Aceptar");
             }
+            limpiarCampos();
+            await Navigation.PushAsync(new DivisionesMateriasPrimas.GestionarDivisionesMateriasPrimas());
+        }
+
+        private void limpiarCampos()
+        {
+            nombreDivisionesMateriasPrimas.Text = "";
         }
     }
-    }
+}

@@ -34,9 +34,9 @@ namespace RTM.FormXamarin.Views.DivisionesMateriasPrimas
             {
                 try
                 {
-                    var item = (RegistrarDivisionesMateriasPrimaListView)e.SelectedItem;
+                    var item = (DivisionesMateriasPrimasListView)e.SelectedItem;
 
-                    await Navigation.PushAsync(new ModificarDivisionesMateriasPrimas(item.RegistrarDivisionesMateriasPrimaID));
+                    await Navigation.PushAsync(new ModificarDivisionesMateriasPrimas(item.DivisionMateriaPrimaID));
                 }
                 catch (Exception ex)
                 {
@@ -68,7 +68,7 @@ namespace RTM.FormXamarin.Views.DivisionesMateriasPrimas
                 if (response.status)
                 {
 
-                    var listaView = JsonConvert.DeserializeObject<List<RegistrarDivisionesMateriasPrimaListView>>(response.data.ToString());
+                    var listaView = JsonConvert.DeserializeObject<List<DivisionesMateriasPrimasListView>>(response.data.ToString());
 
                     listaDivisionMateriaPrima.ItemsSource = listaView;
 
@@ -116,7 +116,7 @@ namespace RTM.FormXamarin.Views.DivisionesMateriasPrimas
                         if (response.data != null)
                         {
 
-                            var listaView = JsonConvert.DeserializeObject<List<RegistrarDivisionesMateriasPrimaListView>>(response.data.ToString());
+                            var listaView = JsonConvert.DeserializeObject<List<DivisionesMateriasPrimasListView>>(response.data.ToString());
 
                             listaDivisionMateriaPrima.ItemsSource = listaView;
                         }
@@ -149,7 +149,7 @@ namespace RTM.FormXamarin.Views.DivisionesMateriasPrimas
                 if (response.status)
                 {
 
-                    var listaView = JsonConvert.DeserializeObject<List<RegistrarDivisionesMateriasPrimaListView>>(response.data.ToString());
+                    var listaView = JsonConvert.DeserializeObject<List<DivisionesMateriasPrimasListView>>(response.data.ToString());
 
                     listaDivisionMateriaPrima.ItemsSource = listaView;
 

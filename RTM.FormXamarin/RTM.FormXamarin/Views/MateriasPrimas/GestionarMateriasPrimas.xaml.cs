@@ -25,7 +25,7 @@ namespace RTM.FormXamarin.Views.MateriasPrimas
         {
             InitializeComponent();
             BindingContext = this.GestionarMateriasPrimasViewModel = new GestionarMateriasPrimasViewModel();
-            //ListaMateriasPrimas();
+            ListaMateriasPrimas();
             listaMateriasPrimas.ItemSelected += ListaMateriasPrimas_ItemSelected;
             agregarNuevasMateriasPrimas.Clicked += AgregarNuevasMateriasPrimas_Clicked;
             buscarMateriasPrimas.TextChanged += BuscarMateriasPrimas_TextChanged;
@@ -99,39 +99,39 @@ namespace RTM.FormXamarin.Views.MateriasPrimas
             await Navigation.PushAsync(new MateriasPrimas.RegistrarMateriasPrimas());
         }
 
-        //private async void ListaMateriasPrimas()
-        //{
-        //    string connectionString = ConfigurationManager.AppSettings["ipServer"];
+        private async void ListaMateriasPrimas()
+        {
+            string connectionString = ConfigurationManager.AppSettings["ipServer"];
 
 
-        //    HttpClient client = new HttpClient();
+            HttpClient client = new HttpClient();
 
-        //    client.BaseAddress = new Uri(connectionString);
-        //    var request = client.GetAsync("/api/MateriasPrimas/MateriasPrimasList").Result;
+            client.BaseAddress = new Uri(connectionString);
+            var request = client.GetAsync("/api/MateriasPrimas/MateriasPrimasList").Result;
 
-        //    if (request.IsSuccessStatusCode)
-        //    {
-        //        var responseJson = request.Content.ReadAsStringAsync().Result;
-        //        var response = JsonConvert.DeserializeObject<Request>(responseJson);
+            if (request.IsSuccessStatusCode)
+            {
+                var responseJson = request.Content.ReadAsStringAsync().Result;
+                var response = JsonConvert.DeserializeObject<Request>(responseJson);
 
-        //        if (response.status)
-        //        {
+                if (response.status)
+                {
 
-        //            var listaView = JsonConvert.DeserializeObject<List<MateriasPrimasListView>>(response.data.ToString());
+                    var listaView = JsonConvert.DeserializeObject<List<MateriasPrimasListView>>(response.data.ToString());
 
-        //            listaMateriasPrimas.ItemsSource = listaView;
+                    listaMateriasPrimas.ItemsSource = listaView;
 
 
-        //        }
-        //        else
-        //        {
-        //            await MaterialDialog.Instance.AlertAsync(message: "Error",
-        //                           title: "Error",
-        //                           acknowledgementText: "Aceptar");
-        //        }
+                }
+                else
+                {
+                    await MaterialDialog.Instance.AlertAsync(message: "Error",
+                                   title: "Error",
+                                   acknowledgementText: "Aceptar");
+                }
 
-        //    }
+            }
 
-        //}
+        }
     }
 }

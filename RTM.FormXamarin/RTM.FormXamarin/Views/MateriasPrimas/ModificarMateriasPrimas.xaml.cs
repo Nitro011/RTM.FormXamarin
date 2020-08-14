@@ -46,7 +46,7 @@ namespace RTM.FormXamarin.Views.MateriasPrimas
                     var listaView = JsonConvert.DeserializeObject<MateriasPrimasListView>(response.data.ToString());
                     Materia_PrimaID = listaView.Materia_PrimaID;
                     PartNo.Text = listaView.PartNo;
-                    Nombre_Materia_Prima.Text = listaView.Nombre_Materia_Prima;
+                    Nombre_Materia_Prima.Text = listaView.Descripcion;
                     Descripcion.Text = listaView.Descripcion;
 
                 }

@@ -55,6 +55,7 @@
                         <material:MaterialLabel Text="Part No:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         <material:MaterialTextField x:Name="PartNo" Placeholder="PartNo" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" Margin="0,-13,0,0" />
                         <material:MaterialLabel Text="Tipo de Materiales" TextColor="Black" FontSize="Medium" FontAttributes="Bold" Margin="15,0,0,0" />
+                        <Picker Title="Tipos de Materiales" x:Name="listaTiposMateriales"  ItemsSource="{Binding Nombre_Material}" ItemDisplayBinding="{Binding Nombre_Material}" SelectedIndex="{Binding Tipo_MaterialID}"  HorizontalOptions = "Fill" Margin="0,-18,450,0"/>
                     </StackLayout>
                     
 
@@ -65,10 +66,12 @@
                     </StackLayout>
 
                     <StackLayout Margin="0,25,0,0" Orientation="Horizontal">
+                        <material:MaterialLabel Text="Unit:" TextColor="Black" FontAttributes="Bold" FontSize="Medium" Margin="0,13,0,0"/>
+                        <material:MaterialTextField x:Name="Unit" Placeholder="Unit" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" Margin="0,-13,0,0" />
                         <material:MaterialLabel Text="Cost:" TextColor="Black" FontAttributes="Bold" FontSize="Medium" Margin="0,13,0,0"/>
                         <material:MaterialTextField x:Name="Cost" Placeholder="Cost" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
                         <material:MaterialLabel Text="Division:" TextColor="Black" FontAttributes="Bold" FontSize="Medium" Margin="15,13,0,0"/>
-                        <Picker Title="Divisiones" x:Name="listaTiposMateriales"  ItemsSource="{Binding Nombre_Material}" ItemDisplayBinding="{Binding Nombre_Material}" SelectedIndex="{Binding Tipo_MaterialID}" SelectedIndexChanged="ObtenerRoles" HorizontalOptions = "Fill" Margin="0,-18,450,0"/>
+                        <Picker Title="Divisiones" x:Name="listaDivisionesMateriasPrimas"  ItemsSource="{Binding Division}" ItemDisplayBinding="{Binding Division}" SelectedIndex="{Binding DivisionMateriaPrimaID}" HorizontalOptions = "Fill" Margin="0,-18,450,0"/>
                     </StackLayout>
 
                     <Image Source="Users\hugog\Pictures"/>

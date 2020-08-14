@@ -89,9 +89,10 @@
                                         </FormattedString>
                                     </dg:DataGridColumn.FormattedTitle>
                                 </dg:DataGridColumn>
-                                <dg:DataGridColumn Title="Materia Prima" PropertyName="Nombre_Materia_Prima" Width="2*"/>
-                                <dg:DataGridColumn Title="Descripcion" PropertyName="Descripcion" Width="3*"/>
                                 <dg:DataGridColumn Title="Tipo de Material" PropertyName="TipoMaterial" Width="2*"/>
+                                <dg:DataGridColumn Title="Descripcion" PropertyName="Descripcion" Width="3*"/>
+                                <dg:DataGridColumn Title="Unit" PropertyName="Unit" Width="2*"/>
+                                <dg:DataGridColumn Title="Cost" PropertyName="Cost" Width="2*"/>
                             </dg:DataGrid.Columns>
                             <dg:DataGrid.RowsBackgroundColorPalette>
                                 <dg:PaletteCollection>

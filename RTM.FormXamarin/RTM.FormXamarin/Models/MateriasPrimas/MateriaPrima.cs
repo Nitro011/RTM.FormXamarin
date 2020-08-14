@@ -8,8 +8,10 @@ namespace RTM.FormXamarin.Models.MateriasPrimas
     {
         public int Materia_PrimaID { get; set; }
         public int? Tipo_MaterialID { get; set; }
+        public int? DivisionMateriaPrimaID { get; set; }
         public string PartNo { get; set; }
-        public string Nombre_Materia_Prima { get; set; }
         public string Descripcion { get; set; }
+        public string Unit { get; set; }
+        public decimal Cost { get; set; }
     }
 }

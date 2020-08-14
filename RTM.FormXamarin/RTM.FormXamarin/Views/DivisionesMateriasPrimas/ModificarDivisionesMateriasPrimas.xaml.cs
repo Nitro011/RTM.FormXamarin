@@ -43,10 +43,10 @@ namespace RTM.FormXamarin.Views.DivisionesMateriasPrimas
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(connectionString);
 
-                var ModificarDivisionMateriaPrima = new RegistrasDivisionesMateriasPrima()
+                var ModificarDivisionMateriaPrima = new DivisionesMateriasPrima()
                 {
-                    RegistrarDivisionesMateriasPrimaID = modificarDivisionMateriaPrimaID,
-                    RegistrarDivisionesMateriasPrima = ModificarDivisionMateriaPrimaV
+                    DivisionMateriaPrimaID = modificarDivisionMateriaPrimaID,
+                    Division = ModificarDivisionMateriaPrimaV
                 };
 
                 var json = JsonConvert.SerializeObject(ModificarDivisionMateriaPrima);
@@ -109,9 +109,9 @@ namespace RTM.FormXamarin.Views.DivisionesMateriasPrimas
 
                 if (response.status)
                 {
-                    var listaView = JsonConvert.DeserializeObject<RegistrarDivisionesMateriasPrimaListView>(response.data.ToString());
-                    modificarDivisionMateriaPrimaID = listaView.RegistrarDivisionesMateriasPrimaID;
-                    nombreModificarDivisionMateriaPrima.Text = listaView.RegistrarDivisionesMateriasPrima;
+                    var listaView = JsonConvert.DeserializeObject<DivisionesMateriasPrimasListView>(response.data.ToString());
+                    modificarDivisionMateriaPrimaID = listaView.DivisionMateriaPrimaID;
+                    nombreModificarDivisionMateriaPrima.Text = listaView.Division;
                 }
 
             }

@@ -14,6 +14,7 @@ using XF.Material.Forms.UI.Dialogs;
 using RTM.FormXamarin.Models.MateriasPrimas;
 using RTM.FormXamarin.ViewModels;
 using System.ComponentModel;
+using RTM.FormXamarin.Models.DivisionesMateriasPrimas;
 
 namespace RTM.FormXamarin.Views.MateriasPrimas
 {
@@ -26,6 +27,7 @@ namespace RTM.FormXamarin.Views.MateriasPrimas
             InitializeComponent();
             BindingContext = this.RegistrarMateriasPrimasViewModel=new RegistrarMateriasPrimasViewModel();
             ListaTiposMateriales();
+            ListaDivisionesMateriasPrimas();
             btnGuardarMateriasPrimas.Clicked += BtnGuardarMateriasPrimas_Clicked;
         }
 
@@ -35,26 +37,47 @@ namespace RTM.FormXamarin.Views.MateriasPrimas
 
             try
             {
-                var partNoV = PartNo.Text;
-                var nombreMateriaPrimalV = Descripcion.Text;
-                var tipoMateriaPrimaV = listaTiposMateriales.SelectedIndex+1;
+                var PartNoV = PartNo.Text;
+                var tipoMateriaPrimaV = (TiposMaterialesListView)listaTiposMateriales.SelectedItem;
+                var DescripcionV = Descripcion.Text;
+                var UnitV = Unit.Text;
+                var CostV = Cost.Text;
+                var tipoDivisionesV = (DivisionesMateriasPrimasListView)listaDivisionesMateriasPrimas.SelectedItem;
 
-                if (string.IsNullOrEmpty(partNoV))
+                if (string.IsNullOrEmpty(PartNoV))
                 {
                     await DisplayAlert("Validacion", "Ingrese el PartNo de la Materia Prima", "Aceptar");
                     PartNo.Focus();
-                    return;
-                }
-                if (string.IsNullOrEmpty(nombreMateriaPrimalV))
-                {
-                    await DisplayAlert("Validacion", "Ingrese el nombre de la Materia Prima", "Aceptar");
-                    Descripcion.Focus();
                     return;
                 }
                 if (string.IsNullOrEmpty(tipoMateriaPrimaV.ToString()))
                 {
                     await DisplayAlert("Validacion", "Verfique la seleccion del Tipo de Material", "Aceptar");
                     listaTiposMateriales.Focus();
+                    return;
+                }
+                if (string.IsNullOrEmpty(DescripcionV))
+                {
+                    await DisplayAlert("Validacion", "Ingrese el nombre de la Materia Prima", "Aceptar");
+                    Descripcion.Focus();
+                    return;
+                }
+                if (string.IsNullOrEmpty(CostV))
+                {
+                    await DisplayAlert("Validacion", "Ingrese el Cost de la Materia Prima", "Aceptar");
+                    Cost.Focus();
+                    return;
+                }
+                if (string.IsNullOrEmpty(tipoDivisionesV.ToString()))
+                {
+                    await DisplayAlert("Validacion", "Asegurarse de seleccionar la Division", "Aceptar");
+                    listaDivisionesMateriasPrimas.Focus();
+                    return;
+                }
+                if (string.IsNullOrEmpty(UnitV.ToString()))
+                {
+                    await DisplayAlert("Validacion", "Ingrese el Unit de la Materia Primas", "Aceptar");
+                    Unit.Focus();
                     return;
                 }
 
@@ -64,11 +87,12 @@ namespace RTM.FormXamarin.Views.MateriasPrimas
                 var materiasPrimas = new MateriaPrima()
                 {
                     Materia_PrimaID = 0,
-                    PartNo=partNoV,
-                    Nombre_Materia_Prima = nombreMateriaPrimalV,
-                    Tipo_MaterialID=tipoMateriaPrimaV,
-                   
-
+                    Tipo_MaterialID = tipoMateriaPrimaV.Tipo_MaterialID,
+                    DivisionMateriaPrimaID=tipoDivisionesV.DivisionMateriaPrimaID,
+                    PartNo =PartNoV,
+                    Descripcion = DescripcionV,
+                    Unit=UnitV,
+                    Cost=Convert.ToDecimal(CostV)
                 };
 
                 //Convetir a Json
@@ -115,7 +139,7 @@ namespace RTM.FormXamarin.Views.MateriasPrimas
                                     acknowledgementText: "Aceptar");
             }
             limpiarCampos();
-            await Navigation.PushAsync(new GestionMateriales.GestionMateriales());
+            await Navigation.PushAsync(new MateriasPrimas.GestionarMateriasPrimas());
         }
 
         private async void ListaTiposMateriales()
@@ -153,18 +177,48 @@ namespace RTM.FormXamarin.Views.MateriasPrimas
 
         }
 
-        async void ObtenerRoles(object sender, EventArgs e)
+        private async void ListaDivisionesMateriasPrimas()
         {
-            var pickerRol = listaTiposMateriales.SelectedIndex+1;
+            string connectionString = ConfigurationManager.AppSettings["ipServer"];
 
-            await DisplayAlert("Mostrar Roles", pickerRol.ToString(), "Aceptar");
+
+            HttpClient client = new HttpClient();
+
+            client.BaseAddress = new Uri(connectionString);
+            var request = client.GetAsync("/api/DivisionesMateriasPrima/lista").Result;
+
+            if (request.IsSuccessStatusCode)
+            {
+                var responseJson = request.Content.ReadAsStringAsync().Result;
+                var response = JsonConvert.DeserializeObject<Request>(responseJson);
+
+                if (response.status)
+                {
+
+                    var listaView = JsonConvert.DeserializeObject<List<DivisionesMateriasPrimasListView>>(response.data.ToString());
+
+                    listaDivisionesMateriasPrimas.ItemsSource = listaView;
+
+
+                }
+                else
+                {
+                    await MaterialDialog.Instance.AlertAsync(message: "Error",
+                                   title: "Error",
+                                   acknowledgementText: "Aceptar");
+                }
+
+            }
+
         }
+
 
         private void limpiarCampos()
         {
             PartNo.Text = "";
             Descripcion.Text = "";
-            Descripcion.Text = "";
+            Cost.Text = "";
+            Unit.Text = "";
         }
     }
 }
