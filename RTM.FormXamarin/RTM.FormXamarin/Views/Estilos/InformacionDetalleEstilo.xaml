@@ -49,11 +49,17 @@
                    VerticalOptions="FillAndExpand">
             <ScrollView>
                 <StackLayout Padding="50">
-                 
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,25,0,0">
-                        <material:MaterialLabel Text="Informacion del Estilo" TextColor="Black" FontSize="Title" FontAttributes="Bold"/>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand" Margin="0,25,0,0">
+                       
                         <material:MaterialButton x:Name="btnModificar" Text="Modificar" TextColor="White" BackgroundColor="#07485B" HorizontalOptions="Fill" VerticalOptions="End" />
                     </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,25,0,0">
+                        <material:MaterialLabel Text="Informacion del Estilo" TextColor="Black" FontSize="Title" FontAttributes="Bold"/>
+                    
+                    </StackLayout>
+                    
 
                     <StackLayout Margin="0,55,0,0">
                         <Image BackgroundColor="Transparent" x:Name="LaRealImagen" HeightRequest="300" Source="ImagenURL" />
