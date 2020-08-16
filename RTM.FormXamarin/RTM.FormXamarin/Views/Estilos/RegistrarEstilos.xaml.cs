@@ -20,18 +20,26 @@ using RTM.FormXamarin.Models.CategoriasEstilos;
 using RTM.FormXamarin.Models.Divisiones;
 using RTM.FormXamarin.Models.UnidadesMedidasEstilos;
 using RTM.FormXamarin.Models.Estados;
-using RTM.FormXamarin.Models.Estilos_Colores;
-using RTM.FormXamarin.Models.Estilos_CategoriasEstilos;
 using RTM.FormXamarin.Models.Estilos_MateriasPrimas;
-using RTM.FormXamarin.Models.Estilos_Modelos;
-using RTM.FormXamarin.Models.Estilos_TiposEstilos;
 using System.Collections.ObjectModel;
+using Plugin.FilePicker.Abstractions;
+using Plugin.FilePicker;
+using Android.Graphics;
+using System.IO;
+using PCLStorage;
+using Android.Widget;
+using Android.Content;
+using RTM.FormXamarin.Helpers;
 
 namespace RTM.FormXamarin.Views.Estilos
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class RegistrarEstilos : ContentPage
+    public partial class RegistrarEstilos : ContentPage // vamos a ver 
     {
+        protected string imageURL = "";
+        protected string folderName = "images";
+        protected FileData imageData = null;
+
         public RegistrarEstilos()
         {
             InitializeComponent();
@@ -45,18 +53,36 @@ namespace RTM.FormXamarin.Views.Estilos
             ListaUnidadesMedidasEstilos();
             ListaEstados();
             this.btnGuardarEstilos.Clicked += BtnGuardarEstilos_Clicked;
+            uploadFile.Clicked += UploadFile_Clicked;
             
         }
 
+        private async void UploadFile_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                FileData fileData = await CrossFilePicker.Current.PickFile().ContinueWith(a => imageData = a.Result);
+                if (fileData == null) return;
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine("Exception choosing file: " + ex.ToString());
+            }
+        }
+
+        private async Task SavingImage()
+        {
+            IFolder mainFolder = FileSystem.Current.LocalStorage;
+            mainFolder = await mainFolder.CreateFolderAsync(folderName, CreationCollisionOption.OpenIfExists);
+            await ImageUploaderHelper.SaveImage(imageData.FileName, mainFolder, imageData.DataArray).ContinueWith(res => imageURL = res.Result);
+        }
 
         private async void BtnGuardarEstilos_Clicked(object sender, EventArgs e)
         {
             string connectionString = ConfigurationManager.AppSettings["ipServer"];
-            var ListaColores = new List<Estilos_Colore>();
-            var ListaCategorias = new List<Estilos_CategoriasEstilo>();
+
             var ListaMateriaPrimas = new List<Estilos_MateriasPrima>();
-            var ListaModelos = new List<Estilos_Modelo>();
-            var ListaTipoEstilos = new List<Estilos_TiposEstilo>();
+
 
 
             try
@@ -75,43 +101,10 @@ namespace RTM.FormXamarin.Views.Estilos
                 var unidadesMedidasComboBoxVar = (UnidadesMedidasListView)unidadesMedidasComboBox.SelectedItem;
                 var ComentarioVar = Comentario.Text;
                 var pesoV = peso.Text;
-                var coloresComboBoxVar = (IList<object>)coloresComboBox.SelectedItem;
-
-                foreach (var item in coloresComboBoxVar)
-                {
-                    var colorId = (ColoresListView)item;
-                    var ColoresLista = new Estilos_Colore() { ColorID = colorId.ColorID };
-                    ListaColores.Add(ColoresLista);
-                }
-
-
-                var modelosComboBoxVar = (IList<object>)modelosComboBox.SelectedItem;
-
-                foreach (var item in modelosComboBoxVar)
-                {
-                    var modeloId = (ModelosListView)item;
-                    var ModeloLista = new Estilos_Modelo() { ModeloID = modeloId.ModeloID };
-                    ListaModelos.Add(ModeloLista);
-                }
-
-                var tiposEstilosComboBoxVar = (IList<object>)tiposEstilosComboBox.SelectedItem;
-
-                foreach (var item in tiposEstilosComboBoxVar)
-                {
-                    var tipoEstilos = (TiposCalzadosListView)item;
-                    var TipoLista = new Estilos_TiposEstilo() { Tipo_CalzadoID = tipoEstilos.Tipo_CalzadoID };
-                    ListaTipoEstilos.Add(TipoLista);
-                }
-
-
-                var categoriaComboBoxVar = (IList<object>)categoriaComboBox.SelectedItem;
-
-                foreach (var item in categoriaComboBoxVar)
-                {
-                    var categoriaId = (CategoriasEstilosListView)item;
-                    var CategoriaLista = new Estilos_CategoriasEstilo() { CategoriaEstiloID = categoriaId.CategoriaEstiloID };
-                    ListaCategorias.Add(CategoriaLista);
-                }
+                var coloresComboBoxVar = (ColoresListView)coloresComboBox.SelectedItem;
+                var modelosComboBoxVar = (ModelosListView)modelosComboBox.SelectedItem;
+                var tiposEstilosComboBoxVar = (TiposCalzadosListView)tiposEstilosComboBox.SelectedItem;
+                var categoriaComboBoxVar = (CategoriasEstilosListView)categoriaComboBox.SelectedItem;
 
                 var materialesComboBoxVar = (IList<object>)materialesComboBox.SelectedItem;
 
@@ -122,14 +115,13 @@ namespace RTM.FormXamarin.Views.Estilos
                     ListaMateriaPrimas.Add(MateriaPrimaLista);
                 }
 
-
+                await SavingImage();
 
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(connectionString);
 
                 var estilos = new Estilo()
                 {
-
 
                     MarcaID = pickerMarcasVar.MarcaID,
                     Estilo_No = Convert.ToInt32(estiloNoVar),
@@ -143,12 +135,13 @@ namespace RTM.FormXamarin.Views.Estilos
                     Last = lastVar,
                     UnidadMedidaEstiloID = unidadesMedidasComboBoxVar.UnidadMedidaEstiloID,
                     Comentarios = ComentarioVar,
-                    Colores = ListaColores,
-                    Modelos = ListaModelos,
-                    TiposEstilos = ListaTipoEstilos,
-                    CategoriasEstilos = ListaCategorias,
+                    ColorID = coloresComboBoxVar.ColorID,
+                    ModeloID = modelosComboBoxVar.ModeloID,
+                    Tipo_CalzadoID = tiposEstilosComboBoxVar.Tipo_CalzadoID,
+                    CategoriaEstiloID = categoriaComboBoxVar.CategoriaEstiloID,
                     Materias = ListaMateriaPrimas,
-                    PesoEstilos = pesoV
+                    PesoEstilos = pesoV,
+                    ImageURL = imageURL // Imagen OP -- ya prueba eso
 
                 };
 
@@ -171,7 +164,7 @@ namespace RTM.FormXamarin.Views.Estilos
                     {
                         await MaterialDialog.Instance.AlertAsync(message: "Estilos registrado correctamente",
                                    title: "Registro",
-                                   acknowledgementText: "Aceptar");
+                                   acknowledgementText: "Aceptar").ContinueWith(a => imageURL = ""); // Para borrar la ultima imagen agregada y que se resetee XD
                     }
                     else
                     {
@@ -254,7 +247,7 @@ namespace RTM.FormXamarin.Views.Estilos
 
                     var listaView = JsonConvert.DeserializeObject<List<ModelosListView>>(response.data.ToString());
 
-                    modelosComboBox.DataSource = listaView;
+                    modelosComboBox.ItemsSource = listaView;
 
 
                 }
@@ -289,7 +282,7 @@ namespace RTM.FormXamarin.Views.Estilos
 
                     var listaView = JsonConvert.DeserializeObject<List<TiposCalzadosListView>>(response.data.ToString());
 
-                    tiposEstilosComboBox.DataSource = listaView;
+                    tiposEstilosComboBox.ItemsSource = listaView;
 
 
                 }
@@ -324,7 +317,7 @@ namespace RTM.FormXamarin.Views.Estilos
 
                     var listaView = JsonConvert.DeserializeObject<List<ColoresListView>>(response.data.ToString());
 
-                    coloresComboBox.DataSource = listaView;
+                    coloresComboBox.ItemsSource = listaView;
 
 
                 }
@@ -394,7 +387,7 @@ namespace RTM.FormXamarin.Views.Estilos
 
                     var listaView = JsonConvert.DeserializeObject<List<CategoriasEstilosListView>>(response.data.ToString());
 
-                    categoriaComboBox.DataSource = listaView;
+                    categoriaComboBox.ItemsSource = listaView;
 
 
                 }

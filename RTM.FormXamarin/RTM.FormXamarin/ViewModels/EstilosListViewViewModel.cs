@@ -39,7 +39,7 @@ namespace RTM.FormXamarin.ViewModels
                 if (response.status)
                 {
                     var data = JsonConvert.DeserializeObject<List<EstilosListView>>(response.data.ToString()).ElementAtOrDefault(0);
-                    foreach(var item in data.Colores1)
+                    foreach (var item in data.Materiales)
                     {
                         EstilosListViewsList.Add(new Lol(item));
                     }

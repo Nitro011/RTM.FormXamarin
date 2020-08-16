@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             mc:Ignorable="d"
+             x:Class="RTM.FormXamarin.Views.TiposDepartamentos.ModificarTiposDepartamentos">
+
+    <Grid RowSpacing="0" ColumnSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Orientation="Horizontal"
+                         Grid.Row="0"
+                         Grid.Column="0"
+                         Grid.ColumnSpan="4"
+                         BackgroundColor="#07485B">
+
+        </StackLayout>
+
+        <StackLayout Orientation="Vertical"
+                         Grid.Row="1"
+                         Grid.Column="0"
+                         Grid.RowSpan="4"
+                         Grid.ColumnSpan="4"
+                         BackgroundColor="LightGray">
+        </StackLayout>
+
+        <Frame Grid.Row="1"
+                   Grid.Column="0"
+                   Grid.RowSpan="4"
+                   Grid.ColumnSpan="4"
+                   HeightRequest="450"
+                   WidthRequest="0"
+                  
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="FillAndExpand">
+            <ScrollView>
+                <StackLayout>
+
+                    <StackLayout Margin="0,25,0,0">
+                        <material:MaterialTextField x:Name="tipoDepartamento" Placeholder="Ingrese el nuevo Tipo de Departamento" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                    </StackLayout>
+
+                    <material:MaterialButton Text="Modificar Tipo de Departamento" x:Name="btnModificarTipoDepartamento" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,40,0,0"/>
+
+                </StackLayout>
+            </ScrollView>
+        </Frame>
+
+    </Grid>
+</ContentPage>

@@ -12,6 +12,9 @@ using Xamarin.Forms.Xaml;
 using RTM.FormXamarin.Models.Estilos;
 using RTM.FormXamarin.Models.Empleados;
 using RTM.FormXamarin.ViewModels;
+using Java.Nio.FileNio;
+using PCLStorage;
+using System.Threading;
 
 namespace RTM.FormXamarin.Views.Estilos
 {
@@ -22,7 +25,7 @@ namespace RTM.FormXamarin.Views.Estilos
         public InformacionDetalleEstilo(int EstiloID)
         {
             InitializeComponent();
-            MostrarInformacionEstilos(EstiloID); 
+            MostrarInformacionEstilos(EstiloID);
             BindingContext = new EstilosListViewViewModel(EstiloID);
         }
 
@@ -58,12 +61,30 @@ namespace RTM.FormXamarin.Views.Estilos
                     Last.Text = listaView.Last.ToString();
                     Comentarios.Text = listaView.Comentarios.ToString();
                     Marcas.Text = listaView.Marcas.ToString();
-                    Modelos1.Text = string.Join(",", listaView.Modelos1.ToArray());
-                    //listaEstilos.ItemsSource=string.Join(",",listaView.Modelos1.ToArray(), ",", listaView.Colores1.ToArray());
+                    Modelos.Text =listaView.Modelos.ToString();
+                    Colores.Text = listaView.Colores.ToString();
+                    TiposEstilos.Text = listaView.TiposEstilos.ToString();
+                    Pesos.Text = listaView.PesosEstilos.ToString();
+                    Estados.Text = listaView.Estados.ToString();
+                    Categorias.Text = listaView.Categorias.ToString();
+                    Division.Text = listaView.Division.ToString();
+                    UnidadesMedidas.Text = listaView.UnidadesMedidas.ToString();
+                    Materiales.Text = listaView.Materiales.ToArray().ToString();
+
+                    //LaRealImagen.Source = ImageSource.FromFile("images/" + listaView.ImageURL);
+                    LoadImage(listaView.ImageURL).ContinueWith(res => LaRealImagen.Source = res.Result); 
+                    listaEstilos.ItemsSource = string.Join(",",listaView.Materiales.ToList());
                 }
 
             }
 
+        }
+
+        private async Task<String> LoadImage(String img)
+        {
+            IFolder folder = PCLStorage.FileSystem.Current.LocalStorage;
+            folder = await folder.GetFolderAsync("images", CancellationToken.None);
+            return folder.Path + "/" + img;
         }
     }
 }

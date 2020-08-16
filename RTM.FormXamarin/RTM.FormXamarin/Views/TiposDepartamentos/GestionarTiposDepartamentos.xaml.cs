@@ -22,8 +22,39 @@ namespace RTM.FormXamarin.Views.TiposDepartamentos
             InitializeComponent();
 
             ListaTiposDepartamentos();
+            listaTiposDepartamentos.ItemSelected += ListaTiposDepartamentos_ItemSelected;
 
             buscarTiposDepartamentos.TextChanged += BuscarTiposDepartamentos_TextChanged;
+            agregarNuevoTipoDepartamento.Clicked += AgregarNuevoTipoDepartamento_Clicked;
+        }
+
+        private async void ListaTiposDepartamentos_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            bool answer = await DisplayAlert("Modificar?", "Desea modificar este elemento", "Si", "No");
+
+            if (answer == true)
+            {
+                try
+                {
+                    var item = (TiposDepartamentosListView)e.SelectedItem;
+
+                    await Navigation.PushAsync(new ModificarTiposDepartamentos(item.TipoDepartamentoID));
+                }
+                catch (Exception ex)
+                {
+
+                    await DisplayAlert("Error", ex.Message, "Aceptar");
+                }
+            }
+            else
+            {
+                ListaTiposDepartamentos();
+            }
+        }
+
+        private async void AgregarNuevoTipoDepartamento_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TiposDepartamentos.RegistrarTiposDepartamentos());
         }
 
         private void BuscarTiposDepartamentos_TextChanged(object sender, TextChangedEventArgs e)

@@ -24,13 +24,13 @@ namespace RTM.FormXamarin.Models.Estilos
         public int? EstadoID { get; set; }
         public string Last { get; set; }
         public int? UnidadMedidaEstiloID { get; set; }
+        public int? CategoriaEstiloID { get; set; }
+        public int? ColorID { get; set; }
+        public int? ModeloID { get; set; }
+        public int? Tipo_CalzadoID { get; set; }
         public string Comentarios { get; set; }
         public string PesoEstilos { get; set; }
-
-        public List<Estilos_Colore> Colores { get; set; }
-        public List<Estilos_Modelo> Modelos { get; set; }
-        public List<Estilos_TiposEstilo> TiposEstilos { get; set; }
-        public List<Estilos_CategoriasEstilo> CategoriasEstilos { get; set; }
+        public string ImageURL { get; set; }
         public List<Estilos_MateriasPrima> Materias { get; set; }
     }
 }
