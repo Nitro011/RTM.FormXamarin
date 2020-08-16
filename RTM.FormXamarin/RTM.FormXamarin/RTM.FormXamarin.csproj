@@ -40,6 +40,15 @@
     <EmbeddedResource Update="Views\Almacen\RegistrarAlmacen.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\AnchosSizes\GestionarAnchosSizes.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\AnchosSizes\ModificarAnchosSizes.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\AnchosSizes\RegistrarAnchosSizes.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\AreaDeProduccion\ConsultarAreaProduccion.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -368,5 +377,6 @@
   
   <ItemGroup>
     <Folder Include="Models\OrdenesClientes\" />
+    <Folder Include="Views\GestionEstilos\NewFolder\" />
   </ItemGroup>
 </Project>
