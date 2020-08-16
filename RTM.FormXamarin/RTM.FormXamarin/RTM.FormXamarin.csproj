@@ -11,6 +11,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\GestionEstilos\NewFolder\**" />
+    <EmbeddedResource Remove="Views\GestionEstilos\NewFolder\**" />
+    <None Remove="Views\GestionEstilos\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="PCLAppConfig" Version="1.0.1" />
     <PackageReference Include="PCLStorage" Version="1.0.2" />
@@ -377,6 +383,5 @@
   
   <ItemGroup>
     <Folder Include="Models\OrdenesClientes\" />
-    <Folder Include="Views\GestionEstilos\NewFolder\" />
   </ItemGroup>
 </Project>
