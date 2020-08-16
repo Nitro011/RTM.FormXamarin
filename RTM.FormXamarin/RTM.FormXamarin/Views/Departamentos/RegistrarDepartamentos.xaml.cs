@@ -15,6 +15,7 @@ namespace RTM.FormXamarin.Views.Departamentos
         public RegistrarDepartamentos()
         {
             InitializeComponent();
+           
         }
     }
 }

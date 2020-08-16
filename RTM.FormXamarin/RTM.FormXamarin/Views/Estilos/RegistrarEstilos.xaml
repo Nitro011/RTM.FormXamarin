@@ -78,9 +78,9 @@
 
                     <StackLayout Margin="0,35,0,0" Padding="10" Orientation="Horizontal">
                         <material:MaterialLabel Text="Costo:" TextColor="Black" FontAttributes="Bold" FontSize="Medium" Margin="0,13,0,0"/>
-                        <material:MaterialTextField x:Name="costo" Placeholder="Ingrese el Costo" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="End" Margin="0,0,0,0"/>
+                        <material:MaterialTextField x:Name="costo" Placeholder="Ingrese el Costo US $" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="End" Margin="0,0,0,0"/>
                         <material:MaterialLabel Text="Ganancia:" TextColor="Black" FontAttributes="Bold" FontSize="Medium"  Margin="0,13,0,0"/>
-                        <material:MaterialTextField x:Name="ganancia" Placeholder="Ingrese la Ganancia" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="End" Margin="0,0,0,0"/>
+                        <material:MaterialTextField x:Name="ganancia" Placeholder="Ingrese la Ganancia US $" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="End" Margin="0,0,0,0"/>
                     </StackLayout>
 
                     <StackLayout Margin="0,25,0,0" Orientation="Horizontal">

@@ -102,10 +102,10 @@
                     </StackLayout>
 
                     <StackLayout Margin="0,10,0,0" Orientation="Horizontal">
-                        <material:MaterialLabel Text="Costo:" TextColor="Black" FontSize="Title" FontAttributes="Bold"/>
-                        <material:MaterialLabel x:Name="CostoSTD" Text="Costo" TextColor="Black" FontSize="Title" FontAttributes="None"/>
-                        <material:MaterialLabel Text="Ganancia:" TextColor="Black" FontSize="Title" FontAttributes="Bold" HorizontalOptions="EndAndExpand"/>
-                        <material:MaterialLabel x:Name="Ganancia" Text="Ganancia" TextColor="Black" FontSize="Title" FontAttributes="None"/>
+                        <material:MaterialLabel Text="Costo US $:" TextColor="Black" FontSize="Title" FontAttributes="Bold"/>
+                        <material:MaterialLabel x:Name="CostoSTD" Text="Costo US $" TextColor="Black" FontSize="Title" FontAttributes="None"/>
+                        <material:MaterialLabel Text="Ganancia US $:" TextColor="Black" FontSize="Title" FontAttributes="Bold" HorizontalOptions="EndAndExpand"/>
+                        <material:MaterialLabel x:Name="Ganancia" Text="Ganancia US $" TextColor="Black" FontSize="Title" FontAttributes="None"/>
                     </StackLayout>
 
                     <StackLayout Margin="0,10,0,0" Orientation="Horizontal">
