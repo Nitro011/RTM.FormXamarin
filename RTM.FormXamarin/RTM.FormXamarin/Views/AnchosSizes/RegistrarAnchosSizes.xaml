@@ -50,10 +50,12 @@
                 <ScrollView>
                     <StackLayout>
 
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                            <material:MaterialLabel Text="Datos del Ancho del Sizes" TextColor="Black" FontAttributes="Bold" FontSize="Title"/>
+                        </StackLayout>
+
                         <StackLayout Margin="0,25,0,0">
-                            <StackLayout>
-                                <material:MaterialTextField x:Name="nombreAnchosSizes" Placeholder="Ingrese el Ancho del Size" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
-                            </StackLayout>
+                            <material:MaterialTextField x:Name="nombreAnchosSizes" Placeholder="Ingrese el Ancho del Size" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
                         </StackLayout>
 
                         <material:MaterialButton Text="Guardar Ancho" x:Name="btnGuardarAnchosSizes" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,40,0,0"/>
