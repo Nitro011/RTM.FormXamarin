@@ -59,13 +59,23 @@
 
                     <StackLayout Margin="0,25,0,0">
                         <StackLayout>
-                            <material:MaterialTextField x:Name="codigoQR" Placeholder="CodigoQR" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                            <material:MaterialTextField x:Name="codigoQR" Placeholder="Codigo" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <SearchBar x:Name="buscarCliente" Placeholder="Buscar Cliente" TextColor="Black" PlaceholderColor="Black"/>
+                    </StackLayout>
+
+                    <StackLayout Margin="0,25,0,0">
+                        <StackLayout>
+                            <material:MaterialTextField x:Name="nombreCliente" Placeholder="Cliente:" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
                         </StackLayout>
                     </StackLayout>
 
                     <StackLayout Margin="0,25,0,0">
                         <StackLayout>
-                            <material:MaterialTextField x:Name="cantidadCalzadoRealizar" Placeholder="Ingrese el RNC del Cliente " TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
+                            <material:MaterialTextField x:Name="cantidadCalzadoRealizar" Placeholder="Ingrese la cantidad de Calzados a Realizar " TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
                         </StackLayout>
                     </StackLayout>
 
@@ -90,30 +100,14 @@
                     </StackLayout>
 
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
-                        <material:MaterialLabel Text="Marcas:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
-                        <combobox:SfComboBox HeightRequest="40" x:Name="marcasComboBox" DropDownItemHeight="50" DisplayMemberPath="Marca1" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
+                        <material:MaterialLabel Text="Estilos:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                        <combobox:SfComboBox HeightRequest="40" x:Name="estilosComboBox" DropDownItemHeight="50" DisplayMemberPath="Estilo_No" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
                     </StackLayout>
 
                     <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
-                        <material:MaterialLabel Text="Modelos:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
-                        <combobox:SfComboBox HeightRequest="40" x:Name="modelosComboBox" DropDownItemHeight="50" DisplayMemberPath="Modelo1" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
+                        <material:MaterialLabel Text="Sizes:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
+                        <combobox:SfComboBox HeightRequest="40" x:Name="sizesComboBox" DropDownItemHeight="50" DisplayMemberPath="USA" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
                     </StackLayout>
-
-                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
-                        <material:MaterialLabel Text="Tipos de Calzados:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
-                        <combobox:SfComboBox HeightRequest="40" x:Name="tiposCalzadosComboBox" DropDownItemHeight="50" DisplayMemberPath="Tipo_Calzado" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
-                    </StackLayout>
-
-                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
-                        <material:MaterialLabel Text="Size:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
-                        <combobox:SfComboBox HeightRequest="40" x:Name="sizeComboBox" DropDownItemHeight="50" DisplayMemberPath="USA" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
-                    </StackLayout>
-
-                    <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
-                        <material:MaterialLabel Text="Colores:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
-                        <combobox:SfComboBox HeightRequest="40" x:Name="coloresComboBox" DropDownItemHeight="50" DisplayMemberPath="Color" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
-                    </StackLayout>
-
 
 
                     <material:MaterialButton Text="Guardar Orden del Cliente" x:Name="btnGuardarOrdenesClientes" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,40,0,0"/>
@@ -124,94 +118,4 @@
 
     </Grid>
 
-    <!--<ScrollView>
-        <StackLayout Padding="0" BackgroundColor="LightGray">
-            <Grid>
-                <StackLayout Padding="0" Margin="0">
-                    <Frame BackgroundColor="#07485B" HeightRequest="150" HorizontalOptions="FillAndExpand" Padding="0">
-                        --><!--<Image Source="" Aspect="Fill" Margin="0"--><!--
-                    </Frame>
-                </StackLayout>
-
-                <StackLayout Margin="150,110,150,0">
-
-                    <Frame BackgroundColor="White" HasShadow="True" HeightRequest="1500" HorizontalOptions="FillAndExpand">
-                        <StackLayout>
-                            <StackLayout HorizontalOptions="CenterAndExpand">
-                                <material:MaterialLabel Text="Registrar Ordenes de Clientes" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
-                            </StackLayout>
-
-                            <StackLayout Margin="0,25,0,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField x:Name="codigoQR" Placeholder="CodigoQR" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0"/>
-                                </StackLayout>
-                            </StackLayout>
-
-                            <syncfusion:SfBarcode BackgroundColor="Gray" Text="ejemplo" Symbology="QRCode">
-
-                                <syncfusion:SfBarcode.SymbologySettings>
-
-                                    <syncfusion:QRBarcodeSettings XDimension="6"/>
-
-                                </syncfusion:SfBarcode.SymbologySettings>
-
-                            </syncfusion:SfBarcode>
-
-                            <StackLayout Margin="0,25,0,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <material:MaterialTextField x:Name="cantidadCalzadoRealizar" Placeholder="Ingrese la Cantidad de Calzado a Realizar" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
-                                </StackLayout>
-                            </StackLayout>
-
-                            <StackLayout Margin="0,25,0,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <material:MaterialDateField x:Name="fechaInicio" Placeholder="Fecha de Inicio de Elaboracion" TextColor="Black" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
-                                </StackLayout>
-                            </StackLayout>
-
-                            <StackLayout Margin="0,10,0,0">
-                                <StackLayout Orientation="Horizontal">
-                                    <material:MaterialDateField x:Name="fechaEntrega" Placeholder="Fecha de Entrega" TextColor="Black" HorizontalOptions="FillAndExpand"  Margin="0,0,15,0" />
-                                </StackLayout>
-                            </StackLayout>
-                            
-                            <StackLayout Margin="0,25,0,0">
-                                <StackLayout HorizontalOptions="CenterAndExpand">
-                                    <material:MaterialLabel Text="Detalle de la Orden" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
-                                </StackLayout>
-                            </StackLayout>
-
-                            <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
-                                <material:MaterialLabel Text="Marcas:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
-                                <combobox:SfComboBox HeightRequest="40" x:Name="marcasComboBox" DropDownItemHeight="50" DisplayMemberPath="Marca1" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
-                            </StackLayout>
-
-                            <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
-                                <material:MaterialLabel Text="Modelos:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
-                                <combobox:SfComboBox HeightRequest="40" x:Name="modelosComboBox" DropDownItemHeight="50" DisplayMemberPath="Modelo1" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
-                            </StackLayout>
-
-                            <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
-                                <material:MaterialLabel Text="Tipos de Calzados:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
-                                <combobox:SfComboBox HeightRequest="40" x:Name="tiposCalzadosComboBox" DropDownItemHeight="50" DisplayMemberPath="Tipo_Calzado" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
-                            </StackLayout>
-
-                            <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
-                                <material:MaterialLabel Text="Size:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
-                                <combobox:SfComboBox HeightRequest="40" x:Name="sizeComboBox" DropDownItemHeight="50" DisplayMemberPath="USA" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
-                            </StackLayout>
-
-                            <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
-                                <material:MaterialLabel Text="Colores:" TextColor="Black" FontSize="Medium" FontAttributes="None"/>
-                                <combobox:SfComboBox HeightRequest="40" x:Name="coloresComboBox" DropDownItemHeight="50" DisplayMemberPath="Color" MultiSelectMode="Token" DataSource="{Binding listaView}"/>
-                            </StackLayout>
-
-                            <StackLayout Orientation="Horizontal" Margin="0,15,0,0"></StackLayout>
-                            <material:MaterialButton Text="Guardar Ordenes de Clientes" x:Name="btnGuardarOrdenesClientes" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                        </StackLayout>
-                    </Frame>
-                </StackLayout>
-            </Grid>
-        </StackLayout>
-    </ScrollView>-->
 </ContentPage>
