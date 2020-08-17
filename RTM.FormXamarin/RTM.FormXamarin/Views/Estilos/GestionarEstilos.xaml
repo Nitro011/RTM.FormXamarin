@@ -81,7 +81,7 @@
                             <dg:DataGridColumn PropertyName="FechaCreacion" Width="2*">
                                 <dg:DataGridColumn.FormattedTitle>
                                     <FormattedString>
-                                        <Span Text="Fecha de Creacion" FontSize="13" TextColor="Black" FontAttributes="None"/>  
+                                        <Span Text="Fecha de Creación" FontSize="13" TextColor="Black" FontAttributes="None"/>  
                                     </FormattedString>
                                 </dg:DataGridColumn.FormattedTitle>
                             </dg:DataGridColumn>

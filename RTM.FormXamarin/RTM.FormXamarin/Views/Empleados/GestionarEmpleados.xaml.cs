@@ -22,6 +22,12 @@ namespace RTM.FormXamarin.Views.Empleados
             InitializeComponent();
             ListaEmpleado();
             buscarEmpleado.TextChanged += BuscarEmpleado_TextChanged;
+            agregarNuevoEmpleado.Clicked += AgregarNuevoEmpleado_Clicked;
+        }
+
+        private async void AgregarNuevoEmpleado_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Empleados.RegistrarEmpleados());
         }
 
         private void BuscarEmpleado_TextChanged(object sender, TextChangedEventArgs e)

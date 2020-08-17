@@ -7,8 +7,8 @@ namespace RTM.FormXamarin.Models.Usuarios
     public class Emple
     {
         public int EmpleadoID { get; set; }
-        public int? RolID { get; set; }
-        public int? AreaProduccionID { get; set; }
+        public int? PosicionID { get; set; }
+        public int? SubDepartamentoID { get; set; }
         public string CodigoEmpleado { get; set; }
         public string Nombres { get; set; }
         public string Apellidos { get; set; }

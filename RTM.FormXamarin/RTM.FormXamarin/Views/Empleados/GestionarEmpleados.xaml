@@ -19,6 +19,7 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
+            
         </Grid.ColumnDefinitions>
 
         <StackLayout Orientation="Horizontal"
@@ -89,7 +90,7 @@
                             <dg:DataGridColumn Title="Posicion" PropertyName="Posicion" Width="2*"/>
                             <dg:DataGridColumn Title="Departamento" PropertyName="Departamento" Width="2*"/>
                             <dg:DataGridColumn Title="Sub-Departamento" PropertyName="SubDepartamento" Width="2*"/>
-                            <dg:DataGridColumn Title="Fecha de Ingreso" PropertyName="FechaIngreso" Width="3*"/>
+                            <dg:DataGridColumn Title="Fecha de Ingreso" PropertyName="FechaIngreso" Width="2*"/>
                         </dg:DataGrid.Columns>
                         <dg:DataGrid.RowsBackgroundColorPalette>
                             <dg:PaletteCollection>

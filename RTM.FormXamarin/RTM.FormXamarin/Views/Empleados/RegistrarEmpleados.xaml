@@ -118,13 +118,13 @@
 
                     <StackLayout Margin="0,25,0,0">
                         <StackLayout Orientation="Horizontal">
-                            <Picker Title="Puestos de Trabajos" x:Name="pickerRoles" ItemsSource="{Binding Tipo_Usuario}" ItemDisplayBinding="{Binding Tipo_Usuario}" SelectedIndex="{Binding RolID}"  HorizontalOptions = "FillAndExpand" SelectedIndexChanged="ObtenerRoles" />
+                            <Picker Title="Puestos de Trabajos" x:Name="pickerPosiciones" ItemsSource="{Binding Posicion}" ItemDisplayBinding="{Binding Posicion}" SelectedIndex="{Binding PosicionID}"  HorizontalOptions = "FillAndExpand" SelectedIndexChanged="ObtenerRoles" />
                         </StackLayout>
                     </StackLayout>
 
                     <StackLayout Margin="0,25,0,0">
                         <StackLayout Orientation="Horizontal">
-                            <Picker Title="Departamentos" x:Name="pickerAreaProduccion" ItemsSource="{Binding NombreAreaProduccion}" ItemDisplayBinding="{Binding NombreAreaProduccion}" SelectedIndex="{Binding AreaProduccionID}"  HorizontalOptions = "FillAndExpand" SelectedIndexChanged="ObtenerAreaProduccion" />
+                            <Picker Title="Departamentos" x:Name="pickerSubDepartamentos" ItemsSource="{Binding SubDepartamento}" ItemDisplayBinding="{Binding SubDepartamento}" SelectedIndex="{Binding SubDepartamentoID}"  HorizontalOptions = "FillAndExpand" SelectedIndexChanged="ObtenerAreaProduccion" />
                         </StackLayout>
                     </StackLayout>
 

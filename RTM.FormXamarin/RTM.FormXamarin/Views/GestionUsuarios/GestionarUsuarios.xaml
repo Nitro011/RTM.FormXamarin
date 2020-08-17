@@ -60,7 +60,7 @@
                                         />
 
                     <material:MaterialButton x:Name="abrirDefiniciondeRoles"
-                                         Text="Definicion de Roles"
+                                         Text="Definición de Roles"
                                          WidthRequest="150"
                                          BackgroundColor="#07485B"
                                          Margin="0,25,0,0"/>
@@ -71,12 +71,12 @@
                                          BackgroundColor="#07485B"/>
 
                     <material:MaterialButton x:Name="abrirGestionModelos"
-                                         Text="Asignacion de Permisos"
+                                         Text="Asignación de Permisos"
                                          WidthRequest="150"
                                          BackgroundColor="#07485B"/>
 
                     <material:MaterialButton x:Name="abrirGestionSize"
-                                         Text="Reseteo de Password "
+                                         Text="Reseteo de Contraseñas "
                                          WidthRequest="150"
                                          BackgroundColor="#07485B"/>
                 </StackLayout>

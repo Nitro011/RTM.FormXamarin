@@ -69,7 +69,7 @@ namespace RTM.FormXamarin.Views.Estilos
                     Categorias.Text = listaView.Categorias.ToString();
                     Division.Text = listaView.Division.ToString();
                     UnidadesMedidas.Text = listaView.UnidadesMedidas.ToString();
-                    Materiales.Text = listaView.Materiales.ToArray().ToString();
+                    //Materiales.Text = listaView.Materiales.ToArray().ToString();
 
                     //LaRealImagen.Source = ImageSource.FromFile("images/" + listaView.ImageURL);
                     LoadImage(listaView.ImageURL).ContinueWith(res => LaRealImagen.Source = res.Result); 

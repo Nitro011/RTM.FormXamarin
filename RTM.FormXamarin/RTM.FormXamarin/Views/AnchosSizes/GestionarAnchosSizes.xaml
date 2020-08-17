@@ -27,7 +27,7 @@
                      BackgroundColor="White">
 
                 <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                    <material:MaterialLabel Text="Ancho"
+                    <material:MaterialLabel Text="Anchos"
                                         TextColor="Black" 
                                         FontSize="Title" 
                                         FontAttributes="Bold"

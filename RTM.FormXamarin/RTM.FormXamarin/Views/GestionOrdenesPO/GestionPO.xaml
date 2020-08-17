@@ -76,12 +76,12 @@
                                          BackgroundColor="#07485B"/>
 
                     <material:MaterialButton x:Name="abrirGestionSize"
-                                         Text="Proyeccion de Produccion (ForeCast)"
+                                         Text="Proyección de Producción (ForeCast)"
                                          WidthRequest="150"
                                          BackgroundColor="#07485B"/>
 
                     <material:MaterialButton x:Name="abrirListadoOrdenes"
-                                         Text="Listado de Ordenes"
+                                         Text="Listado de Ordenes de los Clientes"
                                          WidthRequest="150"
                                          BackgroundColor="#07485B"/>
                 </StackLayout>

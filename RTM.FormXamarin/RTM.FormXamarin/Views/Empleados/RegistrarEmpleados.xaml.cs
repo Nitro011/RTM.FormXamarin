@@ -2,7 +2,9 @@
 using PCLAppConfig;
 using RTM.FormXamarin.Models;
 using RTM.FormXamarin.Models.AreasDeProduccion;
+using RTM.FormXamarin.Models.Posiciones;
 using RTM.FormXamarin.Models.Roles;
+using RTM.FormXamarin.Models.SubDepartamentos;
 using RTM.FormXamarin.Models.Usuarios;
 
 using RTM.FormXamarin.ViewModels;
@@ -40,8 +42,8 @@ namespace RTM.FormXamarin.Views.Empleados
 
             try
             {
-                var rolIDV = pickerRoles.SelectedIndex+1;
-                var areaProduccionIDV = pickerAreaProduccion.SelectedIndex+1;
+                var rolIDV = (PosicionesListView)pickerPosiciones.SelectedItem;
+                var areaProduccionIDV = (SubDepartamentosListView)pickerSubDepartamentos.SelectedItem;
                 var codigoEmpleadoV = codigoEmpleado.Text;
                 var nombreV = nombre.Text;
                 var apellidoV = apellido.Text;
@@ -57,14 +59,14 @@ namespace RTM.FormXamarin.Views.Empleados
                 if (string.IsNullOrEmpty(rolIDV.ToString()))
                 {
                     await DisplayAlert("Validacion", "Ingresar el puesto del empleado", "Aceptar");
-                    pickerRoles.Focus();
+                    pickerPosiciones.Focus();
                     return;
 
                 }
                 if (string.IsNullOrEmpty(areaProduccionIDV.ToString()))
                 {
                     await DisplayAlert("Validacion", "Ingresar el departamento del empleado", "Aceptar");
-                    pickerAreaProduccion.Focus();
+                    pickerSubDepartamentos.Focus();
                     return;
                 }
                 if (string.IsNullOrEmpty(codigoEmpleadoV))
@@ -126,8 +128,8 @@ namespace RTM.FormXamarin.Views.Empleados
                 var empleados = new Emple()
                 {
                     EmpleadoID = 0,
-                    RolID = Convert.ToInt32(rolIDV),
-                    AreaProduccionID=Convert.ToInt32(areaProduccionIDV),
+                    PosicionID = rolIDV.PosicionID,
+                    SubDepartamentoID=areaProduccionIDV.SubDepartamentoID,
                     CodigoEmpleado=codigoEmpleadoV,
                     Nombres = nombreV,
                     Apellidos = apellidoV,
@@ -194,7 +196,7 @@ namespace RTM.FormXamarin.Views.Empleados
             HttpClient client = new HttpClient();
 
             client.BaseAddress = new Uri(connectionString);
-            var request = client.GetAsync("/api/AreaProduccion/lista").Result;
+            var request = client.GetAsync("/api/SubDepartamento/lista").Result;
 
             if (request.IsSuccessStatusCode)
             {
@@ -204,9 +206,9 @@ namespace RTM.FormXamarin.Views.Empleados
                 if (response.status)
                 {
 
-                    var listaView = JsonConvert.DeserializeObject<List<AreaProduccionListView>>(response.data.ToString());
+                    var listaView = JsonConvert.DeserializeObject<List<SubDepartamentosListView>>(response.data.ToString());
 
-                    pickerAreaProduccion.ItemsSource = listaView;
+                    pickerSubDepartamentos.ItemsSource = listaView;
 
 
                 }
@@ -229,7 +231,7 @@ namespace RTM.FormXamarin.Views.Empleados
             HttpClient client = new HttpClient();
 
             client.BaseAddress = new Uri(connectionString);
-            var request = client.GetAsync("/api/Role/lista").Result;
+            var request = client.GetAsync("/api/Posicion/lista").Result;
 
             if (request.IsSuccessStatusCode)
             {
@@ -239,9 +241,9 @@ namespace RTM.FormXamarin.Views.Empleados
                 if (response.status)
                 {
 
-                    var listaView = JsonConvert.DeserializeObject<List<RolesListView>>(response.data.ToString());
+                    var listaView = JsonConvert.DeserializeObject<List<PosicionesListView>>(response.data.ToString());
 
-                    pickerRoles.ItemsSource = listaView;
+                    pickerPosiciones.ItemsSource = listaView;
 
 
                 }
@@ -252,20 +254,22 @@ namespace RTM.FormXamarin.Views.Empleados
                                    acknowledgementText: "Aceptar");
                 }
 
+                await Navigation.PushAsync(new Empleados.GestionarEmpleados());
+
             }
 
         }
 
         async void ObtenerAreaProduccion(object sender, EventArgs e)
         {
-            var pickerAreaProducciones = pickerAreaProduccion.SelectedIndex;
+            var pickerAreaProducciones = pickerSubDepartamentos.SelectedIndex;
 
             await DisplayAlert("Mostrar Departamento", pickerAreaProducciones.ToString(), "Aceptar");
         }
 
         async void ObtenerRoles(object sender, EventArgs e)
         {
-            var pickerRol = pickerRoles.SelectedIndex;
+            var pickerRol = pickerPosiciones.SelectedIndex;
 
             await DisplayAlert("Mostrar Rol", pickerRol.ToString(), "Aceptar");
         }
