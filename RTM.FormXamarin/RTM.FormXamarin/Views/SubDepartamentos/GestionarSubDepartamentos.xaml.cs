@@ -22,6 +22,13 @@ namespace RTM.FormXamarin.Views.SubDepartamentos
             InitializeComponent();
             ListaSubDepartamentos();
             buscarSubDepartamento.TextChanged += BuscarSubDepartamento_TextChanged;
+            agregarNuevoSubDepartamento.Clicked += AgregarNuevoSubDepartamento_Clicked;
+            
+        }
+
+        private async void AgregarNuevoSubDepartamento_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SubDepartamentos.RegistrarSubDepartamentos());
         }
 
         private void BuscarSubDepartamento_TextChanged(object sender, TextChangedEventArgs e)

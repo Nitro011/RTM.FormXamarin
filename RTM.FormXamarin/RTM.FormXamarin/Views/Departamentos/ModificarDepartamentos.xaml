@@ -4,6 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
              mc:Ignorable="d"
              x:Class="RTM.FormXamarin.Views.Departamentos.ModificarDepartamentos">
     <ContentPage.Content>
@@ -49,6 +50,13 @@
                    VerticalOptions="FillAndExpand">
                 <ScrollView>
                     <StackLayout>
+
+                        <StackLayout Margin="0,25,0,0">
+                            <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
+                                <material:MaterialLabel Text="Tipo de Departamento" TextColor="Black" FontAttributes="None" FontSize="Medium"/>
+                                <combobox:SfComboBox HeightRequest="40" x:Name="TiposDepartamentosComboBox" IsEditableMode="true" AllowFiltering="true" MaximumDropDownHeight="150" Margin="0,5,0,0" DisplayMemberPath="TipoDepartamento" DataSource="{Binding listaView}"/>
+                            </StackLayout>
+                        </StackLayout>
 
                         <StackLayout Margin="0,25,0,0">
                             <StackLayout>

@@ -22,8 +22,33 @@ namespace RTM.FormXamarin.Views.Departamentos
         {
             InitializeComponent();
             ListaDepartamentos();
+            listaAreaProduccion.ItemSelected += ListaAreaProduccion_ItemSelected;
             buscarDepartamento.TextChanged += BuscarDepartamento_TextChanged;
             agregarDepartamentos.Clicked += AgregarDepartamentos_Clicked;
+        }
+
+        private async void ListaAreaProduccion_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            bool answer = await DisplayAlert("Modificar?", "Desea modificar este elemento", "Si", "No");
+
+            if (answer == true)
+            {
+                try
+                {
+                    var item = (DepartamentosListView)e.SelectedItem;
+
+                    await Navigation.PushAsync(new ModificarDepartamentos(item.DepartamentoID));
+                }
+                catch (Exception ex)
+                {
+
+                    await DisplayAlert("Error", ex.Message, "Aceptar");
+                }
+            }
+            else
+            {
+                ListaDepartamentos();
+            }
         }
 
         private async void AgregarDepartamentos_Clicked(object sender, EventArgs e)
