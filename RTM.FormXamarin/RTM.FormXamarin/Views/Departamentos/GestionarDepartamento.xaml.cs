@@ -23,6 +23,12 @@ namespace RTM.FormXamarin.Views.Departamentos
             InitializeComponent();
             ListaDepartamentos();
             buscarDepartamento.TextChanged += BuscarDepartamento_TextChanged;
+            agregarDepartamentos.Clicked += AgregarDepartamentos_Clicked;
+        }
+
+        private async void AgregarDepartamentos_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Departamentos.RegistrarDepartamentos());
         }
 
         private void BuscarDepartamento_TextChanged(object sender, TextChangedEventArgs e)

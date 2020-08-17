@@ -4,10 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
-             xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard"
-             xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
              mc:Ignorable="d"
-             x:Class="RTM.FormXamarin.Views.Departamentos.RegistrarDepartamentos">
+             x:Class="RTM.FormXamarin.Views.GestionProduccion.GestionarProduccion">
     <ContentPage.Content>
         <Grid RowSpacing="0" ColumnSpacing="0">
             <Grid.RowDefinitions>
@@ -52,30 +50,26 @@
                 <ScrollView>
                     <StackLayout>
 
-                        <StackLayout>
-                            <material:MaterialLabel Text="Datos del Departamentos" TextColor="Black" FontAttributes="Bold" FontSize="Title"/>
-                        </StackLayout>
+                        <material:MaterialLabel Text="Opciones de Producción" 
+                                        TextColor="Black" 
+                                        FontSize="Title" 
+                                        FontAttributes="Bold"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        />
 
-                        <StackLayout Margin="0,25,0,0">
-                            <StackLayout VerticalOptions="Start" HorizontalOptions="Start" Padding="30">
-                                <material:MaterialLabel Text="Tipo de Departamento" TextColor="Black" FontAttributes="None" FontSize="Medium"/>
-                                <combobox:SfComboBox HeightRequest="40" x:Name="TiposDepartamentosComboBox" IsEditableMode="true" AllowFiltering="true" MaximumDropDownHeight="150" Margin="0,5,0,0" DisplayMemberPath="TipoDepartamento" DataSource="{Binding listaView}"/>
-                            </StackLayout>
-                        </StackLayout>
-
-                        <StackLayout Margin="0,25,0,0">
-                            <StackLayout>
-                                <material:MaterialTextField x:Name="nombreDepartamento" Placeholder="Ingrese el Departamento" TextColor="Black" InputType="Text" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,0,0,0"/>
-                            </StackLayout>
-                        </StackLayout>
-
-                        <material:MaterialButton Text="Guardar Departamento" x:Name="btnGuardarDepartamento" BackgroundColor="#07485B" TextColor="White" FontAttributes="Bold" CornerRadius="30" HorizontalOptions="Center" VerticalOptions="Center" Margin="0,40,0,0"/>
+                        <material:MaterialButton x:Name="abrirListadoDeProduccion"
+                                         Text="Listado de Operaciones de Calzados"
+                                         WidthRequest="20"
+                                         CornerRadius="10"
+                                         BackgroundColor="#07485B"
+                                         Margin="0,15,0,0"
+                                         />
 
                     </StackLayout>
                 </ScrollView>
             </Frame>
 
         </Grid>
-
     </ContentPage.Content>
 </ContentPage>

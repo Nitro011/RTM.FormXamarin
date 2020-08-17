@@ -50,6 +50,9 @@ namespace RTM.FormXamarin.Views
                     case (int)MenuItemType.GestionOrdenesPO:
                         MenuPages.Add(id, new NavigationPage(new GestionOrdenesPO.GestionPO()));
                         break;
+                    case (int)MenuItemType.GestionProduccion:
+                        MenuPages.Add(id, new NavigationPage(new GestionProduccion.GestionarProduccion()));
+                        break;
                     case (int)MenuItemType.GestionMateriales:
                         MenuPages.Add(id, new NavigationPage(new GestionMateriales.GestionMateriales()));
                         break;

@@ -73,7 +73,7 @@ namespace RTM.FormXamarin.Views.Estilos
 
                     //LaRealImagen.Source = ImageSource.FromFile("images/" + listaView.ImageURL);
                     LoadImage(listaView.ImageURL).ContinueWith(res => LaRealImagen.Source = res.Result); 
-                    listaEstilos.ItemsSource = string.Join(",",listaView.Materiales.ToList());
+                    listaEstilos.ItemsSource = listaView.Materiales;
                 }
 
             }

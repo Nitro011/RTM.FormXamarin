@@ -50,10 +50,10 @@ namespace RTM.FormXamarin.ViewModels
 
     public class Lol
     {
-        public string Color { get; set; }
-        public Lol(string color)
+        public string Materiales { get; set; }
+        public Lol(string materiales)
         {
-            Color = color;
+            Materiales = materiales;
         }
     }
 } 
