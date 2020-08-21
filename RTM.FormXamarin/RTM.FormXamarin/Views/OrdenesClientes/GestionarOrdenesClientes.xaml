@@ -92,7 +92,7 @@
                                 <dg:DataGridColumn Title="Cliente" PropertyName="Cliente" Width="2*"/>
                                 <dg:DataGridColumn Title="Cantidad de Calzados" PropertyName="CantidadCalzados" Width="2*"/>
                                 <dg:DataGridColumn Title="Fecha de Entrega" PropertyName="FechaEntrega" Width="2*"/>
-                                <dg:DataGridColumn Title="Estilos" PropertyName="Estilos" Width="2*"/>
+                                <!--<dg:DataGridColumn Title="Estilos" PropertyName="Estilos" Width="2*"/>-->
                             </dg:DataGrid.Columns>
                             <dg:DataGrid.RowsBackgroundColorPalette>
                                 <dg:PaletteCollection>

@@ -89,7 +89,7 @@
 
                             <StackLayout Margin="0,25,0,0">
                                 <StackLayout Orientation="Horizontal">
-                                    <Picker Title="Area de Produccion" x:Name="pickerAreaProduccion" ItemsSource="{Binding NombreAreaProduccion}" ItemDisplayBinding="{Binding NombreAreaProduccion}" SelectedIndex="{Binding AreaProduccionID}"  HorizontalOptions = "FillAndExpand" SelectedIndexChanged="ObtenerRoles" />
+                                    <Picker Title="Departamentos" x:Name="pickerDepartamentos" ItemsSource="{Binding Departamentos}" ItemDisplayBinding="{Binding Departamentos}" SelectedIndex="{Binding SubDepartamentoID}"  HorizontalOptions = "FillAndExpand" SelectedIndexChanged="ObtenerRoles" />
                                 </StackLayout>
                             </StackLayout>
 

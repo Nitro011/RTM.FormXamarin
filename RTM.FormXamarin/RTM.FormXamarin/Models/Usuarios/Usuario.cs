@@ -9,7 +9,7 @@ namespace RTM.FormXamarin.Models.Usuarios
         public int UsuarioID { get; set; }
         public int? RolID { get; set; }
         public int? EmpleadoID { get; set; }
-        public int? AreaProduccionID { get; set; }
+        public int? SubDepartamentoID { get; set; }
         public string NombreDeUsuario { get; set; }
         public string CorreoElectronico { get; set; }
         public string Contrasena { get; set; }

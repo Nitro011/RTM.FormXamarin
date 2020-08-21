@@ -14,6 +14,9 @@ using Xamarin.Forms.Xaml;
 using PCLAppConfig;
 using XF.Material.Forms.UI.Dialogs;
 using RTM.FormXamarin.Models.Empleados;
+using RTM.FormXamarin.Models.SubDepartamentos;
+using RTM.FormXamarin.Models.Roles;
+
 namespace RTM.FormXamarin.Views.Usuarios
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -74,7 +77,7 @@ namespace RTM.FormXamarin.Views.Usuarios
             HttpClient client = new HttpClient();
 
             client.BaseAddress = new Uri(connectionString);
-            var request = client.GetAsync("/api/AreaProduccion/lista").Result;
+            var request = client.GetAsync("/api/SubDepartamento/DepartamentosSubDepartamentosList").Result;
 
             if (request.IsSuccessStatusCode)
             {
@@ -84,9 +87,9 @@ namespace RTM.FormXamarin.Views.Usuarios
                 if (response.status)
                 {
 
-                    var listaView = JsonConvert.DeserializeObject<List<AreaProduccionListView>>(response.data.ToString());
+                    var listaView = JsonConvert.DeserializeObject<List<SubDepartamentosListView>>(response.data.ToString());
 
-                    pickerAreaProduccion.ItemsSource = listaView;
+                    pickerDepartamentos.ItemsSource = listaView;
 
 
                 }
@@ -112,8 +115,8 @@ namespace RTM.FormXamarin.Views.Usuarios
                 var CorreoElectronicoV = email.Text;
                 var EmpleadoIDV = empleadoID.Text;
                 var NombreEmpleadV = nombreEmpleado.Text;
-                var RolIDV = pickerRoles.SelectedIndex;
-                var AreaProduccionIDV = pickerAreaProduccion.SelectedIndex+1;
+                var RolIDV = (RolesListView)pickerRoles.SelectedItem;
+                var AreaProduccionIDV = (SubDepartamentosListView)pickerDepartamentos.SelectedItem;
 
 
                 if (string.IsNullOrEmpty(NombreDeUsuarioV))
@@ -151,8 +154,8 @@ namespace RTM.FormXamarin.Views.Usuarios
                     Contrasena=ContrasenaV,
                     CorreoElectronico=CorreoElectronicoV,
                     EmpleadoID=Convert.ToInt32(EmpleadoIDV),
-                    RolID=Convert.ToInt32(RolIDV),
-                    AreaProduccionID=Convert.ToInt32(AreaProduccionIDV)
+                    RolID=RolIDV.RolID,
+                    SubDepartamentoID=AreaProduccionIDV.SubDepartamentoID
                 };
 
                 //Convetir a Json

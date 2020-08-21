@@ -13,17 +13,22 @@ using Xamarin.Forms.Xaml;
 using XF.Material.Forms.UI.Dialogs;
 using RTM.FormXamarin.Models.Empleados;
 using RTM.FormXamarin.Models.AreasDeProduccion;
+using RTM.FormXamarin.Models.Roles;
+using RTM.FormXamarin.Models.SubDepartamentos;
+using ZXing.OneD;
 
 namespace RTM.FormXamarin.Views.GestionUsuarios
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RegistrarUsuarios : ContentPage
     {
+        //public int EmpleadoID;
         public RegistrarUsuarios()
         {
             InitializeComponent();
             btnGuardarUsuarios.Clicked += BtnGuardarUsuarios_Clicked;
             ListaAreaProduccion();
+            ListaRoles();
             searchEmpleado.TextChanged += SearchEmpleado_TextChanged;
         }
 
@@ -78,8 +83,8 @@ namespace RTM.FormXamarin.Views.GestionUsuarios
                 var CorreoElectronicoV = email.Text;
                 var EmpleadoIDV = empleadoID.Text;
                 var NombreEmpleadV = nombreEmpleado.Text;
-                var RolIDV = pickerRoles.SelectedIndex;
-                var AreaProduccionIDV = pickerAreaProduccion.SelectedIndex + 1;
+                var RolIDV = (RolesListView)pickerRoles.SelectedItem;
+                var AreaProduccionIDV = (SubDepartamentosListView)pickerSubDepartamentos.SelectedItem;
 
 
                 if (string.IsNullOrEmpty(NombreDeUsuarioV))
@@ -117,8 +122,8 @@ namespace RTM.FormXamarin.Views.GestionUsuarios
                     Contrasena = ContrasenaV,
                     CorreoElectronico = CorreoElectronicoV,
                     EmpleadoID = Convert.ToInt32(EmpleadoIDV),
-                    RolID = Convert.ToInt32(RolIDV),
-                    AreaProduccionID = Convert.ToInt32(AreaProduccionIDV)
+                    RolID = RolIDV.RolID,
+                    SubDepartamentoID = AreaProduccionIDV.SubDepartamentoID,
                 };
 
                 //Convetir a Json
@@ -164,6 +169,7 @@ namespace RTM.FormXamarin.Views.GestionUsuarios
                                     title: "Error",
                                     acknowledgementText: "Aceptar");
             }
+            await Navigation.PushAsync(new GestionUsuarios.GestionarUsuarios());
         }
 
         private async void ListaAreaProduccion()
@@ -174,7 +180,7 @@ namespace RTM.FormXamarin.Views.GestionUsuarios
             HttpClient client = new HttpClient();
 
             client.BaseAddress = new Uri(connectionString);
-            var request = client.GetAsync("/api/AreaProduccion/lista").Result;
+            var request = client.GetAsync("/api/SubDepartamento/DepartamentosSubDepartamentosList").Result;
 
             if (request.IsSuccessStatusCode)
             {
@@ -184,9 +190,44 @@ namespace RTM.FormXamarin.Views.GestionUsuarios
                 if (response.status)
                 {
 
-                    var listaView = JsonConvert.DeserializeObject<List<AreaProduccionListView>>(response.data.ToString());
+                    var listaView = JsonConvert.DeserializeObject<List<SubDepartamentosListView>>(response.data.ToString());
 
-                    pickerAreaProduccion.ItemsSource = listaView;
+                    pickerSubDepartamentos.ItemsSource = listaView;
+
+
+                }
+                else
+                {
+                    await MaterialDialog.Instance.AlertAsync(message: "Error",
+                                   title: "Error",
+                                   acknowledgementText: "Aceptar");
+                }
+
+            }
+
+        }
+
+        private async void ListaRoles()
+        {
+            string connectionString = ConfigurationManager.AppSettings["ipServer"];
+
+
+            HttpClient client = new HttpClient();
+
+            client.BaseAddress = new Uri(connectionString);
+            var request = client.GetAsync("/api/Role/lista").Result;
+
+            if (request.IsSuccessStatusCode)
+            {
+                var responseJson = request.Content.ReadAsStringAsync().Result;
+                var response = JsonConvert.DeserializeObject<Request>(responseJson);
+
+                if (response.status)
+                {
+
+                    var listaView = JsonConvert.DeserializeObject<List<RolesListView>>(response.data.ToString());
+
+                    pickerRoles.ItemsSource = listaView;
 
 
                 }

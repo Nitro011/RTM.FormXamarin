@@ -10,5 +10,7 @@ namespace RTM.FormXamarin.Models.SubDepartamentos
         public int? DepartamentoID { get; set; }
         public string Departamento { get; set; }
         public string SubDepartamento { get; set; }
+
+        public string Departamentos { get; set; }
     }
 }

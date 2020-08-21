@@ -23,6 +23,45 @@ namespace RTM.FormXamarin.Views.OrdenesClientes
             InitializeComponent();
             agregarNuevaOrdenCliente.Clicked += AgregarNuevaOrdenCliente_Clicked;
             ListaOrdenesClientes();
+            buscarOrdenesClientes.TextChanged += BuscarOrdenesClientes_TextChanged;
+        }
+
+        private void BuscarOrdenesClientes_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (buscarOrdenesClientes.Text == "")
+            {
+                ListaOrdenesClientes();
+            }
+            else
+            {
+                string Codigo = buscarOrdenesClientes.Text;
+
+                string connectionString = ConfigurationManager.AppSettings["ipServer"];
+
+
+                HttpClient client = new HttpClient();
+
+                client.BaseAddress = new Uri(connectionString);
+                var request = client.GetAsync($"/api/OrdenesClientes/ConsultarOrdenesClientesPorCodigo/{Codigo}").Result;
+
+                if (request.IsSuccessStatusCode)
+                {
+                    var responseJson = request.Content.ReadAsStringAsync().Result;
+                    var response = JsonConvert.DeserializeObject<Request>(responseJson);
+
+                    if (response.status)
+                    {
+                        if (response.data != null)
+                        {
+
+                            var listaView = JsonConvert.DeserializeObject<List<OrdenesClientesListView>>(response.data.ToString());
+
+                             listaOrdenesClientes.ItemsSource = listaView;
+                        }
+                    }
+
+                }
+            }
         }
 
         private async void AgregarNuevaOrdenCliente_Clicked(object sender, EventArgs e)
